@@ -6,6 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Our.Umbraco.UmbNav.Web" Version="2.0.6" />
     <PackageReference Include="Umbraco.Cms" Version="10.5.1" />
   </ItemGroup>
 
