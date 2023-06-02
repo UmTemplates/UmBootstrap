@@ -1,0 +1,12 @@
+
+
+
+
+h1 {
+    @include font-size(3rem);
+}
+
+
+p {
+    @include font-size(1rem);
+}

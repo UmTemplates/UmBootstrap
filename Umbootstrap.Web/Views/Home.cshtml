@@ -4,3 +4,110 @@
 @{
 	Layout = "_Master.cshtml";
 }
+
+<div class="screen--utility">
+    <nav class="container-xxl navbar navbar-expand-lg bg-light">
+        <div class="container-fluid justify-content-end" style="gap: 0.5rem">
+            <button type="button" class="btn btn-outline-secondary">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
+                    <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"></path>
+                </svg>
+            </button>
+            <button type="button" class="btn btn-outline-secondary">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-twitter" viewBox="0 0 16 16">
+                    <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"></path>
+                </svg>
+            </button>
+            <button class="btn btn-outline-secondary" type="button">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-telephone-fill" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"></path>
+                </svg><span> 01234 567 891</span>
+            </button>
+        </div>
+    </nav>
+</div>
+    <header class="screen--header sticky-top shadow-b">
+        <nav class="container-xxl navbar navbar-nav navbar-expand-lg bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="offcanvas offcanvas-start" id="navbarNav">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="offcanvasRightLabel">In this site</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body d-flex justify-content-lg-end">
+                
+    
+<ul class="navbar-nav nav-pills flex-grow-1 flex-lg-grow-0">
+        <li class="nav-item text-center">
+            <a class="nav-link " href="/">Home</a>
+    </li>   
+        <li class="nav-item text-center">
+            <a class="nav-link " href="/Tabs">Tabs</a>
+    </li>   
+        <li class="nav-item text-center">
+            <a class="nav-link " href="/Slides">Slides</a>
+    </li>   
+        <li class="nav-item text-center">
+            <a class="nav-link " href="/Cards">Cards</a>
+    </li>   
+        <li class="nav-item text-center">
+            <a class="nav-link " href="/Layouts">Layouts</a>
+    </li>   
+        <li class="nav-item text-center">
+            <a class="nav-link active" href="/Grids">Grids</a>
+    </li>   
+        <li class="nav-item text-center">
+            <a class="nav-link " href="/Privacy">Privacy</a>
+    </li>   
+</ul>
+            </div>
+        </div>
+    </div>
+</nav>
+    </header>
+    <div b-ss9879bxrr id="hero">
+        
+    </div>
+    <main b-ss9879bxrr role="main" class="pb-3">
+        <div class="container text-center p-3 bg-light mt-3">
+    <h1 class="display-4">Bootstrap CSS Grid - Must be enabled</h1>
+    <p class="lead">Bootstrap 5.1 provides a method for creating layouts using CSS Grid but enabling it disables the default flexbox grid</p>
+</div>
+            
+<div class="container mt-3">
+    <div class="grid">
+        <div class="g-col-12 g-col-md-3">
+            Left Column
+        </div>
+        <div class="g-col-12 g-col-md-6">
+            <p>I created this site as a side proect to bring myself up to spead with a combination of technolgies that help you get a simple emplate based website up and running quickly and easily</p>
+    <p>Tincidunt integer eu augue augue nunc elit dolor, luctus placerat scelerisque euismod, iaculis eu lacus nunc mi elit, vehicula ut laoreet ac, aliquam sit amet justo nunc tempor, metus vel.</p>
+    <p>Placerat suscipit, orci nisl iaculis eros, a tincidunt nisi odio eget lorem nulla condimentum tempor mattis ut vitae feugiat augue cras ut metus a risus iaculis scelerisque eu ac ante.</p>
+    <h2>Tincidunt</h2>
+    <p>Fusce non varius purus aenean nec magna felis fusce vestibulum velit mollis odio sollicitudin lacinia aliquam posuere, sapien elementum lobortis tincidunt, turpis dui ornare nisl, sollicitudin interdum turpis nunc eget.</p>
+    <p>Sem nulla eu ultricies orci praesent id augue nec lorem pretium congue sit amet ac nunc fusce iaculis lorem eu diam hendrerit at mattis purus dignissim vivamus mauris tellus, fringilla.</p>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h2>Fusce non varius purus aenean</h2>
+    <p>Tincidunt integer eu augue augue nunc elit dolor, luctus placerat scelerisque euismod, iaculis eu lacus nunc mi elit, vehicula ut laoreet ac, aliquam sit amet justo nunc tempor, metus vel.</p>
+    <p>Placerat suscipit, orci nisl iaculis eros, a tincidunt nisi odio eget lorem nulla condimentum tempor mattis ut vitae feugiat augue cras ut metus a risus iaculis scelerisque eu ac ante.</p>
+    <p>Fusce non varius purus aenean nec magna felis fusce vestibulum velit mollis odio sollicitudin lacinia aliquam posuere, sapien elementum lobortis tincidunt, turpis dui ornare nisl, sollicitudin interdum turpis nunc eget.</p>
+<p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+
+
+        </div>
+        <div class="g-col-12 g-col-md-3">
+            Right Column
+        </div>
+    </div>
+</div>
+
+    </main>
+    <footer b-ss9879bxrr class="border-top footer text-muted">
+        <div b-ss9879bxrr class="container">
+            &copy; 2022 - Bootstrap_5_Components - <a href="/Privacy">Privacy</a>
+        </div>
+    </footer>
