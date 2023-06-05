@@ -4,12 +4,11 @@
     if (Model?.Any() != true) { return; }
 }
 
-<div class="umb-block-grid__layout-container">
+<div class="umb-block-grid__layout-container grid">
     @foreach (var item in Model)
     {
-        
-        <div
-            class="umb-block-grid__layout-item"
+
+        <div class="umb-block-grid__layout-item g-col-12 g-col-md-@item.ColumnSpan"
             data-content-element-type-alias="@item.Content.ContentType.Alias"
             data-content-element-type-key="@item.Content.ContentType.Key"
             data-element-udi="@item.ContentUdi"
