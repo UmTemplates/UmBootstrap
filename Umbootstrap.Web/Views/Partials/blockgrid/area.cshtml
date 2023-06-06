@@ -1,7 +1,7 @@
 ﻿@using Umbraco.Extensions
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridArea>
 
-<div class="umb-block-grid__area"
+<div class="umb-block-grid__area  g-col-12 g-col-md-@Model.ColumnSpan"
      data-area-col-span="@Model.ColumnSpan"
      data-area-row-span="@Model.RowSpan"
      data-area-alias="@Model.Alias"
