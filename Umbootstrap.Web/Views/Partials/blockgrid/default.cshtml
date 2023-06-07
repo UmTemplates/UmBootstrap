@@ -4,6 +4,7 @@
     if (Model?.Any() != true) { return; }
 }
 
+<!-- GetBlockGridItemsHtmlAsync called from default -->
 <div class="umb-block-grid container mt-3"
      data-grid-columns="@(Model.GridColumns?.ToString() ?? "12");"
      style="--umb-block-grid--grid-columns: @(Model.GridColumns?.ToString() ?? "12");">
