@@ -5,7 +5,7 @@
 }
 
 <div class="grid umb-block-grid__area-container areas"
-     style="--umb-block-grid--area-grid-columns: @(Model.AreaGridColumns?.ToString() ?? Model.GridColumns?.ToString() ?? "12");">
+     style="--umb-block-grid--area-grid-columns: @(Model.AreaGridColumns?.ToString() ?? Model.GridColumns?.ToString() ?? "12"); transition: 300ms;">
     @foreach (var area in Model.Areas)
     {
         @await Html.GetBlockGridItemAreaHtmlAsync(area)
