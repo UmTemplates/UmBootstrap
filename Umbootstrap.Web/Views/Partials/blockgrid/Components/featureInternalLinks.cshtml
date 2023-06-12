@@ -4,12 +4,14 @@
 <p>xxxxxxxx</p>
 
 @{
-    var typedMultiNodeTreePicker = Model.Content.Value<IEnumerable<IPublishedContent>>("featureInternalLinks");
+    var typedMultiNodeTreePicker = Model.Content.Value<IEnumerable<IPublishedContent>>("links");
     if (typedMultiNodeTreePicker != null)
     {
         foreach (var item in typedMultiNodeTreePicker)
         {
-            <p>@item.Name</p>
+            <p>
+                <a href="@item.Url()">@item.Name</a>
+            </p>
         }
     }
 }
