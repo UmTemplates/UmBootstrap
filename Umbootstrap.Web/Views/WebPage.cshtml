@@ -4,3 +4,11 @@
 @{
 	Layout = "_Master.cshtml";
 }
+
+<div class="container text-center p-3 bg-light mt-3">
+    <h1 class="display-4">@Model.Value("pageName")</h1>
+    <p class="lead">@Model.Value("pageDescription")</p>
+</div>
+
+<!-- contentGrid getting -->
+@await Html.GetBlockGridHtmlAsync(Model, "contentGrid")

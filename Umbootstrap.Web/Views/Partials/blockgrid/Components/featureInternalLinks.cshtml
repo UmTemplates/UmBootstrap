@@ -1,0 +1,17 @@
+﻿@using Umbraco.Extensions
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem>
+
+<p>xxxxxxxx</p>
+
+@{
+    var typedMultiNodeTreePicker = Model.Content.Value<IEnumerable<IPublishedContent>>("featureInternalLinks");
+    if (typedMultiNodeTreePicker != null)
+    {
+        foreach (var item in typedMultiNodeTreePicker)
+        {
+            <p>@item.Name</p>
+        }
+    }
+}
+
+<p>bbbbbb</p>
