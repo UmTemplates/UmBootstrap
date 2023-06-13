@@ -1,9 +1,9 @@
 ﻿@using Umbraco.Extensions
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem>
 
-<p>xxxxxxxx</p>
 
-@{
+
+@*@{
     var typedMultiNodeTreePicker = Model.Content.Value<IEnumerable<IPublishedContent>>("links");
     if (typedMultiNodeTreePicker != null)
     {
@@ -14,6 +14,35 @@
             </p>
         }
     }
-}
+}*@
 
-<p>bbbbbb</p>
+<section>
+    <h2>Stacked Cards in a Grid</h2>
+    <div class="grid">
+        @{
+            var count = 0;
+            var maxItems = 2;
+            var typedMultiNodeTreePicker = Model.Content.Value<IEnumerable<IPublishedContent>>("links");
+        }
+        @if (typedMultiNodeTreePicker != null)
+        {
+            @foreach (var item in typedMultiNodeTreePicker)
+            {
+                if (count == maxItems)
+                {
+                    break;
+                }
+                count++;
+                    <div class="g-col-4">
+                    <div class="card h-100">
+                        @*<img src="@product.Image" class="card-img-top" alt="...">*@
+                        <div class="card-body">
+                            <h5 class="card-title">@item.Value("pageName")</h5>
+                            <p class="card-text">@item.Name</p>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+    </div>
+</section>
