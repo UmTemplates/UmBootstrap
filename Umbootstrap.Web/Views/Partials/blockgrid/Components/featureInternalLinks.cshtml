@@ -21,7 +21,7 @@
     <div class="grid">
         @{
             var count = 0;
-            var maxItems = 2;
+            var maxItems = 4;
             var typedMultiNodeTreePicker = Model.Content.Value<IEnumerable<IPublishedContent>>("links");
         }
         @if (typedMultiNodeTreePicker != null)
@@ -35,7 +35,7 @@
                 count++;
                     <div class="g-col-4">
                     <div class="card h-100">
-                        @*<img src="@product.Image" class="card-img-top" alt="...">*@
+                        <img src="@item.Value("pageThumbnail.Url")" class="card-img-top" alt="...">
                         <div class="card-body">
                             <h5 class="card-title">@item.Value("pageName")</h5>
                             <p class="card-text">@item.Name</p>
