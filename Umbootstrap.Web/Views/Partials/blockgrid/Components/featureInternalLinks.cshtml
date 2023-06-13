@@ -35,7 +35,7 @@
                 count++;
                     <div class="g-col-4">
                     <div class="card h-100">
-                        <img src="@item.Value("pageThumbnail.Url")" class="card-img-top" alt="...">
+                        <img src="@(item.Value<IPublishedContent>("pageThumbnail").GetCropUrl(width:480))" class="card-img-top" alt="...">
                         <div class="card-body">
                             <h5 class="card-title">@item.Value("pageName")</h5>
                             <p class="card-text">@item.Name</p>
