@@ -4,6 +4,7 @@
     if (Model?.Areas.Any() != true) { return; }
 }
 
+<!-- START - AREAS -->
 <div class="grid umb-block-grid__area-container areas"
      style="--umb-block-grid--area-grid-columns: @(Model.AreaGridColumns?.ToString() ?? Model.GridColumns?.ToString() ?? "12"); transition: 300ms;">
     @foreach (var area in Model.Areas)
@@ -11,3 +12,12 @@
         @await Html.GetBlockGridItemAreaHtmlAsync(area)
     }
 </div>
+<!-- END - AREAS -->
+
+@*<div class="umb-block-grid__area-container"
+     style="--umb-block-grid--area-grid-columns: @(Model.AreaGridColumns?.ToString() ?? Model.GridColumns?.ToString() ?? "12");">
+    @foreach (var area in Model.Areas)
+    {
+        @await Html.GetBlockGridItemAreaHtmlAsync(area)
+    }
+</div>*@

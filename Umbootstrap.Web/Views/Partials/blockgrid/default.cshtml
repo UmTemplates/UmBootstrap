@@ -5,8 +5,15 @@
 }
 
 <!-- GetBlockGridItemsHtmlAsync called from default -->
-<div class="umb-block-grid container mt-3"
+<!-- START - DEFAULT -->
+<div class="container mt-3">
+    @await Html.GetBlockGridItemsHtmlAsync(Model)
+</div>
+<!-- END - DEFAULT -->
+
+
+@*<div class="umb-block-grid"
      data-grid-columns="@(Model.GridColumns?.ToString() ?? "12");"
      style="--umb-block-grid--grid-columns: @(Model.GridColumns?.ToString() ?? "12");">
     @await Html.GetBlockGridItemsHtmlAsync(Model)
-</div>
+</div>*@

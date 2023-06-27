@@ -37,7 +37,7 @@
                     <div class="card h-100">
                         <img src="@(item.Value<IPublishedContent>("pageThumbnail").GetCropUrl(width:480))" class="card-img-top" alt="...">
                         <div class="card-body">
-                            <h5 class="card-title">@item.Value("pageName")</h5>
+                            <h5 class="card-title"><a class="stretched-link" href="@item.Url()">@item.Value("pageName")</a></h5>
                             <p class="card-text">@item.Name</p>
                         </div>
                     </div>
@@ -46,3 +46,5 @@
         }
     </div>
 </section>
+
+
