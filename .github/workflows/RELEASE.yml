@@ -18,6 +18,15 @@ jobs:
         - name: Checkout
           uses: actions/checkout@v3
 
+        - uses: actions/cache@v3
+          id: cache-nuget-umbhost
+          with:
+            path: |
+              ~/.nuget/packages
+            key: ${{ runner.os }}-nuget-${{ hashFiles('**/packages.lock.json') }}
+            restore-keys: |
+              ${{ runner.os }}-nuget-umbhost
+              
         - name: Create Build Directory
           run: mkdir _build
 
