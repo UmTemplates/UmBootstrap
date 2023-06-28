@@ -16,7 +16,7 @@
     }
 }*@
 
-<section>
+@*<section>
     <h2>Stacked Cards in a Grid</h2>
     <div class="grid">
         @{
@@ -45,6 +45,62 @@
             }
         }
     </div>
-</section>
+</section>*@
+
+@{
+    var count = 0;
+    var maxItems = 4;
+    int buttons = 0;
+}
+
+<div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+
+    <div class="carousel-indicators">
+        @while (buttons < maxItems)
+        {
+            buttons += 1;
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="@(buttons - 1)" class="active" aria-label="Slide @buttons"></button>
+        }
+    </div>
+
+    <div class="carousel-inner">
+        @{
+            var typedMultiNodeTreePicker = Model.Content.Value<IEnumerable<IPublishedContent>>("links");
+        }
+        @if (typedMultiNodeTreePicker != null)
+        {
+            @foreach (var item in typedMultiNodeTreePicker)
+            {
+                if (count == maxItems)
+                {
+                    break;
+                }
+                count++;
+                // make current item have a class of active
+                var active = count == 1 ? "active" : "";
+                <div class="carousel-item @active">
+                    <img src="@(item.Value<IPublishedContent>("pageThumbnail").GetCropUrl(width:480))" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block bg-primary p-3">
+                        <h5>@item.Value("pageName")</h5>
+                        <p>@item.Name</p>
+                        <p>@(
+                             count
+                             ) of @(
+                           maxItems
+                           )</p>
+                    </div>
+                </div>
+            }
+        }
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
 
 
