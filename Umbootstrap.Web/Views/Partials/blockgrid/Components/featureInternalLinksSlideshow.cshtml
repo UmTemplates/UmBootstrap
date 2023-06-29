@@ -8,7 +8,7 @@
 
     @{
         var count = 0;
-        var maxItems = 4;
+        var maxItems = 5;
         int buttons = 0;
     }
 
@@ -38,7 +38,7 @@
                     // make current item have a class of active
                     var active = count == 1 ? "active" : "";
                     <div class="carousel-item @active">
-                        <img src="@(item.Value<IPublishedContent>("pageThumbnail").GetCropUrl(width:480))" class="d-block w-100" alt="...">
+                        <img src="@(item.Value<IPublishedContent>("pageThumbnail").GetCropUrl(width:1296))" class="d-block w-100" alt="...">
                         <div class="carousel-caption d-none d-md-block bg-primary p-3">
                             <h5>@item.Value("pageName")</h5>
                             <p>@item.Name</p>
