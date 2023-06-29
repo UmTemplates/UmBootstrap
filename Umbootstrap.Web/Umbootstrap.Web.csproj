@@ -5,6 +5,36 @@
     <Nullable>enable</Nullable>
   <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
   </PropertyGroup>
+  <ItemGroup>
+    <Content Include="wwwroot\media\0gykzwhe\firefly-2-business-people-standing-at-a-water-cooler_style-flat-colours-flat-design-geometric-sh.jpg" />
+    <Content Include="wwwroot\media\0rajtuyv\firefly-2-business-people-pointing-at-a-large-presentation-screen_style-flat-colours-flat-design.jpg" />
+    <Content Include="wwwroot\media\1cdd1wmx\firefly-business-people-cycling-along-a-canal-path_style-flat-colours-flat-design-geometric-shap.jpg" />
+    <Content Include="wwwroot\media\1uhjeutn\firefly-business-people-dancing-at-a-tech-conference_style-flat-colours-flat-design-geometric-sh-1.jpg" />
+    <Content Include="wwwroot\media\3c5i0uv3\msedge_zuv77dfro4.jpg" />
+    <Content Include="wwwroot\media\3cqjpan3\firefly-person-human-giving-a-high-five-to-a-man-in-an-upright-rabbit-costume_style-flat-colours.jpg" />
+    <Content Include="wwwroot\media\bcujhqxd\_caf1bfd7-fb9d-4169-9557-2583b60a2349-large.jpeg" />
+    <Content Include="wwwroot\media\bhdpvpza\_3dc1d51f-e881-41d8-90e4-f0219d1ad6a0-large.jpeg" />
+    <Content Include="wwwroot\media\faona4kb\firefly-business-people-running-a-marathon-past-office-buildings_style-flat-colours-flat-design.jpg" />
+    <Content Include="wwwroot\media\gu5pdl3o\firefly-2-business-people-at-their-desks-typing-on-computer-keyboards_style-flat-colours-flat-des.jpg" />
+    <Content Include="wwwroot\media\io4pqxns\firefly-4-business-people-standing-around-a-lady-at-a-desk-who-is-pointing-at-her-computer-screen_s.jpg" />
+    <Content Include="wwwroot\media\k0sj34pt\firefly-business-person-human-giving-a-high-five-to-a-man-in-an-upright-rabbit-costume_style-flat.jpg" />
+    <Content Include="wwwroot\media\mg1dpxka\firefly-business-people-dancing-at-a-tech-conference_style-flat-colours-flat-design-geometric-sh.jpg" />
+    <Content Include="wwwroot\media\natmzypc\_0677863e-0b54-4160-ae68-a0da569b22fe-large.jpeg" />
+    <Content Include="wwwroot\media\nckkouwm\_40cb6d9c-a67b-4c82-9819-6eecae95f14f-large.jpeg" />
+    <Content Include="wwwroot\media\oeedxwqe\firefly-business-people-audience-watching-a-talk-at-a-tech-conference_style-flat-colours-flat-des-2.jpg" />
+    <Content Include="wwwroot\media\pamnkjzh\firefly-business-people-dancing-at-a-tech-conference_style-flat-colours-flat-design-geometric-sh-3.jpg" />
+    <Content Include="wwwroot\media\q4walv3u\_c0386a2a-c7d1-4b39-a626-3ecd1e32a7b0-large.jpeg" />
+    <Content Include="wwwroot\media\r44pc243\_6cee0906-1200-492d-ab84-fb351a3e5b4e-large.jpeg" />
+    <Content Include="wwwroot\media\t10j5qck\firefly-business-people-sitting-in-the-audience-at-a-tech-conference_style-flat-colours-flat-desi.jpg" />
+    <Content Include="wwwroot\media\tdpdmjn0\firefly-business-people-audience-watching-a-talk-at-a-tech-conference_style-flat-colours-flat-des.jpg" />
+    <Content Include="wwwroot\media\thclg3yb\firefly-business-person-man-throwing-an-axe-at-a-target_style-flat-colours-flat-design-geometric.jpg" />
+    <Content Include="wwwroot\media\uiwp4wwu\firefly-business-people-audience-watching-a-talk-at-a-tech-conference_style-flat-colours-flat-des-1.jpg" />
+    <Content Include="wwwroot\media\vijdook2\_9c3875fa-edab-4fe4-bae2-a8168e0ebd0e.jpeg" />
+    <Content Include="wwwroot\media\wn5mteua\_cfb97a8c-f680-4173-8e93-459abc47bc23-large.jpeg" />
+    <Content Include="wwwroot\media\x1vpe51u\firefly-business-people-dancing-at-a-tech-conference_style-flat-colours-flat-design-geometric-sh-2.jpg" />
+    <Content Include="wwwroot\media\zd0g44ax\firefly-business-person-man-playing-jenga_style-flat-colours-flat-design-geometric-shapes-alleg.jpg" />
+    <Content Include="wwwroot\media\znodt3qv\_eeb8c998-5bfa-4d1d-8891-e8e27924415f-large.jpeg" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Our.Umbraco.UmbNav.Web" Version="2.0.6" />
