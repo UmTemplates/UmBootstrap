@@ -1,3 +1,5 @@
+using Umbraco.Community.BlockPreview;
+
 namespace Umbootstrap.Web
 {
     public class Startup
@@ -31,6 +33,7 @@ namespace Umbootstrap.Web
         {
             services.AddUmbraco(_env, _config)
                 .AddBackOffice()
+                .AddBlockPreview()
                 .AddWebsite()
                 .AddComposers()
                 .Build();

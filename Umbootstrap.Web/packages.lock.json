@@ -40,6 +40,17 @@
           "Umbraco.Cms.Web.Website": "10.5.1"
         }
       },
+      "Umbraco.Community.BlockPreview": {
+        "type": "Direct",
+        "requested": "[1.4.0, )",
+        "resolved": "1.4.0",
+        "contentHash": "Gz2qKCX+Ee55oEZzJqt75KdlDII+88RL97FqTr51FrQUl5A4jcw0y+C2GRhc/2/9tMA0OAmDHANsKvVSd8yQtg==",
+        "dependencies": {
+          "Umbraco.Cms.Web.BackOffice": "[10.4.0, 11.0.0)",
+          "Umbraco.Cms.Web.Common": "[10.4.0, 11.0.0)",
+          "Umbraco.Cms.Web.Website": "[10.4.0, 11.0.0)"
+        }
+      },
       "uSync": {
         "type": "Direct",
         "requested": "[10.6.0, )",
