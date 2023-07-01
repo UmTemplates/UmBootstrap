@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="400" height="250" viewBox="0 0 400 250">
+  <defs>
+    <clipPath id="clip-path">
+      <rect width="366" height="250" fill="none"/>
+    </clipPath>
+    <clipPath id="clip-_12">
+      <rect width="400" height="250"/>
+    </clipPath>
+  </defs>
+  <g id="_12" data-name="12" clip-path="url(#clip-_12)">
+    <rect width="400" height="250" fill="#fff"/>
+    <g id="Background" transform="translate(17)">
+      <g id="Background-2" data-name="Background" clip-path="url(#clip-path)">
+        <g transform="translate(-17)">
+          <rect id="Rectangle_9" data-name="Rectangle 9" width="25" height="250" transform="translate(17)" fill="rgba(191,255,255,0.5)"/>
+        </g>
+        <g transform="translate(14)">
+          <rect id="Rectangle_9-2" data-name="Rectangle 9" width="25" height="250" transform="translate(17)" fill="rgba(191,255,255,0.5)"/>
+        </g>
+        <g transform="translate(45)">
+          <rect id="Rectangle_9-3" data-name="Rectangle 9" width="25" height="250" transform="translate(17)" fill="rgba(191,255,255,0.5)"/>
+        </g>
+        <g transform="translate(76)">
+          <rect id="Rectangle_9-4" data-name="Rectangle 9" width="25" height="250" transform="translate(17)" fill="rgba(191,255,255,0.5)"/>
+        </g>
+        <g transform="translate(107)">
+          <rect id="Rectangle_9-5" data-name="Rectangle 9" width="25" height="250" transform="translate(17)" fill="rgba(191,255,255,0.5)"/>
+        </g>
+        <g transform="translate(138)">
+          <rect id="Rectangle_9-6" data-name="Rectangle 9" width="25" height="250" transform="translate(17)" fill="rgba(191,255,255,0.5)"/>
+        </g>
+        <g transform="translate(169)">
+          <rect id="Rectangle_9-7" data-name="Rectangle 9" width="25" height="250" transform="translate(17)" fill="rgba(191,255,255,0.5)"/>
+        </g>
+        <g transform="translate(200)">
+          <rect id="Rectangle_9-8" data-name="Rectangle 9" width="25" height="250" transform="translate(17)" fill="rgba(191,255,255,0.5)"/>
+        </g>
+        <g transform="translate(231)">
+          <rect id="Rectangle_9-9" data-name="Rectangle 9" width="25" height="250" transform="translate(17)" fill="rgba(191,255,255,0.5)"/>
+        </g>
+        <g transform="translate(262)">
+          <rect id="Rectangle_9-10" data-name="Rectangle 9" width="25" height="250" transform="translate(17)" fill="rgba(191,255,255,0.5)"/>
+        </g>
+        <g transform="translate(293)">
+          <rect id="Rectangle_9-11" data-name="Rectangle 9" width="25" height="250" transform="translate(17)" fill="rgba(191,255,255,0.5)"/>
+        </g>
+        <g transform="translate(324)">
+          <rect id="Rectangle_9-12" data-name="Rectangle 9" width="25" height="250" transform="translate(17)" fill="rgba(191,255,255,0.5)"/>
+        </g>
+      </g>
+    </g>
+    <g id="Rectangle_12" data-name="Rectangle 12" transform="translate(17 20)">
+      <g id="Rectangle_12-2" data-name="Rectangle 12" fill="none" stroke="#333" stroke-width="1" stroke-dasharray="6 3">
+        <rect width="366" height="210" stroke="none"/>
+        <rect x="0.5" y="0.5" width="365" height="209" fill="none"/>
+      </g>
+    </g>
+  </g>
+</svg>
