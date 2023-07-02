@@ -4,6 +4,7 @@
 
 h1 {
     @include font-size(3rem);
+    color: $pink-500;
 }
 
 
