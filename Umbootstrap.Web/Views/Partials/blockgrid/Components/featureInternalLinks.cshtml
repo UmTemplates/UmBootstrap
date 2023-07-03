@@ -1,6 +1,37 @@
 ﻿@using Umbraco.Extensions
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem>
 
+@{
+    Layout = "_Layout.cshtml";
+}
+
+<div class="grid">
+    @{
+        var count = 0;
+        var maxItems = 6;
+        var typedMultiNodeTreePicker = Model.Content.Value<IEnumerable<IPublishedContent>>("links");
+    }
+    @if (typedMultiNodeTreePicker != null)
+    {
+        @foreach (var item in typedMultiNodeTreePicker)
+        {
+            if (count == maxItems)
+            {
+                break;
+            }
+            count++;
+            <div class="g-col-4">
+                <div class="card h-100">
+                    <img src="@(item.Value<IPublishedContent>("pageThumbnail").GetCropUrl(width:480))" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title"><a class="stretched-link" href="@item.Url()">@item.Value("pageName")</a></h5>
+                        <p class="card-text">@item.Name</p>
+                    </div>
+                </div>
+            </div>
+        }
+    }
+</div>
 
 
 @*@{
@@ -15,36 +46,5 @@
         }
     }
 }*@
-
-<section>
-    <h2>Stacked Cards in a Grid</h2>
-    <div class="grid">
-        @{
-            var count = 0;
-            var maxItems = 6;
-            var typedMultiNodeTreePicker = Model.Content.Value<IEnumerable<IPublishedContent>>("links");
-        }
-        @if (typedMultiNodeTreePicker != null)
-        {
-            @foreach (var item in typedMultiNodeTreePicker)
-            {
-                if (count == maxItems)
-                {
-                    break;
-                }
-                count++;
-                    <div class="g-col-4">
-                    <div class="card h-100">
-                        <img src="@(item.Value<IPublishedContent>("pageThumbnail").GetCropUrl(width:480))" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title"><a class="stretched-link" href="@item.Url()">@item.Value("pageName")</a></h5>
-                            <p class="card-text">@item.Name</p>
-                        </div>
-                    </div>
-                </div>
-            }
-        }
-    </div>
-</section>
 
 
