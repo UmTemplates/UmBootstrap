@@ -1,69 +1,70 @@
 ﻿@using Umbraco.Extensions
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem>
 
-    @*Need to review max items etc for block settings*@
+@*Need to review max items etc for block settings*@
 
-<section>
-    <h2>Internal Links Slideshow</h2>
+@{
+    Layout = "_Layout.cshtml";
+}
 
-    @{
-        var count = 0;
-        var maxItems = 5;
-        int buttons = 0;
-    }
 
-    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+@{
+    var count = 0;
+    var maxItems = 5;
+    int buttons = 0;
+}
 
-        <div class="carousel-indicators">
-            @while (buttons < maxItems)
-            {
-                buttons += 1;
-                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="@(buttons - 1)" class="active" aria-label="Slide @buttons"></button>
-            }
-        </div>
+<div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
 
-        <div class="carousel-inner">
-            @{
-                var typedMultiNodeTreePicker = Model.Content.Value<IEnumerable<IPublishedContent>>("links");
-            }
-            @if (typedMultiNodeTreePicker != null)
-            {
-                @foreach (var item in typedMultiNodeTreePicker)
-                {
-                    if (count == maxItems)
-                    {
-                        break;
-                    }
-                    count++;
-                    // make current item have a class of active
-                    var active = count == 1 ? "active" : "";
-                    <div class="carousel-item @active">
-                        <img src="@(item.Value<IPublishedContent>("pageThumbnail").GetCropUrl(width:1296))" class="d-block w-100" alt="...">
-                        <div class="carousel-caption d-none d-md-block bg-primary p-3">
-                            <h5>@item.Value("pageName")</h5>
-                            <p>@item.Name</p>
-                            <p>
-                                @(
-                                    count
-                                    ) of @(
-                               maxItems
-                               )
-                            </p>
-                        </div>
-                    </div>
-                }
-            }
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
+    <div class="carousel-indicators">
+        @while (buttons < maxItems)
+        {
+            buttons += 1;
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="@(buttons - 1)" class="active" aria-label="Slide @buttons"></button>
+        }
     </div>
 
-</section>
+    <div class="carousel-inner">
+        @{
+            var typedMultiNodeTreePicker = Model.Content.Value<IEnumerable<IPublishedContent>>("links");
+        }
+        @if (typedMultiNodeTreePicker != null)
+        {
+            @foreach (var item in typedMultiNodeTreePicker)
+            {
+                if (count == maxItems)
+                {
+                    break;
+                }
+                count++;
+                // make current item have a class of active
+                var active = count == 1 ? "active" : "";
+                <div class="carousel-item @active">
+                    <img src="@(item.Value<IPublishedContent>("pageThumbnail").GetCropUrl(width:1296))" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block bg-primary p-3">
+                        <h5>@item.Value("pageName")</h5>
+                        <p>@item.Name</p>
+                        <p>
+                            @(
+                                count
+                                ) of @(
+                           maxItems
+                           )
+                        </p>
+                    </div>
+                </div>
+            }
+        }
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+
 
 
