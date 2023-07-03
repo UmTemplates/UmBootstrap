@@ -21,7 +21,7 @@
 
   <ItemGroup>
     <Folder Include="wwwroot\images\" />
-    <Folder Include="wwwroot\media\" />
+    <Folder Include="wwwroot\media\**\*" />
   </ItemGroup>
 
   <PropertyGroup>
