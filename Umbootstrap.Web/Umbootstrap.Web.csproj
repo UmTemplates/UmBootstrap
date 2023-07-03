@@ -21,10 +21,10 @@
 
   <ItemGroup>
     <Folder Include="wwwroot\images\" />
-    <Folder Include="wwwroot\media\**\*" />
+    <None Include="wwwroot\media\**\*" />
   </ItemGroup>
 
-  <PropertyGroup>
+	<PropertyGroup>
     <!-- Razor files are needed for the backoffice to work correctly -->
     <CopyRazorGenerateFilesToPublishDirectory>true</CopyRazorGenerateFilesToPublishDirectory>
   </PropertyGroup>
