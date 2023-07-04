@@ -1,17 +1,41 @@
 ﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem>
 @{
     Layout = null;
+    // Get the feature properties from the block grid item
+    string featureTitle = Model.Content.Value<string>("featurePropertyFeatureTitle");
+    string featureDescription = Model.Content.Value<string>("featurePropertyFeatureDescription");
+    string featureSummary = Model.Content.Value<string>("featurePropertyFeatureSummary");
 }
 
-<section class="feature")>
-    <header class="feature__header">
-        <h2>Feature Title</h2>
-        <p class="lead">Feature Description</p>
-    </header>
+<section class="feature">
+    @if (!string.IsNullOrWhiteSpace(featureTitle) || !string.IsNullOrWhiteSpace(featureDescription))
+    // If either the title or description is not empty, render the header
+    {
+        <header class="feature__header">
+            @if (!string.IsNullOrWhiteSpace(featureTitle))
+            // If the title is not empty, render the title
+            {
+                <h2 data-feature="title">@featureTitle</h2>
+            }
+            @if (!string.IsNullOrWhiteSpace(featureTitle))
+            // If the description is not empty, render the description
+            {
+                <p class="lead">@featureDescription</p>
+            }
+        </header>
+    }
     <div class="feature__body">
         @RenderBody()
     </div>
-    <footer class="feature__footer">
-        <p>Feature Summary</p>
-    </footer>
+    @if (!string.IsNullOrWhiteSpace(featureSummary))
+    // If the summary is not empty, render the footer
+    {
+        <footer class="feature__footer p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3">
+            @if (!string.IsNullOrWhiteSpace(featureSummary))
+            // If the summary is not empty, render the summary
+            {
+                <p><small>@featureSummary</small></p>
+            }
+        </footer>
+    }
 </section>
