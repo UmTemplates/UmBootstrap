@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1920" height="1080" viewBox="0 0 1920 1080">
+  <defs>
+    <clipPath id="clip-path">
+      <rect width="1584" height="1080" fill="none"/>
+    </clipPath>
+    <clipPath id="clip-Layout_3-6-3">
+      <rect width="1920" height="1080"/>
+    </clipPath>
+  </defs>
+  <g id="Layout_3-6-3" data-name="Layout 3-6-3" clip-path="url(#clip-Layout_3-6-3)">
+    <rect width="1920" height="1080" fill="#fff"/>
+    <g id="Background">
+      <rect id="Background-2" data-name="Background" width="1920" height="1080" fill="#f9f9fa"/>
+    </g>
+    <g id="Component_8_1" data-name="Component 8 – 1" transform="translate(176)">
+      <g id="Repeat_Grid_9" data-name="Repeat Grid 9" clip-path="url(#clip-path)">
+        <g transform="translate(-176)">
+          <rect id="Rectangle_9" data-name="Rectangle 9" width="116" height="1080" transform="translate(176)" fill="rgba(191,255,255,0.5)"/>
+        </g>
+        <g transform="translate(-44)">
+          <rect id="Rectangle_9-2" data-name="Rectangle 9" width="116" height="1080" transform="translate(176)" fill="rgba(191,255,255,0.5)"/>
+        </g>
+        <g transform="translate(88)">
+          <rect id="Rectangle_9-3" data-name="Rectangle 9" width="116" height="1080" transform="translate(176)" fill="rgba(191,255,255,0.5)"/>
+        </g>
+        <g transform="translate(220)">
+          <rect id="Rectangle_9-4" data-name="Rectangle 9" width="116" height="1080" transform="translate(176)" fill="rgba(191,255,255,0.5)"/>
+        </g>
+        <g transform="translate(352)">
+          <rect id="Rectangle_9-5" data-name="Rectangle 9" width="116" height="1080" transform="translate(176)" fill="rgba(191,255,255,0.5)"/>
+        </g>
+        <g transform="translate(484)">
+          <rect id="Rectangle_9-6" data-name="Rectangle 9" width="116" height="1080" transform="translate(176)" fill="rgba(191,255,255,0.5)"/>
+        </g>
+        <g transform="translate(616)">
+          <rect id="Rectangle_9-7" data-name="Rectangle 9" width="116" height="1080" transform="translate(176)" fill="rgba(191,255,255,0.5)"/>
+        </g>
+        <g transform="translate(748)">
+          <rect id="Rectangle_9-8" data-name="Rectangle 9" width="116" height="1080" transform="translate(176)" fill="rgba(191,255,255,0.5)"/>
+        </g>
+        <g transform="translate(880)">
+          <rect id="Rectangle_9-9" data-name="Rectangle 9" width="116" height="1080" transform="translate(176)" fill="rgba(191,255,255,0.5)"/>
+        </g>
+        <g transform="translate(1012)">
+          <rect id="Rectangle_9-10" data-name="Rectangle 9" width="116" height="1080" transform="translate(176)" fill="rgba(191,255,255,0.5)"/>
+        </g>
+        <g transform="translate(1144)">
+          <rect id="Rectangle_9-11" data-name="Rectangle 9" width="116" height="1080" transform="translate(176)" fill="rgba(191,255,255,0.5)"/>
+        </g>
+        <g transform="translate(1276)">
+          <rect id="Rectangle_9-12" data-name="Rectangle 9" width="116" height="1080" transform="translate(176)" fill="rgba(191,255,255,0.5)"/>
+        </g>
+      </g>
+    </g>
+    <g id="Rectangle_6" data-name="Rectangle 6" transform="translate(572 91)">
+      <g id="Rectangle_6-2" data-name="Rectangle 6" fill="none" stroke="#333" stroke-width="2" stroke-dasharray="12 12">
+        <rect width="776" height="900" stroke="none"/>
+        <rect x="1" y="1" width="774" height="898" fill="none"/>
+      </g>
+    </g>
+    <g id="Rectangle_3" data-name="Rectangle 3" transform="translate(176 91)">
+      <g id="Rectangle_3-2" data-name="Rectangle 3" fill="none" stroke="#333" stroke-width="2" stroke-dasharray="12 12">
+        <rect width="380" height="900" stroke="none"/>
+        <rect x="1" y="1" width="378" height="898" fill="none"/>
+      </g>
+    </g>
+    <g id="Rectangle_3-3" data-name="Rectangle 3" transform="translate(1364 91)">
+      <g id="Rectangle_3-4" data-name="Rectangle 3" fill="none" stroke="#333" stroke-width="2" stroke-dasharray="12 12">
+        <rect width="380" height="900" stroke="none"/>
+        <rect x="1" y="1" width="378" height="898" fill="none"/>
+      </g>
+    </g>
+  </g>
+</svg>

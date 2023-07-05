@@ -1,0 +1,54 @@
+﻿@using Umbraco.Extensions
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem>
+@*@using Umbraco.Cms.Core.Models.PublishedContent*@
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+
+@{
+    Layout = "_Layout.cshtml";
+}
+
+@{
+    IPublishedContent vThisPage = UmbracoContext!.PublishedRequest!.PublishedContent!;
+    int intCurLevel = vThisPage.Level;
+    IPublishedContent ThisSectionPage = vThisPage.Ancestor(2)!;
+    if (vThisPage.Level == 2) { ThisSectionPage = vThisPage; }
+}
+
+@{
+    void renderLI(IPublishedContent NavItem)
+    {
+        <li data-feature__item="nav-link level-@NavItem.Level short-title" class="layout__item">
+            <a data-feature__element="link" href="@NavItem.Url()" class="@(NavItem.IsAncestorOrSelf(vThisPage) ? " current" : "")@(NavItem.IsDescendant(vThisPage) ? "descendant" : "")">@NavItem.Value("pageName")</a>
+            @if (NavItem.IsAncestorOrSelf(vThisPage) && NavItem.Children != null)
+            {
+                <ul>
+                    @foreach (IPublishedContent ListItemChild in NavItem.Children)
+                    {
+                        renderLI(ListItemChild);
+
+                    }
+                </ul>
+            }
+        </li>
+    }
+}
+
+<nav class="feature feature__navigation--secondary layout--list">
+    <header class="feature__header">
+        <h2 data-feature="title">
+            <a data-feature="link" href="@ThisSectionPage.Url()">@ThisSectionPage.Value("pageName")</a>
+        </h2>
+    </header>
+    <div class="feature__content">
+        <ul>
+            @foreach (var NavItem in ThisSectionPage.Children!)
+            {
+                renderLI(NavItem);
+            }
+        </ul>
+    </div>
+</nav>
+
+
+
+
