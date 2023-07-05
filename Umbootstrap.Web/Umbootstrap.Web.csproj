@@ -21,7 +21,9 @@
 
   <ItemGroup>
     <Folder Include="wwwroot\images\" />
-    <None Include="wwwroot\media\**\*" />
+    <None Include="wwwroot\media\**\*">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	</None>
   </ItemGroup>
 
 	<PropertyGroup>
