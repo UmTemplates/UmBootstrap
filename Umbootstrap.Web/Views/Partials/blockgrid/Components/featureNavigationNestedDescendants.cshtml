@@ -3,9 +3,12 @@
 @*@using Umbraco.Cms.Core.Models.PublishedContent*@
 @using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
 
-@{
+
+@*@{
+    // no need to use a layout for this partial
+    // the feature header is contained within the feature itself
     Layout = "_Layout.cshtml";
-}
+}*@
 
 @{
     IPublishedContent vThisPage = UmbracoContext!.PublishedRequest!.PublishedContent!;
@@ -17,7 +20,7 @@
 @{
     void renderLI(IPublishedContent NavItem)
     {
-        <li data-feature__item="nav-link level-@NavItem.Level short-title" class="layout__item">
+        <li data-feature__item="nav-link level-@NavItem.Level short-title" class="list-group-item">
             <a data-feature__element="link" href="@NavItem.Url()" class="@(NavItem.IsAncestorOrSelf(vThisPage) ? " current" : "")@(NavItem.IsDescendant(vThisPage) ? "descendant" : "")">@NavItem.Value("pageName")</a>
             @if (NavItem.IsAncestorOrSelf(vThisPage) && NavItem.Children != null)
             {
@@ -33,14 +36,14 @@
     }
 }
 
-<nav class="feature feature__navigation--secondary layout--list">
-    <header class="feature__header">
+<nav class="feature card">
+    <header class="feature__header card-header">
         <h2 data-feature="title">
             <a data-feature="link" href="@ThisSectionPage.Url()">@ThisSectionPage.Value("pageName")</a>
         </h2>
     </header>
-    <div class="feature__content">
-        <ul>
+    <div class="feature__content card-body">
+        <ul list-group list-group-flush>
             @foreach (var NavItem in ThisSectionPage.Children!)
             {
                 renderLI(NavItem);
