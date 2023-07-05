@@ -58,7 +58,7 @@
                             @foreach (var menuItem in siteSettings.Value<IEnumerable<UmbNavItem>>("mainNavigation"))
                             {
                                 <li class="nav-item text-center">
-                                    <a class="nav-link " href="@menuItem.Url()" target="@menuItem.Target">@menuItem.Name</a>
+                                    <a class="nav-link @Html.If(menuItem.IsActive, "active")" href="@menuItem.Url()" target="@menuItem.Target">@menuItem.Name</a>
                                 </li>
                             }
                         </ul>
