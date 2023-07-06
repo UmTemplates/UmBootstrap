@@ -17,13 +17,13 @@
       },
       "Our.Umbraco.UmbNav.Web": {
         "type": "Direct",
-        "requested": "[2.0.6, )",
-        "resolved": "2.0.6",
-        "contentHash": "1sWBjZxfehEJljp55Mv7zZwroxiuRbc6uAQqXTXNFzcmiW9xfFwfe0e/tO34yRbcMw9/++mqXk1jJKiadGnlQw==",
+        "requested": "[2.0.8, )",
+        "resolved": "2.0.8",
+        "contentHash": "zRcLuztfnq9ZiVm9ja2SwRTnvC96ZaUOdUkYirAV074j07UxaiYjGp4dGWrh7Ni9T5SsAzc2VpVVzWMHJ5kdxA==",
         "dependencies": {
           "Microsoft.AspNetCore.Components.Web": "6.0.6",
           "Our.Umbraco.UmbNav.Api": "2.0.2",
-          "Our.Umbraco.UmbNav.Core": "2.0.1",
+          "Our.Umbraco.UmbNav.Core": "2.0.3",
           "Umbraco.Cms.Core": "10.0.0"
         }
       },
@@ -1018,8 +1018,8 @@
       },
       "Our.Umbraco.UmbNav.Core": {
         "type": "Transitive",
-        "resolved": "2.0.1",
-        "contentHash": "wXDK0dN9mR28xyZfR+MABN9L98Xwyk9ge4bMRc3dbR8OCQyBEVQKqWpuqG/kVTOTVLicbHwGzNJ/kA2zmx0u0w==",
+        "resolved": "2.0.3",
+        "contentHash": "44+aQjUpE2ByhYOjsf6O/qeNhXEJBe1DDgc1LRqUegFVrRJU9jOgySs1jy3qn/T3/oGHjs7MGwHGjsguBzrlHQ==",
         "dependencies": {
           "System.Configuration.ConfigurationManager": "6.0.0",
           "Umbraco.Cms.Web.BackOffice": "10.0.0",
