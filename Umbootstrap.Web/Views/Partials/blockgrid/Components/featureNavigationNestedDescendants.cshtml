@@ -21,7 +21,7 @@
     void renderLI(IPublishedContent NavItem)
     {
         <li data-feature__item="level-@NavItem.Level" class="list-group-item @(NavItem.IsAncestorOrSelf(vThisPage) ? " active" : "")@(NavItem.IsDescendant(vThisPage) ? "descendant" : "")">
-            <a href="@NavItem.Url()" class="nav-link @(NavItem.IsAncestorOrSelf(vThisPage) ? " text-white" : "")@(NavItem.IsDescendant(vThisPage) ? "descendant" : "")">@NavItem.Value("pageName")</a>
+            <a href="@NavItem.Url()" class="nav-link @(NavItem.IsAncestorOrSelf(vThisPage) ? " text-white" : "")@(NavItem.IsDescendant(vThisPage) ? "descendant" : "")">@NavItem.Value("pageTitle")</a>
             @if (NavItem.IsAncestorOrSelf(vThisPage) && NavItem.Children != null)
             {
                 <ul>
@@ -38,7 +38,7 @@
 <nav class="card">
     <header class="card-header">
         <h2 class="card-title">
-            <a href="@ThisSectionPage.Url()" class="nav-link">@ThisSectionPage.Value("pageName")</a>
+            <a href="@ThisSectionPage.Url()" class="nav-link">@ThisSectionPage.Value("pageTitle")</a>
         </h2>
     </header>
     <div class="">
