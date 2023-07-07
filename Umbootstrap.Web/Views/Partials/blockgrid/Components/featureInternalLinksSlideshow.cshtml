@@ -42,7 +42,7 @@
                 <div class="carousel-item @active">
                     <img src="@(item.Value<IPublishedContent>("pageThumbnail").GetCropUrl(width:1296))" class="d-block w-100" alt="...">
                     <div class="carousel-caption d-none d-md-block bg-primary p-3">
-                        <h5>@item.Value("pageName")</h5>
+                        <h5>@item.Value("pageTitle")</h5>
                         <p>@item.Name</p>
                         <p>
                             @(

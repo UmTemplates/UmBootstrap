@@ -12,7 +12,7 @@
             <div class="card h-100">
                 <img src="@(varWebpage.Value<IPublishedContent>("pageThumbnail").GetCropUrl(width:480))" class="card-img-top" alt="...">
                 <div class="card-body">
-                    <h5 class="card-title"><a class="stretched-link" href="@varWebpage.Url()">@varWebpage.Value("pageName")</a></h5>
+                    <h5 class="card-title"><a class="stretched-link" href="@varWebpage.Url()">@varWebpage.Value("pageTitle")</a></h5>
                     <p class="card-text">
                         @varWebpage.Value("pageDescription")
                     </p>
