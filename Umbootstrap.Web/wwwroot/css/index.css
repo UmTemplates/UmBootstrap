@@ -10967,22 +10967,10 @@ p {
   width: 100%;
 }
 
-.nav-link {
-  /*    display: block;
-      padding: var(--bs-nav-link-padding-y) var(--bs-nav-link-padding-x);
-      @include font-size(var(--bs-nav-link-font-size));
-      font-weight: var(--bs-nav-link-font-weight);
-      color: var(--bs-nav-link-color);
-      text-decoration: if($link-decoration == none, null, none);
-      @include transition($nav-link-transition);*/
-}
 .nav-link:hover, .nav-link:focus {
+  color: #fff;
+  background-color: var(--bs-nav-link-hover-color);
   /*text-decoration: if($link-hover-decoration == underline, none, null);*/
-}
-.nav-link.disabled {
-  /*color: var(--bs-nav-link-disabled-color);
-  pointer-events: none;
-  cursor: default;*/
 }
 
 .box-shadow-b {
