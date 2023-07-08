@@ -9,8 +9,8 @@
 
     &:hover,
     &:focus {
-        color: var(--#{$prefix}nav-link-hover-color);
-        background-color: aquamarine;
+       // color: var(--#{$prefix}nav-link-hover-color);
+        //background-color: aquamarine;
         /*text-decoration: if($link-hover-decoration == underline, none, null);*/
     }
     // Disabled state lightens text

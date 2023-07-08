@@ -10977,8 +10977,6 @@ p {
       @include transition($nav-link-transition);*/
 }
 .nav-link:hover, .nav-link:focus {
-  color: var(--bs-nav-link-hover-color);
-  background-color: aquamarine;
   /*text-decoration: if($link-hover-decoration == underline, none, null);*/
 }
 .nav-link.disabled {
