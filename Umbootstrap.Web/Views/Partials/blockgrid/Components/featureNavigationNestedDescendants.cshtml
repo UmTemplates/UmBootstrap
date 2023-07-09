@@ -21,10 +21,10 @@
     void renderLI(IPublishedContent NavItem)
     {
         <li data-level="level-@NavItem.Level" class=" @(NavItem.IsAncestorOrSelf(vThisPage) ? " active" : "")@(NavItem.IsDescendant(vThisPage) ? "descendant" : "")">
-            <a href="@NavItem.Url()" class="list-group-item-action list-group-item list-group-item-light @(NavItem.IsAncestorOrSelf(vThisPage) ? " active" : "")@(NavItem.IsDescendant(vThisPage) ? "descendant" : "")">@NavItem.Value("pageTitle")</a>
+            <a href="@NavItem.Url()" class="list-group-item-action list-group-item list-group-item-light ps-@NavItem.Level @(NavItem.IsAncestorOrSelf(vThisPage) ? " active" : "")@(NavItem.IsDescendant(vThisPage) ? "descendant" : "")">@NavItem.Value("pageTitle")</a>
             @if (NavItem.IsAncestorOrSelf(vThisPage) && NavItem.Children != null)
             {
-                <ul>
+                <ul class="list-group nav">
                     @foreach (IPublishedContent ListItemChild in NavItem.Children)
                     {
                         renderLI(ListItemChild);
