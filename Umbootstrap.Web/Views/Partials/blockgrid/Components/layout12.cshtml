@@ -1,6 +1,22 @@
-﻿@using Umbraco.Community.BlockPreview.Extensions;
+﻿@using Umbraco.Cms.Core.PropertyEditors.ValueConverters;
+@using Umbraco.Community.BlockPreview.Extensions;
 @using Umbraco.Extensions
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem>
 
-@await Html.GetPreviewBlockGridItemAreasHtmlAsync(Model)
+@{
+    if (Model?.Areas.Any() != true) { return; }
+
+    bool hasSettings = Model.Settings != null;
+    string colorLabel = null;
+
+    if (hasSettings)
+    {
+        var backgroundColour = Model.Settings.Value<ColorPickerValueConverter.PickedColor>("layoutSettingsColourPicker");
+        colorLabel = backgroundColour?.Label;
+    }
+}
+
+<div class="py-3" style="@(hasSettings && colorLabel != null ? $"background-color: var({colorLabel});" : "")" data-block-alias="@Model.Content.ContentType.Alias">
+    @await Html.GetPreviewBlockGridItemAreasHtmlAsync(Model)
+</div>
 

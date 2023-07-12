@@ -6,30 +6,30 @@
 
 <!-- START - ITEMS -->
 @*<div class="items">*@
-    @foreach (var item in Model)
+@foreach (var item in Model)
+{
+    @*<div class="item" data-block-alias="@item.Content.ContentType.Alias">*@
     {
-        @*<div class="item" data-block-alias="@item.Content.ContentType.Alias">*@
-            {
-                var partialViewName = "blockgrid/Components/" + item.Content.ContentType.Alias;
-                try
-                {
-                    @await Html.PartialAsync(partialViewName, item)
-                }
-                catch (InvalidOperationException)
-                {
-                    <p>
-                        <strong>Could not render component of type: @(item.Content.ContentType.Alias)</strong>
-                        <br/>
-                        This likely happened because the partial view <em>@partialViewName</em> could not be found.
-                    </p>
-                }
-            }
-        @*</div>*@
+        var partialViewName = "blockgrid/Components/" + item.Content.ContentType.Alias;
+        try
+        {
+            <!-- START - ITEM -->
+            @await Html.PartialAsync(partialViewName, item)
+            <!-- END - ITEM -->
+        }
+        catch (InvalidOperationException)
+        {
+            <p>
+                <strong>Could not render component of type: @(item.Content.ContentType.Alias)</strong>
+                <br />
+                This likely happened because the partial view <em>@partialViewName</em> could not be found.
+            </p>
+        }
     }
+    @*</div>*@
+}
 @*</div>*@
 <!-- END - ITEMS -->
-
-
 @*<div class="umb-block-grid__layout-container">
     @foreach (var item in Model)
     {
