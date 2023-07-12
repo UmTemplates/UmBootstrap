@@ -5,11 +5,11 @@
 }
 
 <!-- START - ITEMS -->
-<div class="items">
+@*<div class="items">*@
     @foreach (var item in Model)
     {
-        <div class="item" data-content-element-type-alias="@item.Content.ContentType.Alias">
-            @{
+        @*<div class="item" data-block-alias="@item.Content.ContentType.Alias">*@
+            {
                 var partialViewName = "blockgrid/Components/" + item.Content.ContentType.Alias;
                 try
                 {
@@ -24,9 +24,9 @@
                     </p>
                 }
             }
-        </div>
+        @*</div>*@
     }
-</div>
+@*</div>*@
 <!-- END - ITEMS -->
 
 

@@ -6,7 +6,7 @@
 }
 
 <!-- START - AREAS -->
-<div class="grid container">
+<div class="grid container" data-block-alias="@Model.Content.ContentType.Alias">
     @foreach (var area in Model.Areas)
     {
         @await Html.GetPreviewBlockGridItemAreaHtmlAsync(area)
