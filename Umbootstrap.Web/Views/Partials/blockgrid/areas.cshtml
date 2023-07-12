@@ -1,23 +1,26 @@
-﻿@using Umbraco.Community.BlockPreview.Extensions;
+﻿@using Umbraco.Cms.Core.PropertyEditors.ValueConverters;
+@using Umbraco.Community.BlockPreview.Extensions;
 @using Umbraco.Extensions
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem>
 @{
     if (Model?.Areas.Any() != true) { return; }
+    var backgroundColour = Model.Settings.Value<ColorPickerValueConverter.PickedColor>("layoutSettingsColourPicker");
+    var colorLabel = Model.Settings.Value<ColorPickerValueConverter.PickedColor>("layoutSettingsColourPicker").Label;
 }
-
+<div class="py-3" style="background-color: var(@colorLabel);">
 <!-- START - AREAS -->
 <div class="grid container">
     @foreach (var area in Model.Areas)
     {
-        @await Html.GetPreviewBlockGridItemAreaHtmlAsync(area)
+    @await Html.GetPreviewBlockGridItemAreaHtmlAsync(area)
     }
 </div>
 <!-- END - AREAS -->
-
+</div>
 @*<div class="umb-block-grid__area-container"
-     style="--umb-block-grid--area-grid-columns: @(Model.AreaGridColumns?.ToString() ?? Model.GridColumns?.ToString() ?? "12");">
+       style="--umb-block-grid--area-grid-columns: @(Model.AreaGridColumns?.ToString() ?? Model.GridColumns?.ToString() ?? " 12");">
     @foreach (var area in Model.Areas)
     {
-        @await Html.GetBlockGridItemAreaHtmlAsync(area)
+    @await Html.GetBlockGridItemAreaHtmlAsync(area)
     }
 </div>*@
