@@ -10943,6 +10943,10 @@ p {
   font-size: 1rem;
 }
 
+p.card-text {
+  text-wrap: balance;
+}
+
 .carousel {
   height: calc(100vh - 110px);
 }
@@ -10973,8 +10977,22 @@ p {
   /*text-decoration: if($link-hover-decoration == underline, none, null);*/
 }
 
+.card .nav-link:hover:hover, .card .nav-link:hover:focus {
+  color: #d63384;
+}
+
 .box-shadow-b {
   box-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+.shadow {
+  /*box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;*/
+  transition: box-shadow 0.4s ease-in-out;
+}
+
+.shadow:hover {
+  box-shadow: 0 0.5rem 1.25rem rgba(0, 0, 0, 0.35) !important;
+  transition: box-shadow 0.4s ease-in-out;
 }
 
 /*# sourceMappingURL=index.css.map */

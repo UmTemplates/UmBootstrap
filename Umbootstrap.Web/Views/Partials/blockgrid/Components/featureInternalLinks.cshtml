@@ -21,10 +21,10 @@
             }
             count++;
             <div class="g-col-12 g-col-md-6 g-col-lg-4">
-                <div class="card h-100">
+                <div class="card h-100 shadow">
                     <img src="@(item.Value<IPublishedContent>("pageThumbnail").GetCropUrl(width:480))" class="card-img-top" alt="...">
                     <div class="card-body">
-                        <h5 class="card-title"><a class="stretched-link" href="@item.Url()">@item.Value("pageTitle")</a></h5>
+                        <h5 class="card-title"><a class="nav-link stretched-link" href="@item.Url()">@item.Value("pageTitle")</a></h5>
                         <p class="card-text">@item.Name</p>
                     </div>
                 </div>

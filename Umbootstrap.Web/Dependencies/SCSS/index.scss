@@ -69,3 +69,13 @@
 .box-shadow-b {
     box-shadow: 0 1rem 1rem rgb(0 0 0 / 15%);
 }
+
+.shadow {
+    /*box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;*/
+    transition: box-shadow 0.4s ease-in-out;
+}
+
+.shadow:hover {
+    box-shadow: 0 0.5rem 1.25rem rgba(0 0 0 / .35) !important;
+    transition: box-shadow 0.4s ease-in-out;
+}
