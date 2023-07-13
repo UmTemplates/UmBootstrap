@@ -7,3 +7,10 @@
     }
     // Disabled state lightens text
 }
+
+.card .nav-link:hover {
+    &:hover,
+    &:focus {
+        color: $pink;
+    }
+}

@@ -1,63 +1,64 @@
 {
-    "$schema": "http://json.schemastore.org/template",
-    "author": "Dean Leigh",
-    "classifications": [ "Web", "Umbraco", "Starter Kit" ],
-    "name": "Umbootstrap Umbraco Starter Kit",
-    "description": "A project template for creating a new Umbraco site using the Umbootstrap starter kit",
-    "identity": "Umbraco.Community.Templates.Umbootstrap",
-    "shortName": "umbootstrap",
-    "tags": {
-      "language": "C#",
-      "type": "project"
-    },
-    "preferNameDirectory": true,
-    "sourceName": "Umbootstrap.Web",
-    "guids": ["0f2709dd-6052-4c76-b78c-2e2a2da6e8c4"],
-    "symbols": {
-        "httpPort": {
-          "type": "generated",
-          "generator": "port",
-          "parameters": {
-            "fallback": 5000
-          },
-          "replaces": "36139"
-        },
-        "httpsPort": {
-          "type": "generated",
-          "generator": "port",
-          "parameters": {
-            "low": 44300,
-            "high": 44399,
-            "fallback": 5001
-          },
-          "replaces": "44395"
-        },
-        "ConnectionString": {
-            "displayName": "Connection string",
-            "description": "Database connection string used by Umbraco.",
-            "type": "parameter",
-            "datatype": "string",
-            "defaultValue": "",
-            "replaces": "Data Source=|DataDirectory|/Umbraco.sqlite.db;Cache=Shared;Foreign Keys=True;Pooling=True"
-          },
-          "ConnectionStringProviderName": {
-            "displayName": "Connection string provider name",
-            "description": "Database connection string provider name used by Umbraco.",
-            "type": "parameter",
-            "datatype": "string",
-            "defaultValue": "Microsoft.Data.SqlClient",
-            "replaces": "Microsoft.Data.Sqlite"
-          }
+  "$schema": "http://json.schemastore.org/template",
+  "author": "Dean Leigh",
+  "classifications": [ "Web", "Umbraco", "Starter Kit" ],
+  "name": "Umbootstrap Umbraco Starter Kit",
+  "description": "A project template for creating a new Umbraco site using the Umbootstrap starter kit",
+  "identity": "Umbraco.Community.Templates.Umbootstrap",
+  "shortName": "umbootstrap",
+  "version": "1.0.1", // Add the version number here
+  "tags": {
+    "language": "C#",
+    "type": "project"
+  },
+  "preferNameDirectory": true,
+  "sourceName": "Umbootstrap.Web",
+  "guids": [ "0f2709dd-6052-4c76-b78c-2e2a2da6e8c4" ],
+  "symbols": {
+    "httpPort": {
+      "type": "generated",
+      "generator": "port",
+      "parameters": {
+        "fallback": 5000
       },
-      "sources": [
+      "replaces": "36139"
+    },
+    "httpsPort": {
+      "type": "generated",
+      "generator": "port",
+      "parameters": {
+        "low": 44300,
+        "high": 44399,
+        "fallback": 5001
+      },
+      "replaces": "44395"
+    },
+    "ConnectionString": {
+      "displayName": "Connection string",
+      "description": "Database connection string used by Umbraco.",
+      "type": "parameter",
+      "datatype": "string",
+      "defaultValue": "",
+      "replaces": "Data Source=|DataDirectory|/Umbraco.sqlite.db;Cache=Shared;Foreign Keys=True;Pooling=True"
+    },
+    "ConnectionStringProviderName": {
+      "displayName": "Connection string provider name",
+      "description": "Database connection string provider name used by Umbraco.",
+      "type": "parameter",
+      "datatype": "string",
+      "defaultValue": "Microsoft.Data.SqlClient",
+      "replaces": "Microsoft.Data.Sqlite"
+    }
+  },
+  "sources": [
+    {
+      "modifiers": [
         {
-          "modifiers": [
-            {
-              "exclude": [
-                "umbraco/**"
-              ]
-            }
+          "exclude": [
+            "umbraco/**"
           ]
         }
       ]
-  }
+    }
+  ]
+}
