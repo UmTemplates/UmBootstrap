@@ -1,0 +1,15 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<Umbraco.Core.Models.PublishedContent.IPublishedContent>
+
+@{
+    var faqs = Model.Value<IEnumerable<IPublishedElement>>("featurePropertyFAQs");
+}
+
+@foreach (var faq in faqs)
+{
+    var question = faq.Value<string>("featurePropertyFAQsQuestion");
+    var answer = faq.Value<string>("featurePropertyFAQsAnswer");
+
+    // Render the question and answer
+    <h4>@question</h4>
+    <p>@answer</p>
+}

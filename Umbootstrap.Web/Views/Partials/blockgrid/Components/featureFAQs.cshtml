@@ -1,0 +1,11 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage;
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@using Umbraco.Cms.Core.Models.Blocks;
+@{
+    var variants = Model.Value<IEnumerable<BlockListItem>>("featureComponentFAQ").Select(x => x.Content);
+    foreach (var variant in variants)
+    {
+        <h4>@variant.Value("featurePropertyFAQsQuestion")</h4>
+        <p>@variant.Value("featurePropertyFAQsAnswer")</p>
+    }
+}
