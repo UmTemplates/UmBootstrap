@@ -10,15 +10,3 @@
 
 <h4>@question</h4>
 <p>@answer</p>
-
-@*@foreach (var faqItem in faqItems)
-{
-    var faq = faqItem.Content;
-    var question = faq.Value<string>("featurePropertyFAQsQuestion");
-    var answer = faq.Value<string>("featurePropertyFAQsAnswer");
-
-    // Render the question and answer
-    <h4>@question</h4>
-    <p>@answer</p>
-}
-*@

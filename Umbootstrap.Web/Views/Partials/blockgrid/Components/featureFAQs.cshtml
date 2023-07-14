@@ -6,12 +6,27 @@
     var faqItems = content.Value<IEnumerable<BlockListItem>>("FeaturePropertyFaqs")?.ToList();
 }
 
+@{
+    Layout = "_Layout_Features.cshtml";
+}
 
 @if (faqItems != null && faqItems.Any())
 {
     foreach (var faq in faqItems.Select(faqItem => faqItem.Content))
     {
-        <h4>@faq.Value("featurePropertyFAQsQuestion")</h4>
-        <p>@faq.Value("featurePropertyFAQsAnswer")</p>
+        @*<h4>@faq.Value("featurePropertyFAQsQuestion")</h4>
+        <p>@faq.Value("featurePropertyFAQsAnswer")</p>*@
+        <div class="accordion accordion-flush" id="n@(content.Key.ToString("N"))">
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#n@(faq.Key.ToString("N"))" aria-expanded="false" aria-controls="n@(faq.Key.ToString("N"))">
+                        @faq.Value("featurePropertyFAQsQuestion")
+                    </button>
+                </h2>
+                <div id="n@(faq.Key.ToString("N"))" class="accordion-collapse collapse" data-bs-parent="#n@(content.Key.ToString("N"))">
+                    <div class="accordion-body">@faq.Value("featurePropertyFAQsAnswer")</div>
+                </div>
+            </div>
+        </div>
     }
 }
