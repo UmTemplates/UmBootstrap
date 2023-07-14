@@ -1,11 +1,19 @@
-﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<Umbraco.Core.Models.PublishedContent.IPublishedContent>
+﻿@using Umbraco.Cms.Core.Models.Blocks
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockListItem>
 
 @{
-    var faqs = Model.Value<IEnumerable<IPublishedElement>>("featurePropertyFAQs");
+
+    var faq = Model.Content;
+    var question = faq.Value<string>("featurePropertyFAQsQuestion");
+    var answer = faq.Value<string>("featurePropertyFAQsAnswer");
 }
 
-@foreach (var faq in faqs)
+<h4>@question</h4>
+<p>@answer</p>
+
+@*@foreach (var faqItem in faqItems)
 {
+    var faq = faqItem.Content;
     var question = faq.Value<string>("featurePropertyFAQsQuestion");
     var answer = faq.Value<string>("featurePropertyFAQsAnswer");
 
@@ -13,3 +21,4 @@
     <h4>@question</h4>
     <p>@answer</p>
 }
+*@

@@ -1,11 +1,17 @@
-﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage;
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem>
 @using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
 @using Umbraco.Cms.Core.Models.Blocks;
 @{
-    var variants = Model.Value<IEnumerable<BlockListItem>>("featureComponentFAQ").Select(x => x.Content);
-    foreach (var variant in variants)
+    var content = Model.Content;
+    var faqItems = content.Value<IEnumerable<BlockListItem>>("FeaturePropertyFaqs")?.ToList();
+}
+
+
+@if (faqItems != null && faqItems.Any())
+{
+    foreach (var faq in faqItems.Select(faqItem => faqItem.Content))
     {
-        <h4>@variant.Value("featurePropertyFAQsQuestion")</h4>
-        <p>@variant.Value("featurePropertyFAQsAnswer")</p>
+        <h4>@faq.Value("featurePropertyFAQsQuestion")</h4>
+        <p>@faq.Value("featurePropertyFAQsAnswer")</p>
     }
 }
