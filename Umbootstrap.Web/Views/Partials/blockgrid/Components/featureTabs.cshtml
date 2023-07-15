@@ -1,0 +1,61 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem>
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@using Umbraco.Cms.Core.Models.Blocks;
+@{
+    var content = Model.Content;
+    var tabItems = content.Value<IEnumerable<BlockListItem>>("FeaturePropertyTabs")?.ToList();
+}
+
+@{
+    Layout = "_Layout_Features.cshtml";
+}
+
+@if (tabItems != null && tabItems.Any())
+{
+    <ul class="nav nav-tabs" id="n@(content.Key.ToString("N"))" role="tablist">
+        @foreach (var tab in tabItems.Select(tabItem => tabItem.Content))
+        {
+            <li class="nav-item" role="presentation">
+                <button class="nav-link @(tab.Key == tabItems.First().Content.Key ? "active" : "")" id="n@(tab.Key.ToString("N"))-tab" data-bs-toggle="tab" data-bs-target="#n@(tab.Key.ToString("N"))"
+                        type="button" role="tab" aria-controls="n@(tab.Key.ToString("N"))" aria-selected="@(tab.Key == tabItems.First().Content.Key ? "true" : "false")">
+                    @tab.Value("featurePropertyFeatureTitle")
+                </button>
+            </li>
+        }
+    </ul>
+    <ul class="tab-content" id="n@(content.Key.ToString("N"))">
+        @foreach (var tab in tabItems.Select(tabItem => tabItem.Content))
+        {
+            <div class="tab-pane fade" id="n@(tab.Key.ToString("N"))" role="tabpanel" aria-labelledby="n@(tab.Key.ToString("N"))-tab">
+                <h2>@tab.Value("featurePropertyFeatureTitle")</h2>
+                <p>@tab.Value("featurePropertyTabsContent")</p>
+                <div class="block" style="display:block;">@tab.Value("richTextContent")</div>
+            </div>
+        }
+    </ul>
+}
+
+@*<ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">Home</button>
+    </li>
+    <li class="nav-item" role="presentation">
+        <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">Profile</button>
+    </li>
+    <li class="nav-item" role="presentation">
+        <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact-tab-pane" type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false">Contact</button>
+    </li>
+    <li class="nav-item" role="presentation">
+        <button class="nav-link" id="disabled-tab" data-bs-toggle="tab" data-bs-target="#disabled-tab-pane" type="button" role="tab" aria-controls="disabled-tab-pane" aria-selected="false" disabled>Disabled</button>
+    </li>
+</ul>
+<div class="tab-content" id="myTabContent">
+    <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">...</div>
+    <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">...</div>
+    <div class="tab-pane fade" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab" tabindex="0">...</div>
+    <div class="tab-pane fade" id="disabled-tab-pane" role="tabpanel" aria-labelledby="disabled-tab" tabindex="0">...</div>
+</div>*@
+
+
++++++++
+
