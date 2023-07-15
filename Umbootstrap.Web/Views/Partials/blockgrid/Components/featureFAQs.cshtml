@@ -14,8 +14,6 @@
 {
     foreach (var faq in faqItems.Select(faqItem => faqItem.Content))
     {
-        @*<h4>@faq.Value("featurePropertyFAQsQuestion")</h4>
-        <p>@faq.Value("featurePropertyFAQsAnswer")</p>*@
         <div class="accordion accordion-flush" id="n@(content.Key.ToString("N"))">
             <div class="accordion-item">
                 <h2 class="accordion-header">

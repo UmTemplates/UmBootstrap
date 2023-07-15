@@ -24,27 +24,13 @@
                 <div class="card h-100 shadow">
                     <img src="@(item.Value<IPublishedContent>("pageThumbnail").GetCropUrl(width:480))" class="card-img-top" alt="...">
                     <div class="card-body">
-                        <h5 class="card-title"><a class="nav-link stretched-link" href="@item.Url()">@item.Value("pageTitle")</a></h5>
-                        <p class="card-text">@item.Name</p>
+                        <h5 class="card-title pb-1"><a class="nav-link stretched-link" href="@item.Url()">@item.Value("pageTitle")</a></h5>
+                        <p class="card-text pb-2">@item.Name</p>
                     </div>
                 </div>
             </div>
         }
     }
 </div>
-
-
-@*@{
-    var typedMultiNodeTreePicker = Model.Content.Value<IEnumerable<IPublishedContent>>("links");
-    if (typedMultiNodeTreePicker != null)
-    {
-        foreach (var item in typedMultiNodeTreePicker)
-        {
-            <p>
-                <a href="@item.Url()">@item.Name</a>
-            </p>
-        }
-    }
-}*@
 
 
