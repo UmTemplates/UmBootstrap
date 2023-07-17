@@ -37,27 +37,31 @@
                 {
                     @foreach (var tabContentItem in tabContent.Select(tabContentItem => tabContentItem.Content))
                     {
-                        @if (tabContentItem.Value("richtextcontent") != null)
+                        // if richtextcontent is not empty or image is not empty
+
+                        @if (!string.IsNullOrEmpty(tabContentItem.Value<string>("richtextcontent")) || tabContentItem.HasValue("image"))
+                        {
 
                             // if featurePropertyFeatureTitle is not empty
                             if (tabContentItem.HasValue("featurePropertyFeatureTitle"))
                             {
                                 <h3>@tabContentItem.Value("featurePropertyFeatureTitle")</h3>
                             }
-                        // if featurePropertyFeatureDescription is not empty
-                        if (tabContentItem.HasValue("featurePropertyFeatureDescription"))
-                        {
-                            <p class="lead">@tabContentItem.Value("featurePropertyFeatureDescription")</p>
-                        }
-                        // if richtextcontent is not empty
-                        if (tabContentItem.HasValue("richtextcontent"))
-                        {
-                            @tabContentItem.Value("richtextcontent")
-                        }
-                        // if it's an image use this:
-                        @if (tabContentItem.HasValue("image"))
-                        {
-                            <img src="@(tabContentItem.Value<IPublishedContent>("image").Url())" style="object-fit: cover; width: 100%; height: 100%;" />
+                            // if featurePropertyFeatureDescription is not empty
+                            if (tabContentItem.HasValue("featurePropertyFeatureDescription"))
+                            {
+                                <p class="lead">@tabContentItem.Value("featurePropertyFeatureDescription")</p>
+                            }
+                            // if richtextcontent is not empty
+                            if (tabContentItem.HasValue("richtextcontent"))
+                            {
+                                @tabContentItem.Value("richtextcontent")
+                            }
+                                // if it's an image use this:
+                            @if (tabContentItem.HasValue("image"))
+                            {
+                                <img src="@(tabContentItem.Value<IPublishedContent>("image").Url())" style="object-fit: cover; width: 100%; height: 100%;" />
+                            }
                         }
                     }
                 }
