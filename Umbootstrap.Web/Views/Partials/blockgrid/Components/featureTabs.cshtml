@@ -18,7 +18,7 @@
             <li class="nav-item" role="presentation">
                 <button class="nav-link @(tab.Key == tabItems.First().Content.Key ? "active" : "")" id="n@(tab.Key.ToString("N"))-tab" data-bs-toggle="tab" data-bs-target="#n@(tab.Key.ToString("N"))"
                         type="button" role="tab" aria-controls="n@(tab.Key.ToString("N"))" aria-selected="@(tab.Key == tabItems.First().Content.Key ? "true" : "false")">
-                    @tab.Value("featurePropertyFeatureTitle")
+                    @tab.Value("featurePropertyTabTitle")
                 </button>
             </li>
         }
@@ -27,18 +27,69 @@
         @foreach (var tab in tabItems.Select(tabItem => tabItem.Content))
         {
             <div class="tab-pane" id="n@(tab.Key.ToString("N"))" role="tabpanel" aria-labelledby="n@(tab.Key.ToString("N"))-tab">
-                <h2>@tab.Value("featurePropertyFeatureDescription")</h2>
+                <h2>@tab.Value("featurePropertyTabTitle")</h2>
 
-                @*<p>@tab.Value("featurePropertyTabsContent")</p>
-                    does not work 
-                *@
+                @{ 
+                    // get the content of the tab
+                    var tabContent = Model.Content;
+                    var tabContentItems = tabContent.Value<IEnumerable<BlockListItem>>("featurePropertyTabContent")?.ToList();
+                }
+
+                @if (tabContentItems != null) {
+                    <ul>
+                        @foreach (var tabContentItem in tabContentItems.Select(tabContentItem => tabContentItem))
+                        {
+                            <li>
+                                xxxxxx
+                                @if (tabContentItem.Content.Value("richtextcontent") != null)
+                                // if it's a rich text editor, use this:
+                                {
+                                    @tabContentItem.Content.Value("richtextcontent")
+                                }
+                            </li>
+                        }
+                    </ul>
+                }
+               @* @foreach (var tabContentItem in tabContentItems)
+                {
+                    
+                    @if (tabContentItem.Content.Value("richtextcontent") != null)
+                    // if it's a rich text editor, use this:
+                    {
+                        @tabContentItem.Content.Value("richtextcontent")
+                    }
+
+                    @*if (item is ContentModels.FeatureComponentTab)
+                    {
+                        var typedItem = item as ContentModels.FeatureComponentTab;
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h2>@typedItem.FeaturePropertyTabTitle</h2>
+                                <p>@typedItem.FeaturePropertyTabContent</p>
+                            </div>
+                            <div class="col-md-6">
+                                @if (typedItem.FeaturePropertyTabImage != null)
+                                {
+                                    <img src="@typedItem.FeaturePropertyTabImage.Url" style="object-fit:cover; width:100%; height:100%;" />
+                                }
+                                else
+                                {
+                                    <p>Missing image</p>
+                                }
+                            </div>
+                        </div>
+                    }*@
                 
-                @if (tab.Value("richTextContent") != null)
+
+                
+                
+                
+                @*@if (tab.value("richtextcontent") != null)
                 // if it's a rich text editor, use this:
                 {
-                    @tab.Value("richTextContent")
-                }
-                @if (tab.Value("featureImage") != null)
+                    @tab.value("richtextcontent")
+                }*@
+                @*@if (tab.Value("featureImage") != null)
                 // if it's an image, use this:
                 {
                     var typedMediaPickerSingle = Model.Content.Value<Umbraco.Cms.Core.Models.MediaWithCrops>("image");
@@ -50,10 +101,29 @@
                     {
                         <p>Missing image</p>
                     }
-                }
+                }*@
             </div>
         }
     </ul>
 }
+
+
+<!-- 
+1. The Block Grid item featureTabs calls the Element Type featureComponentTabs in a composition
+2. featureComponentTabs has a property featurePropertyTabs that calls a Block List DataType:
+Feature Component - Tabs - Feature Property Tabs - Block List
+3. The Block List DataType has a Block that calls the Element Type featureComponentTab
+4. featureComponentTab has 2 properties:
+a - featurePropertyTabTitle
+b - featurePropertyTabContent
+5. featurePropertyTabContent calls a Block List DataType:
+Feature Component - Tabs - Feature Property Tab Content - Block List
+6. The Block List DataType has two blocks:
+a - text
+b - image
+ -->
+
+
+
 
 
