@@ -1,0 +1,11 @@
+﻿@using Umbraco.Cms.Core.Models.Blocks
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockListItem>
+
+@{
+
+    var faq = Model.Content;
+    var tabTitle = faq.Value<string>("featurePropertyTabTitle");
+    var answer = faq.Value<string>("featurePropertyFAQsAnswer");
+}
+
+<h4>@tabTitle</h4>
