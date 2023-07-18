@@ -1,13 +1,29 @@
 ﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem>
 @using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
 @using Umbraco.Cms.Core.Models.Blocks;
-@{
-    var content = Model.Content;
-    var tabItems = content.Value<IEnumerable<BlockListItem>>("FeaturePropertyTabs")?.ToList();
-}
 
 @{
     Layout = "_Layout_Features.cshtml";
+}
+
+<!--
+1. The Block Grid item featureTabs calls the Element Type featureComponentTabs in a composition
+2. featureComponentTabs has a property featurePropertyTabs that calls a Block List DataType:
+Feature Component - Tabs - Feature Property Tabs - Block List
+3. The Block List DataType has a Block that calls the Element Type featureComponentTab
+4. featureComponentTab has 2 properties:
+a - featurePropertyTabTitle
+b - featurePropertyTabContent
+5. featurePropertyTabContent calls a Block List DataType:
+Feature Component - Tabs - Feature Property Tab Content - Block List
+6. The Block List DataType has two blocks:
+a - text
+b - image
+ -->
+
+@{
+    var content = Model.Content;
+    var tabItems = content.Value<IEnumerable<BlockListItem>>("FeaturePropertyTabs")?.ToList();
 }
 
 <div class="card">
@@ -78,17 +94,4 @@
 </div>
 
 
-<!--
-1. The Block Grid item featureTabs calls the Element Type featureComponentTabs in a composition
-2. featureComponentTabs has a property featurePropertyTabs that calls a Block List DataType:
-Feature Component - Tabs - Feature Property Tabs - Block List
-3. The Block List DataType has a Block that calls the Element Type featureComponentTab
-4. featureComponentTab has 2 properties:
-a - featurePropertyTabTitle
-b - featurePropertyTabContent
-5. featurePropertyTabContent calls a Block List DataType:
-Feature Component - Tabs - Feature Property Tab Content - Block List
-6. The Block List DataType has two blocks:
-a - text
-b - image
- -->
+
