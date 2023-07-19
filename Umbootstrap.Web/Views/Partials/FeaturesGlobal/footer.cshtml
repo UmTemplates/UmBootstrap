@@ -1,0 +1,18 @@
+﻿@using UmbNav.Core.Models
+@using UmbNav.Core.Extensions
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@{
+    Layout = null;
+
+    var siteSettings = UmbracoContext.Content.GetSingleByXPath("//siteSettings");
+}
+
+
+<footer b-ss9879bxrr class="border-top footer text-muted">
+    <div b-ss9879bxrr class="container">
+        <p>Special thanks to <a href="https://my.umbhost.net/aff.php?aff=1535">Umbhost</a></p>
+
+        <p>&copy; @DateTime.Now.Year - @siteSettings.Value("copyright")</p>
+
+    </div>
+</footer>
