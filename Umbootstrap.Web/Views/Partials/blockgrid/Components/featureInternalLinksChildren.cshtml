@@ -10,7 +10,11 @@
     {
         <div class="g-col-12 g-col-md-6 g-col-lg-4">
             <div class="card h-100 shadow">
-                <img src="@(varWebpage.Value<IPublishedContent>("pageThumbnail").GetCropUrl(width:480))" class="card-img-top" alt="...">
+                @if (varWebpage.Value<IPublishedContent>("pageThumbnail") != null)
+                {
+                    // if image is not null, display image}
+                    <img src="@(varWebpage.Value<IPublishedContent>("pageThumbnail").GetCropUrl(width:480))" class="card-img-top" alt="...">
+                }
                 @*<div class="card-header">
             <h5 class="card-title text-center pt-2"><a class="nav-link stretched-link" href="@varWebpage.Url()">@varWebpage.Value("pageTitle")</a></h5>
             </div>*@
