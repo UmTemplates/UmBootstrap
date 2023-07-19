@@ -4,12 +4,25 @@
     if (Model?.Any() != true) { return; }
 }
 
-<!-- START - ITEMS -->
-@*<div class="items">*@
+@{
+    bool layout = false; // Declare the layout variable outside the loop
+}
+
 @foreach (var item in Model)
 {
-    @*<div class="item" data-block-alias="@item.Content.ContentType.Alias">*@
+    if (item.Content.ContentType.Alias.StartsWith("layout"))
     {
+        layout = true; // Set the layout variable to true if the condition is met
+    }
+}
+
+
+<!-- START - ITEMS -->
+<div class="items d-flex flex-column @(layout ? "gap-0" : "gap-3")">
+@foreach (var item in Model)
+{
+    <div class="item" data-block-alias="@item.Content.ContentType.Alias">
+    @{
         var partialViewName = "blockgrid/Components/" + item.Content.ContentType.Alias;
         try
         {
@@ -26,9 +39,9 @@
             </p>
         }
     }
-    @*</div>*@
+    </div>
 }
-@*</div>*@
+</div>
 <!-- END - ITEMS -->
 @*<div class="umb-block-grid__layout-container">
     @foreach (var item in Model)
