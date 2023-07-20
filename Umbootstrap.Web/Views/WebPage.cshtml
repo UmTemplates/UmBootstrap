@@ -2,12 +2,14 @@
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.WebPage>
 @using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
 @{
-	Layout = "_Layout.cshtml";
+    Layout = "_Layout.cshtml";
 }
 
-<div class="container text-center p-3 bg-light mt-3">
-    <h1 class="display-4">@Model.Value("pageTitle")</h1>
-    <p class="lead">@Model.Value("pageDescription")</p>
+<div class="container p-3 bg-light mt-3 d-flex justify-content-center">
+    <div class="w-75 text-center">
+        <h1 class="display-4">@Model.Value("pageTitle")</h1>
+        <p class="lead">@Model.Value("pageDescription")</p>
+    </div>
 </div>
 
 <!-- START - BLOCK GRID -->
