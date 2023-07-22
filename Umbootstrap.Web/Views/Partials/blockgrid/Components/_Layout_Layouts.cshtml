@@ -1,5 +1,6 @@
 ﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem>
 @using Umbraco.Cms.Core.PropertyEditors.ValueConverters;
+@using Umbraco.Cms.Core.PropertyEditors;
 
 @{
     Layout = null;
@@ -8,16 +9,24 @@
 @{
     if (Model?.Areas.Any() != true) { return; }
 
-    bool hasSettings = Model.Settings != null;
-    string colorLabel = null;
+    var hasSettings = Model.Settings != null;
+    var backgroundColour = hasSettings ? Model.Settings.Value<ColorPickerValueConverter.PickedColor>("layoutSettingsColourPicker") : null;
+    var colorLabel = backgroundColour?.Label;
 
-    if (hasSettings)
-    {
-        var backgroundColour = Model.Settings.Value<ColorPickerValueConverter.PickedColor>("layoutSettingsColourPicker");
-        colorLabel = backgroundColour?.Label;
-    }
+    var colorShades = hasSettings ? Model.Settings.Value<decimal>("layoutSettingsColourShades") : (decimal?)null;
 }
 
-<div class="layout py-3" style="@(hasSettings && colorLabel != null ? $"background-color: var({colorLabel});" : "")" data-block-alias="@Model.Content.ContentType.Alias">
+@{
+    string styleAttribute = "";
+    if (hasSettings && backgroundColour != null)
+    {
+        styleAttribute = $"background-color: var({colorLabel}";
+        if (colorShades.HasValue)
+        {
+            styleAttribute += $"-{colorShades});";
+        }
+    }
+}
+<div class="layout py-3" style="@styleAttribute" data-block-alias="@Model.Content.ContentType.Alias">
     @RenderBody()
 </div>
