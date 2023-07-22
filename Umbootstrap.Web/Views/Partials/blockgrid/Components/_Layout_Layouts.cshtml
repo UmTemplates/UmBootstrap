@@ -30,27 +30,3 @@
 <div class="layout py-3" style="@styleAttribute" data-block-alias="@Model.Content.ContentType.Alias">
     @RenderBody()
 </div>
-
-
-
-
-
-
-
-
-
-
-
-@*@{
-    if (Model?.Areas.Any() != true) { return; }
-
-    var hasSettings = Model.Settings != null;
-    var backgroundColour = hasSettings ? Model.Settings.Value<ColorPickerValueConverter.PickedColor>("layoutSettingsColourPicker") : null;
-    var colorLabel = backgroundColour?.Label;
-
-    var colorShades = hasSettings ? Model.Settings.Value<decimal>("layoutSettingsColourShades") : (decimal?)null;
-}
-
-<div class="layout py-3" style="@(hasSettings && colorLabel != null ? $"background-color: var({colorLabel});" : "")" data-block-alias="@Model.Content.ContentType.Alias">
-    @RenderBody()
-</div>*@
