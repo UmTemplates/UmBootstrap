@@ -1,14 +1,10 @@
-﻿@using Umbraco.Cms.Web.Common.PublishedModels;
-@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.Home>
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.Home>
 @using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@using Umbraco.Cms.Web.Common.PublishedModels;
+
 @{
     Layout = "_Layout.cshtml";
 }
-
-<div class="container text-center p-3 bg-light mt-3">
-    <h1 class="display-4">@Model.Value("pageTitle")</h1>
-    <p class="lead">@Model.Value("pageDescription")</p>
-</div>
 
 <!-- START - BLOCK GRID -->
 @await Html.GetBlockGridHtmlAsync(Model, "contentGrid")

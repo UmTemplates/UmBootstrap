@@ -1,0 +1,17 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem>
+@using Umbraco.Cms.Core.Models.PublishedContent;
+@using Umbraco.Cms.Web.Common.PublishedModels;
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+
+@{
+    Layout = "_Layout_Features.cshtml";
+    // Get the current page
+    IPublishedContent thisPage = UmbracoContext!.PublishedRequest!.PublishedContent!;
+}
+
+<div class="container p-3 bg-light mt-3 d-flex justify-content-center">
+    <div class="w-75 text-center">
+        <h1 class="display-4">@thisPage.Value("pagetitle")</h1>
+        <p class="lead">@thisPage.Value("pagedescription")</p>
+    </div>
+</div>
