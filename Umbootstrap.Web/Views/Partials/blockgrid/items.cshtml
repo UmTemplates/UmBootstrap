@@ -21,8 +21,7 @@
 <div class="items d-flex flex-column @(layout ? "gap-0" : "gap-3")">
 @foreach (var item in Model)
 {
-    <div class="item" data-block-alias="@item.Content.ContentType.Alias">
-    @{
+    {
         var partialViewName = "blockgrid/Components/" + item.Content.ContentType.Alias;
         try
         {
@@ -39,7 +38,6 @@
             </p>
         }
     }
-    </div>
 }
 </div>
 <!-- END - ITEMS -->
