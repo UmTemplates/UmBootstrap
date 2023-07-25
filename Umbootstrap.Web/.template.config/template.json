@@ -2,12 +2,11 @@
   "$schema": "http://json.schemastore.org/template",
   "author": "Dean Leigh",
   "classifications": [ "Web", "Umbraco", "Starter Kit" ],
-  "name": "Umbootstrap Umbraco Starter Kit",
-  "description": "A project template for creating a new Umbraco site using the Umbootstrap starter kit",
+  "name": "Umbraco Umbootstrap Starter Kit",
+  "description": "A project template for creating a new Umbraco site using the Umbootstrap Starter Kit",
   "identity": "Umbraco.Community.Templates.Umbootstrap",
   "shortName": "umbootstrap",
-  "version": "1.0.1", // Add the version number here
-  "tags": {
+    "tags": {
     "language": "C#",
     "type": "project"
   },
