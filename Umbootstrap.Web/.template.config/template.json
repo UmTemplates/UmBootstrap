@@ -1,10 +1,10 @@
 {
   "$schema": "http://json.schemastore.org/template",
   "author": "Dean Leigh",
-  "classifications": [ "Web", "Umbraco", "Starter Kit" ],
-  "name": "Umbraco Umbootstrap Starter Kit",
-  "description": "A project template for creating a new Umbraco site using the Umbootstrap Starter Kit",
-  "identity": "Umbraco.Community.Templates.Umbootstrap",
+  "classifications": [ "Web", "CMS", "Umbraco", "Bootstrap", "Starter Kit" ],
+  "name": "Umbraco UmBootstrap Starter Kit",
+  "description": "A project template for creating a new Umbraco site using the UmBootstrap Starter Kit",
+  "identity": "Umbraco.Community.Templates.UmBootstrap",
   "shortName": "umbootstrap",
     "tags": {
     "language": "C#",
