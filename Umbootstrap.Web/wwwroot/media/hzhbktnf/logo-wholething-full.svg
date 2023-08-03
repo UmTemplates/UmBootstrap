@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1104" height="280" viewBox="0 0 1104 280">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.868" y1="0.047" x2="0.062" y2="0.886" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#3c1391"/>
+      <stop offset="0.095" stop-color="#41118f"/>
+      <stop offset="0.214" stop-color="#500c8a"/>
+      <stop offset="0.345" stop-color="#6a0482"/>
+      <stop offset="0.4" stop-color="#77007f"/>
+      <stop offset="0.519" stop-color="#9a0070"/>
+      <stop offset="0.654" stop-color="#bc0062"/>
+      <stop offset="0.782" stop-color="#d40058"/>
+      <stop offset="0.901" stop-color="#e20052"/>
+      <stop offset="1" stop-color="#e80050"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-2" y1="0.5" x2="1" y2="0.5" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#af0032"/>
+      <stop offset="0.074" stop-color="#b2052f"/>
+      <stop offset="0.166" stop-color="#be1426"/>
+      <stop offset="0.268" stop-color="#d02e18"/>
+      <stop offset="0.377" stop-color="#e95104"/>
+      <stop offset="0.4" stop-color="#f05a00"/>
+      <stop offset="0.522" stop-color="#f47e0c"/>
+      <stop offset="0.655" stop-color="#f9a018"/>
+      <stop offset="0.783" stop-color="#fcb821"/>
+      <stop offset="0.901" stop-color="#fec626"/>
+      <stop offset="1" stop-color="#ffcc28"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-3" x1="0.839" y1="0.998" x2="0.242" y2="-0.156" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#b8c84c"/>
+      <stop offset="0.048" stop-color="#b2c64d"/>
+      <stop offset="0.108" stop-color="#a3c351"/>
+      <stop offset="0.175" stop-color="#89bd58"/>
+      <stop offset="0.246" stop-color="#66b661"/>
+      <stop offset="0.321" stop-color="#38ac6d"/>
+      <stop offset="0.398" stop-color="#01a07b"/>
+      <stop offset="0.4" stop-color="#00a07c"/>
+      <stop offset="0.442" stop-color="#049085"/>
+      <stop offset="0.567" stop-color="#0f65a0"/>
+      <stop offset="0.689" stop-color="#1743b5"/>
+      <stop offset="0.804" stop-color="#1d2bc4"/>
+      <stop offset="0.911" stop-color="#211dcd"/>
+      <stop offset="1" stop-color="#2318d1"/>
+    </linearGradient>
+    <clipPath id="clip-Logo_-_Wholething_-_Full">
+      <rect width="1104" height="280"/>
+    </clipPath>
+  </defs>
+  <g id="Logo_-_Wholething_-_Full" data-name="Logo - Wholething - Full" clip-path="url(#clip-Logo_-_Wholething_-_Full)">
+    <rect width="1104" height="280" fill="#fff"/>
+    <g id="Group_5" data-name="Group 5" transform="translate(1 0)">
+      <g id="Group_2" data-name="Group 2">
+        <g id="Gap_Closer" data-name="Gap Closer" transform="translate(33.208 0)">
+          <rect id="Rectangle_1" data-name="Rectangle 1" width="53.907" height="46.582" transform="translate(67.383)" fill="#2318d1"/>
+          <path id="Path_4" data-name="Path 4" d="M.044.051,53.862,0l-.044,46.659L0,46.71Z" transform="translate(26.931 256.266) rotate(-120)" fill="#e80050"/>
+          <path id="Path_5" data-name="Path 5" d="M0,0,53.818.051l.044,46.659L.044,46.659Z" transform="translate(269.533 163.038) rotate(120)" fill="#ffcc28"/>
+        </g>
+        <g id="Symbol" transform="translate(0 0)">
+          <g id="Group_1" data-name="Group 1">
+            <path id="Path_1" data-name="Path 1" d="M263.074,186.329l80.86-139.747L330.457,23.291A46.7,46.7,0,0,0,290.027,0h0A46.7,46.7,0,0,0,249.6,23.291L195.69,116.456a46.494,46.494,0,0,0,0,46.582L249.6,256.2a46.494,46.494,0,0,1,0-46.582Z" transform="translate(-189.436)" fill="url(#linear-gradient)"/>
+            <path id="Path_2" data-name="Path 2" d="M453.646,303.165a46.7,46.7,0,0,1-40.43,23.291H305.4a46.7,46.7,0,0,1-40.43-23.291h0a46.494,46.494,0,0,1,0-46.582l13.477-23.291H467.122A46.7,46.7,0,0,0,507.552,210Z" transform="translate(-204.811 -46.962)" fill="url(#linear-gradient-2)"/>
+            <path id="Path_3" data-name="Path 3" d="M520.868,116.456,466.961,23.291A46.7,46.7,0,0,0,426.531,0H318.718a46.7,46.7,0,0,1,40.43,23.291l13.476,23.291,80.86,139.747h26.953a46.7,46.7,0,0,0,40.43-23.291h0A46.5,46.5,0,0,0,520.868,116.456Z" transform="translate(-218.127)" fill="url(#linear-gradient-3)"/>
+          </g>
+        </g>
+      </g>
+      <g id="Group_3" data-name="Group 3" transform="translate(381.975 23.291)">
+        <text id="wholething" transform="translate(0.025 110.709)" font-size="112" font-family="Prometo-Regular, Prometo"><tspan x="0" y="0">WHOLETHING</tspan></text>
+        <text id="digital_communications" data-name="digital communications" transform="translate(5.025 217.709)" font-size="55" font-family="Soleto-Regular, Soleto" letter-spacing="0.024em"><tspan x="0" y="0">DIGITAL COMMUNICATIONS</tspan></text>
+      </g>
+    </g>
+  </g>
+</svg>
