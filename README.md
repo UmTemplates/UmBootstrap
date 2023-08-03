@@ -1,7 +1,8 @@
 # UmBootstrap
 
 ## Description
-UmBootstrap is not just a starter kit for building websites. It is a comprehensive solution that offers a variety of layout templates and a rich component library to suit your needs.
+UmBootstrap is more than an Umbraco Starter Kit.
+It is a comprehensive solution that offers a variety of layout templates and a rich component library to suit your needs.
 At the heart of UmBootstrap is an Umbraco website containing sections and pages which are all created using well documented Umbraco techniques and structured using Bootstraps HTML and CSS. 
 ## Features
 UmBootstrap Is comprised of page templates, section templates and a wide variety of components commonly found in my websites.
