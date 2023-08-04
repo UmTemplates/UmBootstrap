@@ -26,8 +26,8 @@ Then run the following command:
 ## Building the UmBootstrap solution
 
 > **NOTE**  
-> You will need to have Visual Studio 2019 installed to build the UmBootstrap solution remove the connection string from the appsettings.json file before the first build.
-
+> To build the UmBootstrap solution remove the connection string from the appsettings.json file before the first build.
+>
 
 Make your changes to the UmBootstrap repository on your local machine.
 
