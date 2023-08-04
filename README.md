@@ -1,18 +1,31 @@
 # UmBootstrap
 
 ## Description
-UmBootstrap is more than an Umbraco Starter Kit although it can be used as one.
-It is comprised of:
-* Page layout templates
-* Section layout templates
-* Feature templates
+UmBootstrap is an Umbraco Starter Kit, Template Library and Component Library.
 
-At the heart of UmBootstrap is an Umbraco website containing sections and pages which are all created using well documented Umbraco techniques and structured using Bootstraps HTML and CSS.
+What makes this different from other starter kits is that it is not installed via a Nuget Package on top of an existing Umbraco website, it is an Umbraco website on installation as a dotnet project template.
 
 ## Features
 
-UmBootstrap Is comprised of page templates, section templates and a wide variety of components commonly found in my websites.
-All of this is constructed using Umbraco doctypes and datatypes and Bootstrap HTML and CSS.
+At the heart of UmBootstrap is an Umbraco website containing:
+* Page layout templates
+* Section layout templates
+* Component templates
+
+All of these are constructed using Umbraco doctypes and datatypes and Bootstrap HTML, CSS and JavaScript.
+
+## Installation
+
+The ideal way to install UmBootstrap is a single command line:
+
+    dotnet new umbootstrap -n MyWebsite
+
+ to use the UmBootstrap Visual Studio project template.
+
+This will create a new Umbraco website with UmBootstrap already installed.
+
+## Contributing
+All contributions are welcome. Please read the [contributing guide](CONTRIBUTING.md) to get started.
 
 ## Usage
 
@@ -23,7 +36,3 @@ However, it is not a blank canvas. It is a fully functional website with a varie
 This is ideal if you are new to Umbraco and want to learn how to build websites using Umbraco and Bootstrap.
 
 However, for more experienced developers, you may find that you want to remove some of the templates and components that you don't need or copy and paste the ones that you do need into your own website.
-
-## Installation
-
-The ideal way to install UmBootstrap is to use the UmBootstrap Visual Studio project template. This will create a new Umbraco website with UmBootstrap already installed.
