@@ -16,13 +16,35 @@ All of these are constructed using Umbraco doctypes and datatypes and Bootstrap 
 
 ## Installation
 
+> **NOTE to Contributors**  
+> To contribute to UmBootstrap please read the [Contributing Guide](CONTRIBUTING.md) to get started.
+> All other users should follow the installation instructions below.
+
+### Dotnet CLI
+
 The ideal way to install UmBootstrap is a single command line:
 
     dotnet new umbootstrap -n MyWebsite
 
- to use the UmBootstrap Visual Studio project template.
+ ### Visual Studio
+
+ To use the UmBootstrap Visual Studio project template:
+
+1. Create a new project
 
  ![Visual Studio Get Started Screen](assets/installation-vs-01.png)
+
+2. Search for UmBootstrap or choose Umbraco from Project Type
+
+![Visual Studio New Project Screen](assets/installation-vs-02.png)
+
+3. Select UmBootstrap and click Next
+
+![Visual Studio New Project Screen](assets/installation-vs-03.png)
+
+4. Enter a project name and click Create
+
+![Visual Studio New Project Screen](assets/installation-vs-04.png)
 
 This will create a new Umbraco website with UmBootstrap already installed.
 
