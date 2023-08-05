@@ -22,6 +22,8 @@ The ideal way to install UmBootstrap is a single command line:
 
  to use the UmBootstrap Visual Studio project template.
 
+ ![Visual Studio Get Started Screen](assets/installation-vs-01.png)
+
 This will create a new Umbraco website with UmBootstrap already installed.
 
 ## Contributing
