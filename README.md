@@ -25,6 +25,8 @@ Please refer to the following guide for instructions on how to contribute to UmB
 > [!WARNING] 
 > Pull requests will not be accepted from users who have not followed the guidelines
 
+---
+
 ### For Users
 There are two ways for users to install UmBootstrap:
 1. Using [.NET CLI](https://learn.microsoft.com/en-us/dotnet/core/tools/)
@@ -45,19 +47,19 @@ The ideal way to install UmBootstrap is a single command line:
 
  To use the UmBootstrap Visual Studio project template:
 
-#### 1. Create a new project
+##### 1. Create a new project
 
  ![Visual Studio Get Started Screen](assets/installation-vs-01.png)
 
-#### 2. Search for UmBootstrap or choose Umbraco from Project Type
+##### 2. Search for UmBootstrap or choose Umbraco from Project Type
 
 ![Visual Studio New Project Screen](assets/installation-vs-02.png)
 
-#### 3. Select UmBootstrap and click Next
+##### 3. Select UmBootstrap and click Next
 
 ![Visual Studio New Project Screen](assets/installation-vs-03.png)
 
-#### 4. Enter a project name and click Create
+##### 4. Enter a project name and click Create
 
 ![Visual Studio New Project Screen](assets/installation-vs-04.png)
 
