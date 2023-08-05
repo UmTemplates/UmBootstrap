@@ -17,18 +17,20 @@ All of these are constructed using Umbraco doctypes and datatypes and Bootstrap 
 ## Installation
 
 ### For Contributors
-[Contributing to UmBootstrap](CONTRIBUTING.md) requires a different process to installing UmBootrap using [.NET CLI](https://learn.microsoft.com/en-us/dotnet/core/tools/).
+[Contributing to UmBootstrap](CONTRIBUTING.md) requires a different process to installing UmBootrap using the instructions intended for users.
 
-> [!NOTE] 
-> Pull requests will not be accepted from users who have not followed the guidlines:
-> - [Contributing to UmBootstrap](CONTRIBUTING.md)
+Please refer to the following guide for instructions on how to contribute to UmBootstrap:
+- [Contributing to UmBootstrap](CONTRIBUTING.md)
+
+> [!WARNING] 
+> Pull requests will not be accepted from users who have not followed the guidelines
 
 ### For Users
 There are two ways for users to install UmBootstrap:
 1. Using [.NET CLI](https://learn.microsoft.com/en-us/dotnet/core/tools/)
 2. Using Visual Studio
 
-> [!WARNING] 
+> [!IMPORTANT] 
 > If you wish to use UmBootstrap for its intended purpose:
 > - You should install it using the [.NET CLI](https://learn.microsoft.com/en-us/dotnet/core/tools/) or Visual Studio
 > - You should not use the UmBootstrap repository
