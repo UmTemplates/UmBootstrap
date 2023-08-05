@@ -14,9 +14,8 @@ At the heart of UmBootstrap is an Umbraco website containing:
 
 All of these are constructed using Umbraco doctypes and datatypes and Bootstrap HTML, CSS and JavaScript.
 
-## Installation
+## Installation for Contributors
 
-### For Contributors
 [Contributing to UmBootstrap](CONTRIBUTING.md) requires a different process to installing UmBootrap using the instructions intended for users.
 
 Please refer to the following guide for instructions on how to contribute to UmBootstrap:
@@ -25,9 +24,8 @@ Please refer to the following guide for instructions on how to contribute to UmB
 > [!WARNING] 
 > Pull requests will not be accepted from users who have not followed the guidelines
 
----
+## Installation for Users
 
-### For Users
 There are two ways for users to install UmBootstrap:
 1. Using [.NET CLI](https://learn.microsoft.com/en-us/dotnet/core/tools/)
 2. Using Visual Studio
@@ -37,29 +35,29 @@ There are two ways for users to install UmBootstrap:
 > - You should install it using the [.NET CLI](https://learn.microsoft.com/en-us/dotnet/core/tools/) or Visual Studio
 > - You should not use the UmBootstrap repository
 
-#### .NET CLI
+### .NET CLI
 
 The ideal way to install UmBootstrap is a single command line:
 
     dotnet new umbootstrap -n MyWebsite
 
- #### Visual Studio
+ ### Visual Studio
 
  To use the UmBootstrap Visual Studio project template:
 
-##### 1. Create a new project
+#### 1. Create a new project
 
  ![Visual Studio Get Started Screen](assets/installation-vs-01.png)
 
-##### 2. Search for UmBootstrap or choose Umbraco from Project Type
+#### 2. Search for UmBootstrap or choose Umbraco from Project Type
 
 ![Visual Studio New Project Screen](assets/installation-vs-02.png)
 
-##### 3. Select UmBootstrap and click Next
+#### 3. Select UmBootstrap and click Next
 
 ![Visual Studio New Project Screen](assets/installation-vs-03.png)
 
-##### 4. Enter a project name and click Create
+#### 4. Enter a project name and click Create
 
 ![Visual Studio New Project Screen](assets/installation-vs-04.png)
 
