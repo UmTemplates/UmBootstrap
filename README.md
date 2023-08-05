@@ -1,9 +1,9 @@
 # UmBootstrap
 
 ## Description
-UmBootstrap is an Umbraco Starter Kit, Template Library and Component Library.
+UmBootstrap is an Umbraco Starter Kit, Template Library and Component Library all contained within a working Umbraco website.
 
-What makes this different from other starter kits is that it is not installed via a Nuget Package on top of an existing Umbraco website, it is an Umbraco website on installation as a dotnet project template.
+What makes UmBootstrap different from other starter kits is that it is not installed via a Nuget Package on top of an existing Umbraco website, it is an Umbraco website on installation as a dotnet project template.
 
 ## Features
 
@@ -39,13 +39,51 @@ There are two ways for users to install UmBootstrap:
 
 ### .NET CLI
 
-The ideal way to install UmBootstrap is a single command line:
+To install UmBootstrap using the .NET CLI, follow these steps:
 
-    dotnet new umbootstrap -n MyWebsite
+#### 1. Install the UmBootstrap dotnet template
+
+Open a command prompt and run the following command:
+
+    dotnet new install umbootstrap
+
+> [!NOTE]
+> The syntax may differ depending on the version of .NET SDK you have installed. 
+> For more information, see:
+> - [dotnet new install](https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-new-install)
+
+#### 2. Create a new UmBootstrap website
+
+To create a new UmBootstrap instance run the following command:
+
+    dotnet new umbootstrap name MyWebsite
+
+ This will create a new Umbraco website with UmBootstrap already installed in a folder called MyWebsite.
+
+#### 3. Run the Umbraco website
+
+To run the Umbraco website, navigate to the MyWebsite folder and run the following command:
+
+    dotnet run
+
+This will start the Umbraco website on http://localhost:5000
+
+#### 4. Complete the Umbraco installation
+
+To complete the Umbraco installation, open a browser and navigate to http://localhost:5000
+
+This will start the Umbraco installation wizard.
+
+> [!NOTE]
+> The Umbraco installation wizard will not start until you have run the Umbraco website for the first time.
+
+#### 5. Complete the Umbraco installation wizard
+
+Complete the Umbraco installation wizard
 
  ### Visual Studio
 
- To use the UmBootstrap Visual Studio project template:
+ To install UmBootstrap using Visual Studio project templates, follow these steps:
 
 #### 1. Create a new project
 
