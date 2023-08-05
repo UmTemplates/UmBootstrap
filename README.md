@@ -16,7 +16,7 @@ All of these are constructed using Umbraco doctypes and datatypes and Bootstrap 
 
 ## Installation for Contributors
 
-[Contributing to UmBootstrap](CONTRIBUTING.md) requires a different process to installing UmBootrap using the instructions intended for users.
+We welcome contributions to UmBootstrap, however [Contributing to UmBootstrap](CONTRIBUTING.md) requires a different process to installing UmBootrap using the instructions intended for users.
 
 Please refer to the following guide for instructions on how to contribute to UmBootstrap:
 - [Contributing to UmBootstrap](CONTRIBUTING.md)
@@ -25,6 +25,8 @@ Please refer to the following guide for instructions on how to contribute to UmB
 > Pull requests will not be accepted from users who have not followed the guidelines
 
 ## Installation for Users
+
+UmBootstrap is an Umbraco website that is installed as a dotnet project template.
 
 There are two ways for users to install UmBootstrap:
 1. Using [.NET CLI](https://learn.microsoft.com/en-us/dotnet/core/tools/)
@@ -62,9 +64,6 @@ The ideal way to install UmBootstrap is a single command line:
 ![Visual Studio New Project Screen](assets/installation-vs-04.png)
 
 This will create a new Umbraco website with UmBootstrap already installed.
-
-## Contributing
-All contributions are welcome. Please read the [contributing guide](CONTRIBUTING.md) to get started.
 
 ## Usage
 
