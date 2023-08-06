@@ -21,7 +21,7 @@
     void renderLI(IPublishedContent NavItem)
     {
         <li data-level="level-@NavItem.Level" class=" @(NavItem.IsAncestorOrSelf(vThisPage) ? " active" : "")@(NavItem.IsDescendant(vThisPage) ? "descendant" : "")">
-            <a href="@NavItem.Url()" class="list-group-item-action list-group-item list-group-item-light ps-@NavItem.Level @(NavItem.IsAncestorOrSelf(vThisPage) ? " active" : "")@(NavItem.IsDescendant(vThisPage) ? "descendant" : "")">@NavItem.Value("pageTitle")</a>
+            <a href="@NavItem.Url()" class="list-group-item-action list-group-item list-group-item-light ps-@NavItem.Level @(NavItem.IsAncestorOrSelf(vThisPage) ? " active" : "")@(NavItem.IsDescendant(vThisPage) ? "descendant" : "")">@NavItem.Value("pageTitleShort")</a>
             @if (NavItem.IsAncestorOrSelf(vThisPage) && NavItem.Children != null)
             {
                 <ul class="list-group nav">
@@ -38,7 +38,7 @@
 <nav class="card d-none d-md-block ">
     <header class="card-header">
         <h2 class="card-title">
-            <a href="@ThisSectionPage.Url()" class="list-group-item-action list-group-item">@ThisSectionPage.Value("pageTitle")</a>
+            <a href="@ThisSectionPage.Url()" class="list-group-item-action list-group-item">@ThisSectionPage.Value("pageTitleShort")</a>
         </h2>
     </header>
     <div class="">
@@ -62,9 +62,9 @@
         <ol class="breadcrumb">
             @foreach (var ancestor in ancestors)
             {
-                <li class="breadcrumb-item"><a href="@ancestor.Url()">@ancestor.Value("pageTitle")</a></li>
+                <li class="breadcrumb-item"><a href="@ancestor.Url()">@ancestor.Value("pageTitleShort")</a></li>
             }
-            <li class="breadcrumb-item active"><a href="@vThisPage.Url()">@vThisPage.Value("pageTitle")</a></li>
+            <li class="breadcrumb-item active"><a href="@vThisPage.Url()">@vThisPage.Value("pageTitleShort")</a></li>
         </ol>
     }
 </nav>
