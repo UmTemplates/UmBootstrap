@@ -35,7 +35,7 @@
     }
 }
 
-<nav class="card">
+<nav class="card d-none d-md-block ">
     <header class="card-header">
         <h2 class="card-title">
             <a href="@ThisSectionPage.Url()" class="list-group-item-action list-group-item">@ThisSectionPage.Value("pageTitle")</a>
@@ -50,6 +50,34 @@
         </ul>
     </div>
 </nav>
+
+<nav aria-label="breadcrumb" class="d-sm-block d-md-none">
+    @{
+        // get ancestors ordered by level ascending
+        var ancestors = vThisPage.Ancestors().OrderBy(a => a.Level);
+
+    }
+    @if (ancestors.Any())
+    {
+        <ol class="breadcrumb">
+            @foreach (var ancestor in ancestors)
+            {
+                <li class="breadcrumb-item"><a href="@ancestor.Url()">@ancestor.Value("pageTitle")</a></li>
+            }
+            <li class="breadcrumb-item active"><a href="@vThisPage.Url()">@vThisPage.Value("pageTitle")</a></li>
+        </ol>
+    }
+</nav>
+
+
+
+
+
+
+
+
+
+
 
 
 
