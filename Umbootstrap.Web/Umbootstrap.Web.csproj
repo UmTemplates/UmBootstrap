@@ -21,6 +21,7 @@
 
   <ItemGroup>
     <Folder Include="wwwroot\images\" />
+    <Folder Include="wwwroot\assets\" />
     <None Include="wwwroot\media\**\*">
 	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
 	</None>
