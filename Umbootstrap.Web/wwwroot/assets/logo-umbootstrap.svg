@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="160" height="40" viewBox="0 0 160 40">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_5" data-name="Rectangle 5" width="40" height="40"/>
+    </clipPath>
+    <clipPath id="clip-logo-umbootstrap">
+      <rect width="160" height="40"/>
+    </clipPath>
+  </defs>
+  <g id="logo-umbootstrap" clip-path="url(#clip-logo-umbootstrap)">
+    <g id="favicon" clip-path="url(#clip-path)">
+      <rect id="Rectangle_4" data-name="Rectangle 4" width="40" height="40" rx="2" fill="#52a1b9"/>
+      <path id="Path_3" data-name="Path 3" d="M1,0H16" transform="translate(11.5 15)" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="4"/>
+      <line id="Line_7" data-name="Line 7" y2="10" transform="translate(20 17.5)" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="4"/>
+      <path id="Path_2" data-name="Path 2" d="M1924.373-638s-5.073,18.277,0,23.555,20.5,5.25,25.53,0,0-23.555,0-23.555" transform="translate(-1917.135 645.5)" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="4"/>
+    </g>
+    <text id="UmBootstrap" transform="translate(48 36)" fill="#d63384" font-size="17" font-family="SegoeUI-Bold, Segoe UI" font-weight="700"><tspan x="0" y="0">UmBootstrap</tspan></text>
+    <text id="UmTemplates" transform="translate(48 18)" fill="#52a1b9" font-size="17" font-family="SegoeUI-Bold, Segoe UI" font-weight="700"><tspan x="0" y="0">UmTemplates</tspan></text>
+  </g>
+</svg>
