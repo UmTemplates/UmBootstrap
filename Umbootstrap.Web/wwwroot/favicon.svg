@@ -1,14 +1,13 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16" height="16" viewBox="0 0 16 16">
   <defs>
-    <clipPath id="clip-Favicon">
+    <clipPath id="clip-favicon">
       <rect width="16" height="16"/>
     </clipPath>
   </defs>
-  <g id="Favicon" clip-path="url(#clip-Favicon)">
-    <rect width="16" height="16" fill="#fff"/>
-    <rect id="Rectangle_3" data-name="Rectangle 3" width="16" height="16" rx="3" fill="#46879a"/>
-    <line id="Line_6" data-name="Line 6" x2="6" transform="translate(5 4)" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="1"/>
-    <line id="Line_7" data-name="Line 7" y2="8" transform="translate(8 4)" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="1"/>
-    <path id="Path_2" data-name="Path 2" d="M1923-638s-1.986,6.984,0,9,8.031,2,10,0,0-9,0-9" transform="translate(-1920 641)" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="1"/>
+  <g id="favicon" clip-path="url(#clip-favicon)">
+    <rect id="Rectangle_4" data-name="Rectangle 4" width="16" height="16" rx="2" fill="#52a1b9"/>
+    <path id="Path_3" data-name="Path 3" d="M1,0H7" transform="translate(4 6)" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="2"/>
+    <line id="Line_7" data-name="Line 7" y2="4" transform="translate(8 7)" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="2"/>
+    <path id="Path_2" data-name="Path 2" d="M1923.019-638s-2.029,7.311,0,9.422,8.2,2.1,10.212,0,0-9.422,0-9.422" transform="translate(-1920.125 641)" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="2"/>
   </g>
 </svg>
