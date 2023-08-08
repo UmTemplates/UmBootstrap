@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1920" height="1080" viewBox="0 0 1920 1080">
+  <defs>
+    <clipPath id="clip-umbraco-background">
+      <rect width="1920" height="1080"/>
+    </clipPath>
+  </defs>
+  <g id="umbraco-background" clip-path="url(#clip-umbraco-background)">
+    <rect id="Background_-_Blue" data-name="Background - Blue" width="1920" height="1080" fill="#1a2650"/>
+    <g id="Colours">
+      <path id="Semi-Circle_-_Pink" data-name="Semi-Circle - Pink" d="M90,0c85.337,0,90,90,90,90H0S4.663,0,90,0Z" transform="matrix(0.875, -0.485, 0.485, 0.875, 328, 428.275)" fill="#cea5ab"/>
+      <path id="Semi-Circle_-_Pink-2" data-name="Semi-Circle - Pink" d="M90,0c85.337,0,90,90,90,90H0S4.663,0,90,0Z" transform="translate(1497.875 188.38) rotate(166)" fill="#cea5ab"/>
+      <path id="Semi-Circle_-_Pink-3" data-name="Semi-Circle - Pink" d="M90,0c85.337,0,90,90,90,90H0S4.663,0,90,0Z" transform="matrix(0.454, -0.891, 0.891, 0.454, 1008.305, 875.761)" fill="#ae993e"/>
+      <path id="Semi-Circle_-_Pink-4" data-name="Semi-Circle - Pink" d="M90,0c85.337,0,90,90,90,90H0S4.663,0,90,0Z" transform="matrix(0.951, 0.309, -0.309, 0.951, 256.311, 875.391)" fill="#293684"/>
+      <path id="Semi-Circle_-_Pink-5" data-name="Semi-Circle - Pink" d="M90,0c85.337,0,90,90,90,90H0S4.663,0,90,0Z" transform="matrix(0.616, 0.788, -0.788, 0.616, 1370.051, 765.374)" fill="#293684"/>
+      <rect id="Sqaure_-_Blue" data-name="Sqaure - Blue" width="116" height="116" transform="translate(531.349 53.483) rotate(34)" fill="#293684"/>
+      <rect id="Sqaure_-_Blue-2" data-name="Sqaure - Blue" width="116" height="116" transform="translate(740.349 836.483) rotate(34)" fill="#cea5ab"/>
+      <rect id="Sqaure_-_Blue-3" data-name="Sqaure - Blue" width="116" height="116" transform="translate(1229.674 402.417) rotate(78)" fill="#cea5ab"/>
+      <rect id="Sqaure_-_Blue-4" data-name="Sqaure - Blue" width="95.82" height="95.82" transform="translate(866.554 166.49) rotate(34)" fill="#786554"/>
+      <path id="Triangle_-_Buff" data-name="Triangle - Buff" d="M140,0V140H0Z" transform="translate(673.164 681.421) rotate(-93)" fill="#293684"/>
+      <path id="Triangle_-_Buff-2" data-name="Triangle - Buff" d="M140,0V140H0Z" transform="translate(1509.164 671.421) rotate(-93)" fill="#293684"/>
+      <path id="Triangle_-_Buff-3" data-name="Triangle - Buff" d="M140,0V140H0Z" transform="matrix(0.921, 0.391, -0.391, 0.921, 1696.32, 82.835)" fill="#b1afba"/>
+      <path id="Triangle_-_Buff-4" data-name="Triangle - Buff" d="M140,0V140H0Z" transform="translate(70.024 156.603) rotate(-19)" fill="#b4773e"/>
+      <path id="Slice_-_Orange" data-name="Slice - Orange" d="M0,0H26a90,90,0,0,1,90,90v26a0,0,0,0,1,0,0H0a0,0,0,0,1,0,0V0A0,0,0,0,1,0,0Z" transform="matrix(-0.999, -0.035, 0.035, -0.999, 260.94, 741.41)" fill="#786554"/>
+      <path id="Slice_-_Orange-2" data-name="Slice - Orange" d="M0,0H26a90,90,0,0,1,90,90v26a0,0,0,0,1,0,0H0a0,0,0,0,1,0,0V0A0,0,0,0,1,0,0Z" transform="translate(1723.665 985.161) rotate(-160)" fill="#786554"/>
+    </g>
+    <g id="Dark">
+      <path id="Triangle_-_Buff-5" data-name="Triangle - Buff" d="M140,0V140H0Z" transform="translate(904.946 597.776) rotate(-126)" fill="#192347"/>
+      <path id="Triangle_-_Buff-6" data-name="Triangle - Buff" d="M140,0V140H0Z" transform="translate(991.228 267.943) rotate(-72)" fill="#192347"/>
+      <path id="Triangle_-_Buff-7" data-name="Triangle - Buff" d="M140,0V140H0Z" transform="translate(1452.498 358.545) rotate(-43)" fill="#192347"/>
+      <path id="Triangle_-_Buff-8" data-name="Triangle - Buff" d="M140,0V140H0Z" transform="translate(1247.577 616.014) rotate(-14)" fill="#192347"/>
+      <path id="Triangle_-_Buff-9" data-name="Triangle - Buff" d="M140,0V140H0Z" transform="matrix(-0.391, -0.921, 0.921, -0.391, 435.348, 843.642)" fill="#192347"/>
+      <rect id="Sqaure_-_Blue-5" data-name="Sqaure - Blue" width="91" height="91" transform="translate(176.369 359.691) rotate(34)" fill="#192347"/>
+    </g>
+  </g>
+</svg>
