@@ -25,9 +25,38 @@ Then run the following command:
 
 ## Building the UmBootstrap solution
 
-> **NOTE**  
+> **IMPORTANT**  
 > To build the UmBootstrap solution remove the connection string from the appsettings.json file before the first build.
 >
+
+You should now be presented with the Umbraco installation screen.
+
+## Installing Umbraco
+
+To install Umbraco, follow the steps below:
+
+1. Enter a username, password and email address and click the Continue button.
+2. Enter a database connection string and click the Continue button.
+
+You should now be presented with the Umbraco login screen.
+
+## Logging into Umbraco
+
+To log into Umbraco, follow the steps below:
+
+1. Enter the username and password you entered on the installation screen and click the Login button.
+
+You should now be presented with the Umbraco backoffice.
+
+## Importing the UmBootstrap starter kit content using Usync
+
+To import the UmBootstrap starter kit content using Usync, follow the steps below:
+
+1. Click the Settings tab.
+2. Click the Usync link.
+3. Click the Import button.
+
+You should now see all of the UmBootstrap starter kit content in the Umbraco backoffice.
 
 Make your changes to the UmBootstrap repository on your local machine.
 
