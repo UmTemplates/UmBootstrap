@@ -1,0 +1,10 @@
+﻿@using Umbraco.Extensions
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem>
+
+@{
+    Layout = "_Layout_Features.cshtml";
+}
+
+<pre><code>@Model.Content.Value("featurePropertyFeatureCode")</code></pre>
+
+
