@@ -10970,6 +10970,14 @@ p.card-text {
   display: block;
   width: 100%;
 }
+.carousel .carousel-caption {
+  --bs-bg-opacity: 0.5;
+  transition: 0.5s;
+}
+.carousel .carousel-caption:hover {
+  --bs-bg-opacity: 1;
+  transition: 0.5s;
+}
 
 .nav-link:hover, .nav-link:focus {
   color: #fff;
