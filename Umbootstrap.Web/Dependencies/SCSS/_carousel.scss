@@ -29,4 +29,14 @@
         display: block;
         width: 100%;
     }
+
+    .carousel-caption {
+        --bs-bg-opacity: 0.5;
+        transition: 0.5s;
+    }
+
+    .carousel-caption:hover {
+        --bs-bg-opacity: 1;
+        transition: 0.5s;
+    }
 }
