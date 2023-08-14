@@ -1,9 +1,11 @@
 ﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.Home>
 @using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
 @using Umbraco.Cms.Web.Common.PublishedModels;
+@using Umbootstrap.Web.Extensions;
 
 @{
     Layout = "_Layout.cshtml";
+    TempData["blocksWithGroupNames"] = Model.GetBlocksWithGroupNames("contentGrid");
 }
 
 <!-- START - BLOCK GRID -->
