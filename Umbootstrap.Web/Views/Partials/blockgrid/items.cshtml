@@ -2,17 +2,18 @@
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<IEnumerable<BlockGridItem>>
 @{
     if (Model?.Any() != true) { return; }
-}
-
-@{
     bool layout = false; // Declare the layout variable outside the loop
+    var blockGroups = TempData["blocksWithGroupNames"] as Dictionary<string, string>;
 }
 
 @foreach (var item in Model)
 {
-    if (item.Content.ContentType.Alias.StartsWith("layout"))
+    var groupName = blockGroups.GetValue(item.Content.ContentType.Key.ToString());
+    @* if (item.Content.ContentType.Alias.StartsWith("layout")) *@
+    if (groupName == "Layout Blocks")
     {
         layout = true; // Set the layout variable to true if the condition is met
+        break; // Break out of the loop if the condition is met
     }
 }
 
