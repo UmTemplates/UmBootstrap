@@ -10989,6 +10989,12 @@ p.card-text {
   color: #d63384;
 }
 
+.card .nav-tabs .nav-link:hover, .card .nav-tabs .nav-link:focus {
+  color: #fff;
+  background-color: var(--bs-nav-link-hover-color);
+  /*text-decoration: if($link-hover-decoration == underline, none, null);*/
+}
+
 :root {
   --bs-blue-100: #cfe2ff;
   --bs-blue-200: #9ec5fe;
