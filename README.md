@@ -46,7 +46,7 @@ To install UmBootstrap using the .NET CLI, follow these steps:
 
 Open a command prompt and run the following command:
 
-    dotnet new install umbootstrap
+    dotnet new install Umbraco.Community.Templates.UmBootstrap
 
 > [!NOTE]
 > The syntax may differ depending on the version of .NET SDK you have installed. 
@@ -58,9 +58,9 @@ Open a command prompt and run the following command:
 
 To create a new UmBootstrap instance run the following command:
 
-    dotnet new umbootstrap name MyWebsite
+    dotnet new umbootstrap -n MyWebsiteName
 
- This will create a new Umbraco website with UmBootstrap already installed in a folder called MyWebsite.
+ This will create a new Umbraco website with UmBootstrap already installed in a folder called MyWebsiteName.
 
 
 #### 3. Run the Umbraco website
@@ -69,12 +69,12 @@ To run the Umbraco website, navigate to the MyWebsite folder and run the followi
 
     dotnet run
 
-This will start the Umbraco website on http://localhost:5000
+This will start the Umbraco website on http://localhost:[port number]
 
 
 #### 4. Complete the Umbraco installation
 
-To complete the Umbraco installation, open a browser and navigate to http://localhost:5000
+To complete the Umbraco installation, open a browser and navigate to http://localhost:[port number]
 
 This will start the Umbraco installation wizard.
 
