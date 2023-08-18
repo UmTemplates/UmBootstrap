@@ -2,10 +2,10 @@
 
   <PropertyGroup>
     <PackageType>Template</PackageType>
-    <PackageId>Umbraco.Community.Templates.Umbootstrap</PackageId>
-    <Title>Umbraco.Community.Templates.Umbootstrap</Title>
+    <PackageId>Umbraco.Community.Templates.UmBootstrap</PackageId>
+    <Title>Umbraco.Community.Templates.UmBootstrap</Title>
     <Authors>Dean Leigh</Authors>
-    <Description>An Umbraco Website Starter Kit using Bootstrap Templates</Description>
+    <Description>A project template for creating a new Umbraco site using the UmBootstrap Starter Kit</Description>
     <PackageTags>dotnet-new;templates;umbraco;bootstrap</PackageTags>
 
     <TargetFramework>net6.0</TargetFramework>
@@ -16,7 +16,7 @@
     <NoWarn>$(NoWarn);NU5128</NoWarn>
     <NoDefaultExcludes>true</NoDefaultExcludes>
     <Copyright>$([System.DateTime]::UtcNow.ToString(`yyyy`)) © Dean Leigh</Copyright>
-    <PackageIcon>logo.png</PackageIcon>
+    <PackageIcon>icon_nuget_umbootstrap.png</PackageIcon>
     <PackageReadmeFile>README_nuget.md</PackageReadmeFile>
     <RepositoryUrl>https://github.com/UmTemplates/UmBootstrap</RepositoryUrl>
     <PackageProjectUrl>https://github.com/UmTemplates/UmBootstrap</PackageProjectUrl>
@@ -28,7 +28,7 @@
     <Content Include="Umbootstrap.Web\**\*" Exclude="Umbootstrap.Web\**\bin\**;Umbootstrap.Web\**\obj\**" />
     <Compile Remove="**\*" />
     <None Include="assets\README_nuget.md" Pack="true" PackagePath="\"/>
-    <None Include="assets\logo.png" Pack="true" PackagePath="\"/>
+    <None Include="assets\icon_nuget_umbootstrap.png" Pack="true" PackagePath="\"/>
   </ItemGroup>
 
 </Project>
