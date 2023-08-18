@@ -19,7 +19,7 @@
     <PackageIcon>icon_nuget_umbootstrap.png</PackageIcon>
     <PackageReadmeFile>README_nuget.md</PackageReadmeFile>
     <RepositoryUrl>https://github.com/UmTemplates/UmBootstrap</RepositoryUrl>
-    <PackageProjectUrl>https://github.com/UmTemplates/UmBootstrap</PackageProjectUrl>
+    <PackageProjectUrl>https://umbootstrap.com</PackageProjectUrl>
     <RepositoryType>git</RepositoryType>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>

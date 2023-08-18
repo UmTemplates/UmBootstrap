@@ -8,4 +8,6 @@ At the heart of UmBootstrap is an Umbraco website containing:
 
 All of these are constructed using Umbraco doctypes and datatypes and Bootstrap HTML, CSS and JavaScript.
 
-Please visit the [project website](https://github.com/UmTemplates/UmBootstrap) for more information and installation / usage instructions.
+Please visit [https://umbootstrap.com](https://umbootstrap.com) for the example website.
+
+Please visit [https://github.com/UmTemplates/UmBootstrap](https://github.com/UmTemplates/UmBootstrap) for more information, installation and usage instructions.
