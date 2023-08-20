@@ -4,7 +4,7 @@
     string baseUrl = "https://umbootstrap.com"; // Replace with your actual base URL
     string pageTitle = Model.Value<string>("pageTitle");
     string pageDescription = Model.Value<string>("pageDescription");
-    string pageThumbnailUrl = Model.HasValue("pageThumbnail") ? baseUrl + Model.Value<IPublishedContent>("pageThumbnail").GetCropUrl(width: 480) : null;
+    string pageThumbnailUrl = Model.HasValue("pageThumbnail") ? baseUrl + Model.Value<IPublishedContent>("pageThumbnail").GetCropUrl(width: 1200) : null;
     bool hasThumbnail = !string.IsNullOrEmpty(pageThumbnailUrl);
 }
 
