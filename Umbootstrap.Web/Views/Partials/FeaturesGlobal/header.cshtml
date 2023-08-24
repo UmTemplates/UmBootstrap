@@ -1,17 +1,22 @@
-﻿@using UmbNav.Core.Models
-@using UmbNav.Core.Extensions
-@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+﻿@using UmbNav.Core.Extensions
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Web.Common.PublishedModels.SiteSettings>
+@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor HttpContextAccessor
+@inject Umbraco.Cms.Core.Web.IUmbracoContextFactory UmbracoContextFactory
+
 @{
     Layout = null;
-
-    var siteSettings = UmbracoContext.Content.GetSingleByXPath("//siteSettings");
+    // all this just to get the current page :(
+    var umbracoContext = UmbracoContextFactory.EnsureUmbracoContext();
+    var currentUrl = HttpContextAccessor.HttpContext!.Request.Path.ToString();
+    var currentPage = umbracoContext.UmbracoContext.Content!.GetByRoute(currentUrl);
 }
-
-
 <header class="screen--header sticky-top shadow-b bg-light pb-1">
     <nav class="container-xxl navbar navbar-nav navbar-expand-lg">
         <div class="container-fluid">
-            <a class="navbar-brand" href="/"><img src="~/assets/logo-umbootstrap.svg" /></a>
+            <a class="navbar-brand" href="/">
+                <img src="@Model.Logo?.GetCropUrl())" />
+            </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -21,14 +26,37 @@
                     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                 </div>
                 <div class="offcanvas-body d-flex justify-content-lg-end">
-
-
                     <ul class="navbar-nav nav-pills flex-grow-1 flex-lg-grow-0 gap-3">
-                        @foreach (var menuItem in siteSettings.Value<IEnumerable<UmbNavItem>>("mainNavigation"))
-                        {
-                            <li class="nav-item text-center">
-                                <a class="nav-link @Html.If(menuItem.IsActive(Model,true), "active")" href="@menuItem.Url()" target="@menuItem.Target">@menuItem.Name</a>
-                            </li>
+                        @{
+                            foreach (var menuItem in Model.MainNavigation!)
+                            {
+                                // check for children
+                                var childClass = "";
+                                if (menuItem.Children.Any())
+                                {
+                                    childClass = "dropdown";
+                                }
+
+                                <li class="nav-item text-center @childClass">
+                                    @if (string.IsNullOrEmpty(childClass))
+                                    {
+                                        <a class="nav-link @Html.If(menuItem.IsActive(currentPage, true), "active")" href="@menuItem.Url()" target="@menuItem.Target">@menuItem.Title</a>
+                                    }
+                                    else
+                                    {
+                                        <a class="nav-link dropdown-toggle" href="@menuItem.Url()" target="@menuItem.Target" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                            @menuItem.Title
+                                        </a>
+                                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                            @foreach (var subItem in menuItem.Children)
+                                            {
+                                                <li><a class="dropdown-item @Html.If(subItem.IsActive(currentPage, true), "active")" href="@subItem.Url()">@subItem.Title</a></li>
+                                            }
+                                        </ul>
+                                    }
+                                    
+                                </li>
+                            }
                         }
                     </ul>
                 </div>
