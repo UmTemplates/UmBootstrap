@@ -1,11 +1,11 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1920" height="1080" viewBox="0 0 1920 1080">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1920" height="1080" viewBox="0 0 1920 1080" preserveAspectRatio="none">
   <defs>
     <clipPath id="clip-umbraco-background">
       <rect width="1920" height="1080"/>
     </clipPath>
   </defs>
   <g id="umbraco-background" clip-path="url(#clip-umbraco-background)">
-    <rect id="Background_-_Blue" data-name="Background - Blue" width="1920" height="1080" fill="#1a2650"/>
+    <rect id="Background_-_Blue" data-name="Background - Blue" width="1928" height="1080" transform="translate(-4)" fill="#1a2650"/>
     <g id="Colours">
       <path id="Semi-Circle_-_Pink" data-name="Semi-Circle - Pink" d="M90,0c85.337,0,90,90,90,90H0S4.663,0,90,0Z" transform="matrix(0.875, -0.485, 0.485, 0.875, 328, 428.275)" fill="#cea5ab"/>
       <path id="Semi-Circle_-_Pink-2" data-name="Semi-Circle - Pink" d="M90,0c85.337,0,90,90,90,90H0S4.663,0,90,0Z" transform="translate(1497.875 188.38) rotate(166)" fill="#cea5ab"/>
