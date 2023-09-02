@@ -16,7 +16,7 @@ All of these are constructed using Umbraco doctypes and datatypes and Bootstrap 
 
 ## Installation for Contributors
 
-We welcome contributions to UmBootstrap, however [Contributing to UmBootstrap](CONTRIBUTING.md) requires a different process to installing UmBootrap using the instructions intended for users.
+We welcome contributions to UmBootstrap, however [Contributing to UmBootstrap](CONTRIBUTING.md) requires a different process to installing UmBootstrap using the instructions intended for users.
 
 Please refer to the following guide for instructions on how to contribute to UmBootstrap:
 - [Contributing to UmBootstrap](CONTRIBUTING.md)
