@@ -18,14 +18,23 @@ using Umbraco.Extensions;
 
 namespace Umbraco.Cms.Web.Common.PublishedModels
 {
-	/// <summary>Feature Settings</summary>
-	[PublishedModel("featureSettings")]
-	public partial class FeatureSettings : PublishedElementModel, IFeatureSettingsComponentColorPicker, IFeatureSettingsComponentColorPicker1
+	// Mixin Content Type with alias "featureSettingsComponentColorPicker1"
+	/// <summary>Feature Settings Component - Hide Display</summary>
+	public partial interface IFeatureSettingsComponentColorPicker1 : IPublishedElement
+	{
+		/// <summary>featureSettingsHideDisplay</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "10.6.1+82eae48")]
+		bool FeatureSettingsHideDisplay { get; }
+	}
+
+	/// <summary>Feature Settings Component - Hide Display</summary>
+	[PublishedModel("featureSettingsComponentColorPicker1")]
+	public partial class FeatureSettingsComponentColorPicker1 : PublishedElementModel, IFeatureSettingsComponentColorPicker1
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "10.6.1+82eae48")]
-		public new const string ModelTypeAlias = "featureSettings";
+		public new const string ModelTypeAlias = "featureSettingsComponentColorPicker1";
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "10.6.1+82eae48")]
 		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "10.6.1+82eae48")]
@@ -34,14 +43,14 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 			=> PublishedModelUtility.GetModelContentType(publishedSnapshotAccessor, ModelItemType, ModelTypeAlias);
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "10.6.1+82eae48")]
 		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		public static IPublishedPropertyType GetModelPropertyType<TValue>(IPublishedSnapshotAccessor publishedSnapshotAccessor, Expression<Func<FeatureSettings, TValue>> selector)
+		public static IPublishedPropertyType GetModelPropertyType<TValue>(IPublishedSnapshotAccessor publishedSnapshotAccessor, Expression<Func<FeatureSettingsComponentColorPicker1, TValue>> selector)
 			=> PublishedModelUtility.GetModelPropertyType(GetModelContentType(publishedSnapshotAccessor), selector);
 #pragma warning restore 0109
 
 		private IPublishedValueFallback _publishedValueFallback;
 
 		// ctor
-		public FeatureSettings(IPublishedElement content, IPublishedValueFallback publishedValueFallback)
+		public FeatureSettingsComponentColorPicker1(IPublishedElement content, IPublishedValueFallback publishedValueFallback)
 			: base(content, publishedValueFallback)
 		{
 			_publishedValueFallback = publishedValueFallback;
@@ -50,18 +59,14 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		// properties
 
 		///<summary>
-		/// Colour
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "10.6.1+82eae48")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("featureSettingsColourPicker")]
-		public virtual global::Umbraco.Cms.Core.PropertyEditors.ValueConverters.ColorPickerValueConverter.PickedColor FeatureSettingsColourPicker => global::Umbraco.Cms.Web.Common.PublishedModels.FeatureSettingsComponentColorPicker.GetFeatureSettingsColourPicker(this, _publishedValueFallback);
-
-		///<summary>
 		/// featureSettingsHideDisplay
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "10.6.1+82eae48")]
 		[ImplementPropertyType("featureSettingsHideDisplay")]
-		public virtual bool FeatureSettingsHideDisplay => global::Umbraco.Cms.Web.Common.PublishedModels.FeatureSettingsComponentColorPicker1.GetFeatureSettingsHideDisplay(this, _publishedValueFallback);
+		public virtual bool FeatureSettingsHideDisplay => GetFeatureSettingsHideDisplay(this, _publishedValueFallback);
+
+		/// <summary>Static getter for featureSettingsHideDisplay</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "10.6.1+82eae48")]
+		public static bool GetFeatureSettingsHideDisplay(IFeatureSettingsComponentColorPicker1 that, IPublishedValueFallback publishedValueFallback) => that.Value<bool>(publishedValueFallback, "featureSettingsHideDisplay");
 	}
 }
