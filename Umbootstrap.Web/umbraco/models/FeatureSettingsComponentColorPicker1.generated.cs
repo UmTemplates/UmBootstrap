@@ -22,7 +22,7 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 	/// <summary>Feature Settings Component - Hide Display</summary>
 	public partial interface IFeatureSettingsComponentColorPicker1 : IPublishedElement
 	{
-		/// <summary>featureSettingsHideDisplay</summary>
+		/// <summary>Hide or Display</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "10.6.1+82eae48")]
 		bool FeatureSettingsHideDisplay { get; }
 	}
@@ -59,13 +59,13 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		// properties
 
 		///<summary>
-		/// featureSettingsHideDisplay
+		/// Hide or Display: Turn on to display or off to hide. Displayed is on by default.
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "10.6.1+82eae48")]
 		[ImplementPropertyType("featureSettingsHideDisplay")]
 		public virtual bool FeatureSettingsHideDisplay => GetFeatureSettingsHideDisplay(this, _publishedValueFallback);
 
-		/// <summary>Static getter for featureSettingsHideDisplay</summary>
+		/// <summary>Static getter for Hide or Display</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "10.6.1+82eae48")]
 		public static bool GetFeatureSettingsHideDisplay(IFeatureSettingsComponentColorPicker1 that, IPublishedValueFallback publishedValueFallback) => that.Value<bool>(publishedValueFallback, "featureSettingsHideDisplay");
 	}
