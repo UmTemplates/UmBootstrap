@@ -58,7 +58,7 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		public virtual global::Umbraco.Cms.Core.PropertyEditors.ValueConverters.ColorPickerValueConverter.PickedColor FeatureSettingsColourPicker => global::Umbraco.Cms.Web.Common.PublishedModels.FeatureSettingsComponentColorPicker.GetFeatureSettingsColourPicker(this, _publishedValueFallback);
 
 		///<summary>
-		/// featureSettingsHideDisplay
+		/// Hide or Display: Turn on to display or off to hide. Displayed is on by default.
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "10.6.1+82eae48")]
 		[ImplementPropertyType("featureSettingsHideDisplay")]

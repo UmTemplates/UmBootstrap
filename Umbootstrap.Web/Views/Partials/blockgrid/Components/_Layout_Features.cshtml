@@ -14,18 +14,26 @@
     // Check if the block grid item has settings
     bool hasSettings = Model.Settings != null;
     string colorLabel = null;
-    bool showFeature = true;
+    //bool showFeature = true;
+    bool? showFeature = null;
+
 
     // If the block grid item has settings, get the background colour
     if (hasSettings)
     {
         var backgroundColour = Model.Settings.Value<ColorPickerValueConverter.PickedColor>("featureSettingsColourPicker");
         colorLabel = backgroundColour?.Label;
-        showFeature = Model.Settings.Value<bool>("featureSettingsHideDisplay");
+        //showFeature = Model.Settings.Value<bool>("featureSettingsHideDisplay");
+        if (Model.Settings.HasValue("featureSettingsHideDisplay"))
+        {
+            showFeature = Model.Settings.Value<bool>("featureSettingsHideDisplay");
+        }
     }
 }
 
-@if (showFeature)
+@if (!showFeature.HasValue || showFeature.Value)
+// If the feature is not hidden or null, render the feature
+
 {
     <section class="feature @Model.Content.ContentType.Alias" style="@(hasSettings && colorLabel != null ? $"background-color: var({colorLabel});" : "")">
         @if (!string.IsNullOrWhiteSpace(featureTitle) || !string.IsNullOrWhiteSpace(featureDescription))
