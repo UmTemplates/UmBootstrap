@@ -22,6 +22,10 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 	/// <summary>Layout Settings Component - Color Picker</summary>
 	public partial interface ILayoutSettingsComponentColorPicker : IPublishedElement
 	{
+		/// <summary>Opacity</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "10.6.1+82eae48")]
+		decimal LayoutSettingsColourOpacity { get; }
+
 		/// <summary>Colour</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "10.6.1+82eae48")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
@@ -62,6 +66,17 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		}
 
 		// properties
+
+		///<summary>
+		/// Opacity
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "10.6.1+82eae48")]
+		[ImplementPropertyType("layoutSettingsColourOpacity")]
+		public virtual decimal LayoutSettingsColourOpacity => GetLayoutSettingsColourOpacity(this, _publishedValueFallback);
+
+		/// <summary>Static getter for Opacity</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "10.6.1+82eae48")]
+		public static decimal GetLayoutSettingsColourOpacity(ILayoutSettingsComponentColorPicker that, IPublishedValueFallback publishedValueFallback) => that.Value<decimal>(publishedValueFallback, "layoutSettingsColourOpacity");
 
 		///<summary>
 		/// Colour

@@ -58,6 +58,13 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		public virtual global::Umbraco.Cms.Core.Models.MediaWithCrops LayoutSettingsBackgroundImagePicker => global::Umbraco.Cms.Web.Common.PublishedModels.LayoutSettingsComponentBackgroundImage.GetLayoutSettingsBackgroundImagePicker(this, _publishedValueFallback);
 
 		///<summary>
+		/// Opacity
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "10.6.1+82eae48")]
+		[ImplementPropertyType("layoutSettingsColourOpacity")]
+		public virtual decimal LayoutSettingsColourOpacity => global::Umbraco.Cms.Web.Common.PublishedModels.LayoutSettingsComponentColorPicker.GetLayoutSettingsColourOpacity(this, _publishedValueFallback);
+
+		///<summary>
 		/// Colour
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "10.6.1+82eae48")]

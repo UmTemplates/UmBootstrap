@@ -3,36 +3,70 @@
 @using Umbraco.Cms.Core.PropertyEditors;
 
 @{
+    // No layout by default
     Layout = null;
-}
 
-@{
+    // Check if the layout has any areas
     if (Model?.Areas.Any() != true) { return; }
 
+    // Get the layout settings
     var hasSettings = Model.Settings != null;
+
     var backgroundColour = hasSettings ? Model.Settings.Value<ColorPickerValueConverter.PickedColor>("layoutSettingsColourPicker") : null;
+
     var colorLabel = backgroundColour?.Label;
 
     var colorShades = hasSettings ? Model.Settings.Value<decimal>("layoutSettingsColourShades") : (decimal?)null;
 
-    var backgroundImage = hasSettings ? Model.Settings.Value<Umbraco.Cms.Core.Models.MediaWithCrops>("layoutSettingsBackgroundImagePicker") : null;
-}
+    var colorOpacity = hasSettings ? Model.Settings.Value<decimal>("layoutSettingsColourOpacity") : (decimal?)null;
 
-@{
+    var backgroundImage = hasSettings ? Model.Settings.Value<Umbraco.Cms.Core.Models.MediaWithCrops>("layoutSettingsBackgroundImagePicker") : null;
+
     string styleAttribute = "";
+
     if (hasSettings && backgroundColour != null)
     {
-        styleAttribute = $"background-color: var({colorLabel}";
-        if (colorShades.HasValue)
-        {
-            styleAttribute += $"-{colorShades});";
-        }
+        // Set style attribute to background color to use rgba
+        styleAttribute = $"background-color: rgba(var({colorLabel}-{colorShades}), {colorOpacity});";
     }
     else if (backgroundImage != null)
     {
         styleAttribute = $"background-image: url({backgroundImage.MediaUrl()});";
     }
 }
-<div class="layout py-3" data-bgimage="@backgroundImage.MediaUrl()" style="@styleAttribute background-size: contain;" data-block-alias="@Model.Content.ContentType.Alias">
+
+<div class="layout py-3" data-bgimage="@backgroundImage.MediaUrl()" style="@styleAttribute" data-block-alias="@Model.Content.ContentType.Alias">
     @RenderBody()
 </div>
+
+@* @{
+    // Uncomment this block to Debug colours
+    var hexColor = backgroundColour;
+    var hexColorHash = "#" + @hexColor;
+
+    // Convert the hex color to RGB
+    System.Drawing.Color color = System.Drawing.ColorTranslator.FromHtml(hexColorHash);
+
+    // Get the RGB components
+    int red = color.R;
+    int green = color.G;
+    int blue = color.B;
+
+    if (hexColor != null)
+    {
+        <div class="btn btn-primary">
+            <dl>
+                <dt>HEX</dt>
+                <dd>@hexColor</dd>
+                <dt>RGB</dt>
+                <dd>@red, @green, @blue</dd>
+                <dt>Hash</dt>
+                <dd>@hexColorHash</dd>
+                <dt>Label</dt>
+                <dd>@colorLabel</dd>
+                <dt>Opacity</dt>
+                <dd>@colorOpacity</dd>
+            </dl>
+        </div>
+    }
+} *@
