@@ -1,7 +1,8 @@
-﻿@using Umbraco.Cms.Web.Common.PublishedModels;
-@using UmbNav.Core.Models
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
 @using UmbNav.Core.Extensions
-@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@using UmbNav.Core.Models
+
 @{
     Layout = null;
     var siteSettings = UmbracoContext.Content.GetSingleByXPath("//siteSettings");

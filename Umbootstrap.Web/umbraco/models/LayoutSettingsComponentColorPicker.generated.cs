@@ -19,7 +19,7 @@ using Umbraco.Extensions;
 namespace Umbraco.Cms.Web.Common.PublishedModels
 {
 	// Mixin Content Type with alias "layoutSettingsComponentColorPicker"
-	/// <summary>Layout Settings Component - Color Picker</summary>
+	/// <summary>Layout Settings Component - Background Color</summary>
 	public partial interface ILayoutSettingsComponentColorPicker : IPublishedElement
 	{
 		/// <summary>Opacity</summary>
@@ -36,7 +36,7 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		decimal LayoutSettingsColourShades { get; }
 	}
 
-	/// <summary>Layout Settings Component - Color Picker</summary>
+	/// <summary>Layout Settings Component - Background Color</summary>
 	[PublishedModel("layoutSettingsComponentColorPicker")]
 	public partial class LayoutSettingsComponentColorPicker : PublishedElementModel, ILayoutSettingsComponentColorPicker
 	{
