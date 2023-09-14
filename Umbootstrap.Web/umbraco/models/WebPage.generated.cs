@@ -20,7 +20,7 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 {
 	/// <summary>Web Page</summary>
 	[PublishedModel("webPage")]
-	public partial class WebPage : PublishedContentModel, IContentGridDefault, IContentHeadingDefault
+	public partial class WebPage : PublishedContentModel, IContentGridDefault, IContentHeadingDefault, IContentHeadingDefault1
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
@@ -88,5 +88,13 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		[ImplementPropertyType("pageTitleShort")]
 		public virtual string PageTitleShort => global::Umbraco.Cms.Web.Common.PublishedModels.ContentHeadingDefault.GetPageTitleShort(this, _publishedValueFallback);
+
+		///<summary>
+		/// Page Background Image
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "10.6.1+82eae48")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("pageSettingsBackgroundImagePicker")]
+		public virtual global::Umbraco.Cms.Core.Models.MediaWithCrops PageSettingsBackgroundImagePicker => global::Umbraco.Cms.Web.Common.PublishedModels.ContentHeadingDefault1.GetPageSettingsBackgroundImagePicker(this, _publishedValueFallback);
 	}
 }
