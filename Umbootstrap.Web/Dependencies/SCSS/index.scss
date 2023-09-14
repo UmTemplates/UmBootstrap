@@ -67,6 +67,17 @@
 
 // Move to Utillies
 // Dean and Aaron to look at Maps and Mixins involved so we can apply top and bottom shadows at breakpoints
+
+body {
+    min-height: 100vh;
+    height: 100%;
+}
+
+.document {
+    min-height: 100vh;
+    height: 100%;
+}
+
 .shadow-b {
     box-shadow: 0 1rem 1rem rgb(0 0 0 / 15%);
 }
