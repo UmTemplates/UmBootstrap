@@ -29,6 +29,8 @@
   </ItemGroup>
 
 	<PropertyGroup>
+    <!-- Referenced assemblies (DLLs) will be copied to the publish directory when you build and publish your Umbraco project -->
+    <CopyReferencedAssembliesToPublishDirectory>true</CopyReferencedAssembliesToPublishDirectory>
     <!-- Razor files are needed for the backoffice to work correctly -->
     <CopyRazorGenerateFilesToPublishDirectory>true</CopyRazorGenerateFilesToPublishDirectory>
   </PropertyGroup>
