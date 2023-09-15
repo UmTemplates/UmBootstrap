@@ -54,7 +54,9 @@
       "modifiers": [
         {
           "exclude": [
-            "umbraco/**"
+            "umbraco/Logs/**",
+            "umbraco/Data/**",
+            "umbraco/Licenses/**"
           ]
         }
       ]
