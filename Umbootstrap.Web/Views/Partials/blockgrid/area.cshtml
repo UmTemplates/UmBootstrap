@@ -2,8 +2,12 @@
 @using Umbraco.Extensions
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridArea>
 
+@{
+    string myColor = TempData["MyColor"] as string;
+}
+
 <!-- START - AREA -->
-<div class="@Model.Alias xxx">
+<div class="@Model.Alias @myColor">
     @await Html.GetPreviewBlockGridItemsHtmlAsync(Model)
 </div>
 <!-- END - AREA -->

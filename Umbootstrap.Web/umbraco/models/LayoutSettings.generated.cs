@@ -58,6 +58,14 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		public virtual global::Umbraco.Cms.Core.Models.MediaWithCrops LayoutSettingsBackgroundImagePicker => global::Umbraco.Cms.Web.Common.PublishedModels.LayoutSettingsComponentBackgroundImage.GetLayoutSettingsBackgroundImagePicker(this, _publishedValueFallback);
 
 		///<summary>
+		/// layoutAreasColourPicker
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "10.6.1+82eae48")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("layoutAreasColourPicker")]
+		public virtual global::Umbraco.Cms.Core.PropertyEditors.ValueConverters.ColorPickerValueConverter.PickedColor LayoutAreasColourPicker => global::Umbraco.Cms.Web.Common.PublishedModels.LayoutSettingsComponentColorPicker.GetLayoutAreasColourPicker(this, _publishedValueFallback);
+
+		///<summary>
 		/// Opacity
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "10.6.1+82eae48")]

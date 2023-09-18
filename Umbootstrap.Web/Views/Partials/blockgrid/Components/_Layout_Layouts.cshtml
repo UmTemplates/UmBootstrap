@@ -24,6 +24,17 @@
 
     string styleAttribute = "";
 
+    // Get the Area settings from the layout
+    var areasBackgroundColour = hasSettings ? Model.Settings.Value<ColorPickerValueConverter.PickedColor>("layoutAreasColourPicker") : null;
+    var areasColorLabelValue = areasBackgroundColour?.Label;
+    // If the area has a colour, use it, otherwise use bg-light
+    var areasColorLabel = areasColorLabelValue != null ? areasColorLabelValue : "bg-light";
+    // Set the TempData to use in the area
+    TempData["MyColor"] = areasColorLabel;
+        // Get the Area settings from the layout
+    string myColor = TempData["MyColor"] as string;
+
+
     if (hasSettings && backgroundColour != null)
     {
         // Set style attribute to background color to use rgba
