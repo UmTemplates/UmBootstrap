@@ -19,7 +19,7 @@
 
 
 <!-- START - ITEMS -->
-<div class="items d-flex flex-column @(layout ? "gap-0" : "gap-3")">
+<div class="@(layout ? "layout-" : "feature-")items d-flex flex-column @(layout ? "gap-0" : "gap-3")">
 @foreach (var item in Model)
 {
     {
