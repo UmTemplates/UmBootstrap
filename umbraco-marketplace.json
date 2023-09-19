@@ -1,0 +1,49 @@
+{
+  "$schema": "https://marketplace.umbraco.com/umbraco-marketplace-schema.json",
+  "AddOnPackagesRequiredForUmbracoCloud": [],
+  "AlternateCategory": "",
+  "AuthorDetails": {
+    "Name": "UmBootstrap",
+    "Description": "A project template for creating a new Umbraco site using the UmBootstrap Starter Kit",
+    "Url": "https://umbootstrap.com",
+    "ImageUrl": "https://raw.githubusercontent.com/UmTemplates/UmBootstrap/develop/assets/icon_nuget_umbootstrap.png",
+    "Contributors": [
+      {
+        "Name": "Dean Leigh",
+        "Url": "https://deanleigh.co.uk/"
+      }
+    ],
+    "SyncContributorsFromRepository": "true"
+  },
+  "Category": "Themes & Starter Kits",
+  "Description": "A project template for creating a new Umbraco site using the UmBootstrap Starter Kit",
+  "DiscussionForumUrl": "",
+  "DocumentationUrl": "https://github.com/UmTemplates/UmBootstrap",
+  "LicenseTypes": [ "Free" ],
+  "IssueTrackerUrl": "",
+  "IsSubPackageOf": "",
+  "PackageType": "",
+  "PackagesByAuthor": [],
+  "RelatedPackages": [
+    {
+      "GroupTitle": "",
+      "PackageId": "",
+      "Description": ""
+    }
+  ],
+  "Screenshots": [
+    {
+      "ImageUrl": "",
+      "Caption": ""
+    }
+  ],
+  "Tags": [ "dotnet-new","templates","umbraco","bootstrap","umbraco-marketplace"],
+  "Title": "",
+  "VersionSpecificPackageIds": [
+    {
+      "UmbracoMajorVersion": 10,
+      "PackageId": "Umbraco.Community.Templates.UmBootstrap"
+    }
+  ],
+  "VideoUrl": ""
+}
