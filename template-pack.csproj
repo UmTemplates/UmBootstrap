@@ -17,7 +17,7 @@
     <NoDefaultExcludes>true</NoDefaultExcludes>
     <Copyright>$([System.DateTime]::UtcNow.ToString(`yyyy`)) © Dean Leigh</Copyright>
     <PackageIcon>icon_nuget_umbootstrap.png</PackageIcon>
-    <PackageReadmeFile>README_nuget.md</PackageReadmeFile>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
     <RepositoryUrl>https://github.com/UmTemplates/UmBootstrap</RepositoryUrl>
     <PackageProjectUrl>https://umbootstrap.com</PackageProjectUrl>
     <RepositoryType>git</RepositoryType>
@@ -27,14 +27,21 @@
   <ItemGroup>
     <Content Include="Umbootstrap.Web\**\*" Exclude="Umbootstrap.Web\**\bin\**;Umbootstrap.Web\**\obj\**" />
     <Compile Remove="**\*" />
-    <None Include="assets\README_nuget.md" Pack="true" PackagePath="\"/>
-    <None Include="assets\icon_nuget_umbootstrap.png" Pack="true" PackagePath="\"/>
+    <None Include="assets\README_nuget.md" Pack="true" PackagePath="\" />
+    <None Include="assets\icon_nuget_umbootstrap.png" Pack="true" PackagePath="\" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Our.Umbraco.UmbNav.Web" Version="2.0.8" />
     <PackageReference Include="System.Drawing.Common" Version="7.0.0" />
     <PackageReference Include="Umbraco.Cms" Version="10.6.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>
