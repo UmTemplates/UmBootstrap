@@ -33,7 +33,6 @@ namespace Umbootstrap.Web
         {
             services.AddUmbraco(_env, _config)
                 .AddBackOffice()
-                .AddBlockPreview()
                 .AddWebsite()
                 .AddComposers()
                 .Build();
