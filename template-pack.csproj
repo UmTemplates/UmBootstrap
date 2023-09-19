@@ -6,7 +6,7 @@
     <Title>Umbraco.Community.Templates.UmBootstrap</Title>
     <Authors>Dean Leigh</Authors>
     <Description>A project template for creating a new Umbraco site using the UmBootstrap Starter Kit</Description>
-    <PackageTags>dotnet-new;templates;umbraco;bootstrap</PackageTags>
+    <PackageTags>dotnet-new;templates;umbraco;bootstrap;umbraco-marketplace</PackageTags>
 
     <TargetFramework>net6.0</TargetFramework>
 
@@ -23,6 +23,10 @@
     <RepositoryType>git</RepositoryType>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Umbraco.Cms.Core" Version="10.6.1" />
+  </ItemGroup>
 
   <ItemGroup>
     <Content Include="Umbootstrap.Web\**\*" Exclude="Umbootstrap.Web\**\bin\**;Umbootstrap.Web\**\obj\**" />
