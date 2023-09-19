@@ -3,17 +3,15 @@
 @using Umbraco.Extensions
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem>
 
-    <!-- START - AREAS -->
-    <div class="grid container">
-        @foreach (var area in Model.Areas)
-        {
-            @await Html.GetPreviewBlockGridItemAreaHtmlAsync(area)
-        }
-    </div>
-    <!-- END - AREAS -->
+<!-- START - AREAS -->
+<div class="areas grid container" data-areas="@Model.Areas.ToString()" data-ContentUdi="@Model.ContentUdi" data-Content="@Model.Content" data-GridColumns="@Model.GridColumns">
+    @foreach (var area in Model.Areas)
+    {
+        @await Html.GetPreviewBlockGridItemAreaHtmlAsync(area)
+    }
+</div>
 
-
-
+<!-- END - AREAS -->
 @*<div class="umb-block-grid__area-container"
        style="--umb-block-grid--area-grid-columns: @(Model.AreaGridColumns?.ToString() ?? Model.GridColumns?.ToString() ?? " 12");">
     @foreach (var area in Model.Areas)
