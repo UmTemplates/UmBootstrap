@@ -26,9 +26,13 @@
   "PackagesByAuthor": [],
   "RelatedPackages": [
     {
-      "GroupTitle": "",
-      "PackageId": "",
-      "Description": ""
+      "GroupTitle": "Wholething Packages",
+      "PackageId": "Wholething.FallbackTextProperty",
+      "Description": "This Umbraco package provides two custom text property editors, Textstring with Fallback and Textarea with Fallback, that allow developers to enter a fallback value, rendered from a Mustache template."
+    },
+    {
+      "PackageId": "Wholething.FallbackImagePickerProperty",
+      "Description": "FallbackImagePickerProperty is an Umbraco image picker that defines a fallback/default image that users can optionally override."
     }
   ],
   "Screenshots": [

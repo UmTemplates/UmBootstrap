@@ -1,5 +1,11 @@
 # UmBootstrap
 
+> [!IMPORTANT] 
+> The buttons in Umbraco Marketplace do not yet support dotnet project templates
+> Please follow the instructions below to install UmBootstrap for:
+> - [.NET CLI](#.Net-CLI)
+> - [Visual Studio](#Visual-Studio)
+
 ## Description
 UmBootstrap is an Umbraco Website Starter Kit using Bootstrap Templates and a comprehensive Component Library all available for you to use in your projects.
 
