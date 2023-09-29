@@ -1,13 +1,15 @@
-﻿@using Umbraco.Community.BlockPreview.Extensions;
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridArea>
+@using Umbraco.Community.BlockPreview.Extensions;
 @using Umbraco.Extensions
-@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridArea>
+
 
 @{
-    string myColor = TempData["MyColor"] as string;
+    var areaBackgroundColors = ViewData["AreaBackgroundColors"] as string; // Retrieve data from ViewData
 }
 
+
 <!-- START - AREA -->
-<div class="area-@Model.ColumnSpan @Model.Alias @myColor">
+<div class="area-@Model.ColumnSpan @Model.Alias @areaBackgroundColors">
     @await Html.GetPreviewBlockGridItemsHtmlAsync(Model)
 </div>
 <!-- END - AREA -->
