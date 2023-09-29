@@ -24,15 +24,23 @@
 
     string styleAttribute = "";
 
-    // Get the Area settings from the layout
-    var areasBackgroundColour = hasSettings ? Model.Settings.Value<ColorPickerValueConverter.PickedColor>("layoutAreasColourPicker") : null;
-    var areasColorLabelValue = areasBackgroundColour?.Label;
-    // If the area has a colour, use it, otherwise use bg-light
-    var areasColorLabel = areasColorLabelValue != null ? areasColorLabelValue : "bg-light";
-    // Set the TempData to use in the area
-    TempData["MyColor"] = areasColorLabel;
-        // Get the Area settings from the layout
-    string myColor = TempData["MyColor"] as string;
+    /*
+     * I could not get ViewData to pass the value to area.cshtml
+     * So I moved this code to each layout
+     * It works, but it is not DRY
+     * I think it is to do with the order of execution
+     */
+
+    // // 1. Check if this block grid item has settings
+    // var hasSettings = Model.Settings != null;
+    // // 2. If this block grid item has settings, get the Areas background colour
+    // var areasBackgroundColour = hasSettings ? Model.Settings.Value<ColorPickerValueConverter.PickedColor>("layoutAreasColourPicker") : null;
+    // // 3. Get the label from the colour
+    // var areasColorLabelValue = areasBackgroundColour?.Label;
+    // // 4. If the area has a colour, use it, otherwise use bg-light
+    // var areasColorLabel = areasColorLabelValue != null ? areasColorLabelValue : "bg-light";
+    // // 5. Set the TempData to use in the area
+    // ViewData["MyColor"] = areasColorLabel;
 
 
     if (hasSettings && backgroundColour != null)
@@ -48,6 +56,7 @@
 
 <div class="layout-item py-3" data-bgimage="@backgroundImage.MediaUrl()" style="@styleAttribute" data-block-alias="@Model.Content.ContentType.Alias">
     @RenderBody()
+    @* <h2>@myColor</h2> *@
 </div>
 
 @* @{
