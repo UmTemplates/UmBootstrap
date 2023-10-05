@@ -38,7 +38,12 @@
       "type": "parameter",
       "datatype": "string",
       "defaultValue": "",
-      "replaces": "Data Source=|DataDirectory|/Umbraco.sqlite.db;Cache=Shared;Foreign Keys=True;Pooling=True"
+      "forms": {
+        "global": [
+          "jsonEncode"
+        ]
+      },
+      "replaces": "CONNECTION_STRING_FROM_TEMPLATE"
     },
     "ConnectionStringProviderName": {
       "displayName": "Connection string provider name",
@@ -46,7 +51,123 @@
       "type": "parameter",
       "datatype": "string",
       "defaultValue": "Microsoft.Data.SqlClient",
-      "replaces": "Microsoft.Data.Sqlite"
+      "forms": {
+        "global": [
+          "jsonEncode"
+        ]
+      },
+      "replaces": "CONNECTION_STRING_PROVIDER_NAME_FROM_TEMPLATE"
+    },
+    "HasConnectionString": {
+      "type": "computed",
+      "value": "(ConnectionString != '')"
+    },
+    "DevelopmentDatabaseType": {
+      "displayName": "Development database type",
+      "description": "Database type used by Umbraco for development.",
+      "type": "parameter",
+      "datatype": "choice",
+      "choices": [
+        {
+          "displayName": "None",
+          "description": "Do not configure a database for development.",
+          "choice": "None"
+        },
+        {
+          "displayName": "SQLite",
+          "description": "Use embedded SQLite database.",
+          "choice": "SQLite"
+        },
+        {
+          "displayName": "SQL Server Express LocalDB",
+          "description": "Use embedded LocalDB database (requires SQL Server Express with Advanced Services).",
+          "choice": "LocalDB"
+        }
+      ],
+      "defaultValue": "None"
+    },
+    "DevelopmentConnectionString": {
+      "type": "generated",
+      "datatype": "string",
+      "generator": "switch",
+      "parameters": {
+        "cases": [
+          {
+            "condition": "(DevelopmentDatabaseType == 'SQLite')",
+            "value": "Data Source=|DataDirectory|/Umbraco.sqlite.db;Cache=Shared;Foreign Keys=True;Pooling=True"
+          },
+          {
+            "condition": "(DevelopmentDatabaseType == 'LocalDB')",
+            "value": "Data Source=(localdb)\\\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\\\Umbraco.mdf;Integrated Security=True"
+          }
+        ]
+      },
+      "replaces": "CONNECTION_STRING_DEVELOPMENT_FROM_TEMPLATE"
+    },
+    "DevelopmentConnectionStringProviderName": {
+      "type": "generated",
+      "datatype": "string",
+      "generator": "switch",
+      "parameters": {
+        "cases": [
+          {
+            "condition": "(DevelopmentDatabaseType == 'SQLite')",
+            "value": "Microsoft.Data.Sqlite"
+          },
+          {
+            "condition": "(true)",
+            "value": "Microsoft.Data.SqlClient"
+          }
+        ]
+      },
+      "replaces": "CONNECTION_STRING_PROVIDER_NAME_DEVELOPMENT_FROM_TEMPLATE"
+    },
+    "HasDevelopmentConnectionString": {
+      "type": "computed",
+      "value": "(DevelopmentConnectionString != '')"
+    },
+    "UnattendedUserName": {
+      "displayName": "Unattended user name",
+      "description": "Used to specify the name of the default admin user when using unattended install on development (stored as plain text).",
+      "type": "parameter",
+      "datatype": "string",
+      "defaultValue": "",
+      "forms": {
+        "global": [
+          "jsonEncode"
+        ]
+      },
+      "replaces": "UNATTENDED_USER_NAME_FROM_TEMPLATE"
+    },
+    "UnattendedUserEmail": {
+      "displayName": "Unattended user email",
+      "description": "Used to specify the email of the default admin user when using unattended install on development (stored as plain text).",
+      "type": "parameter",
+      "datatype": "string",
+      "defaultValue": "",
+      "forms": {
+        "global": [
+          "jsonEncode"
+        ]
+      },
+      "replaces": "UNATTENDED_USER_EMAIL_FROM_TEMPLATE"
+    },
+    "UnattendedUserPassword": {
+      "displayName": "Unattended user password",
+      "description": "Used to specify the password of the default admin user when using unattended install on development (stored as plain text).",
+      "type": "parameter",
+      "datatype": "string",
+      "defaultValue": "",
+      "forms": {
+        "global": [
+          "jsonEncode"
+        ]
+      },
+      "replaces": "UNATTENDED_USER_PASSWORD_FROM_TEMPLATE"
+    },
+    "UsingUnattenedInstall": {
+      "type": "computed",
+      "value": "(UnattendedUserName != '' && UnattendedUserEmail != '' && UnattendedUserPassword != '' && (HasConnectionString || HasDevelopmentConnectionString))"
     }
   },
   "sources": [
