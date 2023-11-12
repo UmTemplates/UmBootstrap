@@ -6,7 +6,7 @@
   "description": "A project template for creating a new Umbraco site using the UmBootstrap Starter Kit",
   "identity": "Umbraco.Community.Templates.UmBootstrap",
   "shortName": "umbootstrap",
-    "tags": {
+  "tags": {
     "language": "C#",
     "type": "project"
   },
