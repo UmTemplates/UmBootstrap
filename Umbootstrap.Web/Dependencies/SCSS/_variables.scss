@@ -11,3 +11,46 @@ $enable-cssgrid: true !default;
 
 
 $navbar-light-active-color: #fff;
+
+// Grid outline
+.container {
+  outline: 1px solid red;
+}
+
+// Grid breakpoints
+//
+// Define the minimum dimensions at which your layout will change,
+// adapting to different screen sizes, for use in media queries.
+
+// scss-docs-start grid-breakpoints
+
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px, // BS sm: 576px
+  md: 768px, // BS md: 768px
+  lg: 992px, // BS lg: 992px
+  xl: 1200px, // BS xl: 1200px
+  xxl: 1468px, // BS xxl: 1400px
+  xxxl: 1600px
+) !default;
+// scss-docs-end grid-breakpoints
+
+@include _assert-ascending($grid-breakpoints, "$grid-breakpoints");
+@include _assert-starts-at-zero($grid-breakpoints, "$grid-breakpoints");
+
+
+// Grid containers
+//
+// Define the maximum width of `.container` for different screen sizes.
+
+// scss-docs-start container-max-widths
+$container-max-widths: (
+  sm: 540px, // BS sm: 540px
+  md: 720px, // BS md: 720px
+  lg: 960px, // BS lg: 960px
+  xl: 1072px, // BS xl: 1140px
+  xxl: 1336px, // BS xxl: 1320px
+  xxxl: 1600px
+) !default;
+// scss-docs-end container-max-widths
