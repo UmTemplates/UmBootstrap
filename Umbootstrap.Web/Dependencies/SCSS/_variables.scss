@@ -50,7 +50,7 @@ $grid-breakpoints: (
   sm: 412px, // = 3 COLUMNS [412] // BS sm: 576px
   smm: 544px, // = 4 COLUMNS [544] // NEW
   mds: 676px, // = 5 COLUMNS [676] // NEW
-  md: 768px, // = 6 COLUMNS [808] // BS md: 768px
+  md: 808px, // = 6 COLUMNS [808] // BS md: 768px
   mdl: 940px, // = 7 COLUMNS [940] // NEW
   lg: 1072px, // = 8 COLUMNS [1072] // BS lg: 992px
   xl: 1204px, // = 9 COLUMNS [1204] // BS xl: 1200px
@@ -69,12 +69,16 @@ $grid-breakpoints: (
 // Define the maximum width of `.container` for different screen sizes.
 
 // scss-docs-start container-max-widths
-$container-max-widths: ( sm: 540px, // BS sm: 540px
-md: 720px, // BS md: 720px
-lg: 1056px, // UB - 8 Column - BS lg: 960px
-xl: 1188px, // UB - 9 Column - BS xl: 1140px
-xxl: 1320px, // UB - 10 Column - BS xxl: 1320px
-xxxl: 1452px, // UB - 11 Column
-xxxxl: 1600px // UB - 12 Column
+$container-max-widths: ( 
+sm: 412px, // = 3 COLUMNS [412] // BS sm: 540px
+smm: 544px, // = 4 COLUMNS [544] // NEW
+mds: 676px, // = 5 COLUMNS [676] // NEW
+md: 808px, // = 6 COLUMNS [808] // BS md: 720px
+mdl: 940px, // = 7 COLUMNS [940] // NEW
+lg: 1072px, // = 8 COLUMNS [1072] // BS lg: 960px
+xl: 1204px, // = 9 COLUMNS [1204] // BS xl: 1140px
+xxl: 1336px, // = 10 COLUMNS [1336] // BS xxl: 1320px
+xxxl: 1400px, // = 11 COLUMNS [1468] // NEW
+xxxxl: 1440px, // = 12 COLUMNS [1600] // NEW
 ) !default;
 // scss-docs-end container-max-widths
