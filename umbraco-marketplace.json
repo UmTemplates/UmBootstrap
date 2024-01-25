@@ -45,7 +45,7 @@
   "Title": "",
   "VersionSpecificPackageIds": [
     {
-      "UmbracoMajorVersion": 10,
+      "UmbracoMajorVersion": 13,
       "PackageId": "Umbraco.Community.Templates.UmBootstrap"
     }
   ],
