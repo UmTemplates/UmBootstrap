@@ -117,3 +117,5 @@ However, it is not a blank canvas. It is a fully functional website with a varie
 This is ideal if you are new to Umbraco and want to learn how to build websites using Umbraco and Bootstrap.
 
 However, for more experienced developers, you may find that you want to remove some of the templates and components that you don't need or copy and paste the ones that you do need into your own website.
+
+This project is tested with BrowserStack.
