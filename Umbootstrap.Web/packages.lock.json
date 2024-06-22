@@ -53,9 +53,9 @@
       },
       "Umbraco.Community.BlockPreview": {
         "type": "Direct",
-        "requested": "[1.8.0, )",
-        "resolved": "1.8.0",
-        "contentHash": "6uCZx/1cpcDkA7SO6Dv73/XEPT90uylKVFGYoef5l7mq3BiK6bEr2nEgcBOI7Qe0N8KFFu6cfhQ4ZLF48qspgg==",
+        "requested": "[1.8.4, )",
+        "resolved": "1.8.4",
+        "contentHash": "7sMFMHv6mFyUI8xrMdHEdZKioBgWrg/znIciGVzF7RKlkYXkium+E5ohC25AwtVRIYk0yqU+boji8gp9cxHQmQ==",
         "dependencies": {
           "Umbraco.Cms.Web.BackOffice": "[13.0.0, 14.0.0)",
           "Umbraco.Cms.Web.Common": "[13.0.0, 14.0.0)",
