@@ -9,7 +9,7 @@
   <ItemGroup>
 	  <PackageReference Include="Our.Umbraco.UmbNav.Web" Version="3.0.0" />
 	  <PackageReference Include="System.Drawing.Common" Version="8.0.0" />
-	  <PackageReference Include="Umbraco.Cms" Version="13.1.0" />
+	  <PackageReference Include="Umbraco.Cms" Version="13.4.0" />
   </ItemGroup>
 
   <ItemGroup>
