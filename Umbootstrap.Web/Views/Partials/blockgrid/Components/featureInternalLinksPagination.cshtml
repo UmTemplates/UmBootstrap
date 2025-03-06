@@ -1,16 +1,15 @@
-﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem>
-@using Microsoft.AspNetCore.Http
-@using Umbraco.Extensions
-@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+﻿@using Microsoft.AspNetCore.Http
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem>
+@inject IHttpContextAccessor HttpContextAccessor
 
 @{
     Layout = "_Layout_Features.cshtml";
 
-    var currentPage = UmbracoContext.PublishedRequest.PublishedContent; // The current page
-    var childPages = currentPage.Children<IPublishedContent>(); // The child pages of the current page
+    var currentPage = Umbraco.AssignedContentItem; // The current page
+    var childPages = currentPage.Children<IPublishedContent>()?.ToArray() ?? []; // The child pages of the current page
     var pageSize = 3; // Number of items to display per page
 
-    var queryPageValue = HttpContextAccessor.HttpContext.Request.Query["page"]; // The value of the query string parameter 'page'
+    var queryPageValue =  HttpContextAccessor.HttpContext?.Request.Query["page"]; // The value of the query string parameter 'page'
     var currentPageNumber = string.IsNullOrWhiteSpace(queryPageValue) ? 1 : Convert.ToInt32(queryPageValue); // The current page number
 
 
@@ -31,10 +30,7 @@
     <ul class="pagination g-col-12">
         @if (currentPageNumber > 1) // If the current page is not the first page
         {
-            var prevPageQueryString = currentPageNumber == 1
-
-            ? HttpContextAccessor.HttpContext.Request.QueryString.Value.Replace("page=" + currentPageNumber, "").Trim('&', '?')
-            : $"?page={currentPageNumber - 1}#pagination"; // The query string of the previous page with the pagination anchor
+            var prevPageQueryString = $"?page={currentPageNumber - 1}#pagination";
 
             <li class="page-item">
                 <a class="page-link" href="@prevPageQueryString">Prev</a>
@@ -47,16 +43,16 @@
             </li>
         }
 
-        @for (var i = 1; i <= Math.Ceiling((double)childPages.Count() / pageSize); i++) // Loop through the pages
+        @for (var i = 1; i <= Math.Ceiling((double)childPages.Length / pageSize); i++) // Loop through the pages
         {
-            var queryString = HttpContextAccessor.HttpContext.Request.QueryString.Value; // The query string of the current page
-            if (queryString.Contains("page=")) // If the query string already contains a 'page' parameter, replace it with the current page number
+            var queryString = HttpContextAccessor.HttpContext?.Request.QueryString.Value; // The query string of the current page
+            if (queryString?.Contains("page=") == true) // If the query string already contains a 'page' parameter, replace it with the current page number
             {
                 queryString = queryString.Replace("page=" + currentPageNumber, $"page={i}"); // Replace the 'page' parameter with the current page number
             }
             else
             {
-                if (queryString.Length > 0)
+                if (queryString?.Length > 0)
                 {
                     queryString += "&";
                 }
@@ -66,7 +62,7 @@
 
             queryString = "?" + queryString; // Ensure the query string starts with a '?'
 
-            queryString = queryString + "#pagination"; // Add the anchor to the query string
+            queryString += "#pagination"; // Add the anchor to the query string
 
             <li class="page-item @(currentPageNumber == i ? "active" : "")">
                 <a class="page-link" href="@queryString">@i</a>
@@ -74,7 +70,7 @@
         }
 
 
-        @if (currentPageNumber < Math.Ceiling((double)childPages.Count() / pageSize)) // If the current page is not the last page
+        @if (currentPageNumber < Math.Ceiling((double)childPages.Length / pageSize)) // If the current page is not the last page
         {
             var nextPageQueryString = $"?page={currentPageNumber + 1}#pagination"; // The query string of the next page
 
@@ -99,11 +95,12 @@
 <div class="grid">
     @foreach (var varWebpage in displayedPages) //LOOP THROUGH LINKS
     {
-        <div class="g-col-12 g-col-md-6 g-col-lg-4">
+        var thumbnail = varWebpage.Value<IPublishedContent>("pageThumbnail");
+                        <div class="g-col-12 g-col-md-6 g-col-lg-4">
             <div class="card h-100 shadow">
-                @if (varWebpage.HasValue("pageThumbnail")) // if image is not null, display image}
+                @if (thumbnail is not null) // if image is not null, display image}
                 {
-                    <img src="@(varWebpage.Value<IPublishedContent>("pageThumbnail").GetCropUrl(width:480))" class="card-img-top" alt="...">
+                    <img src="@(thumbnail.GetCropUrl(width:480))" class="card-img-top" alt="...">
                 }
                 <div class="card-body">
                     <h5 class="card-title pb-1"><a class="nav-link stretched-link" href="@varWebpage.Url()">@varWebpage.Value("pageTitle")</a></h5>
