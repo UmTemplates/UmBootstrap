@@ -1,27 +1,28 @@
-﻿@using Umbraco.Extensions
-@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem>
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem>
 
 @{
     Layout = "_Layout_Features.cshtml";
 }
 
 <div class="grid">
-    @foreach (IPublishedContent varWebpage in UmbracoContext!.PublishedRequest!.PublishedContent!.Children<IPublishedContent>()!) //LOOP THROUGH LINKS
+    @foreach (var childPage in Umbraco.AssignedContentItem.Children<IPublishedContent>()!) //LOOP THROUGH LINKS
     {
+        var thumbnail = childPage.Value<IPublishedContent>("pageThumbnail");
         <div class="g-col-12 g-col-md-6 g-col-lg-4">
             <div class="card h-100 shadow">
-                @if (varWebpage.Value<IPublishedContent>("pageThumbnail") != null)
+                @if (thumbnail != null)
                 {
                     // if image is not null, display image}
-                    <img src="@(varWebpage.Value<IPublishedContent>("pageThumbnail").GetCropUrl(width:480))" class="card-img-top" alt="...">
+                    <img src="@(thumbnail.GetCropUrl(width: 480))" class="card-img-top" alt="...">
                 }
                 @*<div class="card-header">
             <h5 class="card-title text-center pt-2"><a class="nav-link stretched-link" href="@varWebpage.Url()">@varWebpage.Value("pageTitle")</a></h5>
             </div>*@
                 <div class="card-body">
-                    <h5 class="card-title pb-1"><a class="nav-link stretched-link" href="@varWebpage.Url()">@varWebpage.Value("pageTitle")</a></h5>
+                    <h5 class="card-title pb-1"><a class="nav-link stretched-link"
+                                                   href="@childPage.Url()">@childPage.Value("pageTitle")</a></h5>
                     <p class="card-text pb-2">
-                        @varWebpage.Value("pageDescription")
+                        @childPage.Value("pageDescription")
                     </p>
                 </div>
             </div>

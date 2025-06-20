@@ -1,5 +1,4 @@
-﻿@using Umbraco.Extensions
-@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem>
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem<FeatureInternalLinks>>
 
 @{
     Layout = "_Layout_Features.cshtml";
@@ -9,7 +8,7 @@
     @{
         var count = 0;
         var maxItems = 6;
-        var typedMultiNodeTreePicker = Model.Content.Value<IEnumerable<IPublishedContent>>("links");
+        var typedMultiNodeTreePicker = Model.Content.Links;
     }
     @if (typedMultiNodeTreePicker != null)
     {
@@ -19,16 +18,18 @@
             {
                 break;
             }
+
             count++;
+            var pageThumbnail = item.Value<IPublishedContent>("pageThumbnail");
             <div class="g-col-12 g-col-md-6 g-col-lg-4">
                 <div class="card h-100 shadow">
-                    @if (item.Value<IPublishedContent>("pageThumbnail") != null)
-                    // if image is not null, display image
+                    @if (pageThumbnail is not null)
                     {
-                        <img src="@(item.Value<IPublishedContent>("pageThumbnail").GetCropUrl(width:480))" class="card-img-top" alt="...">
+                        <img src="@(pageThumbnail.GetCropUrl(width: 480))" class="card-img-top" alt="...">
                     }
                     <div class="card-body">
-                        <h5 class="card-title pb-1"><a class="nav-link stretched-link" href="@item.Url()">@item.Value("pageTitle")</a></h5>
+                        <h5 class="card-title pb-1"><a class="nav-link stretched-link"
+                                                       href="@item.Url()">@item.Value("pageTitle")</a></h5>
                         <p class="card-text pb-2">@item.Name</p>
                     </div>
                 </div>

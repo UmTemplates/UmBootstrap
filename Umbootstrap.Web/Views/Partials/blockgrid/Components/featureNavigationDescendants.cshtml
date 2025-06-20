@@ -1,7 +1,5 @@
-﻿@using Umbraco.Extensions
-@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem>
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem>
 @*@using Umbraco.Cms.Core.Models.PublishedContent*@
-@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
 
 
 @*@{
@@ -11,23 +9,23 @@
 }*@
 
 @{
-    IPublishedContent vThisPage = UmbracoContext!.PublishedRequest!.PublishedContent!;
+    IPublishedContent vThisPage = Umbraco.AssignedContentItem;
     int intCurLevel = vThisPage.Level;
-    IPublishedContent ThisSectionPage = vThisPage.Ancestor(2)!;
-    if (vThisPage.Level == 2) { ThisSectionPage = vThisPage; }
+    IPublishedContent thisSectionPage = vThisPage.Ancestor(2)!;
+    if (vThisPage.Level == 2) { thisSectionPage = vThisPage; }
 }
 
 @{
-    void renderLI(IPublishedContent NavItem)
+    void RenderLi(IPublishedContent navItem)
     {
-        <li data-level="level-@NavItem.Level" class=" @(NavItem.IsAncestorOrSelf(vThisPage) ? " active" : "")@(NavItem.IsDescendant(vThisPage) ? "descendant" : "")">
-            <a href="@NavItem.Url()" class="list-group-item-action list-group-item list-group-item-light ps-@NavItem.Level @(NavItem.IsAncestorOrSelf(vThisPage) ? " active" : "")@(NavItem.IsDescendant(vThisPage) ? "descendant" : "")">@NavItem.Value("pageTitleShort")</a>
-            @if (NavItem.IsAncestorOrSelf(vThisPage) && NavItem.Children != null)
+        <li data-level="level-@navItem.Level" class=" @(navItem.IsAncestorOrSelf(vThisPage) ? " active" : "")@(navItem.IsDescendant(vThisPage) ? "descendant" : "")">
+            <a href="@navItem.Url()" class="list-group-item-action list-group-item list-group-item-light ps-@navItem.Level @(navItem.IsAncestorOrSelf(vThisPage) ? " active" : "")@(navItem.IsDescendant(vThisPage) ? "descendant" : "")">@navItem.Value("pageTitleShort")</a>
+            @if (navItem.IsAncestorOrSelf(vThisPage) && navItem.Children().Any())
             {
                 <ul class="list-group nav">
-                    @foreach (IPublishedContent ListItemChild in NavItem.Children)
+                    @foreach (IPublishedContent listItemChild in navItem.Children())
                     {
-                        renderLI(ListItemChild);
+                        RenderLi(listItemChild);
                     }
                 </ul>
             }
@@ -38,14 +36,14 @@
 <nav class="card d-none d-md-block ">
     <header class="card-header">
         <h2 class="card-title">
-            <a href="@ThisSectionPage.Url()" class="list-group-item-action list-group-item">@ThisSectionPage.Value("pageTitleShort")</a>
+            <a href="@thisSectionPage.Url()" class="list-group-item-action list-group-item">@thisSectionPage.Value("pageTitleShort")</a>
         </h2>
     </header>
     <div class="">
         <ul class="list-group nav">
-            @foreach (var NavItem in ThisSectionPage.Children!)
+            @foreach (var navItem in thisSectionPage.Children())
             {
-                renderLI(NavItem);
+                RenderLi(navItem);
             }
         </ul>
     </div>
@@ -54,10 +52,10 @@
 <nav aria-label="breadcrumb" class="d-sm-block d-md-none">
     @{
         // get ancestors ordered by level ascending
-        var ancestors = vThisPage.Ancestors().OrderBy(a => a.Level);
+        var ancestors = vThisPage.Ancestors().OrderBy(a => a.Level).ToArray();
 
     }
-    @if (ancestors.Any())
+    @if (ancestors.Length > 0)
     {
         <ol class="breadcrumb">
             @foreach (var ancestor in ancestors)

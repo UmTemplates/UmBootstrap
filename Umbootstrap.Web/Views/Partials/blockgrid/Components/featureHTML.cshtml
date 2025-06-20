@@ -1,8 +1,7 @@
-﻿@using Umbraco.Extensions
-@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem>
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem<FeatureHtml>>
 
 @{
     Layout = "_Layout_Features.cshtml";
 }
 
-@Html.Raw(Model.Content.Value("featurePropertyFeatureHTML"))
+@Html.Raw(Model.Content.FeaturePropertyFeatureHtml)

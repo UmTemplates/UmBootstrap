@@ -1,11 +1,8 @@
 ﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
-@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
-@using UmbNav.Core.Extensions
-@using UmbNav.Core.Models
 
 @{
     Layout = null;
-    var siteSettings = UmbracoContext.Content.GetSingleByXPath("//siteSettings");
+    var siteSettings = Model.Root().FirstChild<SiteSettings>();
 
     string styleAttribute = "";
 
@@ -42,7 +39,7 @@
 
 
 </head>
-<body data-bgimage="@backgroundImage.MediaUrl()" style="@styleAttribute">
+<body data-bgimage="@backgroundImage?.MediaUrl()" style="@styleAttribute">
     <div class="document d-flex flex-column justify-content-between">
     <!-- START UTILITY BAR -->
     <partial name="FeaturesGlobal/utility-bar" />
