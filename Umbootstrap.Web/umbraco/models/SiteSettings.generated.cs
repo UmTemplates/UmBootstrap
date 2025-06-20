@@ -68,10 +68,10 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		///<summary>
 		/// Main Navigation
 		///</summary>
-		//[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "15.2.1+649cfca")]
-		//[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		//[ImplementPropertyType("mainNavigation")]
-		//public virtual global::System.Collections.Generic.IEnumerable<global::Umbraco.Community.UmbNav.Core.Models.UmbNavItem> MainNavigation => this.Value<global::System.Collections.Generic.IEnumerable<global::Umbraco.Community.UmbNav.Core.Models.UmbNavItem>>(_publishedValueFallback, "mainNavigation");
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "15.2.1+649cfca")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("mainNavigation")]
+		public virtual string MainNavigation => this.Value<string>(_publishedValueFallback, "mainNavigation");
 
 		///<summary>
 		/// Site Name
