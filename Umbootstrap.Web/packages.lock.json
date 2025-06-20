@@ -42,15 +42,6 @@
           "Umbraco.Cms.Web.Website": "[15.0.0, 16.0.0)"
         }
       },
-      "Umbraco.Community.UmbNav": {
-        "type": "Direct",
-        "requested": "[4.0.0-beta0017, )",
-        "resolved": "4.0.0-beta0017",
-        "contentHash": "seiNzsWs8m2UvqtBCv3UxFxjVLpXnOvFq6RD2k+w0PPr4tXMPGIYbcQ37TBTZwTO61lZLieH+xQfu68gOqkMRw==",
-        "dependencies": {
-          "Umbraco.Community.UmbNav.Core": "4.0.0-beta0017"
-        }
-      },
       "Umbraco.Forms": {
         "type": "Direct",
         "requested": "[15.1.0, )",
@@ -3221,14 +3212,6 @@
         "contentHash": "zJTcgKHt2HuULVhPLiYlIdPj27O7VMUZ0sMOZeHx0FtfSfv/Upc2o1nK+ksjF6WZc1E8xPkQWm0jAUiYIrO3CA==",
         "dependencies": {
           "Umbraco.Cms.Web.Common": "[15.2.1, 16.0.0)"
-        }
-      },
-      "Umbraco.Community.UmbNav.Core": {
-        "type": "Transitive",
-        "resolved": "4.0.0-beta0017",
-        "contentHash": "ZEaUJhnlaTrrsb92xV9b3iMSlYkQU/Rd6d6NVsEyTNztioU9aPP3ZyH0fwrjAgUD+/CpissHTPebpEce7Ovbog==",
-        "dependencies": {
-          "Umbraco.Cms.Web.Common": "15.1.2"
         }
       },
       "Umbraco.Forms.Core": {

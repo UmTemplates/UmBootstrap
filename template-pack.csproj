@@ -89,7 +89,6 @@
   <ItemGroup>
     <PackageReference Include="Umbraco.Cms" Version="15.2.1" />
     <PackageReference Include="Umbraco.Community.BlockPreview" Version="3.2.4" />
-    <PackageReference Include="Umbraco.Community.UmbNav" Version="4.0.0-beta0017" />
   </ItemGroup>
 
   <ItemGroup>
