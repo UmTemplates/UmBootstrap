@@ -1,13 +1,9 @@
-﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem>
-@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
-@using Umbraco.Cms.Core.Models.Blocks;
-@{
-    var content = Model.Content;
-    var faqItems = content.Value<IEnumerable<BlockListItem>>("FeaturePropertyFaqs")?.ToList();
-}
-
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem<FeatureFaqs>>
 @{
     Layout = "_Layout_Features.cshtml";
+    
+    var content = Model.Content;
+    var faqItems = content.FeaturePropertyFaqs;
 }
 
 @if (faqItems != null && faqItems.Any())

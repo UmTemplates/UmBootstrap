@@ -1,8 +1,7 @@
-﻿@using Umbraco.Extensions
-@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem>
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem<FeatureRichTextEditor>>
 
 @{
     Layout = "_Layout_Features.cshtml";
 }
 
-@Model.Content.Value("richTextContent")
+@Model.Content.RichTextContent

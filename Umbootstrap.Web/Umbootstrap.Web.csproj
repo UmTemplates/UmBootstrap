@@ -1,23 +1,22 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Web">
   <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
+    <TargetFramework>net9.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-  <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
+    <CompressionEnabled>false</CompressionEnabled> <!-- Disable compression. E.g. for umbraco backoffice files. These files should be precompressed by node and not let dotnet handle it -->
   </PropertyGroup>
 
   <ItemGroup>
-	  <PackageReference Include="Our.Umbraco.UmbNav.Web" Version="3.0.0" />
-	  <PackageReference Include="System.Drawing.Common" Version="8.0.0" />
-	  <PackageReference Include="Umbraco.Cms" Version="13.4.0" />
+    <PackageReference Include="Umbraco.Cms" Version="16.0.0" />
+    <PackageReference Include="Umbraco.Community.BlockPreview" Version="4.0.0" />
+    <PackageReference Include="Umbraco.Forms" Version="16.0.0" />
+    <PackageReference Include="uSync" Version="16.0.0" />
   </ItemGroup>
 
   <ItemGroup>
     <!-- Opt-in to app-local ICU to ensure consistent globalization APIs across different platforms -->
-    <PackageReference Include="Microsoft.ICU.ICU4C.Runtime" Version="68.2.0.9" />
-    <PackageReference Include="Umbraco.Community.BlockPreview" Version="1.8.4" />
-    <PackageReference Include="uSync" Version="13.2.3" />
-    <RuntimeHostConfigurationOption Include="System.Globalization.AppLocalIcu" Value="68.2.0.9" Condition="$(RuntimeIdentifier.StartsWith('linux')) or $(RuntimeIdentifier.StartsWith('win')) or ('$(RuntimeIdentifier)' == '' and !$([MSBuild]::IsOSPlatform('osx')))" />
+    <PackageReference Include="Microsoft.ICU.ICU4C.Runtime" Version="72.1.0.3" />
+    <RuntimeHostConfigurationOption Include="System.Globalization.AppLocalIcu" Value="72.1.0.3" Condition="$(RuntimeIdentifier.StartsWith('linux')) or $(RuntimeIdentifier.StartsWith('win')) or ('$(RuntimeIdentifier)' == '' and !$([MSBuild]::IsOSPlatform('osx')))" />
   </ItemGroup>
 
   <ItemGroup>
@@ -36,17 +35,59 @@
     <None Include="App_Plugins\icons\Layout 8.svg" />
   </ItemGroup>
 
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="Views\Home.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Partials\blockgrid\area.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Partials\blockgrid\areas.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Partials\blockgrid\Components\featureCode.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Partials\blockgrid\Components\featureFAQs.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Partials\blockgrid\Components\featureFormContactUs.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Partials\blockgrid\Components\featureHTML.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Partials\blockgrid\Components\featureImage.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Partials\blockgrid\Components\featureInternalLinks.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Partials\blockgrid\Components\featureInternalLinksChildren.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Partials\blockgrid\Components\featureInternalLinksPagination.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Partials\blockgrid\Components\featureInternalLinksSlideshow.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Partials\blockgrid\Components\featureNavigationDescendants.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Partials\blockgrid\Components\featurePageTitleDescription.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Partials\blockgrid\Components\featureRichTextEditor.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Partials\blockgrid\Components\featureTabs.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Partials\blockgrid\Components\layout12.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Partials\blockgrid\Components\layout363.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Partials\blockgrid\Components\layout39.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Partials\blockgrid\Components\layout66.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Partials\blockgrid\Components\layout8.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Partials\blockgrid\Components\_Layout_Features.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Partials\blockgrid\Components\_Layout_Layouts.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Partials\blockgrid\default.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Partials\blockgrid\items.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Partials\blocklist\Components\featureComponentFAQ.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Partials\blocklist\Components\featureComponentTab.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Partials\blocklist\Components\featureImage.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Partials\blocklist\Components\featureRichTextEditor.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Partials\blocklist\default.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Partials\FeaturesGlobal\footer.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Partials\FeaturesGlobal\header.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Partials\FeaturesGlobal\utility-bar.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Partials\grid\bootstrap3-fluid.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Partials\grid\bootstrap3.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Partials\grid\editors\base.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Partials\grid\editors\embed.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Partials\grid\editors\macro.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Partials\grid\editors\media.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Partials\grid\editors\rte.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Partials\grid\editors\textstring.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Partials\Head\_meta.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\WebPage.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\_Layout.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\_ViewImports.cshtml" />
+  </ItemGroup>
+
 	<PropertyGroup>
     <!-- Referenced assemblies (DLLs) will be copied to the publish directory when you build and publish your Umbraco project -->
     <CopyReferencedAssembliesToPublishDirectory>true</CopyReferencedAssembliesToPublishDirectory>
     <!-- Razor files are needed for the backoffice to work correctly -->
     <CopyRazorGenerateFilesToPublishDirectory>true</CopyRazorGenerateFilesToPublishDirectory>
-  </PropertyGroup>
-
-  <PropertyGroup>
-    <!-- Remove RazorCompileOnBuild and RazorCompileOnPublish when not using ModelsMode InMemoryAuto -->
-    <RazorCompileOnBuild>false</RazorCompileOnBuild>
-    <RazorCompileOnPublish>false</RazorCompileOnPublish>
   </PropertyGroup>
 
   

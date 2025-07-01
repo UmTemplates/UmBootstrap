@@ -1,0 +1,38 @@
+﻿@model IPublishedContent
+
+@{
+    const string baseUrl = "https://umbootstrap.com";
+    var pageTitle = Model.Value<string>("pageTitle");
+    var pageDescription = Model.Value<string>("pageDescription");
+    var pageThumbnailUrl = Model.HasValue("pageThumbnail") ? baseUrl + Model.Value<IPublishedContent>("pageThumbnail")?.GetCropUrl(width: 1200) : null;
+    var hasThumbnail = !string.IsNullOrEmpty(pageThumbnailUrl);
+}
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- START SEO META DATA -->
+<title>@pageTitle</title>
+<meta name="description" content="@pageDescription" />
+@if (hasThumbnail)
+{
+    <meta name="thumbnail" content="@pageThumbnailUrl" />
+}
+<!-- END SEO META DATA -->
+<!-- START OPEN GRAPH META TAGS -->
+<meta property="og:title" content="@pageTitle" />
+<meta property="og:description" content="@pageDescription" />
+@if (hasThumbnail)
+{
+    <meta property="og:image" content="@pageThumbnailUrl" />
+}
+<!-- END OPEN GRAPH META TAGS -->
+<!-- START TWITTER META TAGS -->
+<meta name="twitter:title" content="@pageTitle" />
+<meta name="twitter:description" content="@pageDescription" />
+@if (hasThumbnail)
+{
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image:src" content="@pageThumbnailUrl" />
+}
+<!-- END TWITTER META TAGS -->
