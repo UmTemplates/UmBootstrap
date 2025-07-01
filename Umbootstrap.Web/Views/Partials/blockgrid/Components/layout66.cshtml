@@ -1,18 +1,15 @@
 ﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem>
 @using Umbraco.Community.BlockPreview.Extensions;
-@using Umbraco.Extensions
 @using Umbraco.Cms.Core.PropertyEditors.ValueConverters;
 
 @{
     Layout = "_Layout_Layouts.cshtml";
-    // 1. Check if this block grid item has settings
-    var hasSettings = Model.Settings != null;
     // 2. If this block grid item has settings, get the Areas background colour
-    var areasBackgroundColour = hasSettings ? Model.Settings.Value<ColorPickerValueConverter.PickedColor>("layoutAreasColourPicker") : null;
+    var areasBackgroundColour = Model.Settings?.Value<ColorPickerValueConverter.PickedColor>("layoutAreasColourPicker");
     // 3. Get the label from the colour
     var areasColorLabelValue = areasBackgroundColour?.Label;
     // 4. If the area has a colour, use it, otherwise use bg-light
-    var areasColorLabel = areasColorLabelValue != null ? areasColorLabelValue : "bg-white";
+    var areasColorLabel = string.IsNullOrWhiteSpace(areasColorLabelValue) ?"bg-white" : areasColorLabelValue;
     // 5. Set the TempData to use in the area
     ViewData["AreaBackgroundColors"] = areasColorLabel;
 }

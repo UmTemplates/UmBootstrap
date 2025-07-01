@@ -8,7 +8,7 @@
     <Description>A project template for creating a new Umbraco site using the UmBootstrap Starter Kit</Description>
     <PackageTags>dotnet-new;templates;umbraco;bootstrap;umbraco-marketplace</PackageTags>
 
-    <TargetFramework>net8.0</TargetFramework>
+    <TargetFramework>net9.0</TargetFramework>
 
     <IncludeContentInPack>true</IncludeContentInPack>
     <IncludeBuildOutput>false</IncludeBuildOutput>
@@ -25,6 +25,61 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Include="Umbootstrap.Web\BlockPreviews\BlockPreviewComposer.cs" />
+    <Compile Include="Umbootstrap.Web\Extensions\UmbNavExtensions.cs" />
+    <Compile Include="Umbootstrap.Web\umbraco\models\ContentGridDefault.generated.cs" />
+    <Compile Include="Umbootstrap.Web\umbraco\models\ContentHeadingDefault.generated.cs" />
+    <Compile Include="Umbootstrap.Web\umbraco\models\ContentHeadingDefault1.generated.cs" />
+    <Compile Include="Umbootstrap.Web\umbraco\models\FeatureCode.generated.cs" />
+    <Compile Include="Umbootstrap.Web\umbraco\models\FeatureComponentCode.generated.cs" />
+    <Compile Include="Umbootstrap.Web\umbraco\models\FeatureComponentFaq.generated.cs" />
+    <Compile Include="Umbootstrap.Web\umbraco\models\FeatureComponentFaqs.generated.cs" />
+    <Compile Include="Umbootstrap.Web\umbraco\models\FeatureComponentFeatureDescription.generated.cs" />
+    <Compile Include="Umbootstrap.Web\umbraco\models\FeatureComponentFeatureSummary.generated.cs" />
+    <Compile Include="Umbootstrap.Web\umbraco\models\FeatureComponentFeatureTitle.generated.cs" />
+    <Compile Include="Umbootstrap.Web\umbraco\models\FeatureComponentHtml.generated.cs" />
+    <Compile Include="Umbootstrap.Web\umbraco\models\FeatureComponentImage.generated.cs" />
+    <Compile Include="Umbootstrap.Web\umbraco\models\FeatureComponentInternalLinksSlideshow.generated.cs" />
+    <Compile Include="Umbootstrap.Web\umbraco\models\FeatureComponentNoConfiguration.generated.cs" />
+    <Compile Include="Umbootstrap.Web\umbraco\models\FeatureComponentRichTextEditor.generated.cs" />
+    <Compile Include="Umbootstrap.Web\umbraco\models\FeatureComponentsInternalLinks.generated.cs" />
+    <Compile Include="Umbootstrap.Web\umbraco\models\FeatureComponentTab.generated.cs" />
+    <Compile Include="Umbootstrap.Web\umbraco\models\FeatureComponentTabs.generated.cs" />
+    <Compile Include="Umbootstrap.Web\umbraco\models\FeatureFaqs.generated.cs" />
+    <Compile Include="Umbootstrap.Web\umbraco\models\FeatureFormContactUs.generated.cs" />
+    <Compile Include="Umbootstrap.Web\umbraco\models\FeatureHtml.generated.cs" />
+    <Compile Include="Umbootstrap.Web\umbraco\models\FeatureImage.generated.cs" />
+    <Compile Include="Umbootstrap.Web\umbraco\models\FeatureInternalLinks.generated.cs" />
+    <Compile Include="Umbootstrap.Web\umbraco\models\FeatureInternalLinksChildren.generated.cs" />
+    <Compile Include="Umbootstrap.Web\umbraco\models\FeatureInternalLinksPagination.generated.cs" />
+    <Compile Include="Umbootstrap.Web\umbraco\models\FeatureInternalLinksSlideshow.generated.cs" />
+    <Compile Include="Umbootstrap.Web\umbraco\models\FeatureNavigationDescendants.generated.cs" />
+    <Compile Include="Umbootstrap.Web\umbraco\models\FeaturePageTitleDescription.generated.cs" />
+    <Compile Include="Umbootstrap.Web\umbraco\models\FeatureRichTextEditor.generated.cs" />
+    <Compile Include="Umbootstrap.Web\umbraco\models\FeatureSettings.generated.cs" />
+    <Compile Include="Umbootstrap.Web\umbraco\models\FeatureSettingsComponentColorPicker.generated.cs" />
+    <Compile Include="Umbootstrap.Web\umbraco\models\FeatureSettingsComponentColorPicker1.generated.cs" />
+    <Compile Include="Umbootstrap.Web\umbraco\models\FeatureTabs.generated.cs" />
+    <Compile Include="Umbootstrap.Web\umbraco\models\File.generated.cs" />
+    <Compile Include="Umbootstrap.Web\umbraco\models\Folder.generated.cs" />
+    <Compile Include="Umbootstrap.Web\umbraco\models\Home.generated.cs" />
+    <Compile Include="Umbootstrap.Web\umbraco\models\Image.generated.cs" />
+    <Compile Include="Umbootstrap.Web\umbraco\models\Layout12.generated.cs" />
+    <Compile Include="Umbootstrap.Web\umbraco\models\Layout363.generated.cs" />
+    <Compile Include="Umbootstrap.Web\umbraco\models\Layout39.generated.cs" />
+    <Compile Include="Umbootstrap.Web\umbraco\models\Layout66.generated.cs" />
+    <Compile Include="Umbootstrap.Web\umbraco\models\Layout8.generated.cs" />
+    <Compile Include="Umbootstrap.Web\umbraco\models\LayoutSettings.generated.cs" />
+    <Compile Include="Umbootstrap.Web\umbraco\models\LayoutSettingsComponentBackgroundImage.generated.cs" />
+    <Compile Include="Umbootstrap.Web\umbraco\models\LayoutSettingsComponentColorPicker.generated.cs" />
+    <Compile Include="Umbootstrap.Web\umbraco\models\LoginPage.generated.cs" />
+    <Compile Include="Umbootstrap.Web\umbraco\models\Member.generated.cs" />
+    <Compile Include="Umbootstrap.Web\umbraco\models\SiteSettings.generated.cs" />
+    <Compile Include="Umbootstrap.Web\umbraco\models\UmbracoMediaArticle.generated.cs" />
+    <Compile Include="Umbootstrap.Web\umbraco\models\UmbracoMediaAudio.generated.cs" />
+    <Compile Include="Umbootstrap.Web\umbraco\models\UmbracoMediaVectorGraphics.generated.cs" />
+    <Compile Include="Umbootstrap.Web\umbraco\models\UmbracoMediaVideo.generated.cs" />
+    <Compile Include="Umbootstrap.Web\umbraco\models\WebPage.generated.cs" />
     <Content Include="Umbootstrap.Web\**\*" Exclude="Umbootstrap.Web\**\bin\**;Umbootstrap.Web\**\obj\**" />
     <Compile Remove="**\*" />
     <None Include="assets\README_nuget.md" Pack="true" PackagePath="\" />
@@ -32,10 +87,8 @@
   </ItemGroup>
 
   <ItemGroup>
-	  <PackageReference Include="Our.Umbraco.UmbNav.Web" Version="3.0.0" />
-	  <PackageReference Include="System.Drawing.Common" Version="8.0.0" />
-	  <PackageReference Include="Umbraco.Cms" Version="13.4.0" />
-	  <PackageReference Include="uSync" Version="13.2.3" />
+    <PackageReference Include="Umbraco.Cms" Version="16.0.0" />
+    <PackageReference Include="Umbraco.Community.BlockPreview" Version="4.0.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -43,6 +96,10 @@
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Umbootstrap.Web\umbraco\" />
   </ItemGroup>
 
 </Project>

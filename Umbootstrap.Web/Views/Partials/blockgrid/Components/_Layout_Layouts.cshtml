@@ -1,28 +1,29 @@
 ﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem>
 @using Umbraco.Cms.Core.PropertyEditors.ValueConverters;
-@using Umbraco.Cms.Core.PropertyEditors;
 
 @{
     // No layout by default
     Layout = null;
 
     // Check if the layout has any areas
-    if (Model?.Areas.Any() != true) { return; }
+    if (Model.Areas.Any() != true)
+    {
+        return;
+    }
 
     // Get the layout settings
-    var hasSettings = Model.Settings != null;
 
-    var backgroundColour = hasSettings ? Model.Settings.Value<ColorPickerValueConverter.PickedColor>("layoutSettingsColourPicker") : null;
+    var backgroundColour = Model.Settings?.Value<ColorPickerValueConverter.PickedColor>("layoutSettingsColourPicker");
 
     var colorLabel = backgroundColour?.Label;
 
-    var colorShades = hasSettings ? Model.Settings.Value<decimal>("layoutSettingsColourShades") : (decimal?)null;
+    var colorShades = Model.Settings?.Value<decimal>("layoutSettingsColourShades");
 
-    var colorOpacity = hasSettings ? Model.Settings.Value<decimal>("layoutSettingsColourOpacity") : (decimal?)null;
+    var colorOpacity = Model.Settings?.Value<decimal>("layoutSettingsColourOpacity");
 
-    var backgroundImage = hasSettings ? Model.Settings.Value<Umbraco.Cms.Core.Models.MediaWithCrops>("layoutSettingsBackgroundImagePicker") : null;
+    var backgroundImage = Model.Settings?.Value<Umbraco.Cms.Core.Models.MediaWithCrops>("layoutSettingsBackgroundImagePicker");
 
-    string styleAttribute = "";
+    var styleAttribute = "";
 
     /*
      * I could not get ViewData to pass the value to area.cshtml
@@ -43,18 +44,20 @@
     // ViewData["MyColor"] = areasColorLabel;
 
 
-    if (hasSettings && backgroundColour != null)
+    if (backgroundColour != null)
     {
         // Set style attribute to background color to use rgba
         styleAttribute = $"background-color: rgba(var({colorLabel}-{colorShades}), {colorOpacity});";
     }
-    else if (backgroundImage != null)
+    
+    if (backgroundImage != null)
     {
         styleAttribute = $"background-image: url({backgroundImage.MediaUrl()});";
     }
 }
 
-<div class="layout-item py-3" data-bgimage="@backgroundImage.MediaUrl()" style="@styleAttribute" data-block-alias="@Model.Content.ContentType.Alias">
+<div class="layout-item py-3" data-bgimage="@backgroundImage?.MediaUrl()" style="@styleAttribute"
+     data-block-alias="@Model.Content.ContentType.Alias">
     @RenderBody()
     @* <h2>@myColor</h2> *@
 </div>

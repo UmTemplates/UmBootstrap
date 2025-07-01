@@ -1,5 +1,4 @@
 ﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem>
-@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
 @using Umbraco.Cms.Core.Models.Blocks;
 
 @{
@@ -80,7 +79,7 @@ b - image
                                         // if it's an image use this:
                                         @if (tabContentItem.HasValue("image"))
                                         {
-                                            <img src="@(tabContentItem.Value<IPublishedContent>("image").Url())" style="object-fit: cover; width: 100%; height: 100%;" />
+                                            <img src="@(tabContentItem.Value<IPublishedContent>("image")?.Url())" style="object-fit: cover; width: 100%; height: 100%;" />
                                         }
                                     }
                                 </div>

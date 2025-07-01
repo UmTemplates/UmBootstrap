@@ -5,21 +5,19 @@
 @{
     Layout = null;
     // Get the feature properties from the block grid item
-    string featureTitle = Model.Content.Value<string>("featurePropertyFeatureTitle");
-    string featureDescription = Model.Content.Value<string>("featurePropertyFeatureDescription");
-    string featureSummary = Model.Content.Value<string>("featurePropertyFeatureSummary");
+    var featureTitle = Model.Content.Value<string>("featurePropertyFeatureTitle");
+    var featureDescription = Model.Content.Value<string>("featurePropertyFeatureDescription");
+    var featureSummary = Model.Content.Value<string>("featurePropertyFeatureSummary");
 
     var umbracoContext = UmbracoContextFactory.EnsureUmbracoContext();
 
-    // Check if the block grid item has settings
-    bool hasSettings = Model.Settings != null;
-    string colorLabel = null;
+    string? colorLabel = null;
     //bool showFeature = true;
     bool? showFeature = null;
 
 
     // If the block grid item has settings, get the background colour
-    if (hasSettings)
+    if (Model.Settings != null)
     {
         var backgroundColour = Model.Settings.Value<ColorPickerValueConverter.PickedColor>("featureSettingsColourPicker");
         colorLabel = backgroundColour?.Label;
@@ -35,7 +33,7 @@
 // If the feature is not hidden or null, render the feature
 
 {
-    <section class="feature-item @Model.Content.ContentType.Alias" style="@(hasSettings && colorLabel != null ? $"background-color: var({colorLabel});" : "")">
+    <section class="feature-item @Model.Content.ContentType.Alias" style="@(colorLabel != null ? $"background-color: var({colorLabel});" : "")">
         @if (!string.IsNullOrWhiteSpace(featureTitle) || !string.IsNullOrWhiteSpace(featureDescription))
         // If either the title or description is not empty, render the header
         {
@@ -75,7 +73,7 @@ else
     if (umbracoContext.UmbracoContext.InPreviewMode)
     {
         // Render only in back office preview mode
-        <section class="feature @Model.Content.ContentType.Alias" style="@(hasSettings && colorLabel != null ? $"background-color: var({colorLabel});" : "")">
+        <section class="feature @Model.Content.ContentType.Alias" style="@(colorLabel != null ? $"background-color: var({colorLabel});" : "")">
             @if (!string.IsNullOrWhiteSpace(featureTitle) || !string.IsNullOrWhiteSpace(featureDescription))
             // If either the title or description is not empty, render the header
             {

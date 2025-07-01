@@ -1,14 +1,9 @@
-﻿@using Umbraco.Extensions
-@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem>
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem>
 
 @*Need to review max items etc for block settings*@
 
 @{
     Layout = "_Layout_Features.cshtml";
-}
-
-
-@{
     var count = 0;
     var maxItems = 5;
     int buttons = 0;
@@ -22,35 +17,42 @@
         @while (buttons < maxItems)
         {
             buttons += 1;
-            <button type="button" data-bs-target="#@carouselId" data-bs-slide-to="@(buttons - 1)" class="active" aria-label="Slide @buttons"></button>
+            <button type="button" data-bs-target="#@carouselId" data-bs-slide-to="@(buttons - 1)" class="active"
+                    aria-label="Slide @buttons"></button>
         }
     </div>
 
     <div class="carousel-inner">
         @{
             var typedMultiNodeTreePicker = Model.Content.Value<IEnumerable<IPublishedContent>>("links");
-        }
-        @if (typedMultiNodeTreePicker != null)
-        {
-            @foreach (var item in typedMultiNodeTreePicker)
+            if (typedMultiNodeTreePicker != null)
             {
-                if (count == maxItems)
+                @foreach (var item in typedMultiNodeTreePicker)
                 {
-                    break;
-                }
-                count++;
-                // make current item have a class of active
-                var active = count == 1 ? "active" : "";
-                <div class="carousel-item @active">
-                    <img src="@(item.Value<IPublishedContent>("pageThumbnail").GetCropUrl(width:1296))" class="d-block w-100" alt="...">
-                    <div class="carousel-caption d-none d-md-block bg-dark p-3 rounded-3">
-                        <h5><a class="nav-link stretched-link" href="@item.Url()">@item.Value("pageTitle")</a></h5>
-                        <p>@item.Name</p>
-                        <p>
-                            @(count) of @(maxItems)
-                        </p>
+                    if (count == maxItems)
+                    {
+                        break;
+                    }
+
+                    count++;
+                    var thumbnail = item.Value<IPublishedContent>("pageThumbnail");
+                    // make current item have a class of active
+                    var active = count == 1 ? "active" : "";
+                    <div class="carousel-item @active">
+                        @if (thumbnail != null)
+                        {
+                            // if image is not null, display image}
+                            <img src="@(thumbnail.GetCropUrl(width: 1296))" class="d-block w-100" alt="...">
+                        }
+                        <div class="carousel-caption d-none d-md-block bg-dark p-3 rounded-3">
+                            <h5><a class="nav-link stretched-link" href="@item.Url()">@item.Value("pageTitle")</a></h5>
+                            <p>@item.Name</p>
+                            <p>
+                                @(count) of @(maxItems)
+                            </p>
+                        </div>
                     </div>
-                </div>
+                }
             }
         }
     </div>

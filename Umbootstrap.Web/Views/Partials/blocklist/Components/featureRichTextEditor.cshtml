@@ -1,5 +1,4 @@
-﻿@using Umbraco.Cms.Core.Models.Blocks
-@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockListItem>
+﻿
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockListItem<FeatureRichTextEditor>>
 
-
-@Model.Content.Value("richTextContent")
+@Model.Content.RichTextContent
