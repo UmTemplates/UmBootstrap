@@ -1,6 +1,5 @@
-@* @using Umbraco.Community.UmbNav.Core.Extensions;
-@using Umbootstrap.Web.Extensions; *@
-@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Web.Common.PublishedModels.SiteSettings>
+@using Umbraco.Community.UmbNav.Core.Extensions
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<SiteSettings>
 
 @{
     Layout = null;
@@ -22,7 +21,7 @@
                 </div>
                 <div class="offcanvas-body d-flex justify-content-lg-end">
                     <ul class="navbar-nav nav-pills flex-grow-1 flex-lg-grow-0 gap-3">
-                        @* @{
+                        @{
                             foreach (var menuItem in Model.MainNavigation!)
                             {
                                 // check for children
@@ -35,7 +34,7 @@
                                 <li class="nav-item text-center @childClass">
                                     @if (string.IsNullOrEmpty(childClass))
                                     {
-                                        <a class="nav-link @Html.If(menuItem.IsActive(currentPage,2), "active")" href="@menuItem.Url()" target="@menuItem.Target">@menuItem.Name</a>
+                                        <a class="nav-link @Html.If(menuItem.IsActive(currentPage, minLevel: 2), "active")" href="@menuItem.Url()" target="@menuItem.Target">@menuItem.Name</a>
                                     }
                                     else
                                     {
@@ -52,7 +51,7 @@
                                     
                                 </li>
                             }
-                        }*@
+                        }
                     </ul> 
                 </div>
             </div>
