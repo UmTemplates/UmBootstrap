@@ -9,6 +9,7 @@
   <ItemGroup>
     <PackageReference Include="Umbraco.Cms" Version="16.0.0" />
     <PackageReference Include="Umbraco.Community.BlockPreview" Version="4.0.0" />
+    <PackageReference Include="Umbraco.Community.UmbNav" Version="4.0.0-beta0030" />
     <PackageReference Include="Umbraco.Forms" Version="16.0.0" />
     <PackageReference Include="uSync" Version="16.0.0" />
   </ItemGroup>
@@ -33,54 +34,6 @@
     <None Include="App_Plugins\icons\Layout 3nav-9.svg" />
     <None Include="App_Plugins\icons\Layout 6-6.svg" />
     <None Include="App_Plugins\icons\Layout 8.svg" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <_ContentIncludedByDefault Remove="Views\Home.cshtml" />
-    <_ContentIncludedByDefault Remove="Views\Partials\blockgrid\area.cshtml" />
-    <_ContentIncludedByDefault Remove="Views\Partials\blockgrid\areas.cshtml" />
-    <_ContentIncludedByDefault Remove="Views\Partials\blockgrid\Components\featureCode.cshtml" />
-    <_ContentIncludedByDefault Remove="Views\Partials\blockgrid\Components\featureFAQs.cshtml" />
-    <_ContentIncludedByDefault Remove="Views\Partials\blockgrid\Components\featureFormContactUs.cshtml" />
-    <_ContentIncludedByDefault Remove="Views\Partials\blockgrid\Components\featureHTML.cshtml" />
-    <_ContentIncludedByDefault Remove="Views\Partials\blockgrid\Components\featureImage.cshtml" />
-    <_ContentIncludedByDefault Remove="Views\Partials\blockgrid\Components\featureInternalLinks.cshtml" />
-    <_ContentIncludedByDefault Remove="Views\Partials\blockgrid\Components\featureInternalLinksChildren.cshtml" />
-    <_ContentIncludedByDefault Remove="Views\Partials\blockgrid\Components\featureInternalLinksPagination.cshtml" />
-    <_ContentIncludedByDefault Remove="Views\Partials\blockgrid\Components\featureInternalLinksSlideshow.cshtml" />
-    <_ContentIncludedByDefault Remove="Views\Partials\blockgrid\Components\featureNavigationDescendants.cshtml" />
-    <_ContentIncludedByDefault Remove="Views\Partials\blockgrid\Components\featurePageTitleDescription.cshtml" />
-    <_ContentIncludedByDefault Remove="Views\Partials\blockgrid\Components\featureRichTextEditor.cshtml" />
-    <_ContentIncludedByDefault Remove="Views\Partials\blockgrid\Components\featureTabs.cshtml" />
-    <_ContentIncludedByDefault Remove="Views\Partials\blockgrid\Components\layout12.cshtml" />
-    <_ContentIncludedByDefault Remove="Views\Partials\blockgrid\Components\layout363.cshtml" />
-    <_ContentIncludedByDefault Remove="Views\Partials\blockgrid\Components\layout39.cshtml" />
-    <_ContentIncludedByDefault Remove="Views\Partials\blockgrid\Components\layout66.cshtml" />
-    <_ContentIncludedByDefault Remove="Views\Partials\blockgrid\Components\layout8.cshtml" />
-    <_ContentIncludedByDefault Remove="Views\Partials\blockgrid\Components\_Layout_Features.cshtml" />
-    <_ContentIncludedByDefault Remove="Views\Partials\blockgrid\Components\_Layout_Layouts.cshtml" />
-    <_ContentIncludedByDefault Remove="Views\Partials\blockgrid\default.cshtml" />
-    <_ContentIncludedByDefault Remove="Views\Partials\blockgrid\items.cshtml" />
-    <_ContentIncludedByDefault Remove="Views\Partials\blocklist\Components\featureComponentFAQ.cshtml" />
-    <_ContentIncludedByDefault Remove="Views\Partials\blocklist\Components\featureComponentTab.cshtml" />
-    <_ContentIncludedByDefault Remove="Views\Partials\blocklist\Components\featureImage.cshtml" />
-    <_ContentIncludedByDefault Remove="Views\Partials\blocklist\Components\featureRichTextEditor.cshtml" />
-    <_ContentIncludedByDefault Remove="Views\Partials\blocklist\default.cshtml" />
-    <_ContentIncludedByDefault Remove="Views\Partials\FeaturesGlobal\footer.cshtml" />
-    <_ContentIncludedByDefault Remove="Views\Partials\FeaturesGlobal\header.cshtml" />
-    <_ContentIncludedByDefault Remove="Views\Partials\FeaturesGlobal\utility-bar.cshtml" />
-    <_ContentIncludedByDefault Remove="Views\Partials\grid\bootstrap3-fluid.cshtml" />
-    <_ContentIncludedByDefault Remove="Views\Partials\grid\bootstrap3.cshtml" />
-    <_ContentIncludedByDefault Remove="Views\Partials\grid\editors\base.cshtml" />
-    <_ContentIncludedByDefault Remove="Views\Partials\grid\editors\embed.cshtml" />
-    <_ContentIncludedByDefault Remove="Views\Partials\grid\editors\macro.cshtml" />
-    <_ContentIncludedByDefault Remove="Views\Partials\grid\editors\media.cshtml" />
-    <_ContentIncludedByDefault Remove="Views\Partials\grid\editors\rte.cshtml" />
-    <_ContentIncludedByDefault Remove="Views\Partials\grid\editors\textstring.cshtml" />
-    <_ContentIncludedByDefault Remove="Views\Partials\Head\_meta.cshtml" />
-    <_ContentIncludedByDefault Remove="Views\WebPage.cshtml" />
-    <_ContentIncludedByDefault Remove="Views\_Layout.cshtml" />
-    <_ContentIncludedByDefault Remove="Views\_ViewImports.cshtml" />
   </ItemGroup>
 
 	<PropertyGroup>
