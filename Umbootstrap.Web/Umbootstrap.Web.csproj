@@ -29,6 +29,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Remove="C:\Users\deanl\.nuget\packages\umbraco.community.umbnav\4.0.0-beta0030\contentFiles\any\net9.0\tsconfig.json" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Include="App_Plugins\icons\Layout 12.svg" />
     <None Include="App_Plugins\icons\Layout 3-6-3.svg" />
     <None Include="App_Plugins\icons\Layout 3nav-9.svg" />
