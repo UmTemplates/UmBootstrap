@@ -11216,7 +11216,7 @@ textarea.form-control-lg {
 }
 h1, .h1 {
   font-size: calc(1.425rem + 2.1vw);
-  color: green;
+  color: #d63384;
 }
 @media (min-width: 1200px) {
   h1, .h1 {
