@@ -1,17 +1,19 @@
 /**
  * --------------------------------------------------------------------------
- * Bootstrap (v5.2.2): tooltip.js
+ * Bootstrap tooltip.js
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  * --------------------------------------------------------------------------
  */
 
 import * as Popper from '@popperjs/core'
-import { defineJQueryPlugin, findShadowRoot, getElement, getUID, isRTL, noop } from './util/index'
-import { DefaultAllowlist } from './util/sanitizer'
-import EventHandler from './dom/event-handler'
-import Manipulator from './dom/manipulator'
-import BaseComponent from './base-component'
-import TemplateFactory from './util/template-factory'
+import BaseComponent from './base-component.js'
+import EventHandler from './dom/event-handler.js'
+import Manipulator from './dom/manipulator.js'
+import {
+  defineJQueryPlugin, execute, findShadowRoot, getElement, getUID, isRTL, noop
+} from './util/index.js'
+import { DefaultAllowlist } from './util/sanitizer.js'
+import TemplateFactory from './util/template-factory.js'
 
 /**
  * Constants
@@ -62,7 +64,7 @@ const Default = {
   delay: 0,
   fallbackPlacements: ['top', 'right', 'bottom', 'left'],
   html: false,
-  offset: [0, 0],
+  offset: [0, 6],
   placement: 'top',
   popperConfig: null,
   sanitize: true,
@@ -103,7 +105,7 @@ const DefaultType = {
 class Tooltip extends BaseComponent {
   constructor(element, config) {
     if (typeof Popper === 'undefined') {
-      throw new TypeError('Bootstrap\'s tooltips require Popper (https://popper.js.org)')
+      throw new TypeError('Bootstrap\'s tooltips require Popper (https://popper.js.org/docs/v2/)')
     }
 
     super(element, config)
@@ -158,7 +160,6 @@ class Tooltip extends BaseComponent {
       return
     }
 
-    this._activeTrigger.click = !this._activeTrigger.click
     if (this._isShown()) {
       this._leave()
       return
@@ -171,10 +172,6 @@ class Tooltip extends BaseComponent {
     clearTimeout(this._timeout)
 
     EventHandler.off(this._element.closest(SELECTOR_MODAL), EVENT_MODAL_HIDE, this._hideModalHandler)
-
-    if (this.tip) {
-      this.tip.remove()
-    }
 
     if (this._element.getAttribute('data-bs-original-title')) {
       this._element.setAttribute('title', this._element.getAttribute('data-bs-original-title'))
@@ -201,11 +198,8 @@ class Tooltip extends BaseComponent {
       return
     }
 
-    // todo v6 remove this OR make it optional
-    if (this.tip) {
-      this.tip.remove()
-      this.tip = null
-    }
+    // TODO: v6 remove this or make it optional
+    this._disposePopper()
 
     const tip = this._getTipElement()
 
@@ -218,11 +212,7 @@ class Tooltip extends BaseComponent {
       EventHandler.trigger(this._element, this.constructor.eventName(EVENT_INSERTED))
     }
 
-    if (this._popper) {
-      this._popper.update()
-    } else {
-      this._popper = this._createPopper(tip)
-    }
+    this._popper = this._createPopper(tip)
 
     tip.classList.add(CLASS_NAME_SHOW)
 
@@ -281,13 +271,11 @@ class Tooltip extends BaseComponent {
       }
 
       if (!this._isHovered) {
-        tip.remove()
+        this._disposePopper()
       }
 
       this._element.removeAttribute('aria-describedby')
       EventHandler.trigger(this._element, this.constructor.eventName(EVENT_HIDDEN))
-
-      this._disposePopper()
     }
 
     this._queueCallback(complete, this.tip, this._isAnimated())
@@ -315,13 +303,13 @@ class Tooltip extends BaseComponent {
   _createTipElement(content) {
     const tip = this._getTemplateFactory(content).toHtml()
 
-    // todo: remove this check on v6
+    // TODO: remove this check in v6
     if (!tip) {
       return null
     }
 
     tip.classList.remove(CLASS_NAME_FADE, CLASS_NAME_SHOW)
-    // todo: on v6 the following can be achieved with CSS only
+    // TODO: v6 the following can be achieved with CSS only
     tip.classList.add(`bs-${this.constructor.NAME}-auto`)
 
     const tipId = getUID(this.constructor.NAME).toString()
@@ -383,9 +371,7 @@ class Tooltip extends BaseComponent {
   }
 
   _createPopper(tip) {
-    const placement = typeof this._config.placement === 'function' ?
-      this._config.placement.call(this, tip, this._element) :
-      this._config.placement
+    const placement = execute(this._config.placement, [this, tip, this._element])
     const attachment = AttachmentMap[placement.toUpperCase()]
     return Popper.createPopper(this._element, tip, this._getPopperConfig(attachment))
   }
@@ -405,7 +391,7 @@ class Tooltip extends BaseComponent {
   }
 
   _resolvePossibleFunction(arg) {
-    return typeof arg === 'function' ? arg.call(this._element) : arg
+    return execute(arg, [this._element, this._element])
   }
 
   _getPopperConfig(attachment) {
@@ -451,7 +437,7 @@ class Tooltip extends BaseComponent {
 
     return {
       ...defaultBsPopperConfig,
-      ...(typeof this._config.popperConfig === 'function' ? this._config.popperConfig(defaultBsPopperConfig) : this._config.popperConfig)
+      ...execute(this._config.popperConfig, [undefined, defaultBsPopperConfig])
     }
   }
 
@@ -462,6 +448,7 @@ class Tooltip extends BaseComponent {
       if (trigger === 'click') {
         EventHandler.on(this._element, this.constructor.eventName(EVENT_CLICK), this._config.selector, event => {
           const context = this._initializeOnDelegatedTarget(event)
+          context._activeTrigger[TRIGGER_CLICK] = !(context._isShown() && context._activeTrigger[TRIGGER_CLICK])
           context.toggle()
         })
       } else if (trigger !== TRIGGER_MANUAL) {
@@ -592,9 +579,9 @@ class Tooltip extends BaseComponent {
   _getDelegateConfig() {
     const config = {}
 
-    for (const key in this._config) {
-      if (this.constructor.Default[key] !== this._config[key]) {
-        config[key] = this._config[key]
+    for (const [key, value] of Object.entries(this._config)) {
+      if (this.constructor.Default[key] !== value) {
+        config[key] = value
       }
     }
 
@@ -611,6 +598,11 @@ class Tooltip extends BaseComponent {
     if (this._popper) {
       this._popper.destroy()
       this._popper = null
+    }
+
+    if (this.tip) {
+      this.tip.remove()
+      this.tip = null
     }
   }
 
