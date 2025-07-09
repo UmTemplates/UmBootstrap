@@ -1,6 +1,6 @@
 /**
  * --------------------------------------------------------------------------
- * Bootstrap (v5.2.2): dom/manipulator.js
+ * Bootstrap dom/manipulator.js
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  * --------------------------------------------------------------------------
  */
@@ -56,7 +56,7 @@ const Manipulator = {
 
     for (const key of bsKeys) {
       let pureKey = key.replace(/^bs/, '')
-      pureKey = pureKey.charAt(0).toLowerCase() + pureKey.slice(1, pureKey.length)
+      pureKey = pureKey.charAt(0).toLowerCase() + pureKey.slice(1)
       attributes[pureKey] = normalizeData(element.dataset[key])
     }
 
