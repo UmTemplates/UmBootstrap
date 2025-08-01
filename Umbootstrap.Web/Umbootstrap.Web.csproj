@@ -41,7 +41,6 @@
     <None Include="App_Plugins\icons\Layout 3nav-9.svg" />
     <None Include="App_Plugins\icons\Layout 6-6.svg" />
     <None Include="App_Plugins\icons\Layout 8.svg" />
-    <None Include="Dependencies\bootstrap\scss\_variables-dark.scss" />
   </ItemGroup>
 
 	<PropertyGroup>
