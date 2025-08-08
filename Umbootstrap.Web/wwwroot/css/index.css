@@ -11290,6 +11290,13 @@ p.card-text {
         }
         // Disabled state lightens text
 }*/
+.nav-pills .nav-link:hover,
+.nav-pills .nav-link:focus {
+  color: #fff;
+  background-color: var(--bs-primary, #0d6efd);
+  transition: color 0.15s, background-color 0.15s;
+}
+
 body {
   min-height: 100vh;
   height: 100%;
