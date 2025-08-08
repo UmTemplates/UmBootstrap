@@ -3565,12 +3565,12 @@ textarea.form-control-lg {
   --bs-navbar-color: rgba(var(--bs-emphasis-color-rgb), 0.65);
   --bs-navbar-hover-color: rgba(var(--bs-emphasis-color-rgb), 0.8);
   --bs-navbar-disabled-color: rgba(var(--bs-emphasis-color-rgb), 0.3);
-  --bs-navbar-active-color: #fff;
+  --bs-navbar-active-color: rgba(var(--bs-emphasis-color-rgb), 1);
   --bs-navbar-brand-padding-y: 0.3125rem;
   --bs-navbar-brand-margin-end: 1rem;
   --bs-navbar-brand-font-size: 1.25rem;
-  --bs-navbar-brand-color: #fff;
-  --bs-navbar-brand-hover-color: #fff;
+  --bs-navbar-brand-color: rgba(var(--bs-emphasis-color-rgb), 1);
+  --bs-navbar-brand-hover-color: rgba(var(--bs-emphasis-color-rgb), 1);
   --bs-navbar-nav-link-padding-x: 0.5rem;
   --bs-navbar-toggler-padding-y: 0.25rem;
   --bs-navbar-toggler-padding-x: 0.75rem;
@@ -11221,12 +11221,11 @@ textarea.form-control-lg {
 }*/
 h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
   color: var(--bs-heading-color);
-  color: var(--bs-pink-text-emphasis);
-  color: green;
 }
 
 p {
   font-size: 1rem;
+  color: var(--bs-body-color);
 }
 
 p.card-text {
@@ -11265,22 +11264,32 @@ p.card-text {
   transition: 0.5s;
 }
 
-.nav-link:hover, .nav-link:focus {
-  color: #fff;
-  background-color: var(--bs-nav-link-hover-color);
-  /*text-decoration: if($link-hover-decoration == underline, none, null);*/
+/*.nav-link {
+    &:hover,
+    &:focus {
+        color: $white;
+        background-color: var(--bs-nav-link-hover-color);
+        text-decoration: if($link-hover-decoration == underline, none, null);
+    }
+    // Disabled state lightens text
 }
 
-.card .nav-link:hover:hover, .card .nav-link:hover:focus {
-  color: #d63384;
+.card .nav-link:hover {
+    &:hover,
+    &:focus {
+        color: $pink;
+    }
 }
 
-.card .nav-tabs .nav-link:hover, .card .nav-tabs .nav-link:focus {
-  color: #fff;
-  background-color: var(--bs-nav-link-hover-color);
-  /*text-decoration: if($link-hover-decoration == underline, none, null);*/
-}
-
+.card .nav-tabs .nav-link {
+        &:hover,
+        &:focus {
+            color: $white;
+            background-color: var(--bs-nav-link-hover-color);
+            text-decoration: if($link-hover-decoration == underline, none, null);
+        }
+        // Disabled state lightens text
+}*/
 body {
   min-height: 100vh;
   height: 100%;
