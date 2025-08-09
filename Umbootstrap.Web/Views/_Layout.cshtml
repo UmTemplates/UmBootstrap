@@ -17,7 +17,7 @@
 }
 
 <!doctype html>
-<html lang="en" @* data-bs-theme="dark" *@>
+<html lang="en" data-bs-theme="dark">
 <head>
     <partial name="Head/_meta" />
 
@@ -42,6 +42,13 @@
 <body data-bgimage="@backgroundImage?.MediaUrl()" style="@styleAttribute">
     <div class="document d-flex flex-column justify-content-between">
     <!-- START UTILITY BAR -->
+    <button onclick="toggleTheme()">Toggle Theme</button>
+<script>
+function toggleTheme() {
+  const html = document.documentElement;
+  html.setAttribute('data-bs-theme', html.getAttribute('data-bs-theme') === 'dark' ? 'light' : 'dark');
+}
+</script>
     <partial name="FeaturesGlobal/utility-bar" />
     <!-- END UTILITY BAR -->
     <!-- START HEADER -->
