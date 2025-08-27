@@ -47,7 +47,12 @@
     if (backgroundColour != null)
     {
         // Set style attribute to background color to use rgba
-        styleAttribute = $"background-color: rgba(var({colorLabel}-{colorShades}), {colorOpacity});";
+        // styleAttribute = $"background-color: rgba(var({colorLabel}-{colorShades}), {colorOpacity});"; // Old version
+
+        // Use solid Bootstrap color variable (remove -rgb)
+        var solidColorLabel = colorLabel?.Replace("-rgb", "");
+        styleAttribute = $"background-color: var({solidColorLabel});";
+
     }
     
     if (backgroundImage != null)
