@@ -1,4 +1,4 @@
-
+/*
 :root {
     // Colors in Bootstrap 5 Hex format
     --bs-blue-100: #cfe2ff;
@@ -201,3 +201,23 @@
     --bs-gray-rgb-800: 52, 58, 64;
     --bs-gray-rgb-900: 33, 37, 41;
 }
+*/
+
+$all-shade-colors: map-merge-multiple($blues, $indigos, $purples, $pinks, $reds, $oranges, $yellows, $greens, $teals, $cyans);
+
+$utilities: map-merge(
+  $utilities,
+  (
+    "background-color": map-merge(
+      map-get($utilities, "background-color"),
+      (
+        values: map-merge(
+          map-get(map-get($utilities, "background-color"), "values"),
+          (
+            $all-shade-colors
+          ),
+        ),
+      ),
+    ),
+  )
+);
