@@ -54,6 +54,17 @@
         styleAttribute = $"background-color: var({solidColorLabel});";
 
     }
+
+    // New Bootstrap 5.3 way to do background colors
+    var backgroundColorClass = "";
+    if (backgroundColour != null && colorLabel != null && colorShades != null)
+    {
+        // Remove '--bs-' prefix if present
+        var solidColorLabel = colorLabel.Replace("--bs-", "");
+        backgroundColorClass = $"bg-{solidColorLabel}-{colorShades}";
+    }
+
+
     
     if (backgroundImage != null)
     {
@@ -61,8 +72,7 @@
     }
 }
 
-<div class="layout-item py-3" data-bgimage="@backgroundImage?.MediaUrl()" style="@styleAttribute"
-     data-block-alias="@Model.Content.ContentType.Alias">
+<div class="layout-item py-3 @backgroundColorClass" data-bgimage="@backgroundImage?.MediaUrl()" @* style="@styleAttribute" *@ data-block-alias="@Model.Content.ContentType.Alias">
     @RenderBody()
     @* <h2>@myColor</h2> *@
 </div>
