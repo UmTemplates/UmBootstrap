@@ -10,10 +10,13 @@ $coral: #ff7f50 !default;
 // scss-docs-end color-variables
 
 // scss-docs-start colors-map
-$colors: (
+$custom-colors: (
     "coral": $coral
 ) !default;
 // scss-docs-end colors-map
+
+// Merge custom colors with Bootstrap's default $colors map
+$colors: map-merge($colors, $custom-colors);
 
 // fusv-disable
 $coral-100: tint-color($coral, 80%) !default;
