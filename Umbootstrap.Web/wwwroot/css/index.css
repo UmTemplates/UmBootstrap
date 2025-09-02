@@ -6,20 +6,7 @@ e.g. $body-color: $green;
 */
 :root,
 [data-bs-theme=light] {
-  --bs-blue: #0d6efd;
-  --bs-indigo: #6610f2;
-  --bs-purple: #6f42c1;
-  --bs-pink: #d63384;
-  --bs-red: #dc3545;
-  --bs-orange: #fd7e14;
-  --bs-yellow: #ffc107;
-  --bs-green: #198754;
-  --bs-teal: #20c997;
-  --bs-cyan: #0dcaf0;
-  --bs-black: #000;
-  --bs-white: #fff;
-  --bs-gray: #6c757d;
-  --bs-gray-dark: #343a40;
+  --bs-coral: #ff7f50;
   --bs-gray-100: #f8f9fa;
   --bs-gray-200: #e9ecef;
   --bs-gray-300: #dee2e6;
