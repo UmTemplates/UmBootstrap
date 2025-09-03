@@ -12124,6 +12124,10 @@ p.card-text {
   text-wrap: balance;
 }
 
+.navbar-nav .nav-link.active {
+  color: #ffffff;
+}
+
 .carousel {
   height: calc(100vh - 110px);
 }
