@@ -8942,6 +8942,51 @@ textarea.form-control-lg {
   background-color: rgb(2.6, 40.4, 48) !important;
 }
 
+.bg-coral-100 {
+  --bs-bg-opacity: 1;
+  background-color: rgb(255, 229.4, 220) !important;
+}
+
+.bg-coral-200 {
+  --bs-bg-opacity: 1;
+  background-color: rgb(255, 203.8, 185) !important;
+}
+
+.bg-coral-300 {
+  --bs-bg-opacity: 1;
+  background-color: rgb(255, 178.2, 150) !important;
+}
+
+.bg-coral-400 {
+  --bs-bg-opacity: 1;
+  background-color: rgb(255, 152.6, 115) !important;
+}
+
+.bg-coral-500 {
+  --bs-bg-opacity: 1;
+  background-color: #ff7f50 !important;
+}
+
+.bg-coral-600 {
+  --bs-bg-opacity: 1;
+  background-color: rgb(204, 101.6, 64) !important;
+}
+
+.bg-coral-700 {
+  --bs-bg-opacity: 1;
+  background-color: rgb(153, 76.2, 48) !important;
+}
+
+.bg-coral-800 {
+  --bs-bg-opacity: 1;
+  background-color: rgb(102, 50.8, 32) !important;
+}
+
+.bg-coral-900 {
+  --bs-bg-opacity: 1;
+  background-color: rgb(51, 25.4, 16) !important;
+}
+
 .bg-opacity-10 {
   --bs-bg-opacity: 0.1;
 }

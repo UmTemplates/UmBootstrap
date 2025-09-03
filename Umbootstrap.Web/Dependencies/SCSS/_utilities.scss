@@ -1,6 +1,6 @@
 
 // Define color maps for different shades
-$all-shade-colors: map-merge-multiple($blues, $indigos, $purples, $pinks, $reds, $oranges, $yellows, $greens, $teals, $cyans);
+$all-shade-colors: map-merge-multiple($blues, $indigos, $purples, $pinks, $reds, $oranges, $yellows, $greens, $teals, $cyans, $corals);
 
 // Existing $utilities map merge (keep this for Bootstrap utility API)
 $utilities: map-merge(
