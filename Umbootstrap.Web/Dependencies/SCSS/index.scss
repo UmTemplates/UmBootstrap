@@ -5,10 +5,11 @@
 @import "../../node_modules/bootstrap/scss/functions";
 
 // 2. Include any default variable overrides here
+@import "_variables_overrides.scss";
 
 // 3. Include remainder of required Bootstrap stylesheets
 @import "../../node_modules/bootstrap/scss/variables";
-@import "_variables.scss"; // Custom variable overrides must be imported after default variables to take effect
+@import "_variables.scss";
 @import "../../node_modules/bootstrap/scss/variables-dark";
 
 // 4. Include any default map overrides here
