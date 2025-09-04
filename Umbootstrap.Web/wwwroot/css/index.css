@@ -25,6 +25,136 @@
   --bs-indigo-900-rgb: 20, 3, 48;
 }
 
+:root,
+[data-bs-theme=light] {
+  --bs-purple-100-rgb: 226, 217, 243;
+  --bs-purple-200-rgb: 197, 179, 230;
+  --bs-purple-300-rgb: 169, 142, 218;
+  --bs-purple-400-rgb: 140, 104, 205;
+  --bs-purple-500-rgb: 111, 66, 193;
+  --bs-purple-600-rgb: 89, 53, 154;
+  --bs-purple-700-rgb: 67, 40, 116;
+  --bs-purple-800-rgb: 44, 26, 77;
+  --bs-purple-900-rgb: 22, 13, 39;
+}
+
+:root,
+[data-bs-theme=light] {
+  --bs-pink-100-rgb: 247, 214, 230;
+  --bs-pink-200-rgb: 239, 173, 206;
+  --bs-pink-300-rgb: 230, 133, 181;
+  --bs-pink-400-rgb: 222, 92, 157;
+  --bs-pink-500-rgb: 214, 51, 132;
+  --bs-pink-600-rgb: 171, 41, 106;
+  --bs-pink-700-rgb: 128, 31, 79;
+  --bs-pink-800-rgb: 86, 20, 53;
+  --bs-pink-900-rgb: 43, 10, 26;
+}
+
+:root,
+[data-bs-theme=light] {
+  --bs-red-100-rgb: 248, 215, 218;
+  --bs-red-200-rgb: 241, 174, 181;
+  --bs-red-300-rgb: 234, 134, 143;
+  --bs-red-400-rgb: 227, 93, 106;
+  --bs-red-500-rgb: 220, 53, 69;
+  --bs-red-600-rgb: 176, 42, 55;
+  --bs-red-700-rgb: 132, 32, 41;
+  --bs-red-800-rgb: 88, 21, 28;
+  --bs-red-900-rgb: 44, 11, 14;
+}
+
+:root,
+[data-bs-theme=light] {
+  --bs-orange-100-rgb: 255, 229, 208;
+  --bs-orange-200-rgb: 254, 203, 161;
+  --bs-orange-300-rgb: 254, 178, 114;
+  --bs-orange-400-rgb: 253, 152, 67;
+  --bs-orange-500-rgb: 253, 126, 20;
+  --bs-orange-600-rgb: 202, 101, 16;
+  --bs-orange-700-rgb: 152, 76, 12;
+  --bs-orange-800-rgb: 101, 50, 8;
+  --bs-orange-900-rgb: 51, 25, 4;
+}
+
+:root,
+[data-bs-theme=light] {
+  --bs-yellow-100-rgb: 255, 243, 205;
+  --bs-yellow-200-rgb: 255, 230, 156;
+  --bs-yellow-300-rgb: 255, 218, 106;
+  --bs-yellow-400-rgb: 255, 205, 57;
+  --bs-yellow-500-rgb: 255, 193, 7;
+  --bs-yellow-600-rgb: 204, 154, 6;
+  --bs-yellow-700-rgb: 153, 116, 4;
+  --bs-yellow-800-rgb: 102, 77, 3;
+  --bs-yellow-900-rgb: 51, 39, 1;
+}
+
+:root,
+[data-bs-theme=light] {
+  --bs-green-100-rgb: 209, 231, 221;
+  --bs-green-200-rgb: 163, 207, 187;
+  --bs-green-300-rgb: 117, 183, 152;
+  --bs-green-400-rgb: 71, 159, 118;
+  --bs-green-500-rgb: 25, 135, 84;
+  --bs-green-600-rgb: 20, 108, 67;
+  --bs-green-700-rgb: 15, 81, 50;
+  --bs-green-800-rgb: 10, 54, 34;
+  --bs-green-900-rgb: 5, 27, 17;
+}
+
+:root,
+[data-bs-theme=light] {
+  --bs-teal-100-rgb: 210, 244, 234;
+  --bs-teal-200-rgb: 166, 233, 213;
+  --bs-teal-300-rgb: 121, 223, 193;
+  --bs-teal-400-rgb: 77, 212, 172;
+  --bs-teal-500-rgb: 32, 201, 151;
+  --bs-teal-600-rgb: 26, 161, 121;
+  --bs-teal-700-rgb: 19, 121, 91;
+  --bs-teal-800-rgb: 13, 80, 60;
+  --bs-teal-900-rgb: 6, 40, 30;
+}
+
+:root,
+[data-bs-theme=light] {
+  --bs-cyan-100-rgb: 207, 244, 252;
+  --bs-cyan-200-rgb: 158, 234, 249;
+  --bs-cyan-300-rgb: 110, 223, 246;
+  --bs-cyan-400-rgb: 61, 213, 243;
+  --bs-cyan-500-rgb: 13, 202, 240;
+  --bs-cyan-600-rgb: 10, 162, 192;
+  --bs-cyan-700-rgb: 8, 121, 144;
+  --bs-cyan-800-rgb: 5, 81, 96;
+  --bs-cyan-900-rgb: 3, 40, 48;
+}
+
+:root,
+[data-bs-theme=light] {
+  --bs-blue-100-rgb: 207, 226, 255;
+  --bs-blue-200-rgb: 158, 197, 254;
+  --bs-blue-300-rgb: 110, 168, 254;
+  --bs-blue-400-rgb: 61, 139, 253;
+  --bs-blue-500-rgb: 13, 110, 253;
+  --bs-blue-600-rgb: 10, 88, 202;
+  --bs-blue-700-rgb: 8, 66, 152;
+  --bs-blue-800-rgb: 5, 44, 101;
+  --bs-blue-900-rgb: 3, 22, 51;
+}
+
+:root,
+[data-bs-theme=light] {
+  --bs-100-rgb: 248, 249, 250;
+  --bs-200-rgb: 233, 236, 239;
+  --bs-300-rgb: 222, 226, 230;
+  --bs-400-rgb: 206, 212, 218;
+  --bs-500-rgb: 173, 181, 189;
+  --bs-600-rgb: 108, 117, 125;
+  --bs-700-rgb: 73, 80, 87;
+  --bs-800-rgb: 52, 58, 64;
+  --bs-900-rgb: 33, 37, 41;
+}
+
 /*
     Add overrides stop Bootstraps exisiting variable
 e.g. $body-color: $green;

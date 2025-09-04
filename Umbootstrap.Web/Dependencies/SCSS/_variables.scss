@@ -43,26 +43,30 @@ $corals: (
   "coral-900": $coral-900
 ) !default;
 
+// Define a mixin to generate RGB values and add them as CSS variables
+@mixin generate-rgb-variables($color-map, $prefix) {
+    $rgb-values: map-loop($color-map, to-rgb, "$value") !default;
 
-// Generate RGB values for coral shades using map-loop
-$corals-rgb: map-loop($corals, to-rgb, "$value") !default;
-
-// Add coral RGB values as CSS variables in :root, [data-bs-theme=light]
-:root,
-[data-bs-theme=light] {
-    @each $key, $value in $corals-rgb {
-        --bs-#{$key}-rgb: #{$value};
+    :root,
+    [data-bs-theme=light] {
+        @each $key, $value in $rgb-values {
+            --bs-#{$key}-rgb: #{$value}; // Use $key directly without duplicating the prefix
+        }
     }
 }
 
-// Generate RGB values for indigo shades using map-loop
-$indigos-rgb: map-loop($indigos, to-rgb, "$value") !default;
-
-// Add indigo RGB values as CSS variables in :root, [data-bs-theme=light]
-:root,
-[data-bs-theme=light] {
-    @each $key, $value in $indigos-rgb {
-        --bs-#{$key}-rgb: #{$value};
-    }
-}
+// Use the mixin for coral shades
+@include generate-rgb-variables($corals, "coral");
+@include generate-rgb-variables($indigos, "indigo");
+@include generate-rgb-variables($purples, "purple");
+@include generate-rgb-variables($pinks, "pink");
+@include generate-rgb-variables($reds, "red");
+@include generate-rgb-variables($oranges, "orange");
+@include generate-rgb-variables($yellows, "yellow");
+@include generate-rgb-variables($greens, "green");
+@include generate-rgb-variables($teals, "teal");
+@include generate-rgb-variables($cyans, "cyan");
+@include generate-rgb-variables($blues, "blue");
+@include generate-rgb-variables($grays, "gray");
+// End color system
 
