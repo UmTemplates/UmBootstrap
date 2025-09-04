@@ -17,7 +17,7 @@
 }
 
 <!doctype html>
-<html lang="en">
+<html lang="en" data-bs-theme="dark">
 <head>
     <partial name="Head/_meta" />
 
@@ -40,6 +40,7 @@
 
 </head>
 <body data-bgimage="@backgroundImage?.MediaUrl()" style="@styleAttribute">
+    @* <div class="bg-indigo-500 p-2 text-dark bg-opacity-50" style="width: auto; height: 320px; display: block">xxxxxxxxxxxx</div> *@
     <div class="document d-flex flex-column justify-content-between">
     <!-- START UTILITY BAR -->
     <partial name="FeaturesGlobal/utility-bar" />
@@ -55,5 +56,75 @@
     <!-- END FOOTER -->
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+    <!-- Add Bootstrap Icons CDN if not already included -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+@*     <script>
+        function toggleTheme() {
+          const html = document.documentElement;
+          html.setAttribute('data-bs-theme', html.getAttribute('data-bs-theme') === 'dark' ? 'light' : 'dark');
+        }
+    </script> *@
+@*     <script>
+    function setThemeIcon(theme) {
+        const icon = document.getElementById('themeIcon');
+        if (theme === 'dark') {
+            icon.className = 'bi bi-moon';
+        } else {
+            icon.className = 'bi bi-sun';
+        }
+    }
+
+    function toggleTheme() {
+        const html = document.documentElement;
+        const currentTheme = html.getAttribute('data-bs-theme');
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        html.setAttribute('data-bs-theme', newTheme);
+        setThemeIcon(newTheme);
+    }
+
+    document.getElementById('themeToggleBtn').addEventListener('click', toggleTheme);
+
+    // Set initial icon on page load
+    setThemeIcon(document.documentElement.getAttribute('data-bs-theme'));
+</script> *@
+<script>
+    function setThemeIcon(theme) {
+        const icon = document.getElementById('themeIcon');
+        if (icon) {
+            icon.className = theme === 'dark' ? 'bi bi-moon' : 'bi bi-sun';
+        }
+    }
+
+    function getSavedTheme() {
+        return localStorage.getItem('bs-theme');
+    }
+
+    function saveTheme(theme) {
+        localStorage.setItem('bs-theme', theme);
+    }
+
+    function applyTheme(theme) {
+        document.documentElement.setAttribute('data-bs-theme', theme);
+        setThemeIcon(theme);
+    }
+
+    function toggleTheme() {
+        const currentTheme = document.documentElement.getAttribute('data-bs-theme');
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        applyTheme(newTheme);
+        saveTheme(newTheme);
+    }
+
+    // On page load, check for saved theme, otherwise use system preference
+    (function () {
+        let theme = getSavedTheme();
+        if (!theme) {
+            theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        }
+        applyTheme(theme);
+    })();
+
+    document.getElementById('themeToggleBtn').addEventListener('click', toggleTheme);
+</script>
 </body>
 </html>

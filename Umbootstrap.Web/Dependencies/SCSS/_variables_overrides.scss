@@ -1,0 +1,5 @@
+// Variables Overrides
+
+// Enable Bootstraps new CSS Grid system and disable legacy grid classes
+$enable-grid-classes: false !default;
+$enable-cssgrid: true !default;
