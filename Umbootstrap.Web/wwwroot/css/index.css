@@ -9307,6 +9307,26 @@ textarea.form-control-lg {
   --bs-bg-opacity: 1;
 }
 
+.bg-opacity-0 {
+  --bs-bg-opacity: 0;
+}
+
+.bg-opacity-12 {
+  --bs-bg-opacity: 0.125;
+}
+
+.bg-opacity-38 {
+  --bs-bg-opacity: 0.375;
+}
+
+.bg-opacity-62 {
+  --bs-bg-opacity: 0.625;
+}
+
+.bg-opacity-87 {
+  --bs-bg-opacity: 0.875;
+}
+
 .bg-primary-subtle {
   background-color: var(--bs-primary-bg-subtle) !important;
 }

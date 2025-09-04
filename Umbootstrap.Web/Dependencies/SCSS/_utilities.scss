@@ -1,5 +1,17 @@
 // Define color maps for different shades
-$all-shade-colors: map-merge-multiple($blues, $indigos, $purples, $pinks, $reds, $oranges, $yellows, $greens, $teals, $cyans, $corals);
+$all-shade-colors: map-merge-multiple(
+  $blues,
+  $indigos,
+  $purples,
+  $pinks,
+  $reds,
+  $oranges,
+  $yellows,
+  $greens,
+  $teals,
+  $cyans,
+  $corals
+);
 
 // Existing $utilities map merge (keep this for Bootstrap utility API)
 $utilities: map-merge(
@@ -41,3 +53,29 @@ $utilities: map-merge(
     }
   }
 }
+
+$custom-bg-opacities: (
+    0: 0,
+    12: .125,
+    25: .25,
+    38: .375,
+    50: .5,
+    62: .625,
+    75: .75,
+    87: .875,
+    100: 1,
+);
+
+$utilities: map-merge(
+  $utilities,
+  (
+    "bg-opacity": (
+      css-var: true,
+      class: bg-opacity,
+      values: map-merge(
+        map-get(map-get($utilities, "bg-opacity"), "values"),
+        $custom-bg-opacities
+      )
+    )
+  )
+);
