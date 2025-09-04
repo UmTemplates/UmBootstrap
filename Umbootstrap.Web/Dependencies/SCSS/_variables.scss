@@ -42,3 +42,27 @@ $corals: (
   "coral-800": $coral-800,
   "coral-900": $coral-900
 ) !default;
+
+
+// Generate RGB values for coral shades using map-loop
+$corals-rgb: map-loop($corals, to-rgb, "$value") !default;
+
+// Add coral RGB values as CSS variables in :root, [data-bs-theme=light]
+:root,
+[data-bs-theme=light] {
+    @each $key, $value in $corals-rgb {
+        --bs-#{$key}-rgb: #{$value};
+    }
+}
+
+// Generate RGB values for indigo shades using map-loop
+$indigos-rgb: map-loop($indigos, to-rgb, "$value") !default;
+
+// Add indigo RGB values as CSS variables in :root, [data-bs-theme=light]
+:root,
+[data-bs-theme=light] {
+    @each $key, $value in $indigos-rgb {
+        --bs-#{$key}-rgb: #{$value};
+    }
+}
+
