@@ -87,8 +87,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Umbraco.Cms" Version="16.0.0" />
-    <PackageReference Include="Umbraco.Community.BlockPreview" Version="4.0.0" />
+    <PackageReference Include="Umbraco.Cms" Version="16.2.0" />
+    <PackageReference Include="Umbraco.Community.BlockPreview" Version="4.0.3" />
+    <PackageReference Include="Umbraco.Community.UmbNav" Version="4.0.0-beta0036" />
+    <PackageReference Include="Umbraco.Forms" Version="16.1.0" />
+    <PackageReference Include="uSync" Version="16.0.4" />
   </ItemGroup>
 
   <ItemGroup>
