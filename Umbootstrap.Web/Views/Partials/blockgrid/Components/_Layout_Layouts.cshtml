@@ -11,85 +11,34 @@
         return;
     }
 
-    // Get the layout settings
-
+    // Get layout settings
     var backgroundColour = Model.Settings?.Value<ColorPickerValueConverter.PickedColor>("layoutSettingsColourPicker");
-
     var colorLabel = backgroundColour?.Label;
-
     var colorShades = Model.Settings?.Value<decimal>("layoutSettingsColourShades");
-
     var colorOpacity = Model.Settings?.Value<decimal>("layoutSettingsColourOpacity");
-
     var backgroundImage = Model.Settings?.Value<Umbraco.Cms.Core.Models.MediaWithCrops>("layoutSettingsBackgroundImagePicker");
 
-    var styleAttribute = "";
-
-    /*
-     * I could not get ViewData to pass the value to area.cshtml
-     * So I moved this code to each layout
-     * It works, but it is not DRY
-     * I think it is to do with the order of execution
-     */
-
-    // // 1. Check if this block grid item has settings
-    // var hasSettings = Model.Settings != null;
-    // // 2. If this block grid item has settings, get the Areas background colour
-    // var areasBackgroundColour = hasSettings ? Model.Settings.Value<ColorPickerValueConverter.PickedColor>("layoutAreasColourPicker") : null;
-    // // 3. Get the label from the colour
-    // var areasColorLabelValue = areasBackgroundColour?.Label;
-    // // 4. If the area has a colour, use it, otherwise use bg-light
-    // var areasColorLabel = areasColorLabelValue != null ? areasColorLabelValue : "bg-light";
-    // // 5. Set the TempData to use in the area
-    // ViewData["MyColor"] = areasColorLabel;
-
-
-    if (backgroundColour != null)
+    var backgroundColorClass = "";
+    if (backgroundColour != null && colorLabel != null && colorShades != null)
     {
-        // Set style attribute to background color to use rgba
-        styleAttribute = $"background-color: rgba(var({colorLabel}-{colorShades}), {colorOpacity});";
+        backgroundColorClass = $"bg-{colorLabel}-{colorShades}-rgb";
     }
-    
+
+    var backgroundOpacityClass = "";
+    if (colorOpacity != null)
+    {
+        var opacityValue = Math.Round(colorOpacity.Value * 100);
+        backgroundOpacityClass = $"bg-opacity-{opacityValue}";
+    }
+
+    var styleAttribute = "";
     if (backgroundImage != null)
     {
         styleAttribute = $"background-image: url({backgroundImage.MediaUrl()});";
     }
 }
-
-<div class="layout-item py-3" data-bgimage="@backgroundImage?.MediaUrl()" style="@styleAttribute"
+<div class="layout-item py-3 @backgroundColorClass @backgroundOpacityClass"
+     data-bgimage="@backgroundImage?.MediaUrl()" style="@styleAttribute"
      data-block-alias="@Model.Content.ContentType.Alias">
     @RenderBody()
-    @* <h2>@myColor</h2> *@
 </div>
-
-@* @{
-    // Uncomment this block to Debug colours
-    var hexColor = backgroundColour;
-    var hexColorHash = "#" + @hexColor;
-
-    // Convert the hex color to RGB
-    System.Drawing.Color color = System.Drawing.ColorTranslator.FromHtml(hexColorHash);
-
-    // Get the RGB components
-    int red = color.R;
-    int green = color.G;
-    int blue = color.B;
-
-    if (hexColor != null)
-    {
-        <div class="btn btn-primary">
-            <dl>
-                <dt>HEX</dt>
-                <dd>@hexColor</dd>
-                <dt>RGB</dt>
-                <dd>@red, @green, @blue</dd>
-                <dt>Hash</dt>
-                <dd>@hexColorHash</dd>
-                <dt>Label</dt>
-                <dd>@colorLabel</dd>
-                <dt>Opacity</dt>
-                <dd>@colorOpacity</dd>
-            </dl>
-        </div>
-    }
-} *@

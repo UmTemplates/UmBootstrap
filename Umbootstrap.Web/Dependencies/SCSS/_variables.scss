@@ -1,13 +1,72 @@
-// scss-docs-start gray-color-variables
-//$white: #f00 !default;
+// Variables
+//
+// Variables should follow the `$component-state-property-size` formula for
+// consistent naming. Ex: $nav-link-disabled-color and $modal-content-box-shadow-xs.
+
+// Color system
+
+// scss-docs-start color-variables
+$coral: #ff7f50 !default;
+// scss-docs-end color-variables
+
+// scss-docs-start colors-map
+$custom-colors: (
+    "coral": $coral
+) !default;
+// scss-docs-end colors-map
+
+// Merge custom colors with Bootstrap's default $colors map
+$colors: map-merge($colors, $custom-colors);
+
+// fusv-disable
+$coral-100: tint-color($coral, 80%) !default;
+$coral-200: tint-color($coral, 60%) !default;
+$coral-300: tint-color($coral, 40%) !default;
+$coral-400: tint-color($coral, 20%) !default;
+$coral-500: $coral !default;
+$coral-600: shade-color($coral, 20%) !default;
+$coral-700: shade-color($coral, 40%) !default;
+$coral-800: shade-color($coral, 60%) !default;
+$coral-900: shade-color($coral, 80%) !default;
+// fusv-enable
 
 
+$corals: (
+  "coral-100": $coral-100,
+  "coral-200": $coral-200,
+  "coral-300": $coral-300,
+  "coral-400": $coral-400,
+  "coral-500": $coral-500,
+  "coral-600": $coral-600,
+  "coral-700": $coral-700,
+  "coral-800": $coral-800,
+  "coral-900": $coral-900
+) !default;
 
-// Quickly modify global styling by enabling or disabling optional features.
+// Define a mixin to generate RGB values and add them as CSS variables
+@mixin generate-rgb-variables($color-map, $prefix) {
+    $rgb-values: map-loop($color-map, to-rgb, "$value") !default;
 
+    :root,
+    [data-bs-theme=light] {
+        @each $key, $value in $rgb-values {
+            --bs-#{$key}-rgb: #{$value}; // Use $key directly without duplicating the prefix
+        }
+    }
+}
 
-$enable-grid-classes: false !default;
-$enable-cssgrid: true !default;
+// Use the mixin for coral shades
+@include generate-rgb-variables($corals, "coral");
+@include generate-rgb-variables($indigos, "indigo");
+@include generate-rgb-variables($purples, "purple");
+@include generate-rgb-variables($pinks, "pink");
+@include generate-rgb-variables($reds, "red");
+@include generate-rgb-variables($oranges, "orange");
+@include generate-rgb-variables($yellows, "yellow");
+@include generate-rgb-variables($greens, "green");
+@include generate-rgb-variables($teals, "teal");
+@include generate-rgb-variables($cyans, "cyan");
+@include generate-rgb-variables($blues, "blue");
+@include generate-rgb-variables($grays, "gray");
+// End color system
 
-
-$navbar-light-active-color: #fff;

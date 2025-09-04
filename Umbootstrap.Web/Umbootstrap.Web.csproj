@@ -7,11 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Umbraco.Cms" Version="16.0.0" />
-    <PackageReference Include="Umbraco.Community.BlockPreview" Version="4.0.0" />
-    <PackageReference Include="Umbraco.Community.UmbNav" Version="4.0.0-beta0033" />
-    <PackageReference Include="Umbraco.Forms" Version="16.0.0" />
-    <PackageReference Include="uSync" Version="16.0.0" />
+    <PackageReference Include="Umbraco.Cms" Version="16.2.0" />
+    <PackageReference Include="Umbraco.Community.BlockPreview" Version="4.0.3" />
+    <PackageReference Include="Umbraco.Community.UmbNav" Version="4.0.0-beta0036" />
+    <PackageReference Include="Umbraco.Forms" Version="16.1.0" />
+    <PackageReference Include="uSync" Version="16.0.4" />
   </ItemGroup>
 
   <ItemGroup>
@@ -33,10 +33,6 @@
     <Content Remove="C:\Users\deanl\.nuget\packages\umbraco.community.umbnav\4.0.0-beta0030\contentFiles\any\net9.0\package-lock.json" />
     <Content Remove="C:\Users\deanl\.nuget\packages\umbraco.community.umbnav\4.0.0-beta0030\contentFiles\any\net9.0\package.json" />
     <Content Remove="C:\Users\deanl\.nuget\packages\umbraco.community.umbnav\4.0.0-beta0030\contentFiles\any\net9.0\tsconfig.json" />
-    <Content Remove="C:\Users\deanl\.nuget\packages\umbraco.community.umbnav\4.0.0-beta0033\contentFiles\any\net9.0\json-example.json" />
-    <Content Remove="C:\Users\deanl\.nuget\packages\umbraco.community.umbnav\4.0.0-beta0033\contentFiles\any\net9.0\package-lock.json" />
-    <Content Remove="C:\Users\deanl\.nuget\packages\umbraco.community.umbnav\4.0.0-beta0033\contentFiles\any\net9.0\package.json" />
-    <Content Remove="C:\Users\deanl\.nuget\packages\umbraco.community.umbnav\4.0.0-beta0033\contentFiles\any\net9.0\tsconfig.json" />
   </ItemGroup>
 
   <ItemGroup>

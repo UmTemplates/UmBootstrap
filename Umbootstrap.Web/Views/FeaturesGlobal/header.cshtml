@@ -4,8 +4,8 @@
     Layout = null;
     var currentPage = UmbracoContext?.PublishedRequest?.PublishedContent;
 }
-<header class="screen--header sticky-top shadow-b bg-light pb-1">
-    <nav class="container-xxl navbar navbar-nav navbar-expand-lg">
+<header class="screen--header bg-body-tertiary sticky-top shadow-b pb-1">
+    <nav class="container-xxl navbar navbar-expand-lg fixed-top">
         <div class="container-fluid">
             <a class="navbar-brand" href="/">
                 <img src="@Model.Logo?.GetCropUrl())" alt="" />
@@ -18,8 +18,8 @@
                     <h5 class="offcanvas-title" id="offcanvasRightLabel">In this site</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                 </div>
-                <div class="offcanvas-body d-flex justify-content-lg-end">
-                    <ul class="navbar-nav nav-pills flex-grow-1 flex-lg-grow-0 gap-3">
+                <div class="offcanvas-body">
+                    <ul class="navbar-nav justify-content-end flex-grow-1 gap-3 nav nav-pills">
                         @{
                             foreach (var menuItem in Model.TopNavigation!)
                             {
