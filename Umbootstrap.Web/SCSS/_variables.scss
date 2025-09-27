@@ -70,3 +70,24 @@ $corals: (
 @include generate-rgb-variables($grays, "gray");
 // End color system
 
+// Umbraco Colour Overrides
+$blue-umbraco: #283a97;
+
+
+// scss-docs-start color-variables
+$blue: $blue-umbraco;
+$indigo: #6610f2;
+$purple: #6f42c1;
+$pink: #d63384;
+$red: #dc3545;
+$orange: #fd7e14;
+$yellow: #ffc107;
+$green: #198754;
+$teal: #20c997;
+$cyan: #0dcaf0;
+// scss-docs-end color-variables
+
+
+
+$headings-color: $blue; // Your custom heading color
+

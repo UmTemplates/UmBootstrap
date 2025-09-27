@@ -249,7 +249,7 @@ e.g. $body-color: $green;
   --bs-tertiary-color-rgb: 33, 37, 41;
   --bs-tertiary-bg: #f8f9fa;
   --bs-tertiary-bg-rgb: 248, 249, 250;
-  --bs-heading-color: inherit;
+  --bs-heading-color: #283a97;
   --bs-link-color: #0d6efd;
   --bs-link-color-rgb: 13, 110, 253;
   --bs-link-decoration: underline;
@@ -12433,6 +12433,9 @@ textarea.form-control-lg {
 }*/
 h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
   color: var(--bs-heading-color);
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
 p {
@@ -12442,6 +12445,10 @@ p {
 
 p.card-text {
   text-wrap: balance;
+}
+
+.display-1 {
+  font-weight: 400;
 }
 
 .navbar-nav .nav-link.active {
