@@ -22,7 +22,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Dependencies\" />
     <Folder Include="wwwroot\images\" />
     <Folder Include="wwwroot\assets\" />
     <None Include="wwwroot\media\**\*">
