@@ -12451,6 +12451,16 @@ p.card-text {
   font-weight: 400;
 }
 
+.lead {
+  color: var(--bs-heading-color);
+}
+
+h1 + .lead, .h1 + .lead {
+  margin-top: 0.5rem;
+  font-size: 1.5rem;
+  color: var(--bs-heading-color);
+}
+
 .navbar-nav .nav-link.active {
   color: #ffffff;
 }

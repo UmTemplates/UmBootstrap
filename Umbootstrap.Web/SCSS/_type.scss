@@ -30,3 +30,14 @@ p.card-text {
 .display-1 {
     font-weight: 400; // Use your custom weight
 }
+
+.lead {
+    color: var(--bs-heading-color); // Match heading text color
+}
+
+// If lead follows h1
+h1 + .lead {
+    margin-top: 0.5rem; // Adjust spacing as needed
+    font-size: 1.5rem; // Optional: Adjust font size for better hierarchy
+    color: var(--bs-heading-color); // Match heading text color
+}
