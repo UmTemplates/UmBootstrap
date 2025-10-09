@@ -1,0 +1,43 @@
+
+
+
+
+/*h1 {
+    @include font-size(3rem);
+    color: $pink-500;
+    color: green;
+}*/
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--bs-heading-color);
+    //color: green;
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+
+p {
+    @include font-size(1rem);
+    color: var(--bs-body-color);
+}
+
+
+p.card-text {
+    text-wrap: balance;
+}
+
+.display-1 {
+    font-weight: 400; // Use your custom weight
+}
+
+.lead {
+    color: var(--bs-heading-color); // Match heading text color
+}
+
+// If lead follows h1
+h1 + .lead {
+    margin-top: 0.5rem; // Adjust spacing as needed
+    font-size: 1.5rem; // Optional: Adjust font size for better hierarchy
+    color: var(--bs-heading-color); // Match heading text color
+}

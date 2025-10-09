@@ -1,0 +1,38 @@
+/*.nav-link {
+    &:hover,
+    &:focus {
+        color: $white;
+        background-color: var(--#{$prefix}nav-link-hover-color);
+        text-decoration: if($link-hover-decoration == underline, none, null);
+    }
+    // Disabled state lightens text
+}
+
+.card .nav-link:hover {
+    &:hover,
+    &:focus {
+        color: $pink;
+    }
+}
+
+.card .nav-tabs .nav-link {
+        &:hover,
+        &:focus {
+            color: $white;
+            background-color: var(--#{$prefix}nav-link-hover-color);
+            text-decoration: if($link-hover-decoration == underline, none, null);
+        }
+        // Disabled state lightens text
+}*/
+
+.nav-pills .nav-link {
+
+}
+
+.nav-pills .nav-link:hover,
+.nav-pills .nav-link:focus,
+.nav-pills .nav-link.active {
+    color: #fff;
+    background-color: $blue; // Bootstrap primary blue
+    transition: color 0.15s, background-color 0.15s;
+}
