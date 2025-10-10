@@ -4,6 +4,7 @@ name: Build, publish and deploy project to UmbHost
 on:
   push:
     branches: [ main ]
+  workflow_dispatch:
 env:
     SolutionName: ${{ secrets.SOLUTION_NAME }}
     BuildPlatform: Any CPU
