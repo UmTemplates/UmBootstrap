@@ -20,24 +20,6 @@
                 }
             ]
         },
-        "CollectionBulkActionPermissionConditionConfig": {
-            "allOf": [
-                {
-                    "$ref": "#/definitions/UmbConditionConfigBase<\"Umb.Condition.CollectionBulkActionPermission\">"
-                },
-                {
-                    "properties": {
-                        "match": {
-                            "type": "object"
-                        }
-                    },
-                    "required": [
-                        "match"
-                    ],
-                    "type": "object"
-                }
-            ]
-        },
         "ManifestAppEntryPoint": {
             "description": "Manifest for an `appEntryPoint`, which is loaded up front when the app starts.\n\nThis type of extension gives full control and will simply load the specified JS file.\nYou could have custom logic to decide which extensions to load/register by using extensionRegistry.\nThis is useful for extensions that need to be loaded up front, like an `authProvider`.",
             "properties": {
@@ -285,9 +267,6 @@
                                 "$ref": "#/definitions/UmbSectionUserPermissionConditionConfig"
                             },
                             {
-                                "$ref": "#/definitions/CollectionBulkActionPermissionConditionConfig"
-                            },
-                            {
                                 "$ref": "#/definitions/CollectionAliasConditionConfig"
                             },
                             {
@@ -428,9 +407,6 @@
                             },
                             {
                                 "$ref": "#/definitions/UmbSectionUserPermissionConditionConfig"
-                            },
-                            {
-                                "$ref": "#/definitions/CollectionBulkActionPermissionConditionConfig"
                             },
                             {
                                 "$ref": "#/definitions/CollectionAliasConditionConfig"
@@ -574,9 +550,6 @@
                                 "$ref": "#/definitions/UmbSectionUserPermissionConditionConfig"
                             },
                             {
-                                "$ref": "#/definitions/CollectionBulkActionPermissionConditionConfig"
-                            },
-                            {
                                 "$ref": "#/definitions/CollectionAliasConditionConfig"
                             },
                             {
@@ -673,6 +646,59 @@
             ],
             "type": "object"
         },
+        "ManifestCollectionMenu": {
+            "properties": {
+                "alias": {
+                    "description": "The alias of the extension, ensure it is unique",
+                    "type": "string"
+                },
+                "api": {
+                    "description": "The file location of the api javascript file to load",
+                    "type": "string"
+                },
+                "element": {
+                    "description": "The file location of the element javascript file to load",
+                    "type": "string"
+                },
+                "elementName": {
+                    "description": "The HTML web component name to use such as 'my-dashboard'\nNote it is NOT <my-dashboard></my-dashboard>, just the element name.",
+                    "type": "string"
+                },
+                "js": {
+                    "description": "The file location of the javascript file to load",
+                    "type": "string"
+                },
+                "kind": {
+                    "description": "The kind of the extension, used to group extensions together",
+                    "examples": [
+                        "button"
+                    ]
+                },
+                "meta": {
+                    "$ref": "#/definitions/MetaCollectionMenu"
+                },
+                "name": {
+                    "description": "The friendly name of the extension",
+                    "type": "string"
+                },
+                "type": {
+                    "const": "collectionMenu",
+                    "description": "The type of extension such as dashboard etc...",
+                    "type": "string"
+                },
+                "weight": {
+                    "description": "Extensions such as dashboards are ordered by weight with higher numbers being first in the list",
+                    "type": "number"
+                }
+            },
+            "required": [
+                "alias",
+                "meta",
+                "name",
+                "type"
+            ],
+            "type": "object"
+        },
         "ManifestCollectionView": {
             "properties": {
                 "alias": {
@@ -712,9 +738,6 @@
                             },
                             {
                                 "$ref": "#/definitions/UmbSectionUserPermissionConditionConfig"
-                            },
-                            {
-                                "$ref": "#/definitions/CollectionBulkActionPermissionConditionConfig"
                             },
                             {
                                 "$ref": "#/definitions/CollectionAliasConditionConfig"
@@ -900,9 +923,6 @@
                                 "$ref": "#/definitions/UmbSectionUserPermissionConditionConfig"
                             },
                             {
-                                "$ref": "#/definitions/CollectionBulkActionPermissionConditionConfig"
-                            },
-                            {
                                 "$ref": "#/definitions/CollectionAliasConditionConfig"
                             },
                             {
@@ -1038,9 +1058,6 @@
                             },
                             {
                                 "$ref": "#/definitions/UmbSectionUserPermissionConditionConfig"
-                            },
-                            {
-                                "$ref": "#/definitions/CollectionBulkActionPermissionConditionConfig"
                             },
                             {
                                 "$ref": "#/definitions/CollectionAliasConditionConfig"
@@ -1238,9 +1255,6 @@
                                 "$ref": "#/definitions/UmbSectionUserPermissionConditionConfig"
                             },
                             {
-                                "$ref": "#/definitions/CollectionBulkActionPermissionConditionConfig"
-                            },
-                            {
                                 "$ref": "#/definitions/CollectionAliasConditionConfig"
                             },
                             {
@@ -1387,9 +1401,6 @@
                             },
                             {
                                 "$ref": "#/definitions/UmbSectionUserPermissionConditionConfig"
-                            },
-                            {
-                                "$ref": "#/definitions/CollectionBulkActionPermissionConditionConfig"
                             },
                             {
                                 "$ref": "#/definitions/CollectionAliasConditionConfig"
@@ -1540,9 +1551,6 @@
                                 "$ref": "#/definitions/UmbSectionUserPermissionConditionConfig"
                             },
                             {
-                                "$ref": "#/definitions/CollectionBulkActionPermissionConditionConfig"
-                            },
-                            {
                                 "$ref": "#/definitions/CollectionAliasConditionConfig"
                             },
                             {
@@ -1689,9 +1697,6 @@
                             },
                             {
                                 "$ref": "#/definitions/UmbSectionUserPermissionConditionConfig"
-                            },
-                            {
-                                "$ref": "#/definitions/CollectionBulkActionPermissionConditionConfig"
                             },
                             {
                                 "$ref": "#/definitions/CollectionAliasConditionConfig"
@@ -1842,9 +1847,6 @@
                                 "$ref": "#/definitions/UmbSectionUserPermissionConditionConfig"
                             },
                             {
-                                "$ref": "#/definitions/CollectionBulkActionPermissionConditionConfig"
-                            },
-                            {
                                 "$ref": "#/definitions/CollectionAliasConditionConfig"
                             },
                             {
@@ -1991,9 +1993,6 @@
                             },
                             {
                                 "$ref": "#/definitions/UmbSectionUserPermissionConditionConfig"
-                            },
-                            {
-                                "$ref": "#/definitions/CollectionBulkActionPermissionConditionConfig"
                             },
                             {
                                 "$ref": "#/definitions/CollectionAliasConditionConfig"
@@ -2144,9 +2143,6 @@
                                 "$ref": "#/definitions/UmbSectionUserPermissionConditionConfig"
                             },
                             {
-                                "$ref": "#/definitions/CollectionBulkActionPermissionConditionConfig"
-                            },
-                            {
                                 "$ref": "#/definitions/CollectionAliasConditionConfig"
                             },
                             {
@@ -2293,9 +2289,6 @@
                             },
                             {
                                 "$ref": "#/definitions/UmbSectionUserPermissionConditionConfig"
-                            },
-                            {
-                                "$ref": "#/definitions/CollectionBulkActionPermissionConditionConfig"
                             },
                             {
                                 "$ref": "#/definitions/CollectionAliasConditionConfig"
@@ -2446,9 +2439,6 @@
                                 "$ref": "#/definitions/UmbSectionUserPermissionConditionConfig"
                             },
                             {
-                                "$ref": "#/definitions/CollectionBulkActionPermissionConditionConfig"
-                            },
-                            {
                                 "$ref": "#/definitions/CollectionAliasConditionConfig"
                             },
                             {
@@ -2595,9 +2585,6 @@
                             },
                             {
                                 "$ref": "#/definitions/UmbSectionUserPermissionConditionConfig"
-                            },
-                            {
-                                "$ref": "#/definitions/CollectionBulkActionPermissionConditionConfig"
                             },
                             {
                                 "$ref": "#/definitions/CollectionAliasConditionConfig"
@@ -2748,9 +2735,6 @@
                                 "$ref": "#/definitions/UmbSectionUserPermissionConditionConfig"
                             },
                             {
-                                "$ref": "#/definitions/CollectionBulkActionPermissionConditionConfig"
-                            },
-                            {
                                 "$ref": "#/definitions/CollectionAliasConditionConfig"
                             },
                             {
@@ -2897,9 +2881,6 @@
                             },
                             {
                                 "$ref": "#/definitions/UmbSectionUserPermissionConditionConfig"
-                            },
-                            {
-                                "$ref": "#/definitions/CollectionBulkActionPermissionConditionConfig"
                             },
                             {
                                 "$ref": "#/definitions/CollectionAliasConditionConfig"
@@ -3051,9 +3032,6 @@
                                 "$ref": "#/definitions/UmbSectionUserPermissionConditionConfig"
                             },
                             {
-                                "$ref": "#/definitions/CollectionBulkActionPermissionConditionConfig"
-                            },
-                            {
                                 "$ref": "#/definitions/CollectionAliasConditionConfig"
                             },
                             {
@@ -3200,9 +3178,6 @@
                             },
                             {
                                 "$ref": "#/definitions/UmbSectionUserPermissionConditionConfig"
-                            },
-                            {
-                                "$ref": "#/definitions/CollectionBulkActionPermissionConditionConfig"
                             },
                             {
                                 "$ref": "#/definitions/CollectionAliasConditionConfig"
@@ -3353,9 +3328,6 @@
                                 "$ref": "#/definitions/UmbSectionUserPermissionConditionConfig"
                             },
                             {
-                                "$ref": "#/definitions/CollectionBulkActionPermissionConditionConfig"
-                            },
-                            {
                                 "$ref": "#/definitions/CollectionAliasConditionConfig"
                             },
                             {
@@ -3502,9 +3474,6 @@
                             },
                             {
                                 "$ref": "#/definitions/UmbSectionUserPermissionConditionConfig"
-                            },
-                            {
-                                "$ref": "#/definitions/CollectionBulkActionPermissionConditionConfig"
                             },
                             {
                                 "$ref": "#/definitions/CollectionAliasConditionConfig"
@@ -3655,9 +3624,6 @@
                                 "$ref": "#/definitions/UmbSectionUserPermissionConditionConfig"
                             },
                             {
-                                "$ref": "#/definitions/CollectionBulkActionPermissionConditionConfig"
-                            },
-                            {
                                 "$ref": "#/definitions/CollectionAliasConditionConfig"
                             },
                             {
@@ -3804,9 +3770,6 @@
                             },
                             {
                                 "$ref": "#/definitions/UmbSectionUserPermissionConditionConfig"
-                            },
-                            {
-                                "$ref": "#/definitions/CollectionBulkActionPermissionConditionConfig"
                             },
                             {
                                 "$ref": "#/definitions/CollectionAliasConditionConfig"
@@ -3956,9 +3919,6 @@
                                 "$ref": "#/definitions/UmbSectionUserPermissionConditionConfig"
                             },
                             {
-                                "$ref": "#/definitions/CollectionBulkActionPermissionConditionConfig"
-                            },
-                            {
                                 "$ref": "#/definitions/CollectionAliasConditionConfig"
                             },
                             {
@@ -4093,9 +4053,6 @@
                             },
                             {
                                 "$ref": "#/definitions/UmbSectionUserPermissionConditionConfig"
-                            },
-                            {
-                                "$ref": "#/definitions/CollectionBulkActionPermissionConditionConfig"
                             },
                             {
                                 "$ref": "#/definitions/CollectionAliasConditionConfig"
@@ -4418,9 +4375,6 @@
                                 "$ref": "#/definitions/UmbSectionUserPermissionConditionConfig"
                             },
                             {
-                                "$ref": "#/definitions/CollectionBulkActionPermissionConditionConfig"
-                            },
-                            {
                                 "$ref": "#/definitions/CollectionAliasConditionConfig"
                             },
                             {
@@ -4601,9 +4555,6 @@
                                 "$ref": "#/definitions/UmbSectionUserPermissionConditionConfig"
                             },
                             {
-                                "$ref": "#/definitions/CollectionBulkActionPermissionConditionConfig"
-                            },
-                            {
                                 "$ref": "#/definitions/CollectionAliasConditionConfig"
                             },
                             {
@@ -4738,9 +4689,6 @@
                             },
                             {
                                 "$ref": "#/definitions/UmbSectionUserPermissionConditionConfig"
-                            },
-                            {
-                                "$ref": "#/definitions/CollectionBulkActionPermissionConditionConfig"
                             },
                             {
                                 "$ref": "#/definitions/CollectionAliasConditionConfig"
@@ -5092,9 +5040,6 @@
                                 "$ref": "#/definitions/UmbSectionUserPermissionConditionConfig"
                             },
                             {
-                                "$ref": "#/definitions/CollectionBulkActionPermissionConditionConfig"
-                            },
-                            {
                                 "$ref": "#/definitions/CollectionAliasConditionConfig"
                             },
                             {
@@ -5237,9 +5182,6 @@
                                 "$ref": "#/definitions/UmbSectionUserPermissionConditionConfig"
                             },
                             {
-                                "$ref": "#/definitions/CollectionBulkActionPermissionConditionConfig"
-                            },
-                            {
                                 "$ref": "#/definitions/CollectionAliasConditionConfig"
                             },
                             {
@@ -5375,9 +5317,6 @@
                             },
                             {
                                 "$ref": "#/definitions/UmbSectionUserPermissionConditionConfig"
-                            },
-                            {
-                                "$ref": "#/definitions/CollectionBulkActionPermissionConditionConfig"
                             },
                             {
                                 "$ref": "#/definitions/CollectionAliasConditionConfig"
@@ -5516,9 +5455,6 @@
                             },
                             {
                                 "$ref": "#/definitions/UmbSectionUserPermissionConditionConfig"
-                            },
-                            {
-                                "$ref": "#/definitions/CollectionBulkActionPermissionConditionConfig"
                             },
                             {
                                 "$ref": "#/definitions/CollectionAliasConditionConfig"
@@ -5871,9 +5807,6 @@
                                 "$ref": "#/definitions/UmbSectionUserPermissionConditionConfig"
                             },
                             {
-                                "$ref": "#/definitions/CollectionBulkActionPermissionConditionConfig"
-                            },
-                            {
                                 "$ref": "#/definitions/CollectionAliasConditionConfig"
                             },
                             {
@@ -5963,6 +5896,54 @@
             "required": [
                 "alias",
                 "forPropertyEditorUis",
+                "meta",
+                "name",
+                "type"
+            ],
+            "type": "object"
+        },
+        "ManifestPropertyEditorDataSource": {
+            "properties": {
+                "alias": {
+                    "description": "The alias of the extension, ensure it is unique",
+                    "type": "string"
+                },
+                "api": {
+                    "type": "string"
+                },
+                "dataSourceType": {
+                    "type": "string"
+                },
+                "js": {
+                    "description": "The file location of the javascript file to load",
+                    "type": "string"
+                },
+                "kind": {
+                    "description": "The kind of the extension, used to group extensions together",
+                    "examples": [
+                        "button"
+                    ]
+                },
+                "meta": {
+                    "$ref": "#/definitions/MetaPropertyEditorDataSource"
+                },
+                "name": {
+                    "description": "The friendly name of the extension",
+                    "type": "string"
+                },
+                "type": {
+                    "const": "propertyEditorDataSource",
+                    "description": "The type of extension such as dashboard etc...",
+                    "type": "string"
+                },
+                "weight": {
+                    "description": "Extensions such as dashboards are ordered by weight with higher numbers being first in the list",
+                    "type": "number"
+                }
+            },
+            "required": [
+                "alias",
+                "dataSourceType",
                 "meta",
                 "name",
                 "type"
@@ -6281,9 +6262,6 @@
                                 "$ref": "#/definitions/UmbSectionUserPermissionConditionConfig"
                             },
                             {
-                                "$ref": "#/definitions/CollectionBulkActionPermissionConditionConfig"
-                            },
-                            {
                                 "$ref": "#/definitions/CollectionAliasConditionConfig"
                             },
                             {
@@ -6474,6 +6452,10 @@
                     "description": "The alias of the extension, ensure it is unique",
                     "type": "string"
                 },
+                "api": {
+                    "description": "The file location of the api javascript file to load",
+                    "type": "string"
+                },
                 "conditions": {
                     "description": "Set the conditions for when the extension should be loaded",
                     "items": {
@@ -6507,9 +6489,6 @@
                             },
                             {
                                 "$ref": "#/definitions/UmbSectionUserPermissionConditionConfig"
-                            },
-                            {
-                                "$ref": "#/definitions/CollectionBulkActionPermissionConditionConfig"
                             },
                             {
                                 "$ref": "#/definitions/CollectionAliasConditionConfig"
@@ -6570,8 +6549,7 @@
                     ]
                 },
                 "meta": {
-                    "$ref": "#/definitions/MetaSection",
-                    "description": "This contains properties specific to the type of extension"
+                    "$ref": "#/definitions/MetaSection"
                 },
                 "name": {
                     "description": "The friendly name of the extension",
@@ -6651,9 +6629,6 @@
                             },
                             {
                                 "$ref": "#/definitions/UmbSectionUserPermissionConditionConfig"
-                            },
-                            {
-                                "$ref": "#/definitions/CollectionBulkActionPermissionConditionConfig"
                             },
                             {
                                 "$ref": "#/definitions/CollectionAliasConditionConfig"
@@ -6838,9 +6813,6 @@
                                 "$ref": "#/definitions/UmbSectionUserPermissionConditionConfig"
                             },
                             {
-                                "$ref": "#/definitions/CollectionBulkActionPermissionConditionConfig"
-                            },
-                            {
                                 "$ref": "#/definitions/CollectionAliasConditionConfig"
                             },
                             {
@@ -6975,9 +6947,6 @@
                             },
                             {
                                 "$ref": "#/definitions/UmbSectionUserPermissionConditionConfig"
-                            },
-                            {
-                                "$ref": "#/definitions/CollectionBulkActionPermissionConditionConfig"
                             },
                             {
                                 "$ref": "#/definitions/CollectionAliasConditionConfig"
@@ -7160,9 +7129,6 @@
                             },
                             {
                                 "$ref": "#/definitions/UmbSectionUserPermissionConditionConfig"
-                            },
-                            {
-                                "$ref": "#/definitions/CollectionBulkActionPermissionConditionConfig"
                             },
                             {
                                 "$ref": "#/definitions/CollectionAliasConditionConfig"
@@ -7594,9 +7560,6 @@
                                 "$ref": "#/definitions/UmbSectionUserPermissionConditionConfig"
                             },
                             {
-                                "$ref": "#/definitions/CollectionBulkActionPermissionConditionConfig"
-                            },
-                            {
                                 "$ref": "#/definitions/CollectionAliasConditionConfig"
                             },
                             {
@@ -7738,9 +7701,6 @@
                                 "$ref": "#/definitions/UmbSectionUserPermissionConditionConfig"
                             },
                             {
-                                "$ref": "#/definitions/CollectionBulkActionPermissionConditionConfig"
-                            },
-                            {
                                 "$ref": "#/definitions/CollectionAliasConditionConfig"
                             },
                             {
@@ -7880,9 +7840,6 @@
                             },
                             {
                                 "$ref": "#/definitions/UmbSectionUserPermissionConditionConfig"
-                            },
-                            {
-                                "$ref": "#/definitions/CollectionBulkActionPermissionConditionConfig"
                             },
                             {
                                 "$ref": "#/definitions/CollectionAliasConditionConfig"
@@ -8042,9 +7999,6 @@
                                 "$ref": "#/definitions/UmbSectionUserPermissionConditionConfig"
                             },
                             {
-                                "$ref": "#/definitions/CollectionBulkActionPermissionConditionConfig"
-                            },
-                            {
                                 "$ref": "#/definitions/CollectionAliasConditionConfig"
                             },
                             {
@@ -8201,9 +8155,6 @@
                                 "$ref": "#/definitions/UmbSectionUserPermissionConditionConfig"
                             },
                             {
-                                "$ref": "#/definitions/CollectionBulkActionPermissionConditionConfig"
-                            },
-                            {
                                 "$ref": "#/definitions/CollectionAliasConditionConfig"
                             },
                             {
@@ -8330,9 +8281,6 @@
                             },
                             {
                                 "$ref": "#/definitions/UmbSectionUserPermissionConditionConfig"
-                            },
-                            {
-                                "$ref": "#/definitions/CollectionBulkActionPermissionConditionConfig"
                             },
                             {
                                 "$ref": "#/definitions/CollectionAliasConditionConfig"
@@ -8521,9 +8469,6 @@
                                 "$ref": "#/definitions/UmbSectionUserPermissionConditionConfig"
                             },
                             {
-                                "$ref": "#/definitions/CollectionBulkActionPermissionConditionConfig"
-                            },
-                            {
                                 "$ref": "#/definitions/CollectionAliasConditionConfig"
                             },
                             {
@@ -8659,9 +8604,6 @@
                             },
                             {
                                 "$ref": "#/definitions/UmbSectionUserPermissionConditionConfig"
-                            },
-                            {
-                                "$ref": "#/definitions/CollectionBulkActionPermissionConditionConfig"
                             },
                             {
                                 "$ref": "#/definitions/CollectionAliasConditionConfig"
@@ -8801,9 +8743,6 @@
                                 "$ref": "#/definitions/UmbSectionUserPermissionConditionConfig"
                             },
                             {
-                                "$ref": "#/definitions/CollectionBulkActionPermissionConditionConfig"
-                            },
-                            {
                                 "$ref": "#/definitions/CollectionAliasConditionConfig"
                             },
                             {
@@ -8935,9 +8874,6 @@
                             },
                             {
                                 "$ref": "#/definitions/UmbSectionUserPermissionConditionConfig"
-                            },
-                            {
-                                "$ref": "#/definitions/CollectionBulkActionPermissionConditionConfig"
                             },
                             {
                                 "$ref": "#/definitions/CollectionAliasConditionConfig"
@@ -9131,9 +9067,6 @@
                                 "$ref": "#/definitions/UmbSectionUserPermissionConditionConfig"
                             },
                             {
-                                "$ref": "#/definitions/CollectionBulkActionPermissionConditionConfig"
-                            },
-                            {
                                 "$ref": "#/definitions/CollectionAliasConditionConfig"
                             },
                             {
@@ -9270,9 +9203,6 @@
                             },
                             {
                                 "$ref": "#/definitions/UmbSectionUserPermissionConditionConfig"
-                            },
-                            {
-                                "$ref": "#/definitions/CollectionBulkActionPermissionConditionConfig"
                             },
                             {
                                 "$ref": "#/definitions/CollectionAliasConditionConfig"
@@ -9413,9 +9343,6 @@
                                 "$ref": "#/definitions/UmbSectionUserPermissionConditionConfig"
                             },
                             {
-                                "$ref": "#/definitions/CollectionBulkActionPermissionConditionConfig"
-                            },
-                            {
                                 "$ref": "#/definitions/CollectionAliasConditionConfig"
                             },
                             {
@@ -9552,9 +9479,6 @@
                             },
                             {
                                 "$ref": "#/definitions/UmbSectionUserPermissionConditionConfig"
-                            },
-                            {
-                                "$ref": "#/definitions/CollectionBulkActionPermissionConditionConfig"
                             },
                             {
                                 "$ref": "#/definitions/CollectionAliasConditionConfig"
@@ -9761,6 +9685,17 @@
             },
             "required": [
                 "label"
+            ],
+            "type": "object"
+        },
+        "MetaCollectionMenu": {
+            "properties": {
+                "collectionRepositoryAlias": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "collectionRepositoryAlias"
             ],
             "type": "object"
         },
@@ -10213,9 +10148,6 @@
                             },
                             {
                                 "$ref": "#/definitions/UmbSectionUserPermissionConditionConfig"
-                            },
-                            {
-                                "$ref": "#/definitions/CollectionBulkActionPermissionConditionConfig"
                             },
                             {
                                 "$ref": "#/definitions/CollectionAliasConditionConfig"
@@ -10687,6 +10619,26 @@
         "MetaPropertyContext": {
             "type": "object"
         },
+        "MetaPropertyEditorDataSource": {
+            "properties": {
+                "description": {
+                    "type": "string"
+                },
+                "icon": {
+                    "type": "string"
+                },
+                "label": {
+                    "type": "string"
+                },
+                "settings": {
+                    "$ref": "#/definitions/PropertyEditorSettings"
+                }
+            },
+            "required": [
+                "label"
+            ],
+            "type": "object"
+        },
         "MetaPropertyEditorSchema": {
             "properties": {
                 "defaultPropertyEditorUiAlias": {
@@ -10721,6 +10673,26 @@
                 "settings": {
                     "$ref": "#/definitions/PropertyEditorSettings"
                 },
+                "supportsDataSource": {
+                    "properties": {
+                        "enabled": {
+                            "description": "Whether the property editor UI is enabled for use with data sources.",
+                            "type": "{boolean}"
+                        },
+                        "forDataSourceTypes": {
+                            "description": "A list of allowed property editor data source kinds that can be used with this property editor UI.\nIf not specified, any data sources can be used.",
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    },
+                    "required": [
+                        "enabled",
+                        "forDataSourceTypes"
+                    ],
+                    "type": "object"
+                },
                 "supportsReadOnly": {
                     "type": "boolean"
                 }
@@ -10733,11 +10705,6 @@
             "type": "object"
         },
         "MetaPropertyValueResolver": {
-            "properties": {
-                "editorAlias": {
-                    "type": "string"
-                }
-            },
             "type": "object"
         },
         "MetaSearchProvider": {
@@ -11093,6 +11060,9 @@
                 "label": {
                     "type": "string"
                 },
+                "propertyEditorDataSourceAlias": {
+                    "type": "string"
+                },
                 "propertyEditorUiAlias": {
                     "type": "string"
                 },
@@ -11155,18 +11125,6 @@
             "properties": {
                 "alias": {
                     "const": "Umb.Condition.CollectionAlias",
-                    "type": "string"
-                }
-            },
-            "required": [
-                "alias"
-            ],
-            "type": "object"
-        },
-        "UmbConditionConfigBase<\"Umb.Condition.CollectionBulkActionPermission\">": {
-            "properties": {
-                "alias": {
-                    "const": "Umb.Condition.CollectionBulkActionPermission",
                     "type": "string"
                 }
             },
@@ -11693,9 +11651,6 @@
                         "$ref": "#/definitions/ManifestAuthProvider"
                     },
                     {
-                        "$ref": "#/definitions/ManifestModal"
-                    },
-                    {
                         "$ref": "#/definitions/ManifestWorkspaceDefaultKind"
                     },
                     {
@@ -11759,6 +11714,9 @@
                         "$ref": "#/definitions/ManifestIcons"
                     },
                     {
+                        "$ref": "#/definitions/ManifestModal"
+                    },
+                    {
                         "$ref": "#/definitions/ManifestEntityActionDuplicateToKind"
                     },
                     {
@@ -11769,9 +11727,6 @@
                     },
                     {
                         "$ref": "#/definitions/ManifestEntityActionSortChildrenOfKind"
-                    },
-                    {
-                        "$ref": "#/definitions/ManifestTreeItem"
                     },
                     {
                         "$ref": "#/definitions/ManifestSectionRoute"
@@ -11787,6 +11742,9 @@
                     },
                     {
                         "$ref": "#/definitions/ManifestDashboard"
+                    },
+                    {
+                        "$ref": "#/definitions/ManifestTreeItem"
                     },
                     {
                         "$ref": "#/definitions/ManifestTree"
@@ -11831,19 +11789,10 @@
                         "$ref": "#/definitions/ManifestCollectionActionCreateKind"
                     },
                     {
+                        "$ref": "#/definitions/ManifestCollectionMenu"
+                    },
+                    {
                         "$ref": "#/definitions/ManifestWorkspaceViewCollectionKind"
-                    },
-                    {
-                        "$ref": "#/definitions/ManifestSearchProvider"
-                    },
-                    {
-                        "$ref": "#/definitions/ManifestSearchResultItem"
-                    },
-                    {
-                        "$ref": "#/definitions/ManifestGlobalSearch"
-                    },
-                    {
-                        "$ref": "#/definitions/ManifestPickerSearchResultItem"
                     },
                     {
                         "$ref": "#/definitions/ManifestWorkspaceViewContentCollectionKind"
@@ -11862,6 +11811,21 @@
                     },
                     {
                         "$ref": "#/definitions/ManifestLocalization"
+                    },
+                    {
+                        "$ref": "#/definitions/ManifestPickerSearchResultItem"
+                    },
+                    {
+                        "$ref": "#/definitions/ManifestPropertyEditorDataSource"
+                    },
+                    {
+                        "$ref": "#/definitions/ManifestSearchProvider"
+                    },
+                    {
+                        "$ref": "#/definitions/ManifestSearchResultItem"
+                    },
+                    {
+                        "$ref": "#/definitions/ManifestGlobalSearch"
                     },
                     {
                         "$ref": "#/definitions/ManifestAppEntryPoint"
@@ -11903,10 +11867,10 @@
                         "$ref": "#/definitions/ManifestEntityCreateOptionAction<MetaEntityCreateOptionAction>"
                     },
                     {
-                        "$ref": "#/definitions/ManifestSectionContext<MetaSectionContext>"
+                        "$ref": "#/definitions/ManifestEntityItemRef<MetaEntityItemRef>"
                     },
                     {
-                        "$ref": "#/definitions/ManifestEntityItemRef<MetaEntityItemRef>"
+                        "$ref": "#/definitions/ManifestSectionContext<MetaSectionContext>"
                     },
                     {
                         "$ref": "#/definitions/ManifestCurrentUserAction<MetaCurrentUserAction>"
