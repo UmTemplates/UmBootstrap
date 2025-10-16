@@ -8,7 +8,7 @@
     <Description>A project template for creating a new Umbraco site using the UmBootstrap Starter Kit</Description>
     <PackageTags>dotnet-new;templates;umbraco;bootstrap;umbraco-marketplace</PackageTags>
 
-    <TargetFramework>net9.0</TargetFramework>
+    <TargetFramework>net10.0</TargetFramework>
 
     <IncludeContentInPack>true</IncludeContentInPack>
     <IncludeBuildOutput>false</IncludeBuildOutput>
@@ -88,11 +88,10 @@
 
   <ItemGroup>
     <PackageReference Include="SixLabors.ImageSharp" Version="3.1.11" />
-    <PackageReference Include="Umbraco.Cms" Version="16.3.0-rc4" />
+    <PackageReference Include="Umbraco.Cms" Version="17.0.0-beta" />
     <PackageReference Include="Umbraco.Community.BlockPreview" Version="4.0.3" />
-    <PackageReference Include="Umbraco.Community.UmbNav" Version="4.0.0-beta0042" />
-    <PackageReference Include="Umbraco.Forms" Version="16.1.0" />
-    <PackageReference Include="uSync" Version="16.0.8" />
+    <PackageReference Include="Umbraco.Community.UmbNav" Version="4.0.0-beta0052" />
+    <PackageReference Include="uSync" Version="17.0.0-beta" />
   </ItemGroup>
 
   <ItemGroup>
