@@ -12,7 +12,7 @@ public class BlockPreviewComposer : IComposer
     {
         builder.AddBlockPreview(options =>
         {
-            options.BlockGrid = new BlockWithStylesheetSettings
+            options.BlockGrid = new BlockTypeSettings
             {
                 Enabled = true,
                 ContentTypes =
@@ -33,7 +33,7 @@ public class BlockPreviewComposer : IComposer
                 ],
                 Stylesheet = "/css/Index.css"
             };
-            options.BlockList = new BlockWithStylesheetSettings
+            options.BlockList = new BlockTypeSettings
             {
                 Enabled = false
             };
