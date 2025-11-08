@@ -12426,6 +12426,10 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
+.card {
+  --bs-card-border-width: none;
+}
+
 .carousel {
   height: calc(100vh - 110px);
 }
