@@ -88,7 +88,7 @@
 
   <ItemGroup>
     <PackageReference Include="SixLabors.ImageSharp" Version="3.1.11" />
-    <PackageReference Include="Umbraco.Cms" Version="17.0.0-rc1" />
+    <PackageReference Include="Umbraco.Cms" Version="17.0.0-rc2" />
     <PackageReference Include="Umbraco.Community.BlockPreview" Version="5.0.0-rc1" />
     <PackageReference Include="Umbraco.Community.UmbNav" Version="4.0.0-beta0052" />
     <PackageReference Include="uSync" Version="17.0.0-rc1" />
