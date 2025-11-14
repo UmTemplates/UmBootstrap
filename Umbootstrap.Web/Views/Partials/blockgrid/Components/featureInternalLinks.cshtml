@@ -5,9 +5,9 @@
     var typedMultiNodeTreePicker = Model.Content.Links?.Cast<WebPage>();
 }
 
-<div class="grid">
-    @if (typedMultiNodeTreePicker != null)
-    {
+@if (typedMultiNodeTreePicker != null)
+{
+    <div class="grid">
         @foreach (var item in typedMultiNodeTreePicker)
         {
             var pageThumbnail = item.PageThumbnail;
@@ -27,5 +27,5 @@
                 </div>
             </div>
         }
-    }
-</div>
+    </div>
+}
