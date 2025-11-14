@@ -27,10 +27,12 @@
                     {
                         <img src="@(pageThumbnail.GetCropUrl(width: 480))" class="card-img-top" alt="...">
                     }
-                    <div class="card-body">
-                        <h5 class="card-title pb-1"><a class="nav-link stretched-link"
-                                                       href="@item.Url()">@item.Value("pageTitle")</a></h5>
-                        <p class="card-text pb-2">@item.Name</p>
+                    <div class="card-body text-center">
+                        <h3 class="card-title pb-1">
+                            <a class="stretched-link"
+                               href="@item.Url()">@item.Value("pageTitle")</a>
+                        </h3>
+                        <p class="card-text pb-2">@item.Value("pageDescription")</p>
                     </div>
                 </div>
             </div>
