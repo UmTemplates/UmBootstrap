@@ -2,7 +2,7 @@
 
 @{
     Layout = "_Layout_Features.cshtml";
-    var children = Umbraco.AssignedContentItem.Children<WebPage>();
+    var children = UmbracoContext?.PublishedRequest?.PublishedContent?.Children<WebPage>();
 }
 
 @if (children != null && children.Any())
