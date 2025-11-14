@@ -1,36 +1,33 @@
-﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem>
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem<FeatureInternalLinksChildren>>
 
 @{
     Layout = "_Layout_Features.cshtml";
+    var children = Umbraco.AssignedContentItem.Children<WebPage>();
 }
 
-<div class="grid">
-    @foreach (var childPage in Umbraco.AssignedContentItem.Children<IPublishedContent>()!) //LOOP THROUGH LINKS
-    {
-        var thumbnail = childPage.Value<IPublishedContent>("pageThumbnail");
-        <div class="g-col-12 g-col-md-6 g-col-lg-4">
-            <div class="card h-100 shadow">
-                @if (thumbnail != null)
-                {
-                    // if image is not null, display image}
-                    <img src="@(thumbnail.GetCropUrl(width: 480))" class="card-img-top" alt="...">
-                }
-                @*<div class="card-header">
-            <h5 class="card-title text-center pt-2"><a class="nav-link stretched-link" href="@varWebpage.Url()">@varWebpage.Value("pageTitle")</a></h5>
-            </div>*@
-                <div class="card-body text-center">
-                    <h3 class="card-title pb-1">
-                        <a class="stretched-link"
-                           href="@childPage.Url()">@childPage.Value("pageTitle")</a>
-                    </h3>
-                    <p class="card-text pb-2">
-                        @childPage.Value("pageDescription")
-                    </p>
+@if (children != null && children.Any())
+{
+    <div class="grid">
+        @foreach (var childPage in children)
+        {
+            var thumbnail = childPage.PageThumbnail;
+            <div class="g-col-12 g-col-md-6 g-col-lg-4">
+                <div class="card h-100 shadow">
+                    @if (thumbnail != null)
+                    {
+                        <img src="@(thumbnail.GetCropUrl(width: 480))" class="card-img-top" alt="...">
+                    }
+                    <div class="card-body text-center">
+                        <h3 class="card-title pb-1">
+                            <a class="stretched-link"
+                               href="@childPage.Url()">@childPage.PageTitle</a>
+                        </h3>
+                        <p class="card-text pb-2">
+                            @childPage.PageDescription
+                        </p>
+                    </div>
                 </div>
             </div>
-        </div>
-    }
-</div>
-
-
-
+        }
+    </div>
+}
