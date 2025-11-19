@@ -2,40 +2,30 @@
 
 @{
     Layout = "_Layout_Features.cshtml";
+    var typedMultiNodeTreePicker = Model.Content.Links?.Cast<WebPage>();
 }
 
-<div class="grid">
-    @{
-        var count = 0;
-        var maxItems = 6;
-        var typedMultiNodeTreePicker = Model.Content.Links;
-    }
-    @if (typedMultiNodeTreePicker != null)
-    {
+@if (typedMultiNodeTreePicker != null)
+{
+    <div class="grid">
         @foreach (var item in typedMultiNodeTreePicker)
         {
-            if (count == maxItems)
-            {
-                break;
-            }
-
-            count++;
-            var pageThumbnail = item.Value<IPublishedContent>("pageThumbnail");
+            var pageThumbnail = item.PageThumbnail;
             <div class="g-col-12 g-col-md-6 g-col-lg-4">
                 <div class="card h-100 shadow">
                     @if (pageThumbnail is not null)
                     {
                         <img src="@(pageThumbnail.GetCropUrl(width: 480))" class="card-img-top" alt="...">
                     }
-                    <div class="card-body">
-                        <h5 class="card-title pb-1"><a class="nav-link stretched-link"
-                                                       href="@item.Url()">@item.Value("pageTitle")</a></h5>
-                        <p class="card-text pb-2">@item.Name</p>
+                    <div class="card-body text-center">
+                        <h3 class="card-title pb-1">
+                            <a class="stretched-link"
+                               href="@item.Url()">@item.PageTitle</a>
+                        </h3>
+                        <p class="card-text pb-2">@item.PageDescription</p>
                     </div>
                 </div>
             </div>
         }
-    }
-</div>
-
-
+    </div>
+}
