@@ -37,15 +37,15 @@
       },
       "Umbraco.Community.BlockPreview": {
         "type": "Direct",
-        "requested": "[5.0.0-rc2.2, )",
-        "resolved": "5.0.0-rc2.2",
-        "contentHash": "pDmB+RzjtuQQR4TkbeG4opXbruoIJNJlWge3U+IY95FD1faBvbq/UkmZ2e9nkNJjkhHhxi2W5TQrG3eoY7ZZ5g==",
+        "requested": "[5.0.0-rc3, )",
+        "resolved": "5.0.0-rc3",
+        "contentHash": "TiJzTNJsMu2d+qPuZecfe+AJ6dNqFFdeLHPap7VXmfz+qq7nZDzBoWHEMBnUK2JtqnglqnrYl2PufE8bYTcNVw==",
         "dependencies": {
-          "Umbraco.Cms.Api.Common": "[17.0.0-rc2, 18.0.0)",
-          "Umbraco.Cms.Api.Management": "[17.0.0-rc2, 18.0.0)",
-          "Umbraco.Cms.Core": "[17.0.0-rc2, 18.0.0)",
-          "Umbraco.Cms.Web.Common": "[17.0.0-rc2, 18.0.0)",
-          "Umbraco.Cms.Web.Website": "[17.0.0-rc2, 18.0.0)"
+          "Umbraco.Cms.Api.Common": "[17.0.0-rc4, 18.0.0)",
+          "Umbraco.Cms.Api.Management": "[17.0.0-rc4, 18.0.0)",
+          "Umbraco.Cms.Core": "[17.0.0-rc4, 18.0.0)",
+          "Umbraco.Cms.Web.Common": "[17.0.0-rc4, 18.0.0)",
+          "Umbraco.Cms.Web.Website": "[17.0.0-rc4, 18.0.0)"
         }
       },
       "Umbraco.Community.UmbNav": {
