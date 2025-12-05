@@ -36,11 +36,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="App_Plugins\icons\Layout 12.svg" />
-    <None Include="App_Plugins\icons\Layout 3-6-3.svg" />
-    <None Include="App_Plugins\icons\Layout 3nav-9.svg" />
-    <None Include="App_Plugins\icons\Layout 6-6.svg" />
-    <None Include="App_Plugins\icons\Layout 8.svg" />
+    <None Include="App_Plugins\icons\Thumbnails-Icons-RTE.svg" />
   </ItemGroup>
 
 	<PropertyGroup>
