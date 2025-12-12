@@ -1,5 +1,6 @@
 ﻿@using Microsoft.AspNetCore.Http
-@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem>
+@using Umbraco.Extensions
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem<FeatureInternalLinksPagination>>
 @inject IHttpContextAccessor HttpContextAccessor
 
 @{
@@ -9,7 +10,7 @@
     var childPages = currentPage.Children<IPublishedContent>()?.ToArray() ?? []; // The child pages of the current page
     var pageSize = 3; // Number of items to display per page
 
-    var queryPageValue =  HttpContextAccessor.HttpContext?.Request.Query["page"]; // The value of the query string parameter 'page'
+    var queryPageValue = HttpContextAccessor.HttpContext?.Request.Query["page"]; // The value of the query string parameter 'page'
     var currentPageNumber = string.IsNullOrWhiteSpace(queryPageValue) ? 1 : Convert.ToInt32(queryPageValue); // The current page number
 
 
@@ -22,7 +23,10 @@
         //.OrderBy(x => x.CreateDate) // Order the pages by their create date
         .OrderBy(x => x.SortOrder) // Order the pages by their sort order
         .Skip(startItemIndex) // Skip the first x items
-        .Take(pageSize); // Take the next x items
+        .Take(pageSize) // Take the next x items
+        .Select(x => x as WebPage)
+        .Where(x => x is not null)
+        .Cast<WebPage>();
 }
 
 
@@ -95,17 +99,17 @@
 <div class="grid">
     @foreach (var varWebpage in displayedPages) //LOOP THROUGH LINKS
     {
-        var thumbnail = varWebpage.Value<IPublishedContent>("pageThumbnail");
-                        <div class="g-col-12 g-col-md-6 g-col-lg-4">
+        var thumbnail = varWebpage.PageThumbnail;
+        <div class="g-col-12 g-col-md-6 g-col-lg-4">
             <div class="card h-100 shadow">
-                @if (thumbnail is not null) // if image is not null, display image}
+                @if (thumbnail is not null) // if image is not null, display image
                 {
                     <img src="@(thumbnail.GetCropUrl(width:480))" class="card-img-top" alt="...">
                 }
                 <div class="card-body">
-                    <h5 class="card-title pb-1"><a class="nav-link stretched-link" href="@varWebpage.Url()">@varWebpage.Value("pageTitle")</a></h5>
+                    <h5 class="card-title pb-1"><a class="nav-link stretched-link" href="@varWebpage.Url()">@varWebpage.PageTitle</a></h5>
                     <p class="card-text pb-2">
-                        @varWebpage.Value("pageDescription")
+                        @varWebpage.PageDescription
                     </p>
                 </div>
             </div>
