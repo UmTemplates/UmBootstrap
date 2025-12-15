@@ -1,114 +1,119 @@
 ﻿@using Microsoft.AspNetCore.Http
-@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem>
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem<FeatureInternalLinksPagination>>
 @inject IHttpContextAccessor HttpContextAccessor
 
 @{
     Layout = "_Layout_Features.cshtml";
 
-    var currentPage = Umbraco.AssignedContentItem; // The current page
-    var childPages = currentPage.Children<IPublishedContent>()?.ToArray() ?? []; // The child pages of the current page
-    var pageSize = 3; // Number of items to display per page
+    var currentPage = UmbracoContext?.PublishedRequest?.PublishedContent;
+    var childPages = currentPage?.Children<WebPage>()?.ToArray() ?? [];
+    
+    var pageSize = 3;
+    var isPreviewMode = HttpContextAccessor.HttpContext == null;
+    
+    var queryPageValue = HttpContextAccessor.HttpContext?.Request.Query["page"];
+    var currentPageNumber = string.IsNullOrWhiteSpace(queryPageValue) ? 1 : Convert.ToInt32(queryPageValue);
 
-    var queryPageValue =  HttpContextAccessor.HttpContext?.Request.Query["page"]; // The value of the query string parameter 'page'
-    var currentPageNumber = string.IsNullOrWhiteSpace(queryPageValue) ? 1 : Convert.ToInt32(queryPageValue); // The current page number
+    var startItemIndex = currentPageNumber * pageSize - pageSize;
 
-
-    var startItemIndex = currentPageNumber * pageSize - pageSize; // The index of the first item to display on the current page
-
-    //var sortedChildNodes = childNodes.OrderBy(node => node.SortOrder);
-
-    var displayedPages = childPages // The pages to display on the current page
-        .Where(x => x.IsVisible()) // Only display pages that are visible
-        //.OrderBy(x => x.CreateDate) // Order the pages by their create date
-        .OrderBy(x => x.SortOrder) // Order the pages by their sort order
-        .Skip(startItemIndex) // Skip the first x items
-        .Take(pageSize); // Take the next x items
+    var displayedPages = childPages
+        .Where(x => x.IsVisible())
+        .OrderBy(x => x.SortOrder)
+        .Skip(startItemIndex)
+        .Take(pageSize);
 }
 
-
-<nav class="grid" id="pagination" style="place-items: center" aria-label="...">
-    <ul class="pagination g-col-12">
-        @if (currentPageNumber > 1) // If the current page is not the first page
-        {
-            var prevPageQueryString = $"?page={currentPageNumber - 1}#pagination";
-
-            <li class="page-item">
-                <a class="page-link" href="@prevPageQueryString">Prev</a>
-            </li>
-        }
-        else // If the current page is the first page
-        {
-            <li class="page-item disabled">
-                <span class="page-link">Prev</span>
-            </li>
-        }
-
-        @for (var i = 1; i <= Math.Ceiling((double)childPages.Length / pageSize); i++) // Loop through the pages
-        {
-            var queryString = HttpContextAccessor.HttpContext?.Request.QueryString.Value; // The query string of the current page
-            if (queryString?.Contains("page=") == true) // If the query string already contains a 'page' parameter, replace it with the current page number
-            {
-                queryString = queryString.Replace("page=" + currentPageNumber, $"page={i}"); // Replace the 'page' parameter with the current page number
-            }
-            else
-            {
-                if (queryString?.Length > 0)
-                {
-                    queryString += "&";
-                }
-                queryString += $"page={i}";
-            }
-            queryString = queryString.TrimStart('?');
-
-            queryString = "?" + queryString; // Ensure the query string starts with a '?'
-
-            queryString += "#pagination"; // Add the anchor to the query string
-
-            <li class="page-item @(currentPageNumber == i ? "active" : "")">
-                <a class="page-link" href="@queryString">@i</a>
-            </li>
-        }
-
-
-        @if (currentPageNumber < Math.Ceiling((double)childPages.Length / pageSize)) // If the current page is not the last page
-        {
-            var nextPageQueryString = $"?page={currentPageNumber + 1}#pagination"; // The query string of the next page
-
-            <li class="page-item">
-                <a class="page-link" href="@nextPageQueryString">Next</a>
-            </li>
-        }
-        else
-        {
-            <li class="page-item disabled">
-                <span class="page-link">Next</span>
-            </li>
-        }
-    </ul>
-</nav>
-
-@*<div class="page-count">
-    Page @currentPageNumber of @Math.Ceiling((double)childPages.Count() / pageSize) pages
-</div>*@
-
-
-<div class="grid">
-    @foreach (var varWebpage in displayedPages) //LOOP THROUGH LINKS
+@if (childPages != null && childPages.Length > 0)
+{
+    if (!isPreviewMode)
     {
-        var thumbnail = varWebpage.Value<IPublishedContent>("pageThumbnail");
-                        <div class="g-col-12 g-col-md-6 g-col-lg-4">
-            <div class="card h-100 shadow">
-                @if (thumbnail is not null) // if image is not null, display image}
+        <nav class="grid" id="pagination" style="place-items: center" aria-label="...">
+            <ul class="pagination g-col-12">
+                @if (currentPageNumber > 1)
                 {
-                    <img src="@(thumbnail.GetCropUrl(width:480))" class="card-img-top" alt="...">
+                    var prevPageQueryString = $"?page={currentPageNumber - 1}#pagination";
+
+                    <li class="page-item">
+                        <a class="page-link" href="@prevPageQueryString">Prev</a>
+                    </li>
                 }
-                <div class="card-body">
-                    <h5 class="card-title pb-1"><a class="nav-link stretched-link" href="@varWebpage.Url()">@varWebpage.Value("pageTitle")</a></h5>
-                    <p class="card-text pb-2">
-                        @varWebpage.Value("pageDescription")
-                    </p>
-                </div>
-            </div>
+                else
+                {
+                    <li class="page-item disabled">
+                        <span class="page-link">Prev</span>
+                    </li>
+                }
+
+                @for (var i = 1; i <= Math.Ceiling((double)childPages.Length / pageSize); i++)
+                {
+                    var queryString = HttpContextAccessor.HttpContext?.Request.QueryString.Value;
+                    if (queryString?.Contains("page=") == true)
+                    {
+                        queryString = queryString.Replace("page=" + currentPageNumber, $"page={i}");
+                    }
+                    else
+                    {
+                        if (queryString?.Length > 0)
+                        {
+                            queryString += "&";
+                        }
+                        queryString += $"page={i}";
+                    }
+                    queryString = queryString?.TrimStart('?');
+
+                    queryString = "?" + queryString;
+
+                    queryString += "#pagination";
+
+                    <li class="page-item @(currentPageNumber == i ? "active" : "")">
+                        <a class="page-link" href="@queryString">@i</a>
+                    </li>
+                }
+
+
+                @if (currentPageNumber < Math.Ceiling((double)childPages.Length / pageSize))
+                {
+                    var nextPageQueryString = $"?page={currentPageNumber + 1}#pagination";
+
+                    <li class="page-item">
+                        <a class="page-link" href="@nextPageQueryString">Next</a>
+                    </li>
+                }
+                else
+                {
+                    <li class="page-item disabled">
+                        <span class="page-link">Next</span>
+                    </li>
+                }
+            </ul>
+        </nav>
+    }
+    else
+    {
+        <div class="alert alert-secondary mb-3">
+            <strong>Internal Links - Pagination Preview</strong>
+            <p class="mb-0">Displays child pages with pagination controls (3 per page).</p>
         </div>
     }
-</div>
+
+    <div class="grid">
+        @foreach (var varWebpage in displayedPages)
+        {
+            var thumbnail = varWebpage.PageThumbnail;
+            <div class="g-col-12 g-col-md-6 g-col-lg-4">
+                <div class="card h-100 shadow">
+                    @if (thumbnail is not null)
+                    {
+                        <img src="@(thumbnail.GetCropUrl(width:480))" class="card-img-top" alt="...">
+                    }
+                    <div class="card-body">
+                        <h5 class="card-title pb-1"><a class="nav-link stretched-link" href="@varWebpage.Url()">@varWebpage.PageTitle</a></h5>
+                        <p class="card-text pb-2">
+                            @varWebpage.PageDescription
+                        </p>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+}
