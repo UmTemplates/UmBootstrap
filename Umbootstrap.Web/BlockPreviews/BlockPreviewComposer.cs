@@ -23,6 +23,7 @@ public class BlockPreviewComposer : IComposer
                     FeatureInternalLinksChildren.ModelTypeAlias,
                     FeatureInternalLinks.ModelTypeAlias,
                     FeatureInternalLinksSlideshow.ModelTypeAlias,
+                    FeatureInternalLinksPagination.ModelTypeAlias,
                     FeatureNavigationDescendants.ModelTypeAlias,
                     FeatureInternalLinks.ModelTypeAlias,
                     FeatureFaqs.ModelTypeAlias,
