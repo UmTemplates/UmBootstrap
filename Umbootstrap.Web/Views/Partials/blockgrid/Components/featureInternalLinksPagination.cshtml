@@ -2,6 +2,11 @@
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem<FeatureInternalLinksPagination>>
 @inject IHttpContextAccessor HttpContextAccessor
 
+
+@* Note: Need to give attention to pagination logic and query string handling.
+Currently uses /?page=2#pagination as the query parameter for pagination.
+This not not deal with multiple paginations on the same page. *@
+
 @{
     Layout = "_Layout_Features.cshtml";
 

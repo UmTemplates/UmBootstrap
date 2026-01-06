@@ -21,11 +21,17 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\images\" />
     <Folder Include="wwwroot\assets\" />
     <None Include="wwwroot\media\**\*">
 	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
 	</None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="wwwroot\images\**" />
+    <Content Remove="wwwroot\images\**" />
+    <EmbeddedResource Remove="wwwroot\images\**" />
+    <None Remove="wwwroot\images\**" />
   </ItemGroup>
 
   <ItemGroup>
