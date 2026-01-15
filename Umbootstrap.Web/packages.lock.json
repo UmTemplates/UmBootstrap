@@ -50,12 +50,12 @@
       },
       "Umbraco.Community.UmbNav": {
         "type": "Direct",
-        "requested": "[4.0.2, )",
-        "resolved": "4.0.2",
-        "contentHash": "iAPe3yln3uwX9oQJLmeowvqH2aQR6GzHNxdr4nPesxkROL3ZD1oAtAx4UhSYDcTycc6YinOZJJri9nzPEgBg3Q==",
+        "requested": "[4.0.3-beta0001, )",
+        "resolved": "4.0.3-beta0001",
+        "contentHash": "fo9WE5u/xyRKgnhv4iN9iEUgygu7SbEUCxBuYsoWK17svCXnzzC9bFs/zADSXA1l/AkTyUeU33gzLTsH0GrwPA==",
         "dependencies": {
           "Umbraco.Cms": "17.0.0",
-          "Umbraco.Community.UmbNav.Core": "4.0.2"
+          "Umbraco.Community.UmbNav.Core": "4.0.3-beta0001"
         }
       },
       "uSync": {
@@ -1368,8 +1368,8 @@
       },
       "Umbraco.Community.UmbNav.Core": {
         "type": "Transitive",
-        "resolved": "4.0.2",
-        "contentHash": "yO08s9XdaLxqDepvOL1vdGLcjzIA24IlkSks/q4wwKS/59gUpglQijQe0CTHCZD7cEMPNnSRZbY5qa+zzK3OKg==",
+        "resolved": "4.0.3-beta0001",
+        "contentHash": "cdoRNTzgFjgVEVuggbH36Md4qCQ/kq+xH8qcHw5HfaB/zgu7bknDT3SskaMEoJ+ZQ/XrD/3TqClNfIuKAIn8ng==",
         "dependencies": {
           "Umbraco.Cms.Web.Common": "17.0.0"
         }
