@@ -37,15 +37,15 @@
       },
       "Umbraco.Community.BlockPreview": {
         "type": "Direct",
-        "requested": "[5.0.0, )",
-        "resolved": "5.0.0",
-        "contentHash": "aO2oOWfv7bp/F2LLrgpEyIwT40NOCV7EDakWqbvA68Lm8ZNp+jndl72YSHnftJwUnS4b24HYDHPZTbHgluaGOA==",
+        "requested": "[5.1.0, )",
+        "resolved": "5.1.0",
+        "contentHash": "XY4TOb5uu/ow2aplXTWw8Py0BmOFRXUXtMbjOo9A7a9ufwRjvecG9pkq69URThyrw3B36zExfoiZeweT5MQ7yg==",
         "dependencies": {
-          "Umbraco.Cms.Api.Common": "[17.0.0, 18.0.0)",
-          "Umbraco.Cms.Api.Management": "[17.0.0, 18.0.0)",
-          "Umbraco.Cms.Core": "[17.0.0, 18.0.0)",
-          "Umbraco.Cms.Web.Common": "[17.0.0, 18.0.0)",
-          "Umbraco.Cms.Web.Website": "[17.0.0, 18.0.0)"
+          "Umbraco.Cms.Api.Common": "[17.1.0, 18.0.0)",
+          "Umbraco.Cms.Api.Management": "[17.1.0, 18.0.0)",
+          "Umbraco.Cms.Core": "[17.1.0, 18.0.0)",
+          "Umbraco.Cms.Web.Common": "[17.1.0, 18.0.0)",
+          "Umbraco.Cms.Web.Website": "[17.1.0, 18.0.0)"
         }
       },
       "Umbraco.Community.UmbNav": {
