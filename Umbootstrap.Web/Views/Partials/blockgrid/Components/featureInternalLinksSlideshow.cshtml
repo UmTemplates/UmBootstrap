@@ -4,64 +4,55 @@
 
 @{
     Layout = "_Layout_Features.cshtml";
-    var count = 0;
     var maxItems = 5;
     int buttons = 0;
     var guid = Guid.NewGuid().ToString();
-    var carouselId = "carousel" + guid; // create a unique id for each carousel
+    var carouselId = "carousel" + guid;
+    var slides = Model.Content.Value<IEnumerable<IPublishedContent>>("links")?.Take(maxItems).ToList() ?? new List<IPublishedContent>();
 }
 
 <div id="@carouselId" class="carousel slide" data-bs-ride="carousel">
 
     <div class="carousel-indicators">
-        @while (buttons < maxItems)
+        @for (int i = 0; i < slides.Count; i++)
         {
-            buttons += 1;
-            <button type="button" data-bs-target="#@carouselId" data-bs-slide-to="@(buttons - 1)" class="active"
-                    aria-label="Slide @buttons"></button>
+            <button type="button"
+                    data-bs-target="#@carouselId"
+                    data-bs-slide-to="@i"
+                    class="@(i == 0 ? "active" : null)"
+                    aria-label="Slide @(i + 1)"></button>
         }
     </div>
 
     <div class="carousel-inner">
         @{
-            var typedMultiNodeTreePicker = Model.Content.Value<IEnumerable<IPublishedContent>>("links");
-            if (typedMultiNodeTreePicker != null)
+            int count = 0;
+            foreach (var item in slides)
             {
-                @foreach (var item in typedMultiNodeTreePicker)
-                {
-                    if (count == maxItems)
+                count++;
+                var thumbnail = item.Value<IPublishedContent>("pageThumbnail");
+                var active = count == 1 ? "active" : "";
+                <div class="carousel-item @active">
+                    @if (thumbnail != null)
                     {
-                        break;
+                        // if image is not null, display image}
+                        <img src="@(thumbnail.GetCropUrl(width: 1296))" class="d-block w-100" alt="...">
                     }
-
-                    count++;
-                    var thumbnail = item.Value<IPublishedContent>("pageThumbnail");
-                    // make current item have a class of active
-                    var active = count == 1 ? "active" : "";
-                    <div class="carousel-item @active">
-                        @if (thumbnail != null)
-                        {
-                            // if image is not null, display image}
-                            <img src="@(thumbnail.GetCropUrl(width: 1296))" class="d-block w-100" alt="...">
-                        }
-                        <div class="carousel-caption d-none d-md-block bg-dark p-3 rounded-3">
-                            <h5><a class="nav-link stretched-link" href="@item.Url()">@item.Value("pageTitle")</a></h5>
-                            <p>@item.Name</p>
-                            <p>
-                                @(count) of @(maxItems)
-                            </p>
-                        </div>
+                    <div class="carousel-caption d-none d-md-block p-3 rounded-3 bg-body-secondary bg-opacity-75 text-body">
+                        <h5><a class="nav-link stretched-link" href="@item.Url()">@item.Value("pageTitle")</a></h5>
+                        <p>@item.Value("pageDescription")</p>
+                        <p>@(count) of @(maxItems)</p>
                     </div>
-                }
+                </div>
             }
         }
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#@carouselId" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon bg-secondary rounded-1" aria-hidden="true"></span>
+        <span class="carousel-control-prev-icon carousel-arrow-bg rounded-1" aria-hidden="true"></span>
         <span class="visually-hidden">Previous</span>
     </button>
     <button class="carousel-control-next" type="button" data-bs-target="#@carouselId" data-bs-slide="next">
-        <span class="carousel-control-next-icon bg-secondary rounded-1" aria-hidden="true"></span>
+        <span class="carousel-control-next-icon carousel-arrow-bg rounded-1" aria-hidden="true"></span>
         <span class="visually-hidden">Next</span>
     </button>
 </div>
