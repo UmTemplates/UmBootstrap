@@ -1,8 +1,11 @@
+using Umbraco.Community.BlockPreview.Extensions;
+
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
 builder.CreateUmbracoBuilder()
     .AddBackOffice()
     .AddWebsite()
+    .AddBlockPreview()
     .AddComposers()
     .Build();
 
