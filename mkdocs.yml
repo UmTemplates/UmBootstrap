@@ -7,8 +7,18 @@ repo_name: UmTemplates/UmBootstrap
 theme:
   name: material
   palette:
-    primary: deep purple
-    accent: deep purple
+    - scheme: slate
+      primary: deep purple
+      accent: deep purple
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+    - scheme: default
+      primary: deep purple
+      accent: deep purple
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
   features:
     - navigation.sections
     - navigation.expand
