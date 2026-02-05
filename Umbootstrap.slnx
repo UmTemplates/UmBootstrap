@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="UmBootstrap.DotNet.Template.csproj" />
+  <Project Path="Umbootstrap.Web/Umbootstrap.Web.csproj" />
+</Solution>
