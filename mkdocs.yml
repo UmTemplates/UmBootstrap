@@ -1,0 +1,29 @@
+site_name: UmBootstrap
+site_url: https://umtemplates.github.io/UmBootstrap/
+site_description: Umbraco 17 Bootstrap Starter Kit
+repo_url: https://github.com/UmTemplates/UmBootstrap
+repo_name: UmTemplates/UmBootstrap
+
+theme:
+  name: material
+  palette:
+    primary: deep purple
+    accent: deep purple
+  features:
+    - navigation.sections
+    - navigation.expand
+    - content.code.copy
+
+nav:
+  - Home: index.md
+  - Getting Started: getting-started.md
+
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.superfences
+  - admonition
+  - pymdownx.details
+  - tables
+  - toc:
+      permalink: true
