@@ -5,7 +5,6 @@
 @{
     Layout = "_Layout_Features.cshtml";
     var maxItems = 5;
-    int buttons = 0;
     var guid = Guid.NewGuid().ToString();
     var carouselId = "carousel" + guid;
     var slides = Model.Content.Value<IEnumerable<IPublishedContent>>("links")?.Take(maxItems).ToList() ?? new List<IPublishedContent>();
