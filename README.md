@@ -5,6 +5,8 @@ UmBootstrap is an Umbraco Website Starter Kit using Bootstrap Templates and a co
 
 What makes UmBootstrap different from other starter kits is that it is not installed via a Nuget Package on top of an existing Umbraco website, it 'is' an Umbraco website on installation as a dotnet project template.
 
+📖 **[Full Documentation](https://umtemplates.github.io/UmBootstrap/)**
+
 ## Features
 
 At the heart of UmBootstrap is an Umbraco website containing:
