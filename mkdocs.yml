@@ -27,6 +27,11 @@ theme:
 nav:
   - Home: index.md
   - Getting Started: getting-started.md
+  - Packages:
+    - packages/index.md
+    - BlockPreview: packages/block-preview.md
+    - UmbNav: packages/umbnav.md
+    - uSync: packages/usync.md
 
 markdown_extensions:
   - pymdownx.highlight:
