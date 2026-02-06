@@ -22,6 +22,7 @@ theme:
   features:
     - navigation.sections
     - navigation.expand
+    - navigation.indexes
     - content.code.copy
 
 nav:

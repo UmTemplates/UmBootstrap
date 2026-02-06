@@ -1,4 +1,4 @@
-# Packages
+# Installed Packages
 
 UmBootstrap includes the following Umbraco community packages out of the box.
 
