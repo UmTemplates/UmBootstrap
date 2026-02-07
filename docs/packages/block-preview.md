@@ -3,7 +3,7 @@
 | | |
 |---|---|
 | **Package** | Umbraco.Community.BlockPreview |
-| **Version** | 5.1.0 |
+| **Version** | 5.2.1 |
 | **Source** | [GitHub](https://github.com/rickbutterfield/Umbraco.Community.BlockPreview) |
 
 ## What It Does
@@ -12,45 +12,34 @@ BlockPreview renders live previews of block grid and block list components direc
 
 ## How UmBootstrap Uses It
 
-BlockPreview is configured in `appsettings.json` using an **opt-in** approach. Each feature element type that should show a preview is listed in the `ContentTypes` array:
+BlockPreview is configured **programmatically** in `Program.cs`. At startup, reflection is used to scan all ModelsBuilder-generated types and automatically exclude any whose alias starts with `"layout"` via `IgnoredContentTypes`:
 
-```json
+```csharp
+.AddBlockPreview(options =>
 {
-  "BlockPreview": {
-    "BlockGrid": {
-      "Enabled": true,
-      "ContentTypes": [
-        "featurePageTitleDescription",
-        "featureRichTextEditor",
-        "featureImage",
-        "featureInternalLinksChildren",
-        "featureInternalLinks",
-        "featureInternalLinksSlideshow",
-        "featureInternalLinksPagination",
-        "featureNavigationDescendants",
-        "featureFaqs",
-        "featureTabs",
-        "featureHtml",
-        "featureCode",
-        "featureFormContactUs"
-      ],
-      "Stylesheets": ["/css/Index.css"]
-    },
-    "BlockList": {
-      "Enabled": false
-    }
-  }
-}
+    var layoutAliases = typeof(Layout12).Assembly.GetTypes()
+        .Where(t => t.Namespace == "Umbraco.Cms.Web.Common.PublishedModels")
+        .Select(t => t.GetField("ModelTypeAlias",
+            BindingFlags.Public | BindingFlags.Static)?.GetValue(null) as string)
+        .Where(alias => alias != null && alias.StartsWith("layout"))
+        .ToList();
+
+    options.BlockGrid = new()
+    {
+        Enabled = true,
+        IgnoredContentTypes = layoutAliases!,
+        Stylesheets = ["/css/Index.css"]
+    };
+})
 ```
 
-Layout elements (`layout12`, `layout48`, etc.) are deliberately excluded — they only contain areas and don't need previews.
+Layout elements (`layout12`, `layout66`, etc.) are automatically excluded — they only contain areas and don't need previews. All feature element types get previews automatically.
 
 ## Adding Previews for New Blocks
 
 When you create a new feature element type:
 
 1. Create the Razor partial view in `Views/Partials/blockgrid/`
-2. Add the element type alias to the `ContentTypes` array in `appsettings.json`
+2. That's it — BlockPreview will automatically include it
 
-!!! note
-    UmBootstrap uses opt-in (`ContentTypes`) rather than opt-out (`IgnoredContentTypes`) because the opt-out approach does not work reliably in BlockPreview v5.1.0.
+New layout types are also handled automatically as long as they follow the `layout*` naming convention.

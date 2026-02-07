@@ -5,7 +5,7 @@
 UmBootstrap is an Umbraco 17 starter kit distributed as a .NET template via NuGet.
 
 - **Umbraco**: v17.1.0
-- **BlockPreview**: v5.1.0 for block grid previews
+- **BlockPreview**: v5.2.1 for block grid previews
 - **ModelsBuilder**: SourceCodeAuto mode
 - **uSync**: v17.0.2 for content/config synchronisation
 - **Frontend**: Bootstrap + SCSS
@@ -73,21 +73,9 @@ mkdocs serve
 
 ## BlockPreview Configuration
 
-BlockPreview uses **opt-in** configuration via `appsettings.json`:
+BlockPreview is configured **programmatically** in `Program.cs` using reflection to auto-discover layout types. Any element type whose `ModelTypeAlias` starts with `"layout"` is automatically added to `IgnoredContentTypes`. This means new feature types get previews automatically, and new layout types are excluded automatically.
 
-```json
-{
-  "BlockPreview": {
-    "BlockGrid": {
-      "Enabled": true,
-      "ContentTypes": ["featureRichTextEditor", "featureImage", ...],
-      "Stylesheets": ["/css/Index.css"]
-    }
-  }
-}
-```
-
-Note: `IgnoredContentTypes` (opt-out) does not work in v5.1.0.
+No `appsettings.json` configuration is needed for BlockPreview.
 
 ## Documentation
 
