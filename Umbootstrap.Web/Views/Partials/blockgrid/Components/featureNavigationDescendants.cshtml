@@ -49,7 +49,7 @@
     </div>
 </nav>
 
-<nav aria-label="breadcrumb" class="d-sm-block d-md-none">
+<nav aria-label="breadcrumb" class="d-block d-md-none">
     @{
         // get ancestors ordered by level ascending
         var ancestors = vThisPage.Ancestors().OrderBy(a => a.Level).ToArray();
