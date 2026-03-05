@@ -20,7 +20,7 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 {
 	/// <summary>Feature - Jump List</summary>
 	[PublishedModel("featureJumpList")]
-	public partial class FeatureJumpList : PublishedElementModel, IFeatureComponentFeatureDescription, IFeatureComponentFeatureSummary, IFeatureComponentFeatureTitle, IFeatureComponentJumpList
+	public partial class FeatureJumpList : PublishedElementModel, IFeatureComponentJumpList
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
@@ -48,30 +48,6 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		}
 
 		// properties
-
-		///<summary>
-		/// Description: Optional - Description for this feature
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "17.1.0+2832436")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("featurePropertyFeatureDescription")]
-		public virtual string FeaturePropertyFeatureDescription => global::Umbraco.Cms.Web.Common.PublishedModels.FeatureComponentFeatureDescription.GetFeaturePropertyFeatureDescription(this, _publishedValueFallback);
-
-		///<summary>
-		/// Summary: Optional - Summary for this feature
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "17.1.0+2832436")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("featurePropertyFeatureSummary")]
-		public virtual string FeaturePropertyFeatureSummary => global::Umbraco.Cms.Web.Common.PublishedModels.FeatureComponentFeatureSummary.GetFeaturePropertyFeatureSummary(this, _publishedValueFallback);
-
-		///<summary>
-		/// Title: Optional - Heading for this feature
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "17.1.0+2832436")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("featurePropertyFeatureTitle")]
-		public virtual string FeaturePropertyFeatureTitle => global::Umbraco.Cms.Web.Common.PublishedModels.FeatureComponentFeatureTitle.GetFeaturePropertyFeatureTitle(this, _publishedValueFallback);
 
 		///<summary>
 		/// Jump List Items

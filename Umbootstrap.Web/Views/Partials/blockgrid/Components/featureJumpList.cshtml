@@ -3,8 +3,6 @@
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem>
 
 @{
-    Layout = "_Layout_Features.cshtml";
-
     var selectedKeys = Model.Content.Value<IEnumerable<string>>("featurePropertyJumpListItems");
     var currentPage = Umbraco.AssignedContentItem;
     var blockGrid = currentPage?.Value<BlockGridModel>("contentGrid");
@@ -12,28 +10,30 @@
 
 @if (selectedKeys != null && selectedKeys.Any() && blockGrid != null)
 {
-    <details class="jump-list" open>
-        <summary>On this page</summary>
-        <nav aria-label="Jump to section">
-            <ul class="list-unstyled">
-                @foreach (var key in selectedKeys)
+    <nav class="card" aria-label="Jump to section">
+        <header class="card-header">
+            <h2 class="card-title">On this page</h2>
+        </header>
+        <ul class="list-group nav">
+            @foreach (var key in selectedKeys)
+            {
+                if (Guid.TryParse(key, out var contentKey))
                 {
-                    if (Guid.TryParse(key, out var contentKey))
+                    var block = FindFeatureBlock(blockGrid, contentKey);
+                    if (block != null)
                     {
-                        var block = FindFeatureBlock(blockGrid, contentKey);
-                        if (block != null)
+                        var title = block.Content.Value<string>("featurePropertyFeatureTitle");
+                        if (!string.IsNullOrWhiteSpace(title))
                         {
-                            var title = block.Content.Value<string>("featurePropertyFeatureTitle");
-                            if (!string.IsNullOrWhiteSpace(title))
-                            {
-                                <li><a href="#feature-@contentKey">@title</a></li>
-                            }
+                            <li>
+                                <a href="#feature-@contentKey" class="list-group-item-action list-group-item list-group-item-light">@title</a>
+                            </li>
                         }
                     }
                 }
-            </ul>
-        </nav>
-    </details>
+            }
+        </ul>
+    </nav>
 }
 
 @functions {
