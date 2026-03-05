@@ -48,6 +48,17 @@
           "Umbraco.Cms.Web.Website": "[17.1.0, 18.0.0)"
         }
       },
+      "Umbraco.Community.Contentment": {
+        "type": "Direct",
+        "requested": "[6.1.1, )",
+        "resolved": "6.1.1",
+        "contentHash": "8rh/+DrAknC/1tGay99tD0JVNmLsIL47RsUUwXb2iC/pvnHApym/iMpLskPTUDbn4ih3ekMIl0A3l/oaU1zxhA==",
+        "dependencies": {
+          "Umbraco.Cms.Api.Management": "[17.0.0, 19.0.0)",
+          "Umbraco.Cms.Core": "[17.0.0, 19.0.0)",
+          "Umbraco.Cms.Web.Website": "[17.0.0, 19.0.0)"
+        }
+      },
       "Umbraco.Community.UmbNav": {
         "type": "Direct",
         "requested": "[4.1.3, )",

@@ -31,6 +31,16 @@ WebApplication app = builder.Build();
 await app.BootUmbracoAsync();
 
 
+app.Use(async (context, next) =>
+{
+    // Enable request body buffering for Contentment data source API calls
+    if (context.Request.Path.StartsWithSegments("/umbraco/management/api/v1/contentment"))
+    {
+        context.Request.EnableBuffering();
+    }
+    await next();
+});
+
 app.UseUmbraco()
     .WithMiddleware(u =>
     {

@@ -1,6 +1,6 @@
 # Block Grid & Block List Data Attribute Conventions
 
-**STATUS:** DRAFT
+**STATUS:** COMPLETED (commit 95a4c72)
 
 ## Overview
 
@@ -199,3 +199,90 @@ This is a single small commit. All changes are in 4-5 files and are purely addit
 - [x] Should block list items get `data-ItemContentKey` now or wait until needed? **Yes - add now for consistency.**
 - [ ] When reusable blocks ship, should the `id` incorporate a positional index (e.g. `feature-{ContentKey}-{index}`)? **Deferred - can't answer until we see Umbraco's implementation. They may ship with a source key and a placement key.**
 - [x] Should `data-AreaAliases` replace `data-areas` or is `data-areas` fine as-is? **Remove entirely.** The value is a concatenation of full CSS class strings with no delimiters - not useful. Individual area divs already carry their own classes. Was a debug artifact.
+
+## Final Implementation (Reference for Other Projects)
+
+This section documents the exact HTML output from each modified file. Any project built from the UmBootstrap template should match this exactly.
+
+### `_Layout_Features.cshtml` — Feature block wrapper
+
+The `<section>` element gets `id` and `data-FeatureContentKey`. This appears twice in the file (normal render and preview-mode render) — both must match.
+
+```html
+<section id="feature-@Model.ContentKey"
+         class="feature-item @Model.Content.ContentType.Alias"
+         data-FeatureContentKey="@Model.ContentKey"
+         style="@(colorLabel != null ? $"background-color: var({colorLabel});" : "")">
+```
+
+### `_Layout_Layouts.cshtml` — Layout block wrapper
+
+The outer `<div>` gets `id`, `data-LayoutContentKey`, `data-LayoutAlias`, and `data-BackgroundImage`.
+
+```html
+<div id="layout-@Model.ContentKey"
+     class="layout-item py-3 @backgroundColorClass @backgroundOpacityClass"
+     data-LayoutContentKey="@Model.ContentKey"
+     data-LayoutAlias="@Model.Content.ContentType.Alias"
+     data-BackgroundImage="@backgroundImage?.MediaUrl()"
+     style="@styleAttribute">
+    @RenderBody()
+</div>
+```
+
+### `areas.cshtml` — Areas container (wraps all areas within a layout)
+
+The outer `<div>` gets `data-LayoutContentKey`, `data-LayoutAlias`, and `data-GridColumns`. The old `data-ContentUdi`, `data-Content`, and `data-areas` attributes are removed.
+
+```html
+<div class="areas grid container"
+     data-LayoutContentKey="@Model.ContentKey"
+     data-LayoutAlias="@Model.Content.ContentType.Alias"
+     data-GridColumns="@Model.GridColumns">
+    @foreach (var area in Model.Areas)
+    {
+        @await Html.GetPreviewBlockGridItemAreaHtmlAsync(area)
+    }
+</div>
+```
+
+### `area.cshtml` — Individual area
+
+The area `<div>` gets `data-AreaAlias`. No `id` attribute because `BlockGridArea` has no `Key` property.
+
+```html
+<div class="area-@Model.ColumnSpan @Model.Alias bg-body"
+     data-AreaAlias="@Model.Alias">
+    @await Html.GetPreviewBlockGridItemsHtmlAsync(Model)
+</div>
+```
+
+### Debug blocks
+
+Each file includes a commented-out debug block (`@* ... *@`) showing all available properties at that hierarchy level. These are for development inspection only and produce zero HTML output when commented.
+
+### Summary of attribute changes from pre-standardisation
+
+| Old attribute | New attribute | File |
+|---------------|---------------|------|
+| (none) | `id="feature-@Model.ContentKey"` | `_Layout_Features.cshtml` |
+| (none) | `data-FeatureContentKey="@Model.ContentKey"` | `_Layout_Features.cshtml` |
+| (none) | `id="layout-@Model.ContentKey"` | `_Layout_Layouts.cshtml` |
+| `data-block-alias` | `data-LayoutAlias="@Model.Content.ContentType.Alias"` | `_Layout_Layouts.cshtml` |
+| (none) | `data-LayoutContentKey="@Model.ContentKey"` | `_Layout_Layouts.cshtml` |
+| `data-bgimage` | `data-BackgroundImage="@backgroundImage?.MediaUrl()"` | `_Layout_Layouts.cshtml` |
+| `data-ContentUdi` | `data-LayoutContentKey="@Model.ContentKey"` | `areas.cshtml` |
+| `data-Content` | `data-LayoutAlias="@Model.Content.ContentType.Alias"` | `areas.cshtml` |
+| `data-areas` | (removed) | `areas.cshtml` |
+| (none) | `data-AreaAlias="@Model.Alias"` | `area.cshtml` |
+
+### Transferring to another UmBootstrap-based project
+
+Copy these 4 files from UmBootstrap into the target project, preserving paths:
+
+1. `Views/Partials/blockgrid/Components/_Layout_Features.cshtml`
+2. `Views/Partials/blockgrid/Components/_Layout_Layouts.cshtml`
+3. `Views/Partials/blockgrid/areas.cshtml`
+4. `Views/Partials/blockgrid/area.cshtml`
+
+No other files or dependencies are involved. The changes are purely HTML attribute additions/renames with no logic changes.
