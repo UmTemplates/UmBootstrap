@@ -1,4 +1,6 @@
-# UmBootstrap
+---
+title: UmBootstrap
+---
 
 UmBootstrap is an Umbraco 17 starter kit that provides a solid foundation for building Bootstrap-based websites.
 
@@ -21,7 +23,7 @@ cd MyProject
 dotnet run
 ```
 
-See [Getting Started](getting-started.md) for detailed instructions.
+See [Getting Started](/UmBootstrap/getting-started/) for detailed instructions.
 
 ## What's Included
 
