@@ -46,10 +46,6 @@ public sealed class FeatureBlockDataSource : IContentmentDataSource
 
     public IEnumerable<DataListItem> GetItems(Dictionary<string, object> config)
     {
-        // Log everything in the config dictionary to see what Contentment passes us
-        foreach (var kvp in config)
-            _logger.LogInformation("FeatureBlockDataSource config: {Key}={Value} (type={Type})", kvp.Key, kvp.Value, kvp.Value?.GetType().Name);
-
         if (!_umbracoContextAccessor.TryGetUmbracoContext(out var umbracoContext))
         {
             _logger.LogWarning("FeatureBlockDataSource: no UmbracoContext available");
@@ -69,7 +65,6 @@ public sealed class FeatureBlockDataSource : IContentmentDataSource
 
         var features = new List<DataListItem>();
         CollectFeatureBlocks(blockGrid, features);
-        _logger.LogInformation("FeatureBlockDataSource: found {Count} feature blocks on {Page}", features.Count, content.Name);
         return features;
     }
 
@@ -110,7 +105,6 @@ public sealed class FeatureBlockDataSource : IContentmentDataSource
                 if (doc.RootElement.TryGetProperty("id", out var idProp))
                 {
                     var guidStr = idProp.GetString();
-                    _logger.LogInformation("FeatureBlockDataSource: extracted id={Id} from request body", guidStr);
                     if (Guid.TryParse(guidStr, out var key))
                         return umbracoContext.Content?.GetById(key);
                 }
