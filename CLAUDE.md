@@ -23,7 +23,7 @@ UmBootstrap/
 │   ├── uSync/v17/                # uSync configuration files
 │   └── appsettings.json          # App configuration inc. BlockPreview
 ├── planning/                     # Architectural decisions and design docs
-├── docs/                         # MkDocs documentation (GitHub Pages)
+├── docs/                         # Astro Starlight documentation (GitHub Pages)
 └── .github/workflows/            # CI/CD workflows
 ```
 
@@ -58,7 +58,7 @@ dotnet build Umbootstrap.slnx
 dotnet run --project Umbootstrap.Web/Umbootstrap.Web.csproj
 
 # Preview documentation locally
-mkdocs serve
+cd docs && npm run dev
 ```
 
 ## Element Type Naming Convention
@@ -79,10 +79,11 @@ No `appsettings.json` configuration is needed for BlockPreview.
 
 ## Documentation
 
+- **Framework**: Astro Starlight
 - **Source**: `docs/` folder
-- **Config**: `mkdocs.yml`
+- **Config**: `docs/astro.config.mjs`
 - **Deployed to**: https://umtemplates.github.io/UmBootstrap/
-- **Deployment**: Automatic on push to `main` when `docs/` or `mkdocs.yml` changes
+- **Deployment**: Automatic on push to `main` when `docs/**` changes (GitHub Actions artifact-based)
 
 ## References
 

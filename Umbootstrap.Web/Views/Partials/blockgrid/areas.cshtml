@@ -1,20 +1,19 @@
-﻿@using Umbraco.Community.BlockPreview.Extensions
+@using Umbraco.Community.BlockPreview.Extensions
 @using Umbraco.Extensions
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem>
-@{
-    // dean this is one way to achieve your class names into one variable for all areas - obviously need to add dupe checking
-    // you can also simplify into one line using linq @Model.Areas.Aggregate("", (current, area) => current + (area.Alias + " "))
-    var  dataAreas = "";
-    foreach (var area in Model.Areas)
-    {
-        dataAreas += area.Alias + " ";
-    }
-}
 
-
+@* DEBUG: Areas container properties
+<div class="alert alert-secondary">
+    <strong>Areas Debug</strong><br />
+    ContentKey: @Model.ContentKey<br />
+    Alias: @Model.Content.ContentType.Alias<br />
+    GridColumns: @Model.GridColumns<br />
+    Areas: @Model.Areas.Count() (@string.Join(", ", Model.Areas.Select(a => a.Alias)))
+</div>
+*@
 
 <!-- START - AREAS -->
-<div class="areas grid container" data-areas="@dataAreas" data-ContentUdi="@Model.ContentKey" data-Content="@Model.Content" data-GridColumns="@Model.GridColumns">
+<div class="areas grid container" data-LayoutContentKey="@Model.ContentKey" data-LayoutAlias="@Model.Content.ContentType.Alias" data-GridColumns="@Model.GridColumns">
     @foreach (var area in Model.Areas)
     {
         @await Html.GetPreviewBlockGridItemAreaHtmlAsync(area)

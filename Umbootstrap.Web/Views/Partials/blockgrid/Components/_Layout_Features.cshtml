@@ -33,7 +33,19 @@
 // If the feature is not hidden or null, render the feature
 
 {
-    <section class="feature-item @Model.Content.ContentType.Alias" style="@(colorLabel != null ? $"background-color: var({colorLabel});" : "")">
+    @* DEBUG: Feature block properties
+    <div class="alert alert-info">
+        <strong>Feature Debug</strong><br />
+        ContentKey: @Model.ContentKey<br />
+        Alias: @Model.Content.ContentType.Alias<br />
+        Content.Key: @Model.Content.Key<br />
+        SettingsKey: @Model.SettingsKey<br />
+        Title: @featureTitle<br />
+        Description: @featureDescription<br />
+        Summary: @featureSummary
+    </div>
+    *@
+    <section id="feature-@Model.ContentKey" class="feature-item @Model.Content.ContentType.Alias" data-FeatureContentKey="@Model.ContentKey" style="@(colorLabel != null ? $"background-color: var({colorLabel});" : "")">
         @if (!string.IsNullOrWhiteSpace(featureTitle) || !string.IsNullOrWhiteSpace(featureDescription))
         // If either the title or description is not empty, render the header
         {
@@ -73,7 +85,7 @@ else
     if (umbracoContext.UmbracoContext.InPreviewMode)
     {
         // Render only in back office preview mode
-        <section class="feature @Model.Content.ContentType.Alias" style="@(colorLabel != null ? $"background-color: var({colorLabel});" : "")">
+        <section id="feature-@Model.ContentKey" class="feature @Model.Content.ContentType.Alias" data-FeatureContentKey="@Model.ContentKey" style="@(colorLabel != null ? $"background-color: var({colorLabel});" : "")">
             @if (!string.IsNullOrWhiteSpace(featureTitle) || !string.IsNullOrWhiteSpace(featureDescription))
             // If either the title or description is not empty, render the header
             {

@@ -387,3 +387,8 @@ MigrationBackup/
 **/umbraco/Logs/
 
 **/umbraco/mediacache/
+
+# Astro docs
+docs/dist/
+docs/.astro/
+docs/node_modules/

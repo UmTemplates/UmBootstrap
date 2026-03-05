@@ -37,8 +37,21 @@
         styleAttribute = $"background-image: url({backgroundImage.MediaUrl()});";
     }
 }
-<div class="layout-item py-3 @backgroundColorClass @backgroundOpacityClass"
-     data-bgimage="@backgroundImage?.MediaUrl()" style="@styleAttribute"
-     data-block-alias="@Model.Content.ContentType.Alias">
+@* DEBUG: Layout block properties
+<div class="alert alert-warning">
+    <strong>Layout Debug</strong><br />
+    ContentKey: @Model.ContentKey<br />
+    Alias: @Model.Content.ContentType.Alias<br />
+    Areas: @Model.Areas.Count()<br />
+    GridColumns: @Model.GridColumns<br />
+    Colour: @colorLabel<br />
+    Shades: @colorShades<br />
+    Opacity: @colorOpacity<br />
+    Background Image: @backgroundImage?.MediaUrl()
+</div>
+*@
+<div id="layout-@Model.ContentKey" class="layout-item py-3 @backgroundColorClass @backgroundOpacityClass"
+     data-LayoutContentKey="@Model.ContentKey" data-LayoutAlias="@Model.Content.ContentType.Alias"
+     data-BackgroundImage="@backgroundImage?.MediaUrl()" style="@styleAttribute">
     @RenderBody()
 </div>

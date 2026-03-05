@@ -6,8 +6,16 @@
     var areaBackgroundColors = ViewData["AreaBackgroundColors"] as string; // Retrieve data from ViewData
 }
 
+@* DEBUG: Area properties
+<div class="alert alert-light">
+    <strong>Area Debug</strong><br />
+    Alias: @Model.Alias<br />
+    ColumnSpan: @Model.ColumnSpan<br />
+    RowSpan: @Model.RowSpan
+</div>
+*@
 
 <!-- START - AREA -->
-<div class="area-@Model.ColumnSpan @Model.Alias bg-body @* @areaBackgroundColors *@">
+<div class="area-@Model.ColumnSpan @Model.Alias bg-body @* @areaBackgroundColors *@" data-AreaAlias="@Model.Alias">
     @await Html.GetPreviewBlockGridItemsHtmlAsync(Model)
 </div>
