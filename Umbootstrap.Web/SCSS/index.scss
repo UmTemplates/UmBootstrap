@@ -95,3 +95,8 @@ body {
     box-shadow: 0 0.5rem 1.25rem rgba(0 0 0 / .35) !important;
     transition: box-shadow 0.4s ease-in-out;
 }
+
+[id^="feature-"],
+[id^="layout-"] {
+    scroll-margin-top: 5rem;
+}

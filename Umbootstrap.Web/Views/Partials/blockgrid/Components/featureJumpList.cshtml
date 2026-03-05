@@ -1,0 +1,58 @@
+@using Umbraco.Cms.Core.Models.Blocks
+@using Umbraco.Cms.Core.Models.PublishedContent
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem>
+
+@{
+    Layout = "_Layout_Features.cshtml";
+
+    var selectedKeys = Model.Content.Value<IEnumerable<string>>("featurePropertyJumpListItems");
+    var currentPage = Umbraco.AssignedContentItem;
+    var blockGrid = currentPage?.Value<BlockGridModel>("contentGrid");
+}
+
+@if (selectedKeys != null && selectedKeys.Any() && blockGrid != null)
+{
+    <details class="jump-list" open>
+        <summary>On this page</summary>
+        <nav aria-label="Jump to section">
+            <ul class="list-unstyled">
+                @foreach (var key in selectedKeys)
+                {
+                    if (Guid.TryParse(key, out var contentKey))
+                    {
+                        var block = FindFeatureBlock(blockGrid, contentKey);
+                        if (block != null)
+                        {
+                            var title = block.Content.Value<string>("featurePropertyFeatureTitle");
+                            if (!string.IsNullOrWhiteSpace(title))
+                            {
+                                <li><a href="#feature-@contentKey">@title</a></li>
+                            }
+                        }
+                    }
+                }
+            </ul>
+        </nav>
+    </details>
+}
+
+@functions {
+    private static BlockGridItem? FindFeatureBlock(BlockGridModel grid, Guid contentKey)
+    {
+        foreach (var block in grid)
+        {
+            if (block.ContentKey == contentKey)
+                return block;
+
+            foreach (var area in block.Areas)
+            {
+                foreach (var nested in area)
+                {
+                    if (nested.ContentKey == contentKey)
+                        return nested;
+                }
+            }
+        }
+        return null;
+    }
+}
