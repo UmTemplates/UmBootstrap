@@ -374,7 +374,7 @@ MigrationBackup/
 !**/App_Data/[Pp]ackages/*
 !**/[Uu]mbraco/[Dd]eveloper/[Pp]ackages/*
 !**/[Uu]mbraco/[Vv]iews/[Pp]ackages/*
-!docs/packages/*
+!docs/**/[Pp]ackages/*
 
 # ImageProcessor DiskCache
 **/App_Data/cache/
