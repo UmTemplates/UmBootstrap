@@ -392,3 +392,7 @@ MigrationBackup/
 docs/dist/
 docs/.astro/
 docs/node_modules/
+
+# MCP server config (contains API secrets)
+.mcp.json
+.vscode/mcp.json
