@@ -18,7 +18,7 @@ using Umbraco.Extensions;
 
 namespace Umbraco.Cms.Web.Common.PublishedModels
 {
-	/// <summary>Feature - FAQs</summary>
+	/// <summary>FAQs</summary>
 	[PublishedModel("featureFAQs")]
 	public partial class FeatureFaqs : PublishedElementModel, IFeatureComponentFaqs, IFeatureComponentFeatureDescription, IFeatureComponentFeatureSummary, IFeatureComponentFeatureTitle
 	{

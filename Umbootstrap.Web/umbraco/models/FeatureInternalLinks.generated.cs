@@ -18,7 +18,7 @@ using Umbraco.Extensions;
 
 namespace Umbraco.Cms.Web.Common.PublishedModels
 {
-	/// <summary>Feature - Internal Links - Selected</summary>
+	/// <summary>Internal Links - Selected</summary>
 	[PublishedModel("featureInternalLinks")]
 	public partial class FeatureInternalLinks : PublishedElementModel, IFeatureComponentFeatureDescription, IFeatureComponentFeatureSummary, IFeatureComponentFeatureTitle, IFeatureComponentsInternalLinks
 	{

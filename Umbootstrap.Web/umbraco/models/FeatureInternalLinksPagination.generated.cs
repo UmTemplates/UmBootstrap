@@ -18,7 +18,7 @@ using Umbraco.Extensions;
 
 namespace Umbraco.Cms.Web.Common.PublishedModels
 {
-	/// <summary>Feature - Internal Links - Pagination</summary>
+	/// <summary>Internal Links - Pagination</summary>
 	[PublishedModel("featureInternalLinksPagination")]
 	public partial class FeatureInternalLinksPagination : PublishedElementModel, IFeatureComponentFeatureDescription, IFeatureComponentFeatureSummary, IFeatureComponentFeatureTitle, IFeatureComponentNoConfiguration
 	{

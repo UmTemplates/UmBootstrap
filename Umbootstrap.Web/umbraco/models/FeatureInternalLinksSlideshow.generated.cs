@@ -18,7 +18,7 @@ using Umbraco.Extensions;
 
 namespace Umbraco.Cms.Web.Common.PublishedModels
 {
-	/// <summary>Feature - Internal Links - Slideshow</summary>
+	/// <summary>Internal Links - Slideshow</summary>
 	[PublishedModel("featureInternalLinksSlideshow")]
 	public partial class FeatureInternalLinksSlideshow : PublishedElementModel, IFeatureComponentFeatureDescription, IFeatureComponentFeatureSummary, IFeatureComponentFeatureTitle, IFeatureComponentInternalLinksSlideshow
 	{

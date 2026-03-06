@@ -18,7 +18,7 @@ using Umbraco.Extensions;
 
 namespace Umbraco.Cms.Web.Common.PublishedModels
 {
-	/// <summary>Feature - Navigation - Descendants</summary>
+	/// <summary>Navigation - Descendants</summary>
 	[PublishedModel("featureNavigationDescendants")]
 	public partial class FeatureNavigationDescendants : PublishedElementModel, IFeatureComponentNoConfiguration
 	{

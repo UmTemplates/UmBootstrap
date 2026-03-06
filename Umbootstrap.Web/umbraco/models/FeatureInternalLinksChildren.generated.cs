@@ -18,7 +18,7 @@ using Umbraco.Extensions;
 
 namespace Umbraco.Cms.Web.Common.PublishedModels
 {
-	/// <summary>Feature - Internal Links - Children</summary>
+	/// <summary>Internal Links - Children</summary>
 	[PublishedModel("featureInternalLinksChildren")]
 	public partial class FeatureInternalLinksChildren : PublishedElementModel, IFeatureComponentFeatureDescription, IFeatureComponentFeatureSummary, IFeatureComponentFeatureTitle, IFeatureComponentNoConfiguration
 	{
