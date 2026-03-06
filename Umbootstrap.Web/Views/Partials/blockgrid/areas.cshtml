@@ -13,7 +13,7 @@
 *@
 
 <!-- START - AREAS -->
-<div class="areas grid container" data-LayoutContentKey="@Model.ContentKey" data-LayoutAlias="@Model.Content.ContentType.Alias" data-GridColumns="@Model.GridColumns">
+<div class="areas grid container-xxl" data-LayoutContentKey="@Model.ContentKey" data-LayoutAlias="@Model.Content.ContentType.Alias" data-GridColumns="@Model.GridColumns">
     @foreach (var area in Model.Areas)
     {
         @await Html.GetPreviewBlockGridItemAreaHtmlAsync(area)
