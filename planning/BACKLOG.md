@@ -6,8 +6,7 @@ https://github.com/orgs/UmTemplates/projects/1
 ## In Progress
 
 ### Responsive Layout Breakpoints
-- Review and fix 3|9 layout `md` breakpoint (currently both areas go to `g-col-md-6`)
-- Review 6|6 layout breakpoint behaviour
+- Review 6|6 layout breakpoint behaviour (waiting for real device testing of 3|6|3 and 3|9 first)
 - Review layout 8 breakpoint behaviour
 - Document layout area config conventions (which breakpoints, when to use `md` vs `lg`)
 

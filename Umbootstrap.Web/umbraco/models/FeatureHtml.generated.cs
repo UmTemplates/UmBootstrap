@@ -18,7 +18,7 @@ using Umbraco.Extensions;
 
 namespace Umbraco.Cms.Web.Common.PublishedModels
 {
-	/// <summary>Feature - HTML</summary>
+	/// <summary>HTML</summary>
 	[PublishedModel("featureHTML")]
 	public partial class FeatureHtml : PublishedElementModel, IFeatureComponentFeatureDescription, IFeatureComponentFeatureSummary, IFeatureComponentFeatureTitle, IFeatureComponentHtml
 	{

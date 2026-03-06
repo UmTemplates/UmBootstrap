@@ -16,7 +16,16 @@ export default defineConfig({
 				{ label: 'Home', slug: '' },
 				{ label: 'Getting Started', slug: 'getting-started' },
 				{
+					label: 'Block Grid',
+					collapsed: true,
+					items: [
+						{ label: 'Layouts', slug: 'block-grid/layouts' },
+						{ label: 'Features', slug: 'block-grid/features' },
+					],
+				},
+				{
 					label: 'Packages',
+					collapsed: true,
 					items: [
 						{ label: 'Overview', slug: 'packages' },
 						{ label: 'BlockPreview', slug: 'packages/block-preview' },

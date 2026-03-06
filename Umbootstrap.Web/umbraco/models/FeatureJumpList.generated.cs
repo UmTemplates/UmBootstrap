@@ -18,7 +18,7 @@ using Umbraco.Extensions;
 
 namespace Umbraco.Cms.Web.Common.PublishedModels
 {
-	/// <summary>Feature - Jump List</summary>
+	/// <summary>Jump List</summary>
 	[PublishedModel("featureJumpList")]
 	public partial class FeatureJumpList : PublishedElementModel, IFeatureComponentJumpList
 	{

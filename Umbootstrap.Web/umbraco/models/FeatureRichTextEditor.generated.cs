@@ -18,7 +18,7 @@ using Umbraco.Extensions;
 
 namespace Umbraco.Cms.Web.Common.PublishedModels
 {
-	/// <summary>Feature - Rich Text Editor</summary>
+	/// <summary>Rich Text Editor</summary>
 	[PublishedModel("featureRichTextEditor")]
 	public partial class FeatureRichTextEditor : PublishedElementModel, IFeatureComponentFeatureDescription, IFeatureComponentFeatureSummary, IFeatureComponentFeatureTitle, IFeatureComponentRichTextEditor
 	{

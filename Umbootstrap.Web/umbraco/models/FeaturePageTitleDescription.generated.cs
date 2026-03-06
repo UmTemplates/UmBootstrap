@@ -18,7 +18,7 @@ using Umbraco.Extensions;
 
 namespace Umbraco.Cms.Web.Common.PublishedModels
 {
-	/// <summary>Feature - Page - Title and Description</summary>
+	/// <summary>Page Title and Description</summary>
 	[PublishedModel("featurePageTitleDescription")]
 	public partial class FeaturePageTitleDescription : PublishedElementModel, IFeatureComponentNoConfiguration
 	{
