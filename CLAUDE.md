@@ -77,7 +77,17 @@ BlockPreview is configured **programmatically** in `Program.cs` using reflection
 
 No `appsettings.json` configuration is needed for BlockPreview.
 
-## Documentation
+## Architecture Documentation
+
+**IMPORTANT**: Before asking the user how something works, read the project documentation first. The `docs/src/content/docs/` folder contains detailed architecture docs:
+
+- `block-grid/layouts.md` — How layouts work, area configuration, responsive breakpoints, rendering pipeline
+- `block-grid/features.md` — How features work, composition pattern, shared layout, creating new features
+- `packages/block-preview.md` — BlockPreview configuration
+
+**Key fact**: Block grid area responsive breakpoints (`g-col-*` classes) are configured in the **Umbraco backoffice UI** on the Block Grid DataType — not in code, CSS, or SCSS. Do not search the codebase for these classes.
+
+## Documentation Site
 
 - **Framework**: Astro Starlight
 - **Source**: `docs/` folder
