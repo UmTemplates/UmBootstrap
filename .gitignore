@@ -360,6 +360,7 @@ MigrationBackup/
 **/App_Data/[Pp]review/
 **/App_Data/TEMP/
 **/App_Data/NuGetBackup/
+**/App_Data/dp-keys/
 
 # Ignore Umbraco content cache file
 **/App_Data/umbraco.config
@@ -392,3 +393,7 @@ MigrationBackup/
 docs/dist/
 docs/.astro/
 docs/node_modules/
+
+# MCP server config (contains API secrets)
+.mcp.json
+.vscode/mcp.json

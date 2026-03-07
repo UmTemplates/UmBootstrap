@@ -33,6 +33,7 @@ export default defineConfig({
 						{ label: 'uSync', slug: 'packages/usync' },
 					],
 				},
+				{ label: 'Troubleshooting', slug: 'troubleshooting' },
 			],
 		}),
 	],
