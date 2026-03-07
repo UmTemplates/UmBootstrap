@@ -10,30 +10,44 @@
 
 @if (selectedKeys != null && selectedKeys.Any() && blockGrid != null)
 {
-    <nav class="card" aria-label="Jump to section">
-        <header class="card-header">
-            <h2 class="card-title">On this page</h2>
+    <nav id="nav-in-page-@(Model.ContentKey.ToString("N"))" class="card" aria-label="Jump to section">
+        <header class="card-header d-flex justify-content-between align-items-center">
+            <h2 class="card-title mb-0">On this page</h2>
+            <button class="navbar-toggler d-md-none" type="button" data-bs-toggle="collapse" data-bs-target="#n@(Model.ContentKey.ToString("N"))" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
         </header>
-        <ul class="list-group nav">
-            @foreach (var key in selectedKeys)
-            {
-                if (Guid.TryParse(key, out var contentKey))
+        <div class="collapse d-md-block" id="n@(Model.ContentKey.ToString("N"))">
+            <ul class="list-group nav card-body">
+                @foreach (var key in selectedKeys)
                 {
-                    var block = FindFeatureBlock(blockGrid, contentKey);
-                    if (block != null)
+                    if (Guid.TryParse(key, out var contentKey))
                     {
-                        var title = block.Content.Value<string>("featurePropertyFeatureTitle");
-                        if (!string.IsNullOrWhiteSpace(title))
+                        var block = FindFeatureBlock(blockGrid, contentKey);
+                        if (block != null)
                         {
-                            <li>
-                                <a href="#feature-@contentKey" class="list-group-item-action list-group-item list-group-item-light">@title</a>
-                            </li>
+                            var title = block.Content.Value<string>("featurePropertyFeatureTitle");
+                            if (!string.IsNullOrWhiteSpace(title))
+                            {
+                                <li>
+                                    <a href="#feature-@contentKey" class="list-group-item-action list-group-item list-group-item-light">@title</a>
+                                </li>
+                            }
                         }
                     }
                 }
-            }
-        </ul>
+            </ul>
+        </div>
     </nav>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            new bootstrap.ScrollSpy(document.body, {
+                target: '#nav-in-page-@(Model.ContentKey.ToString("N"))',
+                offset: 120
+            });
+        });
+    </script>
 }
 
 @functions {
