@@ -3,7 +3,7 @@
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem>
 
 @{
-    var selectedKeys = Model.Content.Value<IEnumerable<string>>("featurePropertyJumpListItems");
+    var selectedKeys = Model.Content.Value<IEnumerable<string>>("featurePropertyNavigationInPageItems");
     var currentPage = Umbraco.AssignedContentItem;
     var blockGrid = currentPage?.Value<BlockGridModel>("contentGrid");
 }
