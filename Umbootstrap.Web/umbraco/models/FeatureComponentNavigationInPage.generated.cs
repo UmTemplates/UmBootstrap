@@ -18,24 +18,24 @@ using Umbraco.Extensions;
 
 namespace Umbraco.Cms.Web.Common.PublishedModels
 {
-	// Mixin Content Type with alias "featureComponentJumpList"
-	/// <summary>Feature Component - Jump List</summary>
-	public partial interface IFeatureComponentJumpList : IPublishedElement
+	// Mixin Content Type with alias "featureComponentNavigationInPage"
+	/// <summary>Feature Component - Navigation In Page</summary>
+	public partial interface IFeatureComponentNavigationInPage : IPublishedElement
 	{
-		/// <summary>Jump List Items</summary>
+		/// <summary>Navigation In Page Items</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "17.1.0+2832436")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		global::System.Collections.Generic.List<string> FeaturePropertyJumpListItems { get; }
+		global::System.Collections.Generic.List<string> FeaturePropertyNavigationInPageItems { get; }
 	}
 
-	/// <summary>Feature Component - Jump List</summary>
-	[PublishedModel("featureComponentJumpList")]
-	public partial class FeatureComponentJumpList : PublishedElementModel, IFeatureComponentJumpList
+	/// <summary>Feature Component - Navigation In Page</summary>
+	[PublishedModel("featureComponentNavigationInPage")]
+	public partial class FeatureComponentNavigationInPage : PublishedElementModel, IFeatureComponentNavigationInPage
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "17.1.0+2832436")]
-		public new const string ModelTypeAlias = "featureComponentJumpList";
+		public new const string ModelTypeAlias = "featureComponentNavigationInPage";
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "17.1.0+2832436")]
 		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "17.1.0+2832436")]
@@ -44,14 +44,14 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 			=> PublishedModelUtility.GetModelContentType(contentTypeCache, ModelItemType, ModelTypeAlias);
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "17.1.0+2832436")]
 		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		public static IPublishedPropertyType GetModelPropertyType<TValue>(IPublishedContentTypeCache contentTypeCache, Expression<Func<FeatureComponentJumpList, TValue>> selector)
+		public static IPublishedPropertyType GetModelPropertyType<TValue>(IPublishedContentTypeCache contentTypeCache, Expression<Func<FeatureComponentNavigationInPage, TValue>> selector)
 			=> PublishedModelUtility.GetModelPropertyType(GetModelContentType(contentTypeCache), selector);
 #pragma warning restore 0109
 
 		private IPublishedValueFallback _publishedValueFallback;
 
 		// ctor
-		public FeatureComponentJumpList(IPublishedElement content, IPublishedValueFallback publishedValueFallback)
+		public FeatureComponentNavigationInPage(IPublishedElement content, IPublishedValueFallback publishedValueFallback)
 			: base(content, publishedValueFallback)
 		{
 			_publishedValueFallback = publishedValueFallback;
@@ -60,16 +60,16 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		// properties
 
 		///<summary>
-		/// Jump List Items
+		/// Navigation In Page Items
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "17.1.0+2832436")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("featurePropertyJumpListItems")]
-		public virtual global::System.Collections.Generic.List<string> FeaturePropertyJumpListItems => GetFeaturePropertyJumpListItems(this, _publishedValueFallback);
+		[ImplementPropertyType("featurePropertyNavigationInPageItems")]
+		public virtual global::System.Collections.Generic.List<string> FeaturePropertyNavigationInPageItems => GetFeaturePropertyNavigationInPageItems(this, _publishedValueFallback);
 
-		/// <summary>Static getter for Jump List Items</summary>
+		/// <summary>Static getter for Navigation In Page Items</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "17.1.0+2832436")]
 		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		public static global::System.Collections.Generic.List<string> GetFeaturePropertyJumpListItems(IFeatureComponentJumpList that, IPublishedValueFallback publishedValueFallback) => that.Value<global::System.Collections.Generic.List<string>>(publishedValueFallback, "featurePropertyJumpListItems");
+		public static global::System.Collections.Generic.List<string> GetFeaturePropertyNavigationInPageItems(IFeatureComponentNavigationInPage that, IPublishedValueFallback publishedValueFallback) => that.Value<global::System.Collections.Generic.List<string>>(publishedValueFallback, "featurePropertyNavigationInPageItems");
 	}
 }

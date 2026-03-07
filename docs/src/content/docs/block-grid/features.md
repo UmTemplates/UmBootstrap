@@ -23,7 +23,7 @@ All feature element types follow the pattern `feature{Name}`:
 | `featureFormContactUs` | Form - Contact Us | (inline form fields) |
 | `featurePageTitleDescription` | Page Title and Description | (reads from page properties) |
 | `featureNavigationDescendants` | Navigation - Descendants | `featureComponentNoConfiguration` |
-| `featureJumpList` | Jump List | `featureComponentJumpList` |
+| `featureNavigationInPage` | Navigation - In Page | `featureComponentNavigationInPage` |
 
 ## How Features Are Built
 
@@ -92,7 +92,7 @@ The layout wrapper handles:
 
 **Exception**: Some features skip the shared layout:
 - `featureNavigationDescendants` uses `_Layout.cshtml` (the base layout)
-- `featureJumpList` renders directly without a layout wrapper
+- `featureNavigationInPage` renders directly without a layout wrapper
 
 ### Feature-Specific Views
 

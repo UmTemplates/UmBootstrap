@@ -13,7 +13,7 @@ Standardise how we output HTML `id` attributes, `data-` attributes, and content 
 1. **Inconsistent naming**: `areas.cshtml` uses `data-ContentUdi` but the value is actually a `Guid` (content key), not a UDI. Umbraco moved from UDIs to GUIDs/Keys in v14+.
 2. **Inconsistent casing**: Some attributes use PascalCase (`data-ContentUdi`, `data-GridColumns`), others use kebab-case (`data-block-alias`, `data-bgimage`). No clear convention.
 3. **Useless output**: `data-Content="@Model.Content"` just outputs `ToString()` of an `IPublishedElement` - not useful.
-4. **No block identification**: Feature blocks have no `id` attribute, making anchor linking (e.g. jump lists) impossible.
+4. **No block identification**: Feature blocks have no `id` attribute, making anchor linking (e.g. in-page navigation) impossible.
 5. **No type disambiguation**: When multiple levels of the hierarchy output keys, there's no way to tell if a GUID belongs to a layout, feature, area, or block list item.
 6. **Reusable blocks**: Umbraco is introducing reusable blocks, which could mean the same block instance appears multiple times on a page. Our ID/key strategy needs to account for this.
 
@@ -156,7 +156,7 @@ Block list items have no equivalent shared layout. Each block list component vie
 
 This is out of scope for the current naming consistency work but should be considered as a follow-up.
 
-**For now**: Add `data-ItemContentKey` manually to existing block list component views (FAQs, Tabs) and any new ones (jump list item).
+**For now**: Add `data-ItemContentKey` manually to existing block list component views (FAQs, Tabs) and any new ones.
 
 ### Files NOT modified (and why)
 

@@ -24,7 +24,8 @@ https://github.com/orgs/UmTemplates/projects/1
 - Packages: `highlight.js`, `highlightjs-copy`, `bootstrap-icons`
 - Bootstrap JS bundle already available via npm bootstrap package
 
-### Jump List Enhancements
+### Navigation - In Page Enhancements
+- Sticky positioning within layout area
 - Collapse/expand support (Bootstrap collapse component)
 - Picker filtering in Contentment Data List
 
@@ -37,8 +38,9 @@ https://github.com/orgs/UmTemplates/projects/1
 
 ## Completed
 
-### Jump List Feature
+### Navigation - In Page Feature (formerly Jump List)
 - Merged to develop and main (2026-03-05)
+- Renamed from Jump List to Navigation - In Page (2026-03-07)
 - Custom Contentment DataSource, block grid picker, card+list-group nav styling
 
 ### Responsive Container Fix
