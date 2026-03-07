@@ -21,6 +21,7 @@ export default defineConfig({
 					items: [
 						{ label: 'Layouts', slug: 'block-grid/layouts' },
 						{ label: 'Features', slug: 'block-grid/features' },
+						{ label: 'Navigation - In Page', slug: 'block-grid/navigation-in-page' },
 					],
 				},
 				{
