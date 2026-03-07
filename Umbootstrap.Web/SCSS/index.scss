@@ -100,3 +100,19 @@ body {
 [id^="layout-"] {
     scroll-margin-top: 5rem;
 }
+
+// Sticky nav: desktop - feature-items sticky in sidebar
+[data-LayoutAlias="layout363"] .area-3 .feature-items {
+    @media (min-width: 768px) {
+        position: sticky;
+        top: 7rem;
+    }
+}
+
+// Sticky nav: mobile - area sticky when stacked
+[data-LayoutAlias="layout363"] .area-3 {
+    @media (max-width: 767.98px) {
+        position: sticky;
+        top: 7rem;
+    }
+}
