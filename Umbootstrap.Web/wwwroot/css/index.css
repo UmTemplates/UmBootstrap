@@ -12585,7 +12585,7 @@ body {
 
 [id^=feature-],
 [id^=layout-] {
-  scroll-margin-top: 5rem;
+  scroll-margin-top: 7rem;
 }
 
 @media (min-width: 768px) {

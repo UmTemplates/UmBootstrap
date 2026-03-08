@@ -43,6 +43,12 @@ https://github.com/orgs/UmTemplates/projects/1
 
 ## Completed
 
+### ScrollSpy & Scroll Margin Fix (2026-03-08)
+- Replaced deprecated `offset: 120` with `rootMargin: '0px 0px -75%'` (Bootstrap 5.2+ Intersection Observer)
+- Fixed `scroll-margin-top` from `5rem` to `7rem` to match sticky `top` offset
+- Migrated Navigation - In Page feature to UpDoc project (uSync + code copy)
+- UpDoc migration note: DataType config must reference the target project's assembly name for the DataSource key
+
 ### Multi-Grid DataSource Support (2026-03-08)
 - Removed hardcoded `contentGrid` alias from DataSource and view
 - Scans all `BlockGridModel` properties dynamically
