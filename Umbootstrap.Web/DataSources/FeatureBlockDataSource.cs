@@ -56,15 +56,19 @@ public sealed class FeatureBlockDataSource : IContentmentDataSource
         if (content is null)
             return [];
 
-        var blockGrid = content.Value<BlockGridModel>("contentGrid");
-        if (blockGrid is null)
+        var features = new List<DataListItem>();
+
+        foreach (var property in content.Properties)
         {
-            _logger.LogWarning("FeatureBlockDataSource: no blockGrid on page {Name}", content.Name);
-            return [];
+            if (property.GetValue() is BlockGridModel blockGrid)
+            {
+                CollectFeatureBlocks(blockGrid, property.Alias, features);
+            }
         }
 
-        var features = new List<DataListItem>();
-        CollectFeatureBlocks(blockGrid, features);
+        if (features.Count == 0)
+            _logger.LogWarning("FeatureBlockDataSource: no block grids found on page {Name}", content.Name);
+
         return features;
     }
 
@@ -118,7 +122,7 @@ public sealed class FeatureBlockDataSource : IContentmentDataSource
         return null;
     }
 
-    private static void CollectFeatureBlocks(BlockGridModel grid, List<DataListItem> items)
+    private static void CollectFeatureBlocks(BlockGridModel grid, string groupName, List<DataListItem> items)
     {
         foreach (var block in grid)
         {
@@ -131,6 +135,7 @@ public sealed class FeatureBlockDataSource : IContentmentDataSource
                 {
                     Name = !string.IsNullOrWhiteSpace(title) ? title : alias,
                     Value = block.ContentKey.ToString(),
+                    Group = groupName,
                 });
             }
 
@@ -147,6 +152,7 @@ public sealed class FeatureBlockDataSource : IContentmentDataSource
                         {
                             Name = !string.IsNullOrWhiteSpace(nestedTitle) ? nestedTitle : nestedAlias,
                             Value = nested.ContentKey.ToString(),
+                            Group = groupName,
                         });
                     }
                 }

@@ -12,10 +12,10 @@ https://github.com/orgs/UmTemplates/projects/1
 
 ## Up Next
 
-### Sticky Layout Variant
-- Create `layout363sticky` (or similar) with `sticky-md-top` on tertiary area
-- Only sticky when sidebar nav is present, not on every 3|6|3
-- Add CSS offset (`top: 5rem`) so sticky content clears the fixed navbar
+### Dedicated Sticky Layout (`layout3sticky63`)
+- Move sticky CSS from `layout363` to a dedicated layout element type
+- Editors choose sticky behaviour explicitly by picking the layout
+- Alternative: settings toggle on existing layout
 
 ### Self-Host CDN Assets
 - Currently in `_Layout.cshtml`: highlight.js, highlightjs-copy, Bootstrap JS, Bootstrap Icons all loaded from jsdelivr/unpkg
@@ -24,10 +24,15 @@ https://github.com/orgs/UmTemplates/projects/1
 - Packages: `highlight.js`, `highlightjs-copy`, `bootstrap-icons`
 - Bootstrap JS bundle already available via npm bootstrap package
 
-### Navigation - In Page Enhancements
-- Sticky positioning within layout area
-- Collapse/expand support (Bootstrap collapse component)
+### Navigation - In Page Polish
+- Auto-collapse on mobile when a nav link is clicked
 - Picker filtering in Contentment Data List
+- CSS custom property for navbar height offset
+- Contentment Item Picker group rendering (feature request — pattern exists in configuration editor modal)
+- Multi-step picker: custom property editor for grid+area selection then feature picking
+
+### Dark Mode Contrast
+- White text on pink feature background has poor contrast in dark mode
 
 ## Future
 
@@ -37,6 +42,22 @@ https://github.com/orgs/UmTemplates/projects/1
 - Document Bootstrap CSS Grid usage (`g-col-*` classes, `$enable-cssgrid: true`)
 
 ## Completed
+
+### Multi-Grid DataSource Support (2026-03-08)
+- Removed hardcoded `contentGrid` alias from DataSource and view
+- Scans all `BlockGridModel` properties dynamically
+- Sets `DataListItem.Group` per grid alias (ready for Contentment group rendering)
+- View searches across all block grids to resolve selected content keys
+- Label moved above picker field (`LabelOnTop: true`)
+
+### Navigation - In Page Sticky + Collapse + ScrollSpy (2026-03-07)
+- Sticky sidebars on layout363 via CSS `data-LayoutAlias` selector
+- Desktop: feature-items sticky in sidebar at md+
+- Mobile: area sticky when stacked below md
+- Bootstrap collapse toggle on mobile (navbar toggler button)
+- ScrollSpy highlights active section while scrolling
+- card-body wrapper for consistency with Bootstrap card conventions
+- Also fixed featureNavigationDescendants wrapper div (empty class -> card-body)
 
 ### Navigation - In Page Feature (formerly Jump List)
 - Merged to develop and main (2026-03-05)
