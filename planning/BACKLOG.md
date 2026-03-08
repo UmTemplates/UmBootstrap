@@ -28,6 +28,8 @@ https://github.com/orgs/UmTemplates/projects/1
 - Auto-collapse on mobile when a nav link is clicked
 - Picker filtering in Contentment Data List
 - CSS custom property for navbar height offset
+- Contentment Item Picker group rendering (feature request — pattern exists in configuration editor modal)
+- Multi-step picker: custom property editor for grid+area selection then feature picking
 
 ### Dark Mode Contrast
 - White text on pink feature background has poor contrast in dark mode
@@ -40,6 +42,13 @@ https://github.com/orgs/UmTemplates/projects/1
 - Document Bootstrap CSS Grid usage (`g-col-*` classes, `$enable-cssgrid: true`)
 
 ## Completed
+
+### Multi-Grid DataSource Support (2026-03-08)
+- Removed hardcoded `contentGrid` alias from DataSource and view
+- Scans all `BlockGridModel` properties dynamically
+- Sets `DataListItem.Group` per grid alias (ready for Contentment group rendering)
+- View searches across all block grids to resolve selected content keys
+- Label moved above picker field (`LabelOnTop: true`)
 
 ### Navigation - In Page Sticky + Collapse + ScrollSpy (2026-03-07)
 - Sticky sidebars on layout363 via CSS `data-LayoutAlias` selector

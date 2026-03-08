@@ -108,15 +108,28 @@ The CSS attribute selector approach avoids all these issues with two clean rules
 
 ## Contentment Data List
 
-The picker uses a custom `FeatureBlockDataSource` (C# class implementing `IContentmentDataSource`) that reads the block grid from the current document and returns feature blocks as selectable items.
+The picker uses a custom `FeatureBlockDataSource` (C# class implementing `IContentmentDataSource`) that scans all block grid properties on the current document and returns feature blocks as selectable items.
 
 ### How the DataSource Works
 
 1. Editor opens the Navigation - In Page block in the backoffice
 2. Contentment sends a POST request to its API with the current document's GUID in the request body
-3. `FeatureBlockDataSource` reads the GUID, fetches the document, reads the `contentGrid` property
-4. Returns all feature blocks (with titles) as selectable items
-5. `Program.cs` has `EnableBuffering()` middleware for Contentment API paths so the request body can be read
+3. `FeatureBlockDataSource` reads the GUID, fetches the document, scans all properties for `BlockGridModel` values
+4. Collects feature blocks from every block grid found, grouped by grid property alias
+5. Returns all feature blocks (with titles) as selectable items
+6. `Program.cs` has `EnableBuffering()` middleware for Contentment API paths so the request body can be read
+
+### Multiple Block Grids
+
+The DataSource does not hardcode any block grid property alias. It dynamically discovers all `BlockGridModel` properties on the current page by iterating `content.Properties`. This means:
+
+- Pages with a single block grid (e.g. `contentGrid`) work automatically
+- Pages with multiple block grids (e.g. `contentGrid` + `headerGrid`) show features from all grids
+- No code changes needed when adding new block grid properties to a document type
+
+Each `DataListItem` includes a `Group` property set to the grid's property alias. Contentment's Item Picker does not currently render group headings, but the data is ready for when it does.
+
+The view (`featureNavigationInPage.cshtml`) uses the same approach — it collects all `BlockGridModel` properties and searches across all of them to resolve the selected content keys at render time.
 
 ## Element Type Structure
 
@@ -137,3 +150,5 @@ Note: This feature does **not** compose the standard `featureComponentFeatureTit
 - **Auto-collapse on click**: Close the mobile collapse when a nav link is tapped
 - **CSS custom property**: Replace hardcoded `7rem` with `var(--navbar-height)` for robustness
 - **Picker filtering**: Filter which feature blocks appear in the Contentment picker
+- **Picker grouping**: Contentment Item Picker does not currently render `Group` headings (the configuration editor modal does via `Object.groupBy()`). Feature request to Contentment to add group support to Item Picker
+- **Multi-step picker**: Custom property editor with step 1 (pick grid + area) and step 2 (pick features within that selection) for better UX on complex pages

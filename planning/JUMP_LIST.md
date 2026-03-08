@@ -34,7 +34,9 @@ featureNavigationInPage (main feature block)
 ### Contentment Data List
 - Custom `FeatureBlockDataSource.cs` reads block grid via GUID from API request body
 - `Program.cs` has `EnableBuffering()` middleware for Contentment API paths
-- Block grid property alias is `contentGrid`
+- Scans all `BlockGridModel` properties on the page (no hardcoded alias)
+- Sets `DataListItem.Group` to the grid property alias for future picker grouping
+- Item Picker does not currently render group headings (Contentment feature request pending)
 
 ### View (`featureNavigationInPage.cshtml`)
 - Renders a Bootstrap card with list-group nav links
@@ -131,3 +133,13 @@ Sticky behaviour is driven entirely by CSS in `SCSS/index.scss`, targeting the `
 
 ### Picker Filtering
 - Filter which feature blocks appear in the Contentment picker
+
+### Picker Group Rendering
+- Contentment Item Picker doesn't render `DataListItem.Group` headings
+- The configuration editor modal already does (via `Object.groupBy()`)
+- Feature request to Contentment to add group support to Item Picker
+
+### Multi-Step Picker
+- Custom property editor: step 1 picks grid + area, step 2 picks features
+- Would solve UX on complex pages with multiple grids/areas
+- Requires building a backoffice extension (not achievable with Contentment alone)

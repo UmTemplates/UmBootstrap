@@ -5,10 +5,14 @@
 @{
     var selectedKeys = Model.Content.Value<IEnumerable<string>>("featurePropertyNavigationInPageItems");
     var currentPage = Umbraco.AssignedContentItem;
-    var blockGrid = currentPage?.Value<BlockGridModel>("contentGrid");
+    var blockGrids = currentPage?.Properties
+        .Select(p => p.GetValue() as BlockGridModel)
+        .Where(g => g != null)
+        .Cast<BlockGridModel>()
+        .ToList() ?? new List<BlockGridModel>();
 }
 
-@if (selectedKeys != null && selectedKeys.Any() && blockGrid != null)
+@if (selectedKeys != null && selectedKeys.Any() && blockGrids.Count > 0)
 {
     <nav id="nav-in-page-@(Model.ContentKey.ToString("N"))" class="card" aria-label="Jump to section">
         <header class="card-header d-flex justify-content-between align-items-center">
@@ -23,7 +27,7 @@
                 {
                     if (Guid.TryParse(key, out var contentKey))
                     {
-                        var block = FindFeatureBlock(blockGrid, contentKey);
+                        var block = FindFeatureBlock(blockGrids, contentKey);
                         if (block != null)
                         {
                             var title = block.Content.Value<string>("featurePropertyFeatureTitle");
@@ -51,19 +55,22 @@
 }
 
 @functions {
-    private static BlockGridItem? FindFeatureBlock(BlockGridModel grid, Guid contentKey)
+    private static BlockGridItem? FindFeatureBlock(List<BlockGridModel> grids, Guid contentKey)
     {
-        foreach (var block in grid)
+        foreach (var grid in grids)
         {
-            if (block.ContentKey == contentKey)
-                return block;
-
-            foreach (var area in block.Areas)
+            foreach (var block in grid)
             {
-                foreach (var nested in area)
+                if (block.ContentKey == contentKey)
+                    return block;
+
+                foreach (var area in block.Areas)
                 {
-                    if (nested.ContentKey == contentKey)
-                        return nested;
+                    foreach (var nested in area)
+                    {
+                        if (nested.ContentKey == contentKey)
+                            return nested;
+                    }
                 }
             }
         }
