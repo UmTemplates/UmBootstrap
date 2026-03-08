@@ -48,7 +48,7 @@
         document.addEventListener('DOMContentLoaded', function () {
             new bootstrap.ScrollSpy(document.body, {
                 target: '#nav-in-page-@(Model.ContentKey.ToString("N"))',
-                offset: 120
+                rootMargin: '0px 0px -75%'
             });
         });
     </script>

@@ -70,7 +70,7 @@ featureNavigationInPage (main feature block)
 - Inline `<script>` initialises Bootstrap ScrollSpy on `document.body`
 - Targets the nav by its `id` (`nav-in-page-{key}`)
 - Highlights the active link as the user scrolls through sections
-- `offset: 120` accounts for the fixed navbar height
+- `rootMargin: '0px 0px -75%'` uses Intersection Observer (Bootstrap 5.2+) — activates when section enters top 25% of viewport
 - Only initialised when the feature is present on the page
 
 ### Sticky Positioning (CSS)

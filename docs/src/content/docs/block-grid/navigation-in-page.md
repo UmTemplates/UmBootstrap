@@ -49,11 +49,11 @@ An inline `<script>` initialises Bootstrap ScrollSpy on the page body, targeting
 ```js
 new bootstrap.ScrollSpy(document.body, {
     target: '#nav-in-page-{key}',
-    offset: 120
+    rootMargin: '0px 0px -75%'
 });
 ```
 
-The `offset: 120` value accounts for the fixed navbar height, ensuring sections activate at the correct scroll position.
+The `rootMargin` value uses Intersection Observer (Bootstrap 5.2+) — a section becomes active when it enters the top 25% of the viewport. The deprecated `offset` option is no longer used.
 
 ScrollSpy is only initialised when the Navigation - In Page feature is present — the script lives inside the feature's conditional `@if` block.
 
