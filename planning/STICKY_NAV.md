@@ -80,8 +80,10 @@ The descendants nav uses `d-none d-md-block` (hidden on mobile via `display: non
 
 ## Status
 
-- [ ] Implement SCSS changes
-- [ ] Add `sticky-nav` class to featureNavigationInPage
-- [ ] Add `sticky-nav` class to featureNavigationDescendants
-- [ ] Verify in browser
-- [ ] Commit and merge
+- [x] Implement SCSS changes
+- [x] Add `sticky-nav` class to featureNavigationInPage
+- [x] Add `sticky-nav` class to featureNavigationDescendants
+- [x] Verify in browser
+- [x] Commit and merge to develop + main
+- [x] Apply changes to UpDoc
+- [x] Update documentation
