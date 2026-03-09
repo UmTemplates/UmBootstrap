@@ -69,6 +69,10 @@
 
 // 9. Temp
 
+:root {
+    --navbar-height: 7rem;
+}
+
 // Move to Utillies
 // Dean and Aaron to look at Maps and Mixins involved so we can apply top and bottom shadows at breakpoints
 
@@ -98,21 +102,23 @@ body {
 
 [id^="feature-"],
 [id^="layout-"] {
-    scroll-margin-top: 7rem;
+    scroll-margin-top: var(--navbar-height);
 }
 
-// Sticky nav: desktop - feature-items sticky in sidebar
-[data-LayoutAlias="layout363"] .area-3 .feature-items {
+// Sticky nav: any area containing a .sticky-nav element
+// Desktop (md+): .feature-items wrapper becomes sticky inside the area
+[class*="area-"]:has(.sticky-nav) .feature-items {
     @media (min-width: 768px) {
         position: sticky;
-        top: 7rem;
+        top: var(--navbar-height);
     }
 }
 
-// Sticky nav: mobile - area sticky when stacked
-[data-LayoutAlias="layout363"] .area-3 {
+// Mobile (below md): the area itself becomes sticky when columns stack
+[class*="area-"]:has(.sticky-nav) {
     @media (max-width: 767.98px) {
         position: sticky;
-        top: 7rem;
+        top: var(--navbar-height);
+        z-index: 1020;
     }
 }
