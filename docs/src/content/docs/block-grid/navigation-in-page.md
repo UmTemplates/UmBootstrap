@@ -13,7 +13,7 @@ Editors pick which feature blocks to include using a Contentment Data List picke
 The feature renders as a Bootstrap card with a header, toggler button, and collapsible link list:
 
 ```html
-<nav id="nav-in-page-{key}" class="card sticky-nav">
+<nav id="nav-in-page-{key}" class="card {sticky-nav if enabled}">
     <header class="card-header d-flex justify-content-between align-items-center">
         <h2 class="card-title mb-0">On this page</h2>
         <button class="navbar-toggler d-md-none" data-bs-toggle="collapse" ...>
@@ -59,11 +59,24 @@ ScrollSpy is only initialised when the Navigation - In Page feature is present �
 
 ## Sticky Positioning
 
-Sticky behaviour is content-driven using the CSS `:has()` pseudo-class. The `.sticky-nav` class on the nav element causes the containing area to become sticky — no editor configuration or Bootstrap utility classes on the area required.
+Sticky behaviour is **editor-controlled** via the `featureSettingsNavigation` settings type. Both `featureNavigationInPage` and `featureNavigationDescendants` use this settings type, which includes an **Enable Sticky** toggle (`featureSettingsEnableSticky`).
+
+When enabled, the view adds the `.sticky-nav` CSS class to the `<nav>` element:
+
+```razor
+@{
+    var enableSticky = Model.Settings?.Value<bool>("featureSettingsEnableSticky") ?? false;
+}
+<nav class="card @(enableSticky ? "sticky-nav" : "")">
+```
+
+The default value for new navigation blocks is **on** (the `Feature Settings Component - Enable Sticky` DataType defaults to `true`). Editors can turn it off per-block if needed.
+
+Sticky behaviour is content-driven using the CSS `:has()` pseudo-class. The `.sticky-nav` class on the nav element causes the containing area to become sticky — no Bootstrap utility classes on the area required.
 
 A `--navbar-height` CSS custom property (defined on `:root` in `index.scss`) centralises the sticky offset value. This same variable is used for `scroll-margin-top` on anchor targets.
 
-### How It Works
+### How the CSS Works
 
 The `.sticky-nav` class on the `<nav>` element triggers two CSS rules via `:has()`:
 

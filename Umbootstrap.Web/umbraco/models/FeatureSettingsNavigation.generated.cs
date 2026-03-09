@@ -18,23 +18,14 @@ using Umbraco.Extensions;
 
 namespace Umbraco.Cms.Web.Common.PublishedModels
 {
-	// Mixin Content Type with alias "featureSettingsComponentColorPicker1"
-	/// <summary>Feature Settings Component - Hide Display</summary>
-	public partial interface IFeatureSettingsComponentColorPicker1 : IPublishedElement
-	{
-		/// <summary>Hide or Display</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "17.1.0+2832436")]
-		bool FeatureSettingsHideDisplay { get; }
-	}
-
-	/// <summary>Feature Settings Component - Hide Display</summary>
-	[PublishedModel("featureSettingsComponentColorPicker1")]
-	public partial class FeatureSettingsComponentColorPicker1 : PublishedElementModel, IFeatureSettingsComponentColorPicker1
+	/// <summary>Feature Settings - Navigation</summary>
+	[PublishedModel("featureSettingsNavigation")]
+	public partial class FeatureSettingsNavigation : PublishedElementModel, IFeatureSettingsComponentColorPicker, IFeatureSettingsComponentHideDisplay, IFeatureSettingsComponentStickyNav
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "17.1.0+2832436")]
-		public new const string ModelTypeAlias = "featureSettingsComponentColorPicker1";
+		public new const string ModelTypeAlias = "featureSettingsNavigation";
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "17.1.0+2832436")]
 		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "17.1.0+2832436")]
@@ -43,14 +34,14 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 			=> PublishedModelUtility.GetModelContentType(contentTypeCache, ModelItemType, ModelTypeAlias);
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "17.1.0+2832436")]
 		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		public static IPublishedPropertyType GetModelPropertyType<TValue>(IPublishedContentTypeCache contentTypeCache, Expression<Func<FeatureSettingsComponentColorPicker1, TValue>> selector)
+		public static IPublishedPropertyType GetModelPropertyType<TValue>(IPublishedContentTypeCache contentTypeCache, Expression<Func<FeatureSettingsNavigation, TValue>> selector)
 			=> PublishedModelUtility.GetModelPropertyType(GetModelContentType(contentTypeCache), selector);
 #pragma warning restore 0109
 
 		private IPublishedValueFallback _publishedValueFallback;
 
 		// ctor
-		public FeatureSettingsComponentColorPicker1(IPublishedElement content, IPublishedValueFallback publishedValueFallback)
+		public FeatureSettingsNavigation(IPublishedElement content, IPublishedValueFallback publishedValueFallback)
 			: base(content, publishedValueFallback)
 		{
 			_publishedValueFallback = publishedValueFallback;
@@ -59,14 +50,25 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		// properties
 
 		///<summary>
+		/// Colour
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "17.1.0+2832436")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("featureSettingsColourPicker")]
+		public virtual global::Umbraco.Cms.Core.PropertyEditors.ValueConverters.ColorPickerValueConverter.PickedColor FeatureSettingsColourPicker => global::Umbraco.Cms.Web.Common.PublishedModels.FeatureSettingsComponentColorPicker.GetFeatureSettingsColourPicker(this, _publishedValueFallback);
+
+		///<summary>
 		/// Hide or Display: Turn on to display or off to hide. Displayed is on by default.
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "17.1.0+2832436")]
 		[ImplementPropertyType("featureSettingsHideDisplay")]
-		public virtual bool FeatureSettingsHideDisplay => GetFeatureSettingsHideDisplay(this, _publishedValueFallback);
+		public virtual bool FeatureSettingsHideDisplay => global::Umbraco.Cms.Web.Common.PublishedModels.FeatureSettingsComponentHideDisplay.GetFeatureSettingsHideDisplay(this, _publishedValueFallback);
 
-		/// <summary>Static getter for Hide or Display</summary>
+		///<summary>
+		/// Enable Sticky
+		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "17.1.0+2832436")]
-		public static bool GetFeatureSettingsHideDisplay(IFeatureSettingsComponentColorPicker1 that, IPublishedValueFallback publishedValueFallback) => that.Value<bool>(publishedValueFallback, "featureSettingsHideDisplay");
+		[ImplementPropertyType("featureSettingsEnableSticky")]
+		public virtual bool FeatureSettingsEnableSticky => global::Umbraco.Cms.Web.Common.PublishedModels.FeatureSettingsComponentStickyNav.GetFeatureSettingsEnableSticky(this, _publishedValueFallback);
 	}
 }
