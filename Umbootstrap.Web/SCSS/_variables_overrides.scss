@@ -3,3 +3,8 @@
 // Enable Bootstraps new CSS Grid system and disable legacy grid classes
 $enable-grid-classes: false !default;
 $enable-cssgrid: true !default;
+
+// List group active state (Umbraco pink bg, Umbraco blue text)
+$list-group-active-bg: #f5c1bc !default;
+$list-group-active-border-color: #f5c1bc !default;
+$list-group-active-color: #283a97 !default;
