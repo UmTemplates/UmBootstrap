@@ -33,7 +33,7 @@
                                 <li class="nav-item text-center @childClass">
                                     @if (string.IsNullOrEmpty(childClass))
                                     {
-                                        <a class="nav-link @Html.If(menuItem.IsActive(currentPage, minLevel: 2), "active")" href="@menuItem.Url()" target="@menuItem.Target">@menuItem.Name</a>
+                                        <a class="nav-link @Html.If(currentPage != null && menuItem.IsActive(currentPage, minLevel: 2), "active")" href="@menuItem.Url()" target="@menuItem.Target">@menuItem.Name</a>
                                     }
                                     else
                                     {

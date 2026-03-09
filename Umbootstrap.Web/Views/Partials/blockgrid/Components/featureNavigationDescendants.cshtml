@@ -19,7 +19,7 @@
     void RenderLi(IPublishedContent navItem)
     {
         <li data-level="level-@navItem.Level" class=" @(navItem.IsAncestorOrSelf(vThisPage) ? " active" : "")@(navItem.IsDescendant(vThisPage) ? "descendant" : "")">
-            <a href="@navItem.Url()" class="list-group-item-action list-group-item list-group-item-light ps-@navItem.Level @(navItem.IsAncestorOrSelf(vThisPage) ? " active" : "")@(navItem.IsDescendant(vThisPage) ? "descendant" : "")">@navItem.Value("pageTitleShort")</a>
+            <a href="@navItem.Url()" class="list-group-item-action list-group-item ps-@navItem.Level @(navItem.IsAncestorOrSelf(vThisPage) ? " active" : "")@(navItem.IsDescendant(vThisPage) ? "descendant" : "")">@navItem.Value("pageTitleShort")</a>
             @if (navItem.IsAncestorOrSelf(vThisPage) && navItem.Children().Any())
             {
                 <ul class="list-group nav">
@@ -39,14 +39,12 @@
             <a href="@thisSectionPage.Url()" class="list-group-item-action list-group-item">@thisSectionPage.Value("pageTitleShort")</a>
         </h2>
     </header>
-    <div class="card-body">
-        <ul class="list-group nav">
-            @foreach (var navItem in thisSectionPage.Children())
-            {
-                RenderLi(navItem);
-            }
-        </ul>
-    </div>
+    <ul class="list-group list-group-flush nav">
+        @foreach (var navItem in thisSectionPage.Children())
+        {
+            RenderLi(navItem);
+        }
+    </ul>
 </nav>
 
 <nav aria-label="breadcrumb" class="d-block d-md-none">

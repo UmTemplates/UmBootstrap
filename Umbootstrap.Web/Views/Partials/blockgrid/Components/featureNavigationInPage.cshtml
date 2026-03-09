@@ -22,7 +22,7 @@
             </button>
         </header>
         <div class="collapse d-md-block" id="n@(Model.ContentKey.ToString("N"))">
-            <ul class="list-group nav card-body">
+            <ul class="list-group list-group-flush nav">
                 @foreach (var key in selectedKeys)
                 {
                     if (Guid.TryParse(key, out var contentKey))
@@ -34,7 +34,7 @@
                             if (!string.IsNullOrWhiteSpace(title))
                             {
                                 <li>
-                                    <a href="#feature-@contentKey" class="list-group-item-action list-group-item list-group-item-light">@title</a>
+                                    <a href="#feature-@contentKey" class="list-group-item-action list-group-item">@title</a>
                                 </li>
                             }
                         }
