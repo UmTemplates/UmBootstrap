@@ -12,10 +12,17 @@ https://github.com/orgs/UmTemplates/projects/1
 
 ## Up Next
 
-### Dedicated Sticky Layout (`layout3sticky63`)
-- Move sticky CSS from `layout363` to a dedicated layout element type
-- Editors choose sticky behaviour explicitly by picking the layout
-- Alternative: settings toggle on existing layout
+### Per-Feature Settings Types
+- Migrate from single shared `featureSettings` to per-feature settings element types
+- Each `featureSettings{Name}` composes shared components (Color Picker, Hide Display) + feature-specific settings
+- Migrate incrementally: start with nav features, split others as needs arise
+- Features without custom settings stay on generic `featureSettings` until they need their own
+
+### Sticky Nav Settings Toggle (first per-feature settings migration)
+- Create `featureSettingsNavigation` element type (composes Color Picker + Hide Display + new Sticky Nav toggle)
+- Nav feature blocks use this settings type instead of standard `featureSettings` on Block Grid DataType
+- Views conditionally render `sticky-nav` class based on setting
+- Currently sticky is always on for both nav features — this makes it editor-controlled per instance
 
 ### Self-Host CDN Assets
 - Currently in `_Layout.cshtml`: highlight.js, highlightjs-copy, Bootstrap JS, Bootstrap Icons all loaded from jsdelivr/unpkg
@@ -27,7 +34,6 @@ https://github.com/orgs/UmTemplates/projects/1
 ### Navigation - In Page Polish
 - Auto-collapse on mobile when a nav link is clicked
 - Picker filtering in Contentment Data List
-- CSS custom property for navbar height offset
 - Contentment Item Picker group rendering (feature request — pattern exists in configuration editor modal)
 - Multi-step picker: custom property editor for grid+area selection then feature picking
 
@@ -42,6 +48,21 @@ https://github.com/orgs/UmTemplates/projects/1
 - Document Bootstrap CSS Grid usage (`g-col-*` classes, `$enable-cssgrid: true`)
 
 ## Completed
+
+### Sticky Nav via :has() Selector (2026-03-09)
+- Replaced layout363-specific sticky rules with CSS `:has(.sticky-nav)` pseudo-class
+- `.sticky-nav` class on nav elements drives sticky behaviour upward to containing area
+- Introduced `--navbar-height` CSS custom property (replaces hardcoded `7rem`)
+- Layout-agnostic: works on any layout, not just layout363
+- Applied to both `featureNavigationInPage` and `featureNavigationDescendants`
+- Synced changes to UpDoc (SCSS, views, header null check, list-group cleanup)
+- Renamed planning file: `JUMP_LIST.md` → `NAVIGATION_IN_PAGE.md`
+
+### Navigation CSS Fixes (2026-03-09)
+- Bootstrap card + list-group-flush pattern (removed card-body wrapper)
+- Removed `list-group-item-light` for dark mode support
+- Bootstrap variable overrides for active state colours (`$list-group-active-bg`, etc.)
+- Fixed CS8604 null reference in header.cshtml
 
 ### ScrollSpy & Scroll Margin Fix (2026-03-08)
 - Replaced deprecated `offset: 120` with `rootMargin: '0px 0px -75%'` (Bootstrap 5.2+ Intersection Observer)

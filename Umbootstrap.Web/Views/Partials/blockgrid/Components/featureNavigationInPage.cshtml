@@ -12,9 +12,13 @@
         .ToList() ?? new List<BlockGridModel>();
 }
 
+@{
+    var enableSticky = Model.Settings?.Value<bool>("featureSettingsEnableSticky") ?? false;
+}
+
 @if (selectedKeys != null && selectedKeys.Any() && blockGrids.Count > 0)
 {
-    <nav id="nav-in-page-@(Model.ContentKey.ToString("N"))" class="card sticky-nav" aria-label="Jump to section">
+    <nav id="nav-in-page-@(Model.ContentKey.ToString("N"))" class="card @(enableSticky ? "sticky-nav" : "")" aria-label="Jump to section">
         <header class="card-header d-flex justify-content-between align-items-center">
             <h2 class="card-title mb-0">On this page</h2>
             <button class="navbar-toggler d-md-none" type="button" data-bs-toggle="collapse" data-bs-target="#n@(Model.ContentKey.ToString("N"))" aria-expanded="false" aria-label="Toggle navigation">

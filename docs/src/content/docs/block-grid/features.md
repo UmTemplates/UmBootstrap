@@ -112,10 +112,33 @@ For example, `featureRichTextEditor.cshtml`:
 
 ### Feature Settings
 
-All features share the `featureSettings` element type as their settings block. This composes:
+Features use settings blocks to provide editor-configurable options (background colour, visibility, etc.). There are two levels of settings:
 
-- `featureSettingsComponentColorPicker` — background colour
-- `featureSettingsComponentColorPicker1` — hide/display toggle
+**Shared settings** — `featureSettings` (used by most features):
+
+| Composition | Property | Purpose |
+|---|---|---|
+| `featureSettingsComponentColorPicker` | `featureSettingsColourPicker` | Background colour picker |
+| `featureSettingsComponentHideDisplay` | `featureSettingsHideDisplay` | Hide/display toggle |
+
+**Per-feature settings** — for features that need additional options beyond colour and visibility:
+
+| Settings Type | Used By | Extra Compositions |
+|---|---|---|
+| `featureSettingsNavigation` | `featureNavigationDescendants`, `featureNavigationInPage` | `featureSettingsComponentStickyNav` (sticky toggle) |
+
+Per-feature settings types compose the same shared components (colour picker, hide/display) plus feature-specific ones. This means editors always get the standard settings, plus any extras for that feature type.
+
+### Per-Feature Settings Pattern
+
+To create a per-feature settings type:
+
+1. **Create the settings component** (e.g. `featureSettingsComponentStickyNav`) — an element type with the feature-specific property
+2. **Create the settings type** (e.g. `featureSettingsNavigation`) — composes `featureSettingsComponentColorPicker` + `featureSettingsComponentHideDisplay` + your new component
+3. **Update the Block Grid DataType** — change the settings element type for the relevant feature blocks from `featureSettings` to your new type
+4. **Update the views** — read the new property from `Model.Settings`
+
+Features without custom settings needs stay on the generic `featureSettings`. Migrate incrementally as needs arise.
 
 ### BlockPreview
 

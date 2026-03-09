@@ -34,6 +34,14 @@ export default defineConfig({
 						{ label: 'uSync', slug: 'packages/usync' },
 					],
 				},
+				{
+					label: 'Tools',
+					collapsed: true,
+					items: [
+						{ label: 'Overview', slug: 'tools' },
+						{ label: 'Umbraco MCP Server', slug: 'tools/umbraco-mcp' },
+					],
+				},
 				{ label: 'Troubleshooting', slug: 'troubleshooting' },
 			],
 		}),

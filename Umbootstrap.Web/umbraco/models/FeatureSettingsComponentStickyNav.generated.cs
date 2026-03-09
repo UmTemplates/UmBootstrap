@@ -18,14 +18,23 @@ using Umbraco.Extensions;
 
 namespace Umbraco.Cms.Web.Common.PublishedModels
 {
-	/// <summary>Feature Settings</summary>
-	[PublishedModel("featureSettings")]
-	public partial class FeatureSettings : PublishedElementModel, IFeatureSettingsComponentColorPicker, IFeatureSettingsComponentHideDisplay
+	// Mixin Content Type with alias "featureSettingsComponentStickyNav"
+	/// <summary>Feature Settings Component - Sticky Nav</summary>
+	public partial interface IFeatureSettingsComponentStickyNav : IPublishedElement
+	{
+		/// <summary>Enable Sticky</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "17.1.0+2832436")]
+		bool FeatureSettingsEnableSticky { get; }
+	}
+
+	/// <summary>Feature Settings Component - Sticky Nav</summary>
+	[PublishedModel("featureSettingsComponentStickyNav")]
+	public partial class FeatureSettingsComponentStickyNav : PublishedElementModel, IFeatureSettingsComponentStickyNav
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "17.1.0+2832436")]
-		public new const string ModelTypeAlias = "featureSettings";
+		public new const string ModelTypeAlias = "featureSettingsComponentStickyNav";
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "17.1.0+2832436")]
 		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "17.1.0+2832436")]
@@ -34,14 +43,14 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 			=> PublishedModelUtility.GetModelContentType(contentTypeCache, ModelItemType, ModelTypeAlias);
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "17.1.0+2832436")]
 		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		public static IPublishedPropertyType GetModelPropertyType<TValue>(IPublishedContentTypeCache contentTypeCache, Expression<Func<FeatureSettings, TValue>> selector)
+		public static IPublishedPropertyType GetModelPropertyType<TValue>(IPublishedContentTypeCache contentTypeCache, Expression<Func<FeatureSettingsComponentStickyNav, TValue>> selector)
 			=> PublishedModelUtility.GetModelPropertyType(GetModelContentType(contentTypeCache), selector);
 #pragma warning restore 0109
 
 		private IPublishedValueFallback _publishedValueFallback;
 
 		// ctor
-		public FeatureSettings(IPublishedElement content, IPublishedValueFallback publishedValueFallback)
+		public FeatureSettingsComponentStickyNav(IPublishedElement content, IPublishedValueFallback publishedValueFallback)
 			: base(content, publishedValueFallback)
 		{
 			_publishedValueFallback = publishedValueFallback;
@@ -50,18 +59,14 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		// properties
 
 		///<summary>
-		/// Colour
+		/// Enable Sticky
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "17.1.0+2832436")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("featureSettingsColourPicker")]
-		public virtual global::Umbraco.Cms.Core.PropertyEditors.ValueConverters.ColorPickerValueConverter.PickedColor FeatureSettingsColourPicker => global::Umbraco.Cms.Web.Common.PublishedModels.FeatureSettingsComponentColorPicker.GetFeatureSettingsColourPicker(this, _publishedValueFallback);
+		[ImplementPropertyType("featureSettingsEnableSticky")]
+		public virtual bool FeatureSettingsEnableSticky => GetFeatureSettingsEnableSticky(this, _publishedValueFallback);
 
-		///<summary>
-		/// Hide or Display: Turn on to display or off to hide. Displayed is on by default.
-		///</summary>
+		/// <summary>Static getter for Enable Sticky</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "17.1.0+2832436")]
-		[ImplementPropertyType("featureSettingsHideDisplay")]
-		public virtual bool FeatureSettingsHideDisplay => global::Umbraco.Cms.Web.Common.PublishedModels.FeatureSettingsComponentHideDisplay.GetFeatureSettingsHideDisplay(this, _publishedValueFallback);
+		public static bool GetFeatureSettingsEnableSticky(IFeatureSettingsComponentStickyNav that, IPublishedValueFallback publishedValueFallback) => that.Value<bool>(publishedValueFallback, "featureSettingsEnableSticky");
 	}
 }
