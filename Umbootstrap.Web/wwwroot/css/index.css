@@ -12552,6 +12552,10 @@ h1 + .lead, .h1 + .lead {
   color: var(--bs-heading-color);
 }
 
+:root {
+  --navbar-height: 7rem;
+}
+
 body {
   min-height: 100vh;
   height: 100%;
@@ -12578,20 +12582,21 @@ body {
 
 [id^=feature-],
 [id^=layout-] {
-  scroll-margin-top: 7rem;
+  scroll-margin-top: var(--navbar-height);
 }
 
 @media (min-width: 768px) {
-  [data-LayoutAlias=layout363] .area-3 .feature-items {
+  [class*=area-]:has(.sticky-nav) .feature-items {
     position: sticky;
-    top: 7rem;
+    top: var(--navbar-height);
   }
 }
 
 @media (max-width: 767.98px) {
-  [data-LayoutAlias=layout363] .area-3 {
+  [class*=area-]:has(.sticky-nav) {
     position: sticky;
-    top: 7rem;
+    top: var(--navbar-height);
+    z-index: 1020;
   }
 }
 
