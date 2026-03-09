@@ -112,10 +112,12 @@ For example, `featureRichTextEditor.cshtml`:
 
 ### Feature Settings
 
-All features share the `featureSettings` element type as their settings block. This composes:
+Currently, all features share the `featureSettings` element type as their settings block. This composes:
 
 - `featureSettingsComponentColorPicker` — background colour
-- `featureSettingsComponentColorPicker1` — hide/display toggle
+- `featureSettingsComponentHideDisplay` — hide/display toggle
+
+The architecture supports per-feature settings types (e.g. `featureSettingsNavigation` for a sticky toggle). Each per-feature settings type composes the shared components plus feature-specific settings. Features without custom needs stay on the generic `featureSettings`.
 
 ### BlockPreview
 
