@@ -1,0 +1,37 @@
+name: Feature Request
+description: Suggest a new feature or improvement
+title: "[Feature]: "
+labels: ["Feature - New"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Got an idea for UmBootstrap? We'd love to hear it!
+
+  - type: textarea
+    id: description
+    attributes:
+      label: What would you like?
+      description: A clear description of the feature or improvement.
+    validations:
+      required: true
+
+  - type: textarea
+    id: use-case
+    attributes:
+      label: Use case
+      description: Why is this useful? What problem does it solve?
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: Have you considered any workarounds or alternative approaches?
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional context
+      description: Any other context, screenshots, or examples.

@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Documentation
+    url: https://umtemplates.github.io/UmBootstrap/
+    about: Check the docs before raising an issue
+  - name: Umbraco Documentation
+    url: https://docs.umbraco.com/
+    about: For general Umbraco questions

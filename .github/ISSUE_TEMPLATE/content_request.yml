@@ -1,0 +1,43 @@
+name: Content Request
+description: Request new example content or pages for the starter template
+title: "[Content]: "
+labels: ["Feature - New"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Request new example content to be included in the UmBootstrap template.
+
+  - type: textarea
+    id: description
+    attributes:
+      label: What content is needed?
+      description: Describe the page or content you'd like added to the template.
+      placeholder: e.g. An example page demonstrating the In-Page Navigation feature
+    validations:
+      required: true
+
+  - type: dropdown
+    id: content-type
+    attributes:
+      label: Content type
+      description: What kind of content is this?
+      options:
+        - Example page (demonstrates a feature)
+        - New feature block
+        - Layout variation
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: details
+    attributes:
+      label: Details
+      description: Any specific details about what the content should show or include.
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional context
+      description: Screenshots, references, or examples from other sites.

@@ -17,7 +17,7 @@
     <NoDefaultExcludes>true</NoDefaultExcludes>
     <Copyright>$([System.DateTime]::UtcNow.ToString(`yyyy`)) © Dean Leigh</Copyright>
     <PackageIcon>icon_nuget_umbootstrap.png</PackageIcon>
-    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageReadmeFile>README_nuget.md</PackageReadmeFile>
     <RepositoryUrl>https://github.com/UmTemplates/UmBootstrap</RepositoryUrl>
     <PackageProjectUrl>https://umbootstrap.com</PackageProjectUrl>
     <RepositoryType>git</RepositoryType>
@@ -95,12 +95,6 @@
     <PackageReference Include="uSync" Version="17.0.2" />
   </ItemGroup>
 
-  <ItemGroup>
-    <None Update="README.md">
-      <Pack>True</Pack>
-      <PackagePath>\</PackagePath>
-    </None>
-  </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Umbootstrap.Web\umbraco\" />

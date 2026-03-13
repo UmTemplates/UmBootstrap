@@ -2,3 +2,31 @@
     // scss-docs-start card-css-vars
     --#{$prefix}card-border-width: none;
     }
+
+.card-img-svg {
+    svg {
+        display: block;
+        width: 100%;
+        height: auto;
+
+        // Remove hardcoded white background
+        > rect[fill="white"],
+        > rect[fill="#ffffff"],
+        > rect[fill="#FFFFFF"] {
+            fill: var(--#{$prefix}card-bg, var(--#{$prefix}body-bg));
+        }
+    }
+
+    // Dark mode: switch icon colours
+    [data-bs-theme="dark"] & svg {
+        [stroke="#283A97"],
+        [stroke="#283a97"] {
+            stroke: var(--#{$prefix}body-color);
+        }
+
+        [fill="#283A97"],
+        [fill="#283a97"] {
+            fill: var(--#{$prefix}body-color);
+        }
+    }
+}

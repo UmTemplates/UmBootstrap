@@ -1,0 +1,66 @@
+name: Bug Report
+description: Report something that isn't working correctly
+title: "[Bug]: "
+labels: ["Bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to report a bug! Please fill in as much detail as you can.
+
+  - type: textarea
+    id: description
+    attributes:
+      label: What happened?
+      description: A clear description of the bug.
+      placeholder: Tell us what you see...
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: How can we reproduce this?
+      placeholder: |
+        1. Go to '...'
+        2. Click on '...'
+        3. See error
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behaviour
+      description: What did you expect to happen?
+    validations:
+      required: true
+
+  - type: input
+    id: umbraco-version
+    attributes:
+      label: Umbraco version
+      description: Which version of Umbraco are you running?
+      placeholder: e.g. 17.1.0
+    validations:
+      required: true
+
+  - type: input
+    id: umbootstrap-version
+    attributes:
+      label: UmBootstrap version
+      description: Which version of the template did you install?
+      placeholder: e.g. 17.0.1
+
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Screenshots
+      description: If applicable, add screenshots to help explain the problem.
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional context
+      description: Any other context about the problem (browser, OS, database type, etc.)
