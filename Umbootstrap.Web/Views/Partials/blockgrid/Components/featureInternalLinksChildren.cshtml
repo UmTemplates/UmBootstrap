@@ -1,4 +1,5 @@
 ﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem<FeatureInternalLinksChildren>>
+@inject Microsoft.AspNetCore.Hosting.IWebHostEnvironment WebHostEnvironment
 
 @{
     Layout = "_Layout_Features.cshtml";
@@ -15,7 +16,21 @@
                 <div class="card h-100 shadow">
                     @if (thumbnail != null)
                     {
-                        <img src="@(thumbnail.GetCropUrl(width: 480))" class="card-img-top" alt="...">
+                        var mediaUrl = thumbnail.MediaUrl();
+                        if (mediaUrl != null && mediaUrl.EndsWith(".svg", StringComparison.OrdinalIgnoreCase))
+                        {
+                            var physicalPath = System.IO.Path.Combine(WebHostEnvironment.WebRootPath, mediaUrl.TrimStart('/').Replace('/', System.IO.Path.DirectorySeparatorChar));
+                            if (System.IO.File.Exists(physicalPath))
+                            {
+                                <div class="card-img-top card-img-svg">
+                                    @Html.Raw(System.IO.File.ReadAllText(physicalPath))
+                                </div>
+                            }
+                        }
+                        else
+                        {
+                            <img src="@(thumbnail.GetCropUrl(width: 480))" class="card-img-top" alt="...">
+                        }
                     }
                     <div class="card-body text-center">
                         <h3 class="card-title pb-1">

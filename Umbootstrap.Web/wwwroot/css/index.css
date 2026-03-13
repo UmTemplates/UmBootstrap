@@ -12430,6 +12430,25 @@ textarea.form-control-lg {
   --bs-card-border-width: none;
 }
 
+.card-img-svg svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.card-img-svg svg > rect[fill=white],
+.card-img-svg svg > rect[fill="#ffffff"],
+.card-img-svg svg > rect[fill="#FFFFFF"] {
+  fill: var(--bs-card-bg, var(--bs-body-bg));
+}
+[data-bs-theme=dark] .card-img-svg svg [stroke="#283A97"],
+[data-bs-theme=dark] .card-img-svg svg [stroke="#283a97"] {
+  stroke: var(--bs-body-color);
+}
+[data-bs-theme=dark] .card-img-svg svg [fill="#283A97"],
+[data-bs-theme=dark] .card-img-svg svg [fill="#283a97"] {
+  fill: var(--bs-body-color);
+}
+
 /*.carousel {
     //outline: 3px red solid;
     //background-color: #333;
@@ -12599,5 +12618,3 @@ body {
     z-index: 1020;
   }
 }
-
-/*# sourceMappingURL=index.css.map */
