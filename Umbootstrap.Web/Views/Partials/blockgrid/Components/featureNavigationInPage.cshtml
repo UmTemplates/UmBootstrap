@@ -50,10 +50,23 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
+            var navId = 'nav-in-page-@(Model.ContentKey.ToString("N"))';
+            var collapseId = 'n@(Model.ContentKey.ToString("N"))';
+
             new bootstrap.ScrollSpy(document.body, {
-                target: '#nav-in-page-@(Model.ContentKey.ToString("N"))',
+                target: '#' + navId,
                 rootMargin: '0px 0px -75%'
             });
+
+            var collapseEl = document.getElementById(collapseId);
+            if (collapseEl) {
+                var bsCollapse = bootstrap.Collapse.getOrCreateInstance(collapseEl, { toggle: false });
+                collapseEl.querySelectorAll('a').forEach(function (link) {
+                    link.addEventListener('click', function () {
+                        bsCollapse.hide();
+                    });
+                });
+            }
         });
     </script>
 }

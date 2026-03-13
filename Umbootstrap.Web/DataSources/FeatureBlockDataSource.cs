@@ -131,9 +131,12 @@ public sealed class FeatureBlockDataSource : IContentmentDataSource
             if (alias.StartsWith("feature", StringComparison.OrdinalIgnoreCase))
             {
                 var title = block.Content.Value<string>("featurePropertyFeatureTitle");
+                if (string.IsNullOrWhiteSpace(title))
+                    continue;
+
                 items.Add(new DataListItem
                 {
-                    Name = !string.IsNullOrWhiteSpace(title) ? title : alias,
+                    Name = title,
                     Value = block.ContentKey.ToString(),
                     Group = groupName,
                 });
@@ -148,9 +151,12 @@ public sealed class FeatureBlockDataSource : IContentmentDataSource
                     if (nestedAlias.StartsWith("feature", StringComparison.OrdinalIgnoreCase))
                     {
                         var nestedTitle = nested.Content.Value<string>("featurePropertyFeatureTitle");
+                        if (string.IsNullOrWhiteSpace(nestedTitle))
+                            continue;
+
                         items.Add(new DataListItem
                         {
-                            Name = !string.IsNullOrWhiteSpace(nestedTitle) ? nestedTitle : nestedAlias,
+                            Name = nestedTitle,
                             Value = nested.ContentKey.ToString(),
                             Group = groupName,
                         });
