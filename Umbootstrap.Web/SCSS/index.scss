@@ -100,8 +100,7 @@ body {
     transition: box-shadow 0.4s ease-in-out;
 }
 
-[id^="feature-"],
-[id^="layout-"] {
+[data-FeatureContentKey] {
     scroll-margin-top: var(--navbar-height);
 }
 

@@ -50,7 +50,7 @@
     Background Image: @backgroundImage?.MediaUrl()
 </div>
 *@
-<div id="layout-@Model.ContentKey" class="layout-item py-3 @backgroundColorClass @backgroundOpacityClass"
+<div class="layout-item py-3 @backgroundColorClass @backgroundOpacityClass"
      data-LayoutContentKey="@Model.ContentKey" data-LayoutAlias="@Model.Content.ContentType.Alias"
      data-BackgroundImage="@backgroundImage?.MediaUrl()" style="@styleAttribute">
     @RenderBody()
