@@ -104,6 +104,31 @@ body {
     scroll-margin-top: var(--navbar-height);
 }
 
+// Clickable heading anchor link
+.anchor-link {
+    color: inherit;
+    text-decoration: none;
+
+    &:hover {
+        color: inherit;
+        text-decoration: none;
+    }
+}
+
+.anchor-hash {
+    font-size: 0.4em;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    margin-left: 0.15em;
+    color: var(--bs-secondary-color);
+    vertical-align: super;
+    line-height: 0;
+}
+
+.anchor-link:hover .anchor-hash {
+    opacity: 1;
+}
+
 // In-page nav toggler: dark SVG for light mode, light SVG for dark mode
 .card .navbar-toggler-icon {
     [data-bs-theme="light"] & {
