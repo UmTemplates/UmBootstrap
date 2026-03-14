@@ -57,10 +57,12 @@
     // Mobile: fixed bottom bar + offcanvas (hidden on desktop)
     <div class="d-lg-none">
         <div class="nav-mobile-bar" data-bs-toggle="offcanvas" data-bs-target="#offcanvas-@uniqueId" aria-controls="offcanvas-@uniqueId">
-            <h2 class="mb-0">On this page</h2>
-            <button class="navbar-toggler" type="button" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+            <nav class="navbar p-0 w-100">
+                <h2 class="mb-0">On this page</h2>
+                <button class="navbar-toggler" type="button" tabindex="-1" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </nav>
         </div>
 
         <div class="offcanvas offcanvas-bottom" tabindex="-1" id="offcanvas-@uniqueId" aria-labelledby="offcanvas-label-@uniqueId">
@@ -105,10 +107,19 @@
                 });
             }
 
-            // Mobile offcanvas: scroll to section then close
+            // Mobile offcanvas: hide bar when open, scroll to section then close
             var offcanvasEl = document.getElementById('offcanvas-@uniqueId');
+            var mobileBar = offcanvasEl ? offcanvasEl.previousElementSibling : null;
             if (offcanvasEl) {
                 var bsOffcanvas = bootstrap.Offcanvas.getOrCreateInstance(offcanvasEl);
+
+                offcanvasEl.addEventListener('show.bs.offcanvas', function () {
+                    if (mobileBar) mobileBar.style.display = 'none';
+                });
+                offcanvasEl.addEventListener('hidden.bs.offcanvas', function () {
+                    if (mobileBar) mobileBar.style.display = '';
+                });
+
                 offcanvasEl.querySelectorAll('a[href^="#"]').forEach(function (link) {
                     link.addEventListener('click', function (e) {
                         e.preventDefault();

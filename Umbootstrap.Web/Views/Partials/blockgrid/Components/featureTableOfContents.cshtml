@@ -1,0 +1,99 @@
+@using Umbraco.Cms.Core.Models.Blocks
+@using Umbraco.Cms.Core.Models.PublishedContent
+@using Umbootstrap.Web.Helpers
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem>
+
+@{
+    var currentPage = Umbraco.AssignedContentItem;
+    var blockGrids = currentPage?.Properties
+        .Select(p => p.GetValue() as BlockGridModel)
+        .Where(g => g != null)
+        .Cast<BlockGridModel>()
+        .ToList() ?? new List<BlockGridModel>();
+
+    var uniqueId = Model.ContentKey.ToString("N");
+    var tocContentKey = Model.ContentKey;
+
+    // Find sibling blocks in the same area as this TOC block
+    var siblingItems = new List<(string title, string slug)>();
+    foreach (var grid in blockGrids)
+    {
+        foreach (var layoutBlock in grid)
+        {
+            foreach (var area in layoutBlock.Areas)
+            {
+                var areaBlocks = area.ToList();
+                var tocInThisArea = areaBlocks.Any(b => b.ContentKey == tocContentKey);
+                if (tocInThisArea)
+                {
+                    foreach (var block in areaBlocks)
+                    {
+                        if (block.ContentKey == tocContentKey)
+                            continue;
+
+                        var alias = block.Content.ContentType.Alias;
+                        if (!alias.StartsWith("feature", StringComparison.OrdinalIgnoreCase))
+                            continue;
+
+                        var title = block.Content.Value<string>("featurePropertyFeatureTitle");
+                        if (!string.IsNullOrWhiteSpace(title))
+                        {
+                            siblingItems.Add((title, SlugHelper.ToSlug(title, alias, block.ContentKey)));
+                        }
+                    }
+                    break;
+                }
+            }
+            if (siblingItems.Any()) break;
+        }
+        if (siblingItems.Any()) break;
+    }
+}
+
+@if (siblingItems.Any())
+{
+    <nav id="nav-toc-@uniqueId" class="card" aria-label="Table of contents">
+        <div class="card-header">
+            <nav class="navbar navbar-expand-lg p-0">
+                <h2 class="card-title mb-0">On this page</h2>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#toc-@uniqueId" aria-expanded="false" aria-label="Toggle table of contents">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </nav>
+        </div>
+        <div class="collapse d-lg-block" id="toc-@uniqueId">
+            <ul class="list-group list-group-flush nav">
+                @foreach (var item in siblingItems)
+                {
+                    <li>
+                        <a href="#@item.slug" class="list-group-item-action list-group-item">@item.title</a>
+                    </li>
+                }
+            </ul>
+        </div>
+    </nav>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var navId = 'nav-toc-@uniqueId';
+            new bootstrap.ScrollSpy(document.body, {
+                target: '#' + navId,
+                rootMargin: '0px 0px -75%'
+            });
+
+            // Auto-collapse on link click (mobile)
+            var collapseId = 'toc-@uniqueId';
+            var collapseEl = document.getElementById(collapseId);
+            if (collapseEl) {
+                var bsCollapse = bootstrap.Collapse.getOrCreateInstance(collapseEl, { toggle: false });
+                collapseEl.querySelectorAll('a').forEach(function (link) {
+                    link.addEventListener('click', function () {
+                        if (window.innerWidth < 992) {
+                            bsCollapse.hide();
+                        }
+                    });
+                });
+            }
+        });
+    </script>
+}
