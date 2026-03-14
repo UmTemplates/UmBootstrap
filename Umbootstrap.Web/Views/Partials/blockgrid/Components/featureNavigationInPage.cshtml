@@ -1,5 +1,6 @@
 @using Umbraco.Cms.Core.Models.Blocks
 @using Umbraco.Cms.Core.Models.PublishedContent
+@using Umbootstrap.Web.Helpers
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem>
 
 @{
@@ -37,8 +38,9 @@
                             var title = block.Content.Value<string>("featurePropertyFeatureTitle");
                             if (!string.IsNullOrWhiteSpace(title))
                             {
+                                var alias = block.Content.ContentType.Alias;
                                 <li>
-                                    <a href="#feature-@contentKey" class="list-group-item-action list-group-item">@title</a>
+                                    <a href="#@SlugHelper.ToSlug(title, alias, contentKey)" class="list-group-item-action list-group-item">@title</a>
                                 </li>
                             }
                         }

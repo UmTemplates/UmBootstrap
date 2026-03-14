@@ -1,5 +1,6 @@
 ﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem>
 @using Umbraco.Cms.Core.PropertyEditors.ValueConverters;
+@using Umbootstrap.Web.Helpers
 @inject Umbraco.Cms.Core.Web.IUmbracoContextFactory UmbracoContextFactory
 
 @{
@@ -9,6 +10,7 @@
     var featureDescription = Model.Content.Value<string>("featurePropertyFeatureDescription");
     var featureSummary = Model.Content.Value<string>("featurePropertyFeatureSummary");
 
+    var slug = SlugHelper.ToSlug(featureTitle, Model.Content.ContentType.Alias, Model.ContentKey);
     var umbracoContext = UmbracoContextFactory.EnsureUmbracoContext();
 
     string? colorLabel = null;
@@ -45,7 +47,7 @@
         Summary: @featureSummary
     </div>
     *@
-    <section id="feature-@Model.ContentKey" class="feature-item @Model.Content.ContentType.Alias" data-FeatureContentKey="@Model.ContentKey" style="@(colorLabel != null ? $"background-color: var({colorLabel});" : "")">
+    <section id="@slug" class="feature-item @Model.Content.ContentType.Alias" data-FeatureContentKey="@Model.ContentKey" style="@(colorLabel != null ? $"background-color: var({colorLabel});" : "")">
         @if (!string.IsNullOrWhiteSpace(featureTitle) || !string.IsNullOrWhiteSpace(featureDescription))
         // If either the title or description is not empty, render the header
         {
@@ -53,7 +55,7 @@
                 @if (!string.IsNullOrWhiteSpace(featureTitle))
                 // If the title is not empty, render the title
                 {
-                    <h2>@featureTitle</h2>
+                    <h2><a href="#@slug" class="anchor-link">@featureTitle<sup class="anchor-hash">#</sup></a></h2>
                 }
                 @if (!string.IsNullOrWhiteSpace(featureDescription))
                 // If the description is not empty, render the description
@@ -85,7 +87,7 @@ else
     if (umbracoContext.UmbracoContext.InPreviewMode)
     {
         // Render only in back office preview mode
-        <section id="feature-@Model.ContentKey" class="feature @Model.Content.ContentType.Alias" data-FeatureContentKey="@Model.ContentKey" style="@(colorLabel != null ? $"background-color: var({colorLabel});" : "")">
+        <section id="@slug" class="feature @Model.Content.ContentType.Alias" data-FeatureContentKey="@Model.ContentKey" style="@(colorLabel != null ? $"background-color: var({colorLabel});" : "")">
             @if (!string.IsNullOrWhiteSpace(featureTitle) || !string.IsNullOrWhiteSpace(featureDescription))
             // If either the title or description is not empty, render the header
             {
@@ -93,7 +95,7 @@ else
                     @if (!string.IsNullOrWhiteSpace(featureTitle))
                     // If the title is not empty, render the title
                     {
-                        <h2>@featureTitle</h2>
+                        <h2><a href="#@slug" class="anchor-link">@featureTitle<sup class="anchor-hash">#</sup></a></h2>
                     }
                     @if (!string.IsNullOrWhiteSpace(featureDescription))
                     // If the description is not empty, render the description
