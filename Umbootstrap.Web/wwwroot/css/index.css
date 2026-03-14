@@ -12648,4 +12648,19 @@ body {
   }
 }
 
+.nav-mobile-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1030;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  background-color: var(--bs-card-bg, var(--bs-body-bg));
+  border-top: 1px solid var(--bs-border-color);
+  cursor: pointer;
+}
+
 /*# sourceMappingURL=index.css.map */
