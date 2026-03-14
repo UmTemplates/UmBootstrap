@@ -130,7 +130,8 @@ body {
 }
 
 // In-page nav toggler: dark SVG for light mode, light SVG for dark mode
-.card .navbar-toggler-icon {
+.card .navbar-toggler-icon,
+.nav-mobile-bar .navbar-toggler-icon {
     [data-bs-theme="light"] & {
         background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%280, 0, 0, 0.55%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
     }
@@ -141,22 +142,15 @@ body {
 }
 
 // Sticky nav: any area containing a .sticky-nav element
-// Desktop (md+): .feature-items wrapper becomes sticky inside the area
+// Desktop (lg+): .feature-items wrapper becomes sticky inside the area
 [class*="area-"]:has(.sticky-nav) .feature-items {
-    @media (min-width: 768px) {
+    @media (min-width: 992px) {
         position: sticky;
         top: var(--navbar-height);
     }
 }
 
-// Mobile (below md): the area itself becomes sticky when columns stack
-[class*="area-"]:has(.sticky-nav) {
-    @media (max-width: 767.98px) {
-        position: sticky;
-        top: var(--navbar-height);
-        z-index: 1020;
-    }
-}
+// Mobile sticky on areas removed — offcanvas bottom bar handles mobile nav
 
 // Mobile bottom bar for in-page navigation
 .nav-mobile-bar {

@@ -40,7 +40,7 @@
     }
 
     // Desktop: card with sticky nav (hidden on mobile)
-    <nav id="nav-in-page-@uniqueId" class="card @(enableSticky ? "sticky-nav" : "") d-none d-md-block" aria-label="Jump to section">
+    <nav id="nav-in-page-@uniqueId" class="card @(enableSticky ? "sticky-nav" : "") d-none d-lg-block" aria-label="Jump to section">
         <header class="card-header">
             <h2 class="card-title mb-0">On this page</h2>
         </header>
@@ -55,10 +55,12 @@
     </nav>
 
     // Mobile: fixed bottom bar + offcanvas (hidden on desktop)
-    <div class="d-md-none">
+    <div class="d-lg-none">
         <div class="nav-mobile-bar" data-bs-toggle="offcanvas" data-bs-target="#offcanvas-@uniqueId" aria-controls="offcanvas-@uniqueId">
-            <span>On this page</span>
-            <span class="navbar-toggler-icon"></span>
+            <h2 class="mb-0">On this page</h2>
+            <button class="navbar-toggler" type="button" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
         </div>
 
         <div class="offcanvas offcanvas-bottom" tabindex="-1" id="offcanvas-@uniqueId" aria-labelledby="offcanvas-label-@uniqueId">
@@ -72,7 +74,7 @@
                         @foreach (var item in resolvedItems)
                         {
                             <li>
-                                <a href="#@item.slug" class="list-group-item-action list-group-item" data-bs-dismiss="offcanvas">@item.title</a>
+                                <a href="#@item.slug" class="list-group-item-action list-group-item">@item.title</a>
                             </li>
                         }
                     </ul>
@@ -100,6 +102,22 @@
                 new bootstrap.ScrollSpy(document.body, {
                     target: '#' + mobileNavId,
                     rootMargin: '0px 0px -75%'
+                });
+            }
+
+            // Mobile offcanvas: scroll to section then close
+            var offcanvasEl = document.getElementById('offcanvas-@uniqueId');
+            if (offcanvasEl) {
+                var bsOffcanvas = bootstrap.Offcanvas.getOrCreateInstance(offcanvasEl);
+                offcanvasEl.querySelectorAll('a[href^="#"]').forEach(function (link) {
+                    link.addEventListener('click', function (e) {
+                        e.preventDefault();
+                        var target = document.querySelector(this.getAttribute('href'));
+                        if (target) {
+                            target.scrollIntoView({ behavior: 'smooth' });
+                        }
+                        bsOffcanvas.hide();
+                    });
                 });
             }
         });
