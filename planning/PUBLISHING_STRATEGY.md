@@ -53,7 +53,9 @@ All assets in `assets/` are referenced via raw GitHub URLs from the `develop` br
 ## Versioning
 
 - Git tag = package version (no version in csproj)
-- Major version aligns with Umbraco major version by convention
+- **UmBootstrap version aligns exactly with the Umbraco CMS version it targets** (e.g. UmBootstrap 17.2.2 targets Umbraco 17.2.2)
+- This is critical because UmBootstrap is a starter kit — all dependent packages (BlockPreview, uSync, Contentment, UmbNav) must be compatible with the specific Umbraco version, and the version number communicates this immediately to users
+- When Umbraco releases a new version and UmBootstrap upgrades to it, the UmBootstrap version number matches
 - Pre-release tags supported (e.g. `17.2.0-beta`)
 
 ## Decisions Log
@@ -65,3 +67,4 @@ All assets in `assets/` are referenced via raw GitHub URLs from the `develop` br
 | 2026-03-10 | Point DocumentationUrl to Starlight docs | Proper docs site exists at umtemplates.github.io |
 | 2026-03-10 | Change PackageReadmeFile to README_nuget.md | NuGet should show the short readme, not the full GitHub one |
 | 2026-03-10 | Maintain three separate READMEs | Each platform has different needs; Claude can keep them in sync |
+| 2026-03-15 | Align UmBootstrap version with Umbraco CMS version | Starter kit must track Umbraco version exactly — dependent packages have version-specific compatibility, and users need to know at a glance which Umbraco version the kit targets |
