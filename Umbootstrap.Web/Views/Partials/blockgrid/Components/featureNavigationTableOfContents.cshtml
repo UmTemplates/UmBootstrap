@@ -13,6 +13,7 @@
 
     var uniqueId = Model.ContentKey.ToString("N");
     var tocContentKey = Model.ContentKey;
+    var enableSticky = Model.Settings?.Value<bool>("featureSettingsEnableSticky") ?? false;
 
     // Find sibling blocks in the same area as this TOC block
     var siblingItems = new List<(string title, string slug)>();
@@ -52,7 +53,7 @@
 
 @if (siblingItems.Any())
 {
-    <nav id="nav-toc-@uniqueId" class="card" aria-label="Table of contents">
+    <nav id="nav-toc-@uniqueId" class="card @(enableSticky ? "sticky-nav" : "")" aria-label="Table of contents">
         <div class="card-header">
             <nav class="navbar navbar-expand-lg p-0">
                 <h2 class="card-title mb-0">On this page</h2>
