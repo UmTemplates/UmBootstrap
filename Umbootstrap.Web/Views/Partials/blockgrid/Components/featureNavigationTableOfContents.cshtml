@@ -53,16 +53,16 @@
 
 @if (siblingItems.Any())
 {
-    <nav id="nav-toc-@uniqueId" class="card @(enableSticky ? "sticky-nav" : "")" aria-label="Table of contents">
-        <div class="card-header">
-            <nav class="navbar navbar-expand-lg p-0">
+    <nav id="nav-toc-@uniqueId" class="card @(enableSticky ? "nav-toc-sticky" : "")" aria-label="Table of contents">
+        <div class="card-header" role="button" data-bs-toggle="collapse" data-bs-target="#toc-@uniqueId" aria-expanded="false" aria-label="Toggle table of contents" style="cursor: pointer;">
+            <nav class="navbar p-0">
                 <h2 class="card-title mb-0">On this page</h2>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#toc-@uniqueId" aria-expanded="false" aria-label="Toggle table of contents">
+                <button class="navbar-toggler" type="button" tabindex="-1">
                     <span class="navbar-toggler-icon"></span>
                 </button>
             </nav>
         </div>
-        <div class="collapse d-lg-block" id="toc-@uniqueId">
+        <div class="collapse" id="toc-@uniqueId">
             <ul class="list-group list-group-flush nav">
                 @foreach (var item in siblingItems)
                 {
@@ -77,21 +77,46 @@
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             var navId = 'nav-toc-@uniqueId';
+            var navEl = document.getElementById(navId);
+
+            // Set --toc-height for scroll-margin-top calculations
+            if (navEl) {
+                var tocHeight = navEl.querySelector('.card-header').offsetHeight;
+                document.documentElement.style.setProperty('--toc-height', tocHeight + 'px');
+
+                // Detect when TOC becomes sticky and add shadow
+                var sentinel = document.createElement('div');
+                sentinel.style.height = '1px';
+                sentinel.style.marginBottom = '-1px';
+                navEl.parentNode.insertBefore(sentinel, navEl);
+                var observer = new IntersectionObserver(function (entries) {
+                    navEl.classList.toggle('is-stuck', !entries[0].isIntersecting);
+                }, { threshold: 0 });
+                observer.observe(sentinel);
+            }
+
             new bootstrap.ScrollSpy(document.body, {
                 target: '#' + navId,
                 rootMargin: '0px 0px -75%'
             });
 
-            // Auto-collapse on link click (mobile)
+            // Auto-collapse on link click, scroll after collapse finishes
             var collapseId = 'toc-@uniqueId';
             var collapseEl = document.getElementById(collapseId);
             if (collapseEl) {
                 var bsCollapse = bootstrap.Collapse.getOrCreateInstance(collapseEl, { toggle: false });
                 collapseEl.querySelectorAll('a').forEach(function (link) {
-                    link.addEventListener('click', function () {
-                        if (window.innerWidth < 992) {
-                            bsCollapse.hide();
-                        }
+                    link.addEventListener('click', function (e) {
+                        e.preventDefault();
+                        var targetId = this.getAttribute('href');
+                        bsCollapse.hide();
+                        collapseEl.addEventListener('hidden.bs.collapse', function onHidden() {
+                            collapseEl.removeEventListener('hidden.bs.collapse', onHidden);
+                            var target = document.querySelector(targetId);
+                            if (target) {
+                                target.scrollIntoView({ behavior: 'instant' });
+                            }
+                        });
                     });
                 });
             }
