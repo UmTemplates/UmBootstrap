@@ -15,57 +15,119 @@
 
 @{
     var enableSticky = Model.Settings?.Value<bool>("featureSettingsEnableSticky") ?? false;
+    var uniqueId = Model.ContentKey.ToString("N");
 }
 
 @if (selectedKeys != null && selectedKeys.Any() && blockGrids.Count > 0)
 {
-    <nav id="nav-in-page-@(Model.ContentKey.ToString("N"))" class="card @(enableSticky ? "sticky-nav" : "")" aria-label="Jump to section">
-        <header class="card-header d-flex justify-content-between align-items-center">
-            <h2 class="card-title mb-0">On this page</h2>
-            <button class="navbar-toggler d-md-none" type="button" data-bs-toggle="collapse" data-bs-target="#n@(Model.ContentKey.ToString("N"))" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-        </header>
-        <div class="collapse d-md-block" id="n@(Model.ContentKey.ToString("N"))">
-            <ul class="list-group list-group-flush nav">
-                @foreach (var key in selectedKeys)
+    // Resolve blocks once for reuse
+    var resolvedItems = new List<(string title, string slug)>();
+    foreach (var key in selectedKeys)
+    {
+        if (Guid.TryParse(key, out var contentKey))
+        {
+            var block = FindFeatureBlock(blockGrids, contentKey);
+            if (block != null)
+            {
+                var title = block.Content.Value<string>("featurePropertyFeatureTitle");
+                if (!string.IsNullOrWhiteSpace(title))
                 {
-                    if (Guid.TryParse(key, out var contentKey))
-                    {
-                        var block = FindFeatureBlock(blockGrids, contentKey);
-                        if (block != null)
-                        {
-                            var title = block.Content.Value<string>("featurePropertyFeatureTitle");
-                            if (!string.IsNullOrWhiteSpace(title))
-                            {
-                                var alias = block.Content.ContentType.Alias;
-                                <li>
-                                    <a href="#@SlugHelper.ToSlug(title, alias, contentKey)" class="list-group-item-action list-group-item">@title</a>
-                                </li>
-                            }
-                        }
-                    }
+                    var alias = block.Content.ContentType.Alias;
+                    resolvedItems.Add((title, SlugHelper.ToSlug(title, alias, contentKey)));
                 }
-            </ul>
-        </div>
+            }
+        }
+    }
+
+    // Desktop: card with sticky nav (hidden on mobile)
+    <nav id="nav-in-page-@uniqueId" class="card @(enableSticky ? "sticky-nav" : "") d-none d-lg-block" aria-label="Jump to section">
+        <header class="card-header">
+            <h2 class="card-title mb-0">On this page</h2>
+        </header>
+        <ul class="list-group list-group-flush nav">
+            @foreach (var item in resolvedItems)
+            {
+                <li>
+                    <a href="#@item.slug" class="list-group-item-action list-group-item">@item.title</a>
+                </li>
+            }
+        </ul>
     </nav>
+
+    // Mobile: fixed bottom bar + offcanvas (hidden on desktop)
+    <div class="d-lg-none">
+        <div class="nav-in-page-bar" data-bs-toggle="offcanvas" data-bs-target="#offcanvas-@uniqueId" aria-controls="offcanvas-@uniqueId">
+            <nav class="navbar p-0 w-100">
+                <h2 class="mb-0">On this page</h2>
+                <button class="navbar-toggler" type="button" tabindex="-1" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </nav>
+        </div>
+
+        <div class="offcanvas offcanvas-bottom" tabindex="-1" id="offcanvas-@uniqueId" aria-labelledby="offcanvas-label-@uniqueId">
+            <div class="offcanvas-header">
+                <h2 class="offcanvas-title" id="offcanvas-label-@uniqueId">On this page</h2>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <nav id="nav-in-page-mobile-@uniqueId" aria-label="Jump to section">
+                    <ul class="list-group list-group-flush nav">
+                        @foreach (var item in resolvedItems)
+                        {
+                            <li>
+                                <a href="#@item.slug" class="list-group-item-action list-group-item">@item.title</a>
+                            </li>
+                        }
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            var navId = 'nav-in-page-@(Model.ContentKey.ToString("N"))';
-            var collapseId = 'n@(Model.ContentKey.ToString("N"))';
+            // Desktop ScrollSpy
+            var navId = 'nav-in-page-@uniqueId';
+            var navEl = document.getElementById(navId);
+            if (navEl) {
+                new bootstrap.ScrollSpy(document.body, {
+                    target: '#' + navId,
+                    rootMargin: '0px 0px -75%'
+                });
+            }
 
-            new bootstrap.ScrollSpy(document.body, {
-                target: '#' + navId,
-                rootMargin: '0px 0px -75%'
-            });
+            // Mobile ScrollSpy
+            var mobileNavId = 'nav-in-page-mobile-@uniqueId';
+            var mobileNavEl = document.getElementById(mobileNavId);
+            if (mobileNavEl) {
+                new bootstrap.ScrollSpy(document.body, {
+                    target: '#' + mobileNavId,
+                    rootMargin: '0px 0px -75%'
+                });
+            }
 
-            var collapseEl = document.getElementById(collapseId);
-            if (collapseEl) {
-                var bsCollapse = bootstrap.Collapse.getOrCreateInstance(collapseEl, { toggle: false });
-                collapseEl.querySelectorAll('a').forEach(function (link) {
-                    link.addEventListener('click', function () {
-                        bsCollapse.hide();
+            // Mobile offcanvas: hide bar when open, scroll to section then close
+            var offcanvasEl = document.getElementById('offcanvas-@uniqueId');
+            var mobileBar = offcanvasEl ? offcanvasEl.previousElementSibling : null;
+            if (offcanvasEl) {
+                var bsOffcanvas = bootstrap.Offcanvas.getOrCreateInstance(offcanvasEl);
+
+                offcanvasEl.addEventListener('show.bs.offcanvas', function () {
+                    if (mobileBar) mobileBar.style.display = 'none';
+                });
+                offcanvasEl.addEventListener('hidden.bs.offcanvas', function () {
+                    if (mobileBar) mobileBar.style.display = '';
+                });
+
+                offcanvasEl.querySelectorAll('a[href^="#"]').forEach(function (link) {
+                    link.addEventListener('click', function (e) {
+                        e.preventDefault();
+                        var target = document.querySelector(this.getAttribute('href'));
+                        if (target) {
+                            target.scrollIntoView({ behavior: 'smooth' });
+                        }
+                        bsOffcanvas.hide();
                     });
                 });
             }

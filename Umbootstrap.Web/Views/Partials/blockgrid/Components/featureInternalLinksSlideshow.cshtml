@@ -38,7 +38,7 @@
                         <img src="@(thumbnail.GetCropUrl(width: 1296))" class="d-block w-100" alt="...">
                     }
                     <div class="carousel-caption d-none d-md-block p-3 rounded-3 bg-body-secondary bg-opacity-75 text-body">
-                        <h5><a class="nav-link stretched-link" href="@item.Url()">@item.Value("pageTitle")</a></h5>
+                        <h5><a class="nav-link stretched-link" href="@item.Url()">@item.Value("pageTitleShort")</a></h5>
                         <p>@item.Value("pageDescription")</p>
                         <p>@(count) of @(maxItems)</p>
                     </div>
