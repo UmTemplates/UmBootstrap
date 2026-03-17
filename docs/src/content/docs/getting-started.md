@@ -13,7 +13,7 @@ title: Getting Started
 
 ```bash
 # Install the template
-dotnet new install UmBootstrap.DotNet.Template
+dotnet new install Umbraco.Community.Templates.UmBootstrap
 
 # Create a new project
 dotnet new umbootstrap -n MyProject
@@ -27,7 +27,7 @@ dotnet run
 
 ### Option 2: Visual Studio
 
-1. Install the template: `dotnet new install UmBootstrap.DotNet.Template`
+1. Install the template: `dotnet new install Umbraco.Community.Templates.UmBootstrap`
 2. Open Visual Studio
 3. Create New Project
 4. Search for "UmBootstrap"

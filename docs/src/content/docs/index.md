@@ -17,7 +17,7 @@ UmBootstrap is an Umbraco 17 starter kit that provides a solid foundation for bu
 Install the template and create a new project:
 
 ```bash
-dotnet new install UmBootstrap.DotNet.Template
+dotnet new install Umbraco.Community.Templates.UmBootstrap
 dotnet new umbootstrap -n MyProject
 cd MyProject
 dotnet run
@@ -54,5 +54,5 @@ Content blocks for building pages:
 ## Links
 
 - [GitHub Repository](https://github.com/UmTemplates/UmBootstrap)
-- [NuGet Package](https://www.nuget.org/packages/UmBootstrap.DotNet.Template)
+- [NuGet Package](https://www.nuget.org/packages/Umbraco.Community.Templates.UmBootstrap)
 - [Umbraco Marketplace](https://marketplace.umbraco.com/)
