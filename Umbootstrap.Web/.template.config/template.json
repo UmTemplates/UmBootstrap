@@ -56,7 +56,9 @@
           "exclude": [
             "umbraco/Logs/**",
             "umbraco/Data/**",
-            "umbraco/Licenses/**"
+            "umbraco/Licenses/**",
+            "appsettings.Production.json",
+            "uSync/v17/usync.once"
           ]
         }
       ]
