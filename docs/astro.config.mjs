@@ -16,6 +16,17 @@ export default defineConfig({
 				{ label: 'Home', slug: '' },
 				{ label: 'Getting Started', slug: 'getting-started' },
 				{
+					label: 'Customisation',
+					collapsed: true,
+					items: [
+						{ label: 'Overview', slug: 'customisation' },
+						{ label: 'SCSS Setup', slug: 'customisation/scss-setup' },
+						{ label: 'Bootstrap Theming', slug: 'customisation/bootstrap-theming' },
+						{ label: 'Custom Colours', slug: 'customisation/custom-colours' },
+						{ label: 'Custom Components', slug: 'customisation/custom-components' },
+					],
+				},
+				{
 					label: 'Block Grid',
 					collapsed: true,
 					items: [
