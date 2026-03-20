@@ -17,8 +17,22 @@
 }
 
 <!doctype html>
-<html lang="en" data-bs-theme="dark">
+<html lang="en">
 <head>
+    <script>
+        // Apply stored theme preferences before first paint to prevent FOUC
+        (function() {
+            var mode = localStorage.getItem('theme') || 'auto';
+            var palette = localStorage.getItem('palette');
+            if (mode === 'auto') {
+                mode = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+            }
+            document.documentElement.setAttribute('data-bs-theme', mode);
+            if (palette && palette !== 'default') {
+                document.documentElement.setAttribute('data-bs-theme-palette', palette);
+            }
+        })();
+    </script>
     <partial name="Head/_meta" />
 
     @*<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">*@
