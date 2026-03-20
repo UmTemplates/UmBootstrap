@@ -4,10 +4,12 @@
 
 UmBootstrap is an Umbraco 17 starter kit distributed as a .NET template via NuGet.
 
-- **Umbraco**: v17.1.0
-- **BlockPreview**: v5.2.1 for block grid previews
+- **Umbraco** (check csproj for current version)
+- **BlockPreview** for block grid previews
 - **ModelsBuilder**: SourceCodeAuto mode
-- **uSync**: v17.0.2 for content/config synchronisation
+- **uSync** for content/config synchronisation
+- **Contentment** for custom data sources
+- **UmbNav** for navigation
 - **Frontend**: Bootstrap + SCSS
 
 ## Project Structure
@@ -27,10 +29,6 @@ UmBootstrap/
 └── .github/workflows/            # CI/CD workflows
 ```
 
-## Umbraco Skills Marketplace
-
-This project has access to 57 Umbraco backoffice extension skills and 8 testing skills via Claude Code. Use `/umbraco-backoffice` to see available skills for backoffice customisation.
-
 ## Planning Files
 
 When actively working on a feature or architectural change, add the relevant planning file here for session startup:
@@ -40,13 +38,6 @@ When actively working on a feature or architectural change, add the relevant pla
 -->
 
 *No active planning files.*
-
-## Git Branching Strategy
-
-- **develop**: Main development branch
-- **main**: Release branch (triggers deployments)
-- Feature branches from `develop`
-- PRs to `develop`, merge to `main` for release
 
 ## Build Instructions
 
@@ -94,11 +85,3 @@ No `appsettings.json` configuration is needed for BlockPreview.
 - **Config**: `docs/astro.config.mjs`
 - **Deployed to**: https://umtemplates.github.io/UmBootstrap/
 - **Deployment**: Automatic on push to `main` when `docs/**` changes (GitHub Actions artifact-based)
-
-## References
-
-- Umbraco Docs: https://docs.umbraco.com/
-- BlockPreview: https://github.com/rickbutterfield/Umbraco.Community.BlockPreview
-- uSync: https://docs.jumoo.co.uk/usync/
-- Bootstrap: https://getbootstrap.com/docs/
-- UUI Storybook: https://uui.umbraco.com/
