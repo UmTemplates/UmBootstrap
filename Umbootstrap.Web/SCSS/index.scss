@@ -71,5 +71,6 @@
 @import "_type";
 
 // 9. Runtime themes (CSS custom property overrides for data-bs-theme-palette switching)
+@import "themes/bootstrap/runtime";
 @import "themes/umbraco/runtime";
 @import "themes/ultraviolet/runtime";
