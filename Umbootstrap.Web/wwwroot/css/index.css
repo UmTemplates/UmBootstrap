@@ -12560,7 +12560,9 @@ h1 + .lead, .h1 + .lead {
   --bs-link-hover-color-rgb: 10, 88, 202;
   --bs-heading-color: inherit;
   --bs-secondary-bg: #e9ecef;
+  --bs-secondary-bg-rgb: 233, 236, 239;
   --bs-tertiary-bg: #f8f9fa;
+  --bs-tertiary-bg-rgb: 248, 249, 250;
   --bs-border-color: #dee2e6;
 }
 
@@ -12583,15 +12585,17 @@ h1 + .lead, .h1 + .lead {
   --bs-heading-color: inherit;
   --bs-secondary-color: rgba(222, 226, 230, 0.75);
   --bs-secondary-bg: #343a40;
+  --bs-secondary-bg-rgb: 52, 58, 64;
   --bs-tertiary-bg: #2b3035;
+  --bs-tertiary-bg-rgb: 43, 48, 53;
   --bs-border-color: #495057;
 }
 
 [data-bs-theme-palette=umbraco] {
   --bs-body-color: #162335;
   --bs-body-color-rgb: 22, 35, 53;
-  --bs-body-bg: #f9f7f4;
-  --bs-body-bg-rgb: 249, 247, 244;
+  --bs-body-bg: #fff;
+  --bs-body-bg-rgb: 255, 255, 255;
   --bs-emphasis-color: #162335;
   --bs-emphasis-color-rgb: 22, 35, 53;
   --bs-primary: #283a97;
@@ -12605,7 +12609,9 @@ h1 + .lead, .h1 + .lead {
   --bs-link-hover-color-rgb: 32, 46, 121;
   --bs-heading-color: #283a97;
   --bs-secondary-bg: #f2ebe6;
+  --bs-secondary-bg-rgb: 242, 235, 230;
   --bs-tertiary-bg: #f1f0ee;
+  --bs-tertiary-bg-rgb: 241, 240, 238;
   --bs-border-color: rgb(190.5, 195.9, 223.8);
 }
 
@@ -12628,7 +12634,9 @@ h1 + .lead, .h1 + .lead {
   --bs-heading-color: rgb(169, 176.2, 213.4);
   --bs-secondary-color: rgba(212, 215.6, 234.2, 0.75);
   --bs-secondary-bg: #1b264f;
+  --bs-secondary-bg-rgb: 27, 38, 79;
   --bs-tertiary-bg: #162335;
+  --bs-tertiary-bg-rgb: 22, 35, 53;
   --bs-border-color: rgb(24, 34.8, 90.6);
 }
 
@@ -12650,7 +12658,9 @@ h1 + .lead, .h1 + .lead {
   --bs-link-hover-color-rgb: 80, 29, 175;
   --bs-heading-color: #6424DB;
   --bs-secondary-bg: rgb(239.5, 233.1, 251.4);
+  --bs-secondary-bg-rgb: 240, 233, 251;
   --bs-tertiary-bg: rgb(247.25, 244.05, 253.2);
+  --bs-tertiary-bg-rgb: 247, 244, 253;
   --bs-border-color: rgb(208.5, 189.3, 244.2);
   --bs-warning: #D4A017;
   --bs-warning-rgb: 212, 160, 23;
@@ -12678,7 +12688,9 @@ h1 + .lead, .h1 + .lead {
   --bs-heading-color: rgb(193, 167.4, 240.6);
   --bs-secondary-color: rgba(224, 211.2, 247.8, 0.75);
   --bs-secondary-bg: rgb(30, 10.8, 65.7);
+  --bs-secondary-bg-rgb: 30, 11, 66;
   --bs-tertiary-bg: rgb(20, 7.2, 43.8);
+  --bs-tertiary-bg-rgb: 20, 7, 44;
   --bs-border-color: rgb(60, 21.6, 131.4);
   --bs-warning: #D4A017;
   --bs-warning-rgb: 212, 160, 23;
@@ -12687,4 +12699,4 @@ h1 + .lead, .h1 + .lead {
   --bs-warning-border-subtle: rgb(127.2, 96, 13.8);
 }
 
-/*# sourceMappingURL=Index.css.map */
+/*# sourceMappingURL=index.css.map */

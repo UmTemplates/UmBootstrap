@@ -9,8 +9,8 @@
 [data-bs-theme-palette="umbraco"] {
     --bs-body-color: #{$umbraco-darkest};
     --bs-body-color-rgb: #{red($umbraco-darkest)}, #{green($umbraco-darkest)}, #{blue($umbraco-darkest)};
-    --bs-body-bg: #{$umbraco-white};
-    --bs-body-bg-rgb: #{red($umbraco-white)}, #{green($umbraco-white)}, #{blue($umbraco-white)};
+    --bs-body-bg: #fff;
+    --bs-body-bg-rgb: 255, 255, 255;
 
     --bs-emphasis-color: #{$umbraco-darkest};
     --bs-emphasis-color-rgb: #{red($umbraco-darkest)}, #{green($umbraco-darkest)}, #{blue($umbraco-darkest)};
@@ -29,7 +29,9 @@
     --bs-heading-color: #{$umbraco-blue};
 
     --bs-secondary-bg: #{$umbraco-smoke};
+    --bs-secondary-bg-rgb: #{red($umbraco-smoke)}, #{green($umbraco-smoke)}, #{blue($umbraco-smoke)};
     --bs-tertiary-bg: #{$umbraco-surface};
+    --bs-tertiary-bg-rgb: #{red($umbraco-surface)}, #{green($umbraco-surface)}, #{blue($umbraco-surface)};
 
     --bs-border-color: #{tint-color($umbraco-blue, 70%)};
 }
@@ -60,7 +62,9 @@
 
     --bs-secondary-color: #{rgba(tint-color($umbraco-blue, 80%), .75)};
     --bs-secondary-bg: #{$umbraco-dark};
+    --bs-secondary-bg-rgb: #{red($umbraco-dark)}, #{green($umbraco-dark)}, #{blue($umbraco-dark)};
     --bs-tertiary-bg: #{$umbraco-darkest};
+    --bs-tertiary-bg-rgb: #{red($umbraco-darkest)}, #{green($umbraco-darkest)}, #{blue($umbraco-darkest)};
 
     --bs-border-color: #{shade-color($umbraco-blue, 40%)};
 }

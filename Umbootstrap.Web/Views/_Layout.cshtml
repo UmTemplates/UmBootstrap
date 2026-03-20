@@ -23,14 +23,12 @@
         // Apply stored theme preferences before first paint to prevent FOUC
         (function() {
             var mode = localStorage.getItem('theme') || 'auto';
-            var palette = localStorage.getItem('palette');
+            var palette = localStorage.getItem('palette') || 'bootstrap';
             if (mode === 'auto') {
                 mode = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
             }
             document.documentElement.setAttribute('data-bs-theme', mode);
-            if (palette && palette !== 'default') {
-                document.documentElement.setAttribute('data-bs-theme-palette', palette);
-            }
+            document.documentElement.setAttribute('data-bs-theme-palette', palette);
         })();
     </script>
     <partial name="Head/_meta" />

@@ -57,25 +57,19 @@
     const setStoredPalette = palette => localStorage.setItem('palette', palette);
 
     const applyPalette = palette => {
-        if (palette && palette !== 'default') {
-            document.documentElement.setAttribute('data-bs-theme-palette', palette);
-        } else {
-            document.documentElement.removeAttribute('data-bs-theme-palette');
-        }
+        document.documentElement.setAttribute('data-bs-theme-palette', palette || 'bootstrap');
     };
 
     const updatePaletteButton = palette => {
+        const activePalette = palette || 'bootstrap';
         const label = document.getElementById('paletteLabel');
         if (label) {
-            const activeName = palette && palette !== 'default'
-                ? palette.charAt(0).toUpperCase() + palette.slice(1)
-                : 'Default';
-            label.textContent = activeName;
+            label.textContent = activePalette.charAt(0).toUpperCase() + activePalette.slice(1);
         }
 
         // Update active state on dropdown items
         document.querySelectorAll('[data-bs-palette-value]').forEach(item => {
-            const isActive = (item.getAttribute('data-bs-palette-value') === (palette || 'default'));
+            const isActive = (item.getAttribute('data-bs-palette-value') === activePalette);
             item.classList.toggle('active', isActive);
             item.setAttribute('aria-pressed', isActive);
         });
@@ -91,7 +85,7 @@
         document.getElementById('themeToggleBtn')?.addEventListener('click', toggleMode);
 
         // Palette
-        const preferredPalette = getStoredPalette() || 'default';
+        const preferredPalette = getStoredPalette() || 'bootstrap';
         applyPalette(preferredPalette);
         updatePaletteButton(preferredPalette);
 

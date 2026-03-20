@@ -34,7 +34,9 @@
 
     // Secondary surfaces
     --bs-secondary-bg: #{tint-color($uv-purple, 90%)};
+    --bs-secondary-bg-rgb: #{red(tint-color($uv-purple, 90%))}, #{green(tint-color($uv-purple, 90%))}, #{blue(tint-color($uv-purple, 90%))};
     --bs-tertiary-bg: #{tint-color($uv-purple, 95%)};
+    --bs-tertiary-bg-rgb: #{red(tint-color($uv-purple, 95%))}, #{green(tint-color($uv-purple, 95%))}, #{blue(tint-color($uv-purple, 95%))};
 
     // Borders
     --bs-border-color: #{tint-color($uv-purple, 70%)};
@@ -79,7 +81,9 @@
     // Secondary surfaces
     --bs-secondary-color: #{rgba(tint-color($uv-purple, 80%), .75)};
     --bs-secondary-bg: #{shade-color($uv-purple, 70%)};
+    --bs-secondary-bg-rgb: #{red(shade-color($uv-purple, 70%))}, #{green(shade-color($uv-purple, 70%))}, #{blue(shade-color($uv-purple, 70%))};
     --bs-tertiary-bg: #{shade-color($uv-purple, 80%)};
+    --bs-tertiary-bg-rgb: #{red(shade-color($uv-purple, 80%))}, #{green(shade-color($uv-purple, 80%))}, #{blue(shade-color($uv-purple, 80%))};
 
     // Borders
     --bs-border-color: #{shade-color($uv-purple, 40%)};
