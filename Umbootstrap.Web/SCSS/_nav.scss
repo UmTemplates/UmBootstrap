@@ -1,38 +1,32 @@
-/*.nav-link {
-    &:hover,
-    &:focus {
-        color: $white;
-        background-color: var(--#{$prefix}nav-link-hover-color);
-        text-decoration: if($link-hover-decoration == underline, none, null);
-    }
-    // Disabled state lightens text
-}
-
-.card .nav-link:hover {
-    &:hover,
-    &:focus {
-        color: $pink;
-    }
-}
-
-.card .nav-tabs .nav-link {
-        &:hover,
-        &:focus {
-            color: $white;
-            background-color: var(--#{$prefix}nav-link-hover-color);
-            text-decoration: if($link-hover-decoration == underline, none, null);
-        }
-        // Disabled state lightens text
-}*/
-
-.nav-pills .nav-link {
-
-}
+// Nav overrides
 
 .nav-pills .nav-link:hover,
 .nav-pills .nav-link:focus,
 .nav-pills .nav-link.active {
-    color: #fff;
-    background-color: $blue; // Bootstrap primary blue
+    color: $white;
+    background-color: var(--bs-primary);
     transition: color 0.15s, background-color 0.15s;
+}
+
+// Mobile bottom bar for in-page navigation
+.nav-in-page-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1030;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    background-color: var(--bs-card-bg, var(--bs-body-bg));
+    border-top: 1px solid var(--bs-border-color);
+    cursor: pointer;
+}
+
+// Prevent in-page bar from covering content on mobile
+@media (max-width: 991.98px) {
+    body:has(.nav-in-page-bar) {
+        padding-bottom: 4rem;
+    }
 }

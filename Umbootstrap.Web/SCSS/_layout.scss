@@ -1,0 +1,19 @@
+// Layout — root custom properties, body defaults, scroll behaviour
+
+:root {
+    --navbar-height: 7rem;
+}
+
+body {
+    min-height: 100vh;
+    height: 100%;
+}
+
+.document {
+    min-height: 100vh;
+    height: 100%;
+}
+
+[data-FeatureContentKey] {
+    scroll-margin-top: calc(var(--navbar-height) + var(--toc-height, 0px));
+}
