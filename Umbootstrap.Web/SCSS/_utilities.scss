@@ -9,8 +9,7 @@ $all-shade-colors: map-merge-multiple(
   $yellows,
   $greens,
   $teals,
-  $cyans,
-  $corals
+  $cyans
 );
 
 // Existing $utilities map merge (keep this for Bootstrap utility API)
@@ -43,8 +42,7 @@ $utilities: map-merge(
   "green": $greens,
   "teal": $teals,
   "cyan": $cyans,
-  "gray": $grays,
-  "coral": $corals
+  "gray": $grays
 ) {
   @each $shade, $hex in $shades {
     .bg-#{$shade}-rgb {

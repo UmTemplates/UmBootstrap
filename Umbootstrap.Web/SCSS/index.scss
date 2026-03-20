@@ -12,11 +12,12 @@
 @import "_variables.scss";
 @import "../node_modules/bootstrap/scss/variables-dark";
 
-// 4. Include any default map overrides here
+// 4. Include remainder of required parts
+@import "../node_modules/bootstrap/scss/maps";
+
+// 5. Include map overrides here (after Bootstrap maps are defined)
 @import "_overrides.scss";
 
-// 5. Include remainder of required parts
-@import "../node_modules/bootstrap/scss/maps";
 @import "../node_modules/bootstrap/scss/mixins";
 @import "../node_modules/bootstrap/scss/root";
 @import "../node_modules/bootstrap/scss/helpers";

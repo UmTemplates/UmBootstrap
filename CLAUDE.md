@@ -37,7 +37,7 @@ When actively working on a feature or architectural change, add the relevant pla
 - `planning/FEATURE_NAME.md` - Description of current work
 -->
 
-*No active planning files.*
+- `planning/SCSS_COLOUR_REFACTOR.md` - SCSS colour system refactoring and Bootstrap workflow fixes
 
 ## Build Instructions
 
