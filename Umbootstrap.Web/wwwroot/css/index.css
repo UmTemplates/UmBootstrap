@@ -12630,6 +12630,11 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
+.screen--utility {
+  position: relative;
+  z-index: 1030;
+}
+
 :root {
   --navbar-height: 7rem;
 }
@@ -12841,6 +12846,106 @@ h1 + .lead, .h1 + .lead {
   margin-top: 0.5rem;
   font-size: 1.5rem;
   color: var(--bs-heading-color);
+}
+
+[data-bs-theme-palette=umbraco] {
+  --bs-body-color: #162335;
+  --bs-body-color-rgb: 22, 35, 53;
+  --bs-body-bg: #f9f7f4;
+  --bs-body-bg-rgb: 249, 247, 244;
+  --bs-emphasis-color: #162335;
+  --bs-emphasis-color-rgb: 22, 35, 53;
+  --bs-primary: #283a97;
+  --bs-primary-rgb: 40, 58, 151;
+  --bs-primary-text-emphasis: rgb(24, 34.8, 90.6);
+  --bs-primary-bg-subtle: rgb(212, 215.6, 234.2);
+  --bs-primary-border-subtle: rgb(169, 176.2, 213.4);
+  --bs-link-color: #283a97;
+  --bs-link-color-rgb: 40, 58, 151;
+  --bs-link-hover-color: rgb(32, 46.4, 120.8);
+  --bs-link-hover-color-rgb: 32, 46, 121;
+  --bs-heading-color: #283a97;
+  --bs-secondary-bg: rgb(233.5, 235.3, 244.6);
+  --bs-tertiary-bg: rgb(244.25, 245.15, 249.8);
+  --bs-border-color: rgb(190.5, 195.9, 223.8);
+}
+
+[data-bs-theme-palette=umbraco][data-bs-theme=dark] {
+  color-scheme: dark;
+  --bs-body-color: rgb(212, 215.6, 234.2);
+  --bs-body-color-rgb: 212, 216, 234;
+  --bs-body-bg: #162335;
+  --bs-body-bg-rgb: 22, 35, 53;
+  --bs-emphasis-color: #fff;
+  --bs-emphasis-color-rgb: 255, 255, 255;
+  --bs-primary: rgb(83, 97.4, 171.8);
+  --bs-primary-rgb: 83, 97, 172;
+  --bs-primary-text-emphasis: rgb(126, 136.8, 192.6);
+  --bs-primary-bg-subtle: rgb(8, 11.6, 30.2);
+  --bs-primary-border-subtle: rgb(24, 34.8, 90.6);
+  --bs-link-color: rgb(126, 136.8, 192.6);
+  --bs-link-color-rgb: 126, 137, 193;
+  --bs-link-hover-color: rgb(169, 176.2, 213.4);
+  --bs-heading-color: rgb(169, 176.2, 213.4);
+  --bs-secondary-color: rgba(212, 215.6, 234.2, 0.75);
+  --bs-secondary-bg: rgb(12, 17.4, 45.3);
+  --bs-tertiary-bg: rgb(8, 11.6, 30.2);
+  --bs-border-color: rgb(24, 34.8, 90.6);
+}
+
+[data-bs-theme-palette=ultraviolet] {
+  --bs-body-color: #0E051F;
+  --bs-body-color-rgb: 14, 5, 31;
+  --bs-body-bg: #EFE9FB;
+  --bs-body-bg-rgb: 239, 233, 251;
+  --bs-emphasis-color: #0E051F;
+  --bs-emphasis-color-rgb: 14, 5, 31;
+  --bs-primary: #6424DB;
+  --bs-primary-rgb: 100, 36, 219;
+  --bs-primary-text-emphasis: rgb(60, 21.6, 131.4);
+  --bs-primary-bg-subtle: rgb(224, 211.2, 247.8);
+  --bs-primary-border-subtle: rgb(193, 167.4, 240.6);
+  --bs-link-color: #6424DB;
+  --bs-link-color-rgb: 100, 36, 219;
+  --bs-link-hover-color: rgb(80, 28.8, 175.2);
+  --bs-link-hover-color-rgb: 80, 29, 175;
+  --bs-heading-color: #6424DB;
+  --bs-secondary-bg: rgb(239.5, 233.1, 251.4);
+  --bs-tertiary-bg: rgb(247.25, 244.05, 253.2);
+  --bs-border-color: rgb(208.5, 189.3, 244.2);
+  --bs-warning: #D4A017;
+  --bs-warning-rgb: 212, 160, 23;
+  --bs-warning-text-emphasis: rgb(127.2, 96, 13.8);
+  --bs-warning-bg-subtle: rgb(246.4, 236, 208.6);
+  --bs-warning-border-subtle: rgb(237.8, 217, 162.2);
+}
+
+[data-bs-theme-palette=ultraviolet][data-bs-theme=dark] {
+  color-scheme: dark;
+  --bs-body-color: rgb(224, 211.2, 247.8);
+  --bs-body-color-rgb: 224, 211, 248;
+  --bs-body-bg: #0E051F;
+  --bs-body-bg-rgb: 14, 5, 31;
+  --bs-emphasis-color: #fff;
+  --bs-emphasis-color-rgb: 255, 255, 255;
+  --bs-primary: rgb(131, 79.8, 226.2);
+  --bs-primary-rgb: 131, 80, 226;
+  --bs-primary-text-emphasis: rgb(162, 123.6, 233.4);
+  --bs-primary-bg-subtle: rgb(20, 7.2, 43.8);
+  --bs-primary-border-subtle: rgb(60, 21.6, 131.4);
+  --bs-link-color: rgb(162, 123.6, 233.4);
+  --bs-link-color-rgb: 162, 124, 233;
+  --bs-link-hover-color: rgb(193, 167.4, 240.6);
+  --bs-heading-color: rgb(193, 167.4, 240.6);
+  --bs-secondary-color: rgba(224, 211.2, 247.8, 0.75);
+  --bs-secondary-bg: rgb(30, 10.8, 65.7);
+  --bs-tertiary-bg: rgb(20, 7.2, 43.8);
+  --bs-border-color: rgb(60, 21.6, 131.4);
+  --bs-warning: #D4A017;
+  --bs-warning-rgb: 212, 160, 23;
+  --bs-warning-text-emphasis: rgb(229.2, 198, 115.8);
+  --bs-warning-bg-subtle: rgb(42.4, 32, 4.6);
+  --bs-warning-border-subtle: rgb(127.2, 96, 13.8);
 }
 
 /*# sourceMappingURL=Index.css.map */

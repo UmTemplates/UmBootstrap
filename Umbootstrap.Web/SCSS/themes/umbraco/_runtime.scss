@@ -1,0 +1,66 @@
+// Umbraco runtime theme
+// Overrides Bootstrap CSS custom properties via data-bs-theme-palette="umbraco"
+// Note: Umbraco is also the compile-time default, so this is only needed
+// when switching back from another palette at runtime
+
+@import "colours";
+
+// Light mode overrides
+[data-bs-theme-palette="umbraco"] {
+    --bs-body-color: #{$umbraco-dark};
+    --bs-body-color-rgb: #{red($umbraco-dark)}, #{green($umbraco-dark)}, #{blue($umbraco-dark)};
+    --bs-body-bg: #{$umbraco-cream};
+    --bs-body-bg-rgb: #{red($umbraco-cream)}, #{green($umbraco-cream)}, #{blue($umbraco-cream)};
+
+    --bs-emphasis-color: #{$umbraco-dark};
+    --bs-emphasis-color-rgb: #{red($umbraco-dark)}, #{green($umbraco-dark)}, #{blue($umbraco-dark)};
+
+    --bs-primary: #{$umbraco-blue};
+    --bs-primary-rgb: #{red($umbraco-blue)}, #{green($umbraco-blue)}, #{blue($umbraco-blue)};
+    --bs-primary-text-emphasis: #{shade-color($umbraco-blue, 40%)};
+    --bs-primary-bg-subtle: #{tint-color($umbraco-blue, 80%)};
+    --bs-primary-border-subtle: #{tint-color($umbraco-blue, 60%)};
+
+    --bs-link-color: #{$umbraco-blue};
+    --bs-link-color-rgb: #{red($umbraco-blue)}, #{green($umbraco-blue)}, #{blue($umbraco-blue)};
+    --bs-link-hover-color: #{shade-color($umbraco-blue, 20%)};
+    --bs-link-hover-color-rgb: #{red(shade-color($umbraco-blue, 20%))}, #{green(shade-color($umbraco-blue, 20%))}, #{blue(shade-color($umbraco-blue, 20%))};
+
+    --bs-heading-color: #{$umbraco-blue};
+
+    --bs-secondary-bg: #{tint-color($umbraco-blue, 90%)};
+    --bs-tertiary-bg: #{tint-color($umbraco-blue, 95%)};
+
+    --bs-border-color: #{tint-color($umbraco-blue, 70%)};
+}
+
+// Dark mode overrides
+[data-bs-theme-palette="umbraco"][data-bs-theme="dark"] {
+    color-scheme: dark;
+
+    --bs-body-color: #{tint-color($umbraco-blue, 80%)};
+    --bs-body-color-rgb: #{red(tint-color($umbraco-blue, 80%))}, #{green(tint-color($umbraco-blue, 80%))}, #{blue(tint-color($umbraco-blue, 80%))};
+    --bs-body-bg: #{$umbraco-dark};
+    --bs-body-bg-rgb: #{red($umbraco-dark)}, #{green($umbraco-dark)}, #{blue($umbraco-dark)};
+
+    --bs-emphasis-color: #fff;
+    --bs-emphasis-color-rgb: 255, 255, 255;
+
+    --bs-primary: #{tint-color($umbraco-blue, 20%)};
+    --bs-primary-rgb: #{red(tint-color($umbraco-blue, 20%))}, #{green(tint-color($umbraco-blue, 20%))}, #{blue(tint-color($umbraco-blue, 20%))};
+    --bs-primary-text-emphasis: #{tint-color($umbraco-blue, 40%)};
+    --bs-primary-bg-subtle: #{shade-color($umbraco-blue, 80%)};
+    --bs-primary-border-subtle: #{shade-color($umbraco-blue, 40%)};
+
+    --bs-link-color: #{tint-color($umbraco-blue, 40%)};
+    --bs-link-color-rgb: #{red(tint-color($umbraco-blue, 40%))}, #{green(tint-color($umbraco-blue, 40%))}, #{blue(tint-color($umbraco-blue, 40%))};
+    --bs-link-hover-color: #{tint-color($umbraco-blue, 60%)};
+
+    --bs-heading-color: #{tint-color($umbraco-blue, 60%)};
+
+    --bs-secondary-color: #{rgba(tint-color($umbraco-blue, 80%), .75)};
+    --bs-secondary-bg: #{shade-color($umbraco-blue, 70%)};
+    --bs-tertiary-bg: #{shade-color($umbraco-blue, 80%)};
+
+    --bs-border-color: #{shade-color($umbraco-blue, 40%)};
+}

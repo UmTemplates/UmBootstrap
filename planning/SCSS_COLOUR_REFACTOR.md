@@ -88,6 +88,15 @@ $enable-cssgrid: true;
 
 ---
 
+## Status
+
+Phases 1–4 complete and committed on `feature/scss-colour-refactor`. Remaining:
+- Phase 5: Update documentation
+- Phase 6 (new): Create a second theme as proof of concept + theme switching
+- Phase 7 (new): Docs for theme switching
+
+---
+
 ## Phase 1 — Create theme folder and fix variable override ordering
 
 - [ ] **1.1** Create `SCSS/themes/umbraco/_colours.scss` — brand colour definitions (`$umbraco-blue`, `$umbraco-pink`, `$umbraco-cream`, `$umbraco-dark`)

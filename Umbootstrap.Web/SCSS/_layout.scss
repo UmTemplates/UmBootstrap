@@ -1,5 +1,11 @@
 // Layout — root custom properties, body defaults, scroll behaviour
 
+// Utility bar must sit above the sticky navbar so dropdowns aren't clipped
+.screen--utility {
+    position: relative;
+    z-index: 1030;
+}
+
 :root {
     --navbar-height: 7rem;
 }
