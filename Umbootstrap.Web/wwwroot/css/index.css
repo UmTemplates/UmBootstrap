@@ -12414,6 +12414,14 @@ body {
 .card-img-svg svg > rect[fill="#FFFFFF"] {
   fill: var(--bs-card-bg, var(--bs-body-bg));
 }
+.card-img-svg svg [stroke="#283A97"],
+.card-img-svg svg [stroke="#283a97"] {
+  stroke: var(--bs-primary);
+}
+.card-img-svg svg [fill="#283A97"],
+.card-img-svg svg [fill="#283a97"] {
+  fill: var(--bs-primary);
+}
 [data-bs-theme=dark] .card-img-svg svg [stroke="#283A97"],
 [data-bs-theme=dark] .card-img-svg svg [stroke="#283a97"] {
   stroke: var(--bs-body-color);
@@ -12619,8 +12627,8 @@ h1 + .lead, .h1 + .lead {
   color-scheme: dark;
   --bs-body-color: rgb(212, 215.6, 234.2);
   --bs-body-color-rgb: 212, 216, 234;
-  --bs-body-bg: #162335;
-  --bs-body-bg-rgb: 22, 35, 53;
+  --bs-body-bg: #1b264f;
+  --bs-body-bg-rgb: 27, 38, 79;
   --bs-emphasis-color: #fff;
   --bs-emphasis-color-rgb: 255, 255, 255;
   --bs-primary: rgb(83, 97.4, 171.8);
@@ -12633,8 +12641,8 @@ h1 + .lead, .h1 + .lead {
   --bs-link-hover-color: rgb(169, 176.2, 213.4);
   --bs-heading-color: rgb(169, 176.2, 213.4);
   --bs-secondary-color: rgba(212, 215.6, 234.2, 0.75);
-  --bs-secondary-bg: #1b264f;
-  --bs-secondary-bg-rgb: 27, 38, 79;
+  --bs-secondary-bg: rgb(21.6, 30.4, 63.2);
+  --bs-secondary-bg-rgb: 22, 30, 63;
   --bs-tertiary-bg: #162335;
   --bs-tertiary-bg-rgb: 22, 35, 53;
   --bs-border-color: rgb(24, 34.8, 90.6);

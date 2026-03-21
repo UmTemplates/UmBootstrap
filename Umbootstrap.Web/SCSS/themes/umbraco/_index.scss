@@ -42,8 +42,8 @@
 
     --bs-body-color: #{tint-color($umbraco-blue, 80%)};
     --bs-body-color-rgb: #{red(tint-color($umbraco-blue, 80%))}, #{green(tint-color($umbraco-blue, 80%))}, #{blue(tint-color($umbraco-blue, 80%))};
-    --bs-body-bg: #{$umbraco-darkest};
-    --bs-body-bg-rgb: #{red($umbraco-darkest)}, #{green($umbraco-darkest)}, #{blue($umbraco-darkest)};
+    --bs-body-bg: #{$umbraco-dark};
+    --bs-body-bg-rgb: #{red($umbraco-dark)}, #{green($umbraco-dark)}, #{blue($umbraco-dark)};
 
     --bs-emphasis-color: #fff;
     --bs-emphasis-color-rgb: 255, 255, 255;
@@ -61,8 +61,8 @@
     --bs-heading-color: #{tint-color($umbraco-blue, 60%)};
 
     --bs-secondary-color: #{rgba(tint-color($umbraco-blue, 80%), .75)};
-    --bs-secondary-bg: #{$umbraco-dark};
-    --bs-secondary-bg-rgb: #{red($umbraco-dark)}, #{green($umbraco-dark)}, #{blue($umbraco-dark)};
+    --bs-secondary-bg: #{shade-color($umbraco-dark, 20%)};
+    --bs-secondary-bg-rgb: #{red(shade-color($umbraco-dark, 20%))}, #{green(shade-color($umbraco-dark, 20%))}, #{blue(shade-color($umbraco-dark, 20%))};
     --bs-tertiary-bg: #{$umbraco-darkest};
     --bs-tertiary-bg-rgb: #{red($umbraco-darkest)}, #{green($umbraco-darkest)}, #{blue($umbraco-darkest)};
 
