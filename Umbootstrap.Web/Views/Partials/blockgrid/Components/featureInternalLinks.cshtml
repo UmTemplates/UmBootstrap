@@ -10,8 +10,8 @@
     <div class="grid">
         @foreach (var item in typedMultiNodeTreePicker)
         {
-            var page = (IContentHeadingDefault)item;
-            var pageThumbnail = page.PageThumbnail;
+            var childPage = (IContentHeadingDefault)item;
+            var pageThumbnail = childPage.PageThumbnail;
             <div class="g-col-12 g-col-md-6 g-col-lg-4">
                 <div class="card h-100 shadow">
                     @if (pageThumbnail is not null)
@@ -21,9 +21,9 @@
                     <div class="card-body text-center">
                         <h3 class="card-title pb-1">
                             <a class="stretched-link"
-                               href="@item.Url()">@(page.PageTitleShort)</a>
+                               href="@item.Url()">@childPage.PageTitleShort</a>
                         </h3>
-                        <p class="card-text pb-2">@(page.PageDescription)</p>
+                        <p class="card-text pb-2">@childPage.PageDescription</p>
                     </div>
                 </div>
             </div>
