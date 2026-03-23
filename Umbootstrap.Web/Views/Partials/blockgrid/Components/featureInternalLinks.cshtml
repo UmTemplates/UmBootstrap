@@ -2,15 +2,16 @@
 
 @{
     Layout = "_Layout_Features.cshtml";
-    var typedMultiNodeTreePicker = Model.Content.Links?.Cast<WebPage>();
+    var typedMultiNodeTreePicker = Model.Content.Links?.Where(c => c is IContentHeadingDefault);
 }
 
-@if (typedMultiNodeTreePicker != null)
+@if (typedMultiNodeTreePicker != null && typedMultiNodeTreePicker.Any())
 {
     <div class="grid">
         @foreach (var item in typedMultiNodeTreePicker)
         {
-            var pageThumbnail = item.PageThumbnail;
+            var page = (IContentHeadingDefault)item;
+            var pageThumbnail = page.PageThumbnail;
             <div class="g-col-12 g-col-md-6 g-col-lg-4">
                 <div class="card h-100 shadow">
                     @if (pageThumbnail is not null)
@@ -20,9 +21,9 @@
                     <div class="card-body text-center">
                         <h3 class="card-title pb-1">
                             <a class="stretched-link"
-                               href="@item.Url()">@item.PageTitleShort</a>
+                               href="@item.Url()">@page.PageTitleShort</a>
                         </h3>
-                        <p class="card-text pb-2">@item.PageDescription</p>
+                        <p class="card-text pb-2">@page.PageDescription</p>
                     </div>
                 </div>
             </div>
