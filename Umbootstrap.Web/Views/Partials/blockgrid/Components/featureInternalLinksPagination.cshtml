@@ -11,7 +11,7 @@ This not not deal with multiple paginations on the same page. *@
     Layout = "_Layout_Features.cshtml";
 
     var currentPage = UmbracoContext?.PublishedRequest?.PublishedContent;
-    var childPages = currentPage?.Children<WebPage>()?.ToArray() ?? [];
+    var childPages = currentPage?.Children()?.Where(c => c is IContentHeadingDefault)?.ToArray() ?? [];
     
     var pageSize = 3;
     var isPreviewMode = HttpContextAccessor.HttpContext == null;
@@ -102,8 +102,9 @@ This not not deal with multiple paginations on the same page. *@
     }
 
     <div class="grid">
-        @foreach (var varWebpage in displayedPages)
+        @foreach (var child in displayedPages)
         {
+            var varWebpage = (IContentHeadingDefault)child;
             var thumbnail = varWebpage.PageThumbnail;
             <div class="g-col-12 g-col-md-6 g-col-lg-4">
                 <div class="card h-100 shadow">
@@ -112,7 +113,7 @@ This not not deal with multiple paginations on the same page. *@
                         <img src="@(thumbnail.GetCropUrl(width:480))" class="card-img-top" alt="...">
                     }
                     <div class="card-body">
-                        <h5 class="card-title pb-1"><a class="nav-link stretched-link" href="@varWebpage.Url()">@varWebpage.PageTitleShort</a></h5>
+                        <h5 class="card-title pb-1"><a class="nav-link stretched-link" href="@child.Url()">@varWebpage.PageTitleShort</a></h5>
                         <p class="card-text pb-2">
                             @varWebpage.PageDescription
                         </p>

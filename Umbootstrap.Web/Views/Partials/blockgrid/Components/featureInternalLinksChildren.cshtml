@@ -3,14 +3,15 @@
 
 @{
     Layout = "_Layout_Features.cshtml";
-    var children = UmbracoContext?.PublishedRequest?.PublishedContent?.Children<WebPage>();
+    var children = UmbracoContext?.PublishedRequest?.PublishedContent?.Children()?.Where(c => c is IContentHeadingDefault);
 }
 
 @if (children != null && children.Any())
 {
     <div class="grid">
-        @foreach (var childPage in children)
+        @foreach (var child in children)
         {
+            var childPage = (IContentHeadingDefault)child;
             var thumbnail = childPage.PageThumbnail;
             <div class="g-col-12 g-col-md-6 g-col-lg-4">
                 <div class="card h-100 shadow">
@@ -35,7 +36,7 @@
                     <div class="card-body text-center">
                         <h3 class="card-title pb-1">
                             <a class="stretched-link"
-                               href="@childPage.Url()">@childPage.PageTitleShort</a>
+                               href="@child.Url()">@childPage.PageTitleShort</a>
                         </h3>
                         <p class="card-text pb-2">
                             @childPage.PageDescription
