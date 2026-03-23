@@ -1,3 +1,28 @@
+// Generate RGB CSS custom properties for colour shade maps
+// Moved here from _variables.scss — this file is the correct place for CSS output
+@mixin generate-rgb-variables($color-map) {
+    $rgb-values: map-loop($color-map, to-rgb, "$value");
+
+    :root,
+    [data-bs-theme=light] {
+        @each $key, $value in $rgb-values {
+            --bs-#{$key}-rgb: #{$value};
+        }
+    }
+}
+
+@include generate-rgb-variables($blues);
+@include generate-rgb-variables($indigos);
+@include generate-rgb-variables($purples);
+@include generate-rgb-variables($pinks);
+@include generate-rgb-variables($reds);
+@include generate-rgb-variables($oranges);
+@include generate-rgb-variables($yellows);
+@include generate-rgb-variables($greens);
+@include generate-rgb-variables($teals);
+@include generate-rgb-variables($cyans);
+@include generate-rgb-variables($grays);
+
 // Define color maps for different shades
 $all-shade-colors: map-merge-multiple(
   $blues,
@@ -9,8 +34,7 @@ $all-shade-colors: map-merge-multiple(
   $yellows,
   $greens,
   $teals,
-  $cyans,
-  $corals
+  $cyans
 );
 
 // Existing $utilities map merge (keep this for Bootstrap utility API)
@@ -43,8 +67,7 @@ $utilities: map-merge(
   "green": $greens,
   "teal": $teals,
   "cyan": $cyans,
-  "gray": $grays,
-  "coral": $corals
+  "gray": $grays
 ) {
   @each $shade, $hex in $shades {
     .bg-#{$shade}-rgb {
@@ -79,3 +102,17 @@ $utilities: map-merge(
     )
   )
 );
+
+// Custom shadow utilities
+.shadow-b {
+    box-shadow: 0 1rem 1rem rgb(0 0 0 / 15%);
+}
+
+.shadow {
+    transition: box-shadow 0.4s ease-in-out;
+}
+
+.shadow:hover {
+    box-shadow: 0 0.5rem 1.25rem rgba(0 0 0 / .35) !important;
+    transition: box-shadow 0.4s ease-in-out;
+}

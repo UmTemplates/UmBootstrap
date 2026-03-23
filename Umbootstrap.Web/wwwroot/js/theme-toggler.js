@@ -1,58 +1,110 @@
-﻿// Bootstraps example theme toggler
+// Theme toggler — handles two independent concerns:
+// 1. Mode (light/dark/auto) via data-bs-theme — Bootstrap native
+// 2. Palette (umbraco/ultraviolet/none) via data-bs-theme-palette — custom
+
 (() => {
     'use strict';
 
-    const themes = ['light', 'dark', 'auto']; // Define the theme states
-    const getStoredTheme = () => localStorage.getItem('theme'); // Retrieve the saved theme
-    const setStoredTheme = theme => localStorage.setItem('theme', theme); // Save the theme
+    // --- Mode (light/dark/auto) ---
 
-    const setTheme = theme => {
-        if (theme === 'auto') {
+    const modes = ['light', 'dark', 'auto'];
+    const getStoredMode = () => localStorage.getItem('theme');
+    const setStoredMode = mode => localStorage.setItem('theme', mode);
+
+    const applyMode = mode => {
+        if (mode === 'auto') {
             document.documentElement.setAttribute(
                 'data-bs-theme',
                 window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
             );
         } else {
-            document.documentElement.setAttribute('data-bs-theme', theme);
+            document.documentElement.setAttribute('data-bs-theme', mode);
         }
     };
 
-    const toggleTheme = () => {
-        const currentTheme = getStoredTheme() || 'auto';
-        const nextTheme = themes[(themes.indexOf(currentTheme) + 1) % themes.length]; // Cycle to the next theme
-        setStoredTheme(nextTheme); // Save the new theme
-        setTheme(nextTheme); // Apply the new theme
-        updateButton(nextTheme); // Update the button icon and label
+    const toggleMode = () => {
+        const currentMode = getStoredMode() || 'auto';
+        const nextMode = modes[(modes.indexOf(currentMode) + 1) % modes.length];
+        setStoredMode(nextMode);
+        applyMode(nextMode);
+        updateModeButton(nextMode);
     };
 
-    const updateButton = theme => {
+    const updateModeButton = mode => {
         const button = document.getElementById('themeToggleBtn');
         const icon = document.getElementById('themeIcon');
 
         if (button && icon) {
-            if (theme === 'light') {
-                icon.className = 'bi bi-sun'; // Sun icon for light theme
-                button.textContent = ' Light'; // Update button label
-                button.prepend(icon); // Ensure the icon stays at the start
-            } else if (theme === 'dark') {
-                icon.className = 'bi bi-moon'; // Moon icon for dark theme
-                button.textContent = ' Dark'; // Update button label
+            if (mode === 'light') {
+                icon.className = 'bi bi-sun';
+                button.textContent = ' Light';
                 button.prepend(icon);
-            } else if (theme === 'auto') {
-                icon.className = 'bi bi-circle-half'; // Circle-half icon for auto theme
-                button.textContent = ' Auto'; // Update button label
+            } else if (mode === 'dark') {
+                icon.className = 'bi bi-moon';
+                button.textContent = ' Dark';
+                button.prepend(icon);
+            } else if (mode === 'auto') {
+                icon.className = 'bi bi-circle-half';
+                button.textContent = ' Auto';
                 button.prepend(icon);
             }
         }
     };
 
-    // Initialize the theme on page load
-    document.addEventListener('DOMContentLoaded', () => {
-        const preferredTheme = getStoredTheme() || 'auto';
-        setTheme(preferredTheme); // Apply the preferred theme
-        updateButton(preferredTheme); // Update the button to reflect the current theme
+    // --- Palette (theme switcher) ---
 
-        // Add click event listener to the toggle button
-        document.getElementById('themeToggleBtn').addEventListener('click', toggleTheme);
+    const getStoredPalette = () => localStorage.getItem('palette');
+    const setStoredPalette = palette => localStorage.setItem('palette', palette);
+
+    const applyPalette = palette => {
+        document.documentElement.setAttribute('data-bs-theme-palette', palette || 'bootstrap');
+    };
+
+    const updatePaletteButton = palette => {
+        const activePalette = palette || 'bootstrap';
+        const label = document.getElementById('paletteLabel');
+        if (label) {
+            label.textContent = activePalette.charAt(0).toUpperCase() + activePalette.slice(1);
+        }
+
+        // Update active state on dropdown items
+        document.querySelectorAll('[data-bs-palette-value]').forEach(item => {
+            const isActive = (item.getAttribute('data-bs-palette-value') === activePalette);
+            item.classList.toggle('active', isActive);
+            item.setAttribute('aria-pressed', isActive);
+        });
+    };
+
+    // --- Initialise ---
+
+    document.addEventListener('DOMContentLoaded', () => {
+        // Mode
+        const preferredMode = getStoredMode() || 'auto';
+        applyMode(preferredMode);
+        updateModeButton(preferredMode);
+        document.getElementById('themeToggleBtn')?.addEventListener('click', toggleMode);
+
+        // Palette
+        const preferredPalette = getStoredPalette() || 'bootstrap';
+        applyPalette(preferredPalette);
+        updatePaletteButton(preferredPalette);
+
+        document.querySelectorAll('[data-bs-palette-value]').forEach(item => {
+            item.addEventListener('click', e => {
+                e.preventDefault();
+                const palette = item.getAttribute('data-bs-palette-value');
+                setStoredPalette(palette);
+                applyPalette(palette);
+                updatePaletteButton(palette);
+            });
+        });
+    });
+
+    // Listen for system colour scheme changes (for auto mode)
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+        const storedMode = getStoredMode();
+        if (!storedMode || storedMode === 'auto') {
+            applyMode('auto');
+        }
     });
 })();

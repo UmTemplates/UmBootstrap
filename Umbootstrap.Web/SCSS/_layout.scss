@@ -1,0 +1,25 @@
+// Layout — root custom properties, body defaults, scroll behaviour
+
+// Utility bar must sit above the sticky navbar so dropdowns aren't clipped
+.screen--utility {
+    position: relative;
+    z-index: 1030;
+}
+
+:root {
+    --navbar-height: 7rem;
+}
+
+body {
+    min-height: 100vh;
+    height: 100%;
+}
+
+.document {
+    min-height: 100vh;
+    height: 100%;
+}
+
+[data-FeatureContentKey] {
+    scroll-margin-top: calc(var(--navbar-height) + var(--toc-height, 0px));
+}

@@ -15,9 +15,20 @@
         > rect[fill="#FFFFFF"] {
             fill: var(--#{$prefix}card-bg, var(--#{$prefix}body-bg));
         }
+
+        // Replace hardcoded Umbraco blue with theme primary
+        [stroke="#283A97"],
+        [stroke="#283a97"] {
+            stroke: var(--#{$prefix}primary);
+        }
+
+        [fill="#283A97"],
+        [fill="#283a97"] {
+            fill: var(--#{$prefix}primary);
+        }
     }
 
-    // Dark mode: switch icon colours
+    // Dark mode: switch icon colours to body text
     [data-bs-theme="dark"] & svg {
         [stroke="#283A97"],
         [stroke="#283a97"] {

@@ -1,0 +1,67 @@
+// Bootstrap runtime theme (reset)
+// Resets CSS custom properties to Bootstrap 5.3 defaults
+// Used when switching away from a branded palette back to vanilla Bootstrap
+
+// Light mode
+[data-bs-theme-palette="bootstrap"] {
+    --bs-body-color: #212529;
+    --bs-body-color-rgb: 33, 37, 41;
+    --bs-body-bg: #fff;
+    --bs-body-bg-rgb: 255, 255, 255;
+
+    --bs-emphasis-color: #000;
+    --bs-emphasis-color-rgb: 0, 0, 0;
+
+    --bs-primary: #0d6efd;
+    --bs-primary-rgb: 13, 110, 253;
+    --bs-primary-text-emphasis: #052c65;
+    --bs-primary-bg-subtle: #cfe2ff;
+    --bs-primary-border-subtle: #9ec5fe;
+
+    --bs-link-color: #0d6efd;
+    --bs-link-color-rgb: 13, 110, 253;
+    --bs-link-hover-color: #0a58ca;
+    --bs-link-hover-color-rgb: 10, 88, 202;
+
+    --bs-heading-color: inherit;
+
+    --bs-secondary-bg: #e9ecef;
+    --bs-secondary-bg-rgb: 233, 236, 239;
+    --bs-tertiary-bg: #f8f9fa;
+    --bs-tertiary-bg-rgb: 248, 249, 250;
+
+    --bs-border-color: #dee2e6;
+}
+
+// Dark mode
+[data-bs-theme-palette="bootstrap"][data-bs-theme="dark"] {
+    color-scheme: dark;
+
+    --bs-body-color: #dee2e6;
+    --bs-body-color-rgb: 222, 226, 230;
+    --bs-body-bg: #212529;
+    --bs-body-bg-rgb: 33, 37, 41;
+
+    --bs-emphasis-color: #fff;
+    --bs-emphasis-color-rgb: 255, 255, 255;
+
+    --bs-primary: #6ea8fe;
+    --bs-primary-rgb: 110, 168, 254;
+    --bs-primary-text-emphasis: #6ea8fe;
+    --bs-primary-bg-subtle: #031633;
+    --bs-primary-border-subtle: #084298;
+
+    --bs-link-color: #6ea8fe;
+    --bs-link-color-rgb: 110, 168, 254;
+    --bs-link-hover-color: #8bb9fe;
+
+    --bs-heading-color: inherit;
+
+    --bs-secondary-color: rgba(222, 226, 230, 0.75);
+    --bs-secondary-bg: #343a40;
+    --bs-secondary-bg-rgb: 52, 58, 64;
+    --bs-tertiary-bg: #2b3035;
+    --bs-tertiary-bg-rgb: 43, 48, 53;
+
+    --bs-border-color: #495057;
+}

@@ -1,0 +1,97 @@
+// Ultraviolet runtime theme
+// Overrides Bootstrap CSS custom properties via data-bs-theme-palette="ultraviolet"
+// Works independently of data-bs-theme (light/dark) — the two compose naturally
+
+@import "colours";
+
+// Light mode overrides (default, or explicit data-bs-theme="light")
+[data-bs-theme-palette="ultraviolet"] {
+    // Core body colours
+    --bs-body-color: #{$uv-dark};
+    --bs-body-color-rgb: #{red($uv-dark)}, #{green($uv-dark)}, #{blue($uv-dark)};
+    --bs-body-bg: #{$uv-cream};
+    --bs-body-bg-rgb: #{red($uv-cream)}, #{green($uv-cream)}, #{blue($uv-cream)};
+
+    // Emphasis
+    --bs-emphasis-color: #{$uv-dark};
+    --bs-emphasis-color-rgb: #{red($uv-dark)}, #{green($uv-dark)}, #{blue($uv-dark)};
+
+    // Primary
+    --bs-primary: #{$uv-purple};
+    --bs-primary-rgb: #{red($uv-purple)}, #{green($uv-purple)}, #{blue($uv-purple)};
+    --bs-primary-text-emphasis: #{shade-color($uv-purple, 40%)};
+    --bs-primary-bg-subtle: #{tint-color($uv-purple, 80%)};
+    --bs-primary-border-subtle: #{tint-color($uv-purple, 60%)};
+
+    // Links
+    --bs-link-color: #{$uv-purple};
+    --bs-link-color-rgb: #{red($uv-purple)}, #{green($uv-purple)}, #{blue($uv-purple)};
+    --bs-link-hover-color: #{shade-color($uv-purple, 20%)};
+    --bs-link-hover-color-rgb: #{red(shade-color($uv-purple, 20%))}, #{green(shade-color($uv-purple, 20%))}, #{blue(shade-color($uv-purple, 20%))};
+
+    // Headings
+    --bs-heading-color: #{$uv-purple};
+
+    // Secondary surfaces
+    --bs-secondary-bg: #{tint-color($uv-purple, 90%)};
+    --bs-secondary-bg-rgb: #{red(tint-color($uv-purple, 90%))}, #{green(tint-color($uv-purple, 90%))}, #{blue(tint-color($uv-purple, 90%))};
+    --bs-tertiary-bg: #{tint-color($uv-purple, 95%)};
+    --bs-tertiary-bg-rgb: #{red(tint-color($uv-purple, 95%))}, #{green(tint-color($uv-purple, 95%))}, #{blue(tint-color($uv-purple, 95%))};
+
+    // Borders
+    --bs-border-color: #{tint-color($uv-purple, 70%)};
+
+    // Warning/accent mapped to gold
+    --bs-warning: #{$uv-gold};
+    --bs-warning-rgb: #{red($uv-gold)}, #{green($uv-gold)}, #{blue($uv-gold)};
+    --bs-warning-text-emphasis: #{shade-color($uv-gold, 40%)};
+    --bs-warning-bg-subtle: #{tint-color($uv-gold, 80%)};
+    --bs-warning-border-subtle: #{tint-color($uv-gold, 60%)};
+}
+
+// Dark mode overrides — higher specificity when both attributes are set
+[data-bs-theme-palette="ultraviolet"][data-bs-theme="dark"] {
+    color-scheme: dark;
+
+    // Core body colours
+    --bs-body-color: #{tint-color($uv-purple, 80%)};
+    --bs-body-color-rgb: #{red(tint-color($uv-purple, 80%))}, #{green(tint-color($uv-purple, 80%))}, #{blue(tint-color($uv-purple, 80%))};
+    --bs-body-bg: #{$uv-dark};
+    --bs-body-bg-rgb: #{red($uv-dark)}, #{green($uv-dark)}, #{blue($uv-dark)};
+
+    // Emphasis
+    --bs-emphasis-color: #fff;
+    --bs-emphasis-color-rgb: 255, 255, 255;
+
+    // Primary
+    --bs-primary: #{tint-color($uv-purple, 20%)};
+    --bs-primary-rgb: #{red(tint-color($uv-purple, 20%))}, #{green(tint-color($uv-purple, 20%))}, #{blue(tint-color($uv-purple, 20%))};
+    --bs-primary-text-emphasis: #{tint-color($uv-purple, 40%)};
+    --bs-primary-bg-subtle: #{shade-color($uv-purple, 80%)};
+    --bs-primary-border-subtle: #{shade-color($uv-purple, 40%)};
+
+    // Links
+    --bs-link-color: #{tint-color($uv-purple, 40%)};
+    --bs-link-color-rgb: #{red(tint-color($uv-purple, 40%))}, #{green(tint-color($uv-purple, 40%))}, #{blue(tint-color($uv-purple, 40%))};
+    --bs-link-hover-color: #{tint-color($uv-purple, 60%)};
+
+    // Headings
+    --bs-heading-color: #{tint-color($uv-purple, 60%)};
+
+    // Secondary surfaces
+    --bs-secondary-color: #{rgba(tint-color($uv-purple, 80%), .75)};
+    --bs-secondary-bg: #{shade-color($uv-purple, 70%)};
+    --bs-secondary-bg-rgb: #{red(shade-color($uv-purple, 70%))}, #{green(shade-color($uv-purple, 70%))}, #{blue(shade-color($uv-purple, 70%))};
+    --bs-tertiary-bg: #{shade-color($uv-purple, 80%)};
+    --bs-tertiary-bg-rgb: #{red(shade-color($uv-purple, 80%))}, #{green(shade-color($uv-purple, 80%))}, #{blue(shade-color($uv-purple, 80%))};
+
+    // Borders
+    --bs-border-color: #{shade-color($uv-purple, 40%)};
+
+    // Warning/accent mapped to gold
+    --bs-warning: #{$uv-gold};
+    --bs-warning-rgb: #{red($uv-gold)}, #{green($uv-gold)}, #{blue($uv-gold)};
+    --bs-warning-text-emphasis: #{tint-color($uv-gold, 40%)};
+    --bs-warning-bg-subtle: #{shade-color($uv-gold, 80%)};
+    --bs-warning-border-subtle: #{shade-color($uv-gold, 40%)};
+}

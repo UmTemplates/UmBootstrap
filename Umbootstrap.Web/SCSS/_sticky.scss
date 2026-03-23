@@ -1,0 +1,30 @@
+// Sticky nav: any area containing a .sticky-nav element
+// Desktop (lg+): .feature-items wrapper becomes sticky inside the area
+[class*="area-"]:has(.sticky-nav) .feature-items {
+    @media (min-width: 992px) {
+        position: sticky;
+        top: var(--navbar-height);
+    }
+}
+
+// Table of Contents sticky
+.nav-toc-sticky {
+    position: sticky;
+    top: var(--navbar-height);
+    z-index: 1020;
+    container-type: scroll-state;
+
+    // CSS-native stuck detection (Chrome/Edge/Opera)
+    @supports (container-type: scroll-state) {
+        @container scroll-state(stuck: top) {
+            .card-header {
+                box-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.15);
+            }
+        }
+    }
+
+    // JS fallback (Firefox) — .is-stuck class toggled by IntersectionObserver
+    &.is-stuck {
+        box-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.15);
+    }
+}
