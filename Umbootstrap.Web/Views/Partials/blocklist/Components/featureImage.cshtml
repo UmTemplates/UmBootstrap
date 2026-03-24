@@ -2,7 +2,7 @@
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockListItem<FeatureImage>>
 
 @{
-    var typedMediaPickerSingle = Model.Content.Image;
+    var typedMediaPickerSingle = Model.Content.FeaturePropertyFeatureImage;
     if (typedMediaPickerSingle != null)
     {
         <img src="@typedMediaPickerSingle.MediaUrl()" alt="" style="object-fit:cover; width:100%; height:100%;"/>
