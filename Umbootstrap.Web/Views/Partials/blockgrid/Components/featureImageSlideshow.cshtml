@@ -1,10 +1,10 @@
-@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem>
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem<FeatureImageSlideshow>>
 
 @{
     Layout = "_Layout_Features.cshtml";
     var guid = Guid.NewGuid().ToString();
     var carouselId = "carousel" + guid;
-    var images = Model.Content.Value<IEnumerable<IPublishedContent>>("featurePropertyImageSlideshowImages")?.ToList() ?? new List<IPublishedContent>();
+    var images = Model.Content.FeaturePropertyImageSlideshowImages?.ToList() ?? new List<MediaWithCrops>();
 }
 
 @if (images.Any())
