@@ -1,0 +1,62 @@
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem>
+
+@{
+    Layout = "_Layout_Features.cshtml";
+    var guid = Guid.NewGuid().ToString();
+    var carouselId = "carousel" + guid;
+    var images = Model.Content.Value<IEnumerable<IPublishedContent>>("featurePropertyImageSlideshowImages")?.ToList() ?? new List<IPublishedContent>();
+}
+
+@if (images.Any())
+{
+    <div id="@carouselId" class="carousel slide" data-bs-ride="carousel">
+
+        <div class="carousel-indicators">
+            @for (int i = 0; i < images.Count; i++)
+            {
+                <button type="button"
+                        data-bs-target="#@carouselId"
+                        data-bs-slide-to="@i"
+                        class="@(i == 0 ? "active" : null)"
+                        aria-label="Slide @(i + 1)"></button>
+            }
+        </div>
+
+        <div class="carousel-inner">
+            @for (int i = 0; i < images.Count; i++)
+            {
+                var image = images[i];
+                var active = i == 0 ? "active" : "";
+                var altText = image.Value<string>("umbracoAltText");
+                var title = image.Value<string>("umbracoTitle");
+                var description = image.Value<string>("umbracoDescription");
+
+                <div class="carousel-item @active">
+                    <img src="@image.GetCropUrl(width: 1296)" class="d-block w-100" alt="@(altText ?? image.Name)">
+                    @if (!string.IsNullOrWhiteSpace(title) || !string.IsNullOrWhiteSpace(description))
+                    {
+                        <div class="carousel-caption d-none d-md-block p-3 rounded-3 bg-body-secondary bg-opacity-75 text-body">
+                            @if (!string.IsNullOrWhiteSpace(title))
+                            {
+                                <h5>@title</h5>
+                            }
+                            @if (!string.IsNullOrWhiteSpace(description))
+                            {
+                                <p>@description</p>
+                            }
+                        </div>
+                    }
+                </div>
+            }
+        </div>
+
+        <button class="carousel-control-prev" type="button" data-bs-target="#@carouselId" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon carousel-arrow-bg rounded-1" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#@carouselId" data-bs-slide="next">
+            <span class="carousel-control-next-icon carousel-arrow-bg rounded-1" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+}
