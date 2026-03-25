@@ -29,15 +29,17 @@
                                 {
                                     childClass = "dropdown";
                                 }
+                                var isHome = menuItem.Content?.Level == 1;
+                                var isActive = currentPage != null && menuItem.IsActive(currentPage, includeDescendants: !isHome);
 
                                 <li class="nav-item text-center @childClass">
                                     @if (string.IsNullOrEmpty(childClass))
                                     {
-                                        <a class="nav-link @Html.If(currentPage != null && menuItem.IsActive(currentPage, minLevel: 2), "active")" href="@menuItem.Url()" target="@menuItem.Target">@menuItem.Name</a>
+                                        <a class="nav-link @Html.If(isActive, "active")" href="@menuItem.Url()" target="@menuItem.Target">@menuItem.Name</a>
                                     }
                                     else
                                     {
-                                        <a class="nav-link dropdown-toggle" href="@menuItem.Url()" target="@menuItem.Target" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <a class="nav-link dropdown-toggle @Html.If(isActive, "active")" href="@menuItem.Url()" target="@menuItem.Target" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                             @menuItem.Name
                                         </a>
                                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
