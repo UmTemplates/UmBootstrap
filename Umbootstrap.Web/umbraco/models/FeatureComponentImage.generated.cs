@@ -25,7 +25,7 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		/// <summary>Image</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "17.2.2+11a412c")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		global::Umbraco.Cms.Core.Models.MediaWithCrops Image { get; }
+		global::Umbraco.Cms.Core.Models.MediaWithCrops FeaturePropertyFeatureImage { get; }
 	}
 
 	/// <summary>Feature Component - Image</summary>
@@ -64,12 +64,12 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "17.2.2+11a412c")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("image")]
-		public virtual global::Umbraco.Cms.Core.Models.MediaWithCrops Image => GetImage(this, _publishedValueFallback);
+		[ImplementPropertyType("featurePropertyFeatureImage")]
+		public virtual global::Umbraco.Cms.Core.Models.MediaWithCrops FeaturePropertyFeatureImage => GetFeaturePropertyFeatureImage(this, _publishedValueFallback);
 
 		/// <summary>Static getter for Image</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "17.2.2+11a412c")]
 		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		public static global::Umbraco.Cms.Core.Models.MediaWithCrops GetImage(IFeatureComponentImage that, IPublishedValueFallback publishedValueFallback) => that.Value<global::Umbraco.Cms.Core.Models.MediaWithCrops>(publishedValueFallback, "image");
+		public static global::Umbraco.Cms.Core.Models.MediaWithCrops GetFeaturePropertyFeatureImage(IFeatureComponentImage that, IPublishedValueFallback publishedValueFallback) => that.Value<global::Umbraco.Cms.Core.Models.MediaWithCrops>(publishedValueFallback, "featurePropertyFeatureImage");
 	}
 }

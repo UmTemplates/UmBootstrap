@@ -78,7 +78,7 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "17.2.2+11a412c")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("image")]
-		public virtual global::Umbraco.Cms.Core.Models.MediaWithCrops Image => global::Umbraco.Cms.Web.Common.PublishedModels.FeatureComponentImage.GetImage(this, _publishedValueFallback);
+		[ImplementPropertyType("featurePropertyFeatureImage")]
+		public virtual global::Umbraco.Cms.Core.Models.MediaWithCrops FeaturePropertyFeatureImage => global::Umbraco.Cms.Web.Common.PublishedModels.FeatureComponentImage.GetFeaturePropertyFeatureImage(this, _publishedValueFallback);
 	}
 }
