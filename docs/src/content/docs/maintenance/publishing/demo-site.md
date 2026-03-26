@@ -6,7 +6,7 @@ The UmBootstrap demo site is a live Umbraco website hosted on UmbHost. It showca
 
 ## The Problem
 
-UmBootstrap uses [uSync](/UmBootstrap/packages/usync/) to serialise Umbraco content and configuration to flat files. These files need to be imported into the database when the demo site is deployed. However, the approach must differ between the demo site and end users who install UmBootstrap via `dotnet new`:
+UmBootstrap uses [uSync](/UmBootstrap/maintenance/packages/usync/) to serialise Umbraco content and configuration to flat files. These files need to be imported into the database when the demo site is deployed. However, the approach must differ between the demo site and end users who install UmBootstrap via `dotnet new`:
 
 | Scenario | Requirement |
 |----------|-------------|

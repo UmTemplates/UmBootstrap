@@ -1,29 +1,34 @@
 ---
-title: Block Grid Features
+title: Features
+description: Content blocks that editors place inside layout areas — rich text, images, FAQs, navigation, and more.
 ---
 
 Features are content blocks that editors place inside layout areas. Each feature renders a specific type of content — rich text, images, FAQs, navigation, etc.
 
-## Naming Convention
-
-All feature element types follow the pattern `feature{Name}`:
+## Available Features
 
 | Element Type | Display Name | Component Composition |
 |---|---|---|
-| `featureRichTextEditor` | Rich Text Editor | `featureComponentRichTextEditor` |
-| `featureImage` | Image | `featureComponentImage` |
-| `featureCode` | Code | `featureComponentCode` |
-| `featureHTML` | HTML | `featureComponentHtml` |
-| `featureFaqs` | FAQs | `featureComponentFaqs` |
-| `featureTabs` | Tabs | `featureComponentTabs` |
-| `featureInternalLinks` | Internal Links - Selected | `featureComponentsInternalLinks` |
-| `featureInternalLinksChildren` | Internal Links - Children | `featureComponentsInternalLinks` |
-| `featureInternalLinksPagination` | Internal Links - Pagination | `featureComponentsInternalLinks` |
-| `featureInternalLinksSlideshow` | Internal Links - Slideshow | `featureComponentInternalLinksSlideshow` |
-| `featureFormContactUs` | Form - Contact Us | (inline form fields) |
-| `featurePageTitleDescription` | Page Title and Description | (reads from page properties) |
-| `featureNavigationDescendants` | Navigation - Descendants | `featureComponentNoConfiguration` |
-| `featureNavigationInPage` | Navigation - In Page | `featureComponentNavigationInPage` |
+| [`featureRichTextEditor`](/UmBootstrap/features/rich-text-editor/) | Rich Text Editor | `featureComponentRichTextEditor` |
+| [`featureImage`](/UmBootstrap/features/image/) | Image | `featureComponentImage` |
+| [`featureImageSlideshow`](/UmBootstrap/features/image-slideshow/) | Image Slideshow | `featureComponentImageSlideshow` |
+| [`featureCode`](/UmBootstrap/features/code/) | Code | `featureComponentCode` |
+| [`featureHTML`](/UmBootstrap/features/html/) | HTML | `featureComponentHtml` |
+| [`featureFaqs`](/UmBootstrap/features/faqs/) | FAQs | `featureComponentFaqs` |
+| [`featureTabs`](/UmBootstrap/features/tabs/) | Tabs | `featureComponentTabs` |
+| [`featureInternalLinks`](/UmBootstrap/features/internal-links/) | Internal Links - Selected | `featureComponentsInternalLinks` |
+| [`featureInternalLinksChildren`](/UmBootstrap/features/internal-links-children/) | Internal Links - Children | `featureComponentsInternalLinks` |
+| [`featureInternalLinksPagination`](/UmBootstrap/features/internal-links-pagination/) | Internal Links - Pagination | `featureComponentsInternalLinks` |
+| [`featureInternalLinksSlideshow`](/UmBootstrap/features/internal-links-slideshow/) | Internal Links - Slideshow | `featureComponentInternalLinksSlideshow` |
+| [`featureFormContactUs`](/UmBootstrap/features/form-contact-us/) | Form - Contact Us | (inline form fields) |
+| [`featurePageTitleDescription`](/UmBootstrap/features/page-title-description/) | Page Title and Description | (reads from page properties) |
+| [`featureNavigationDescendants`](/UmBootstrap/features/navigation-descendants/) | Navigation - Descendants | `featureComponentNoConfiguration` |
+| [`featureNavigationInPage`](/UmBootstrap/features/navigation-in-page/) | Navigation - In Page | `featureComponentNavigationInPage` |
+| [`featureNavigationTableOfContents`](/UmBootstrap/features/navigation-table-of-contents/) | Navigation - Table of Contents | `featureComponentNoConfiguration` |
+
+## Naming Convention
+
+All feature element types follow the pattern `feature{Name}`.
 
 ## How Features Are Built
 
@@ -56,13 +61,6 @@ All component properties use **SortOrder 50** on the `featureContent` tab.
 
 **No-configuration features** (e.g. `featureNavigationDescendants`) compose only `featureComponentNoConfiguration` — they derive their content from the page context rather than editor input.
 
-### Block Grid DataType Configuration
-
-Features are registered as **Feature Blocks** on the `_Content Grid Default - Content - Block Grid` DataType:
-
-- Each feature block is linked to the `featureSettings` element type, which provides colour picker settings
-- Features are assigned to specific layout areas (controlling which features can appear in which areas)
-
 ### Shared Layout: `_Layout_Features.cshtml`
 
 Most features set `Layout = "_Layout_Features.cshtml"`, which provides the standard feature rendering structure:
@@ -88,11 +86,9 @@ The layout wrapper handles:
 - Rendering the feature-specific content via `@RenderBody()`
 - Conditionally showing footer (summary) only when populated
 - Applying background colour from feature settings
-- Respecting the `featureSettingsHideDisplay` toggle (hides on front end but shows in backoffice preview)
+- Respecting the `featureSettingsHideDisplay` toggle
 
-**Exception**: Some features skip the shared layout:
-- `featureNavigationDescendants` uses `_Layout.cshtml` (the base layout)
-- `featureNavigationInPage` renders directly without a layout wrapper
+**Exception**: Some features skip the shared layout — navigation features typically render their own container directly.
 
 ### Feature-Specific Views
 
@@ -112,7 +108,7 @@ For example, `featureRichTextEditor.cshtml`:
 
 ### Feature Settings
 
-Features use settings blocks to provide editor-configurable options (background colour, visibility, etc.). There are two levels of settings:
+Features use settings blocks to provide editor-configurable options. There are two levels:
 
 **Shared settings** — `featureSettings` (used by most features):
 
@@ -121,13 +117,13 @@ Features use settings blocks to provide editor-configurable options (background 
 | `featureSettingsComponentColorPicker` | `featureSettingsColourPicker` | Background colour picker |
 | `featureSettingsComponentHideDisplay` | `featureSettingsHideDisplay` | Hide/display toggle |
 
-**Per-feature settings** — for features that need additional options beyond colour and visibility:
+**Per-feature settings** — for features that need additional options:
 
 | Settings Type | Used By | Extra Compositions |
 |---|---|---|
 | `featureSettingsNavigation` | `featureNavigationDescendants`, `featureNavigationInPage` | `featureSettingsComponentStickyNav` (sticky toggle) |
 
-Per-feature settings types compose the same shared components (colour picker, hide/display) plus feature-specific ones. This means editors always get the standard settings, plus any extras for that feature type.
+Per-feature settings types compose the same shared components (colour picker, hide/display) plus feature-specific ones.
 
 ### Per-Feature Settings Pattern
 
@@ -138,11 +134,11 @@ To create a per-feature settings type:
 3. **Update the Block Grid DataType** — change the settings element type for the relevant feature blocks from `featureSettings` to your new type
 4. **Update the views** — read the new property from `Model.Settings`
 
-Features without custom settings needs stay on the generic `featureSettings`. Migrate incrementally as needs arise.
+Features without custom settings stay on the generic `featureSettings`. Migrate incrementally as needs arise.
 
 ### BlockPreview
 
-Features get live previews automatically in the backoffice via [BlockPreview](/UmBootstrap/packages/block-preview/). Any element type whose alias does **not** start with `layout` is included.
+Features get live previews automatically in the backoffice via [BlockPreview](/UmBootstrap/maintenance/packages/block-preview/). Any element type whose alias does **not** start with `layout` is included.
 
 ## Creating a New Feature
 
