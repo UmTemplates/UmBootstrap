@@ -12404,6 +12404,11 @@ body {
   --bs-card-border-width: none;
 }
 
+.card-img-top {
+  object-fit: cover;
+  aspect-ratio: 16/9;
+}
+
 .card-img-svg svg {
   display: block;
   width: 100%;
