@@ -12473,6 +12473,14 @@ body {
         transition: 0.5s;
     }
 }*/
+.carousel-caption {
+  left: 25%;
+  right: 25%;
+}
+.carousel-caption p {
+  text-wrap: balance;
+}
+
 .nav-pills .nav-link:hover,
 .nav-pills .nav-link:focus,
 .nav-pills .nav-link.active {
