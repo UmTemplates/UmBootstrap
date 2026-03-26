@@ -34,22 +34,28 @@ Container elements for page structure:
 | Layout | Description |
 |--------|-------------|
 | `layout12` | Full-width single column |
-| `layout48` | 1/3 + 2/3 two column |
+| `layout363` | 3 + 6 + 3 three column |
+| `layout39` | 3 + 9 two column |
 | `layout66` | 50/50 two column |
-| `layout84` | 2/3 + 1/3 two column |
+| `layout8` | Narrower centred single column |
+
+See [Layouts](/UmBootstrap/layouts/) for full details.
 
 ### Features
 
 Content blocks for building pages:
 
 - Rich Text Editor
-- Images
+- Image and Image Slideshow
 - FAQs (accordion)
 - Tabs
-- Internal Links (various styles)
-- Navigation descendants
+- Internal Links (selected, children, pagination, slideshow)
+- Navigation (descendants, in-page, table of contents)
 - HTML/Code blocks
 - Contact form
+- Page Title & Description
+
+See [Features](/UmBootstrap/features/) for full details.
 
 ## Links
 

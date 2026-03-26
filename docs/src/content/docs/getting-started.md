@@ -69,21 +69,9 @@ MyProject/
 
 ### BlockPreview
 
-Block previews are configured in `appsettings.json`:
+Block previews are configured **programmatically** in `Program.cs`. UmBootstrap uses reflection to auto-discover layout types and exclude them — all feature types get live previews automatically with no configuration needed.
 
-```json
-{
-  "BlockPreview": {
-    "BlockGrid": {
-      "Enabled": true,
-      "ContentTypes": ["featureRichTextEditor", "featureImage"],
-      "Stylesheets": ["/css/Index.css"]
-    }
-  }
-}
-```
-
-Add your feature element types to `ContentTypes` to enable live previews in the backoffice.
+New features are included automatically. New layouts are excluded automatically. See [BlockPreview](/UmBootstrap/maintenance/packages/block-preview/) for details.
 
 ### uSync
 
