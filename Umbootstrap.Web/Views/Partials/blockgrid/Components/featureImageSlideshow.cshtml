@@ -27,9 +27,9 @@
             {
                 var image = images[i];
                 var active = i == 0 ? "active" : "";
-                var altText = image.Value<string>("umbracoAltText");
-                var title = image.Value<string>("umbracoTitle");
-                var description = image.Value<string>("umbracoDescription");
+                var altText = image.Value<string>("mediaPropertyAltText");
+                var title = image.Value<string>("mediaPropertyTitle");
+                var description = image.Value<string>("mediaPropertyDescription");
 
                 <div class="carousel-item @active">
                     <img src="@image.GetCropUrl(width: 1296)" class="d-block w-100" alt="@(altText ?? image.Name)">
