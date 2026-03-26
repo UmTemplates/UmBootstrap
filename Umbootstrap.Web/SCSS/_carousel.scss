@@ -40,3 +40,12 @@
         transition: 0.5s;
     }
 }*/
+
+.carousel-caption {
+    left: 25%;
+    right: 25%;
+
+    p {
+        text-wrap: balance;
+    }
+}
