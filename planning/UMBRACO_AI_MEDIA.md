@@ -93,13 +93,17 @@ Storage and format TBD — need to investigate how Umbraco AI stores/exports pro
 
 ## Status
 
-- [ ] Install core NuGet packages (`Umbraco.AI` + `Umbraco.AI.Prompt`)
-- [ ] Register Umbraco AI in Program.cs (if needed)
-- [ ] Run site and verify backoffice AI section appears
-- [ ] Install Anthropic provider (for our own testing)
-- [ ] Configure connection and profile
-- [ ] Create/configure prompts for title, description, alt text
-- [ ] Test end-to-end with image upload
+- [x] Install core NuGet packages (`Umbraco.AI` 1.6.0 + `Umbraco.AI.Prompt` 1.5.0)
+- [x] Register Umbraco AI in Program.cs — NOT NEEDED, auto-discovers via composers
+- [x] Run site and verify backoffice AI section appears
+- [x] Install Anthropic provider (`Umbraco.AI.Anthropic` 1.2.2) for testing
+- [x] Configure connection and profile (connection: Anthropic, profile: Media Descriptions, model: Haiku 4.5)
+- [x] Create/configure prompts for description and alt text (title skipped — not needed)
+- [x] Test end-to-end with image — working with `{{image:umbracoFile}}` syntax
+- [x] Scope prompts to `imageResponsive` media type and specific properties
+- [ ] Create alt text prompt (description prompt done, alt text still needed)
+- [ ] Implement auto-generation on media upload — see `UMBRACO_AI_MEDIA_AUTO_GENERATION.md`
 - [ ] Investigate prompt storage/export for shipping with the template
 - [ ] Verify graceful degradation when no provider is installed
 - [ ] Write user-facing documentation
+- [ ] Restore `$Anthropic:ApiKey` reference in connection (raw key was pasted for testing)
