@@ -4,12 +4,16 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <CompressionEnabled>false</CompressionEnabled> <!-- Disable compression. E.g. for umbraco backoffice files. These files should be precompressed by node and not let dotnet handle it -->
+    <UserSecretsId>db266da3-6ac8-402c-97c7-027ee3201287</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
     <!-- TODO: Remove once Umbraco.Cms ships with MimeKit >= 4.15.1 (CVE-2026-30227 fix) -->
     <PackageReference Include="MimeKit" Version="4.15.1" />
     <PackageReference Include="SixLabors.ImageSharp" Version="3.1.12" />
+    <PackageReference Include="Umbraco.AI" Version="1.6.0" />
+    <PackageReference Include="Umbraco.AI.Anthropic" Version="1.2.2" />
+    <PackageReference Include="Umbraco.AI.Prompt" Version="1.5.0" />
     <PackageReference Include="Umbraco.Cms" Version="17.2.2" />
     <PackageReference Include="Umbraco.Community.BlockPreview" Version="5.3.2" />
     <PackageReference Include="Umbraco.Community.Contentment" Version="6.1.1" />
