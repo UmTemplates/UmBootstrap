@@ -38,8 +38,7 @@ When actively working on a feature or architectural change, add the relevant pla
 -->
 
 - `planning/SCSS_COLOUR_REFACTOR.md` - SCSS colour system refactoring and Bootstrap workflow fixes
-- `planning/UMBRACO_AI_MEDIA.md` - Umbraco AI media image descriptions (manual prompts done, auto-generation next)
-- `planning/UMBRACO_AI_MEDIA_AUTO_GENERATION.md` - Plan for auto-generating AI descriptions on media upload
+- `planning/UMBRACO_AI_MEDIA.md` - Umbraco AI media image descriptions (per-field prompts + entity action exploration notes)
 
 ## Build Instructions
 
