@@ -80,10 +80,21 @@ No `appsettings.json` configuration is needed for BlockPreview.
 
 **Key fact**: Block grid area responsive breakpoints (`g-col-*` classes) are configured in the **Umbraco backoffice UI** on the Block Grid DataType — not in code, CSS, or SCSS. Do not search the codebase for these classes.
 
+## Documentation Worktree (READ BEFORE EDITING ANY DOCS FILE)
+
+Documentation is edited in a git worktree, never from the main working directory.
+
+    UmBootstrap/                     main working directory — code, on a feature branch
+    UmBootstrap/.worktrees/docs/     docs worktree — always on docs/site
+
+Before editing any file under `docs/`, check the absolute path. If it is not under `.worktrees/docs/`, you are in the wrong place — the same files exist in both, and editing the wrong copy puts the change on a code branch where it sits unpublished.
+
+See `WORKTREES.md` for the full rules.
+
 ## Documentation Site
 
 - **Framework**: Astro Starlight
 - **Source**: `docs/` folder
 - **Config**: `docs/astro.config.mjs`
 - **Deployed to**: https://umtemplates.github.io/UmBootstrap/
-- **Deployment**: Automatic on push to `main` when `docs/**` changes (GitHub Actions artifact-based)
+- **Deployment**: Automatic on push to `docs/site` when `docs/**` changes (GitHub Actions artifact-based). Pushing publishes; there is no release gate. `main` is deliberately not a trigger.
