@@ -11,7 +11,7 @@
     <!-- TODO: Remove once Umbraco.Cms ships with MimeKit >= 4.15.1 (CVE-2026-30227 fix) -->
     <PackageReference Include="MimeKit" Version="4.15.1" />
     <PackageReference Include="SixLabors.ImageSharp" Version="3.1.12" />
-    <PackageReference Include="Umbraco.AI" Version="1.6.0" />
+    <PackageReference Include="Umbraco.AI" Version="1.14.0" />
     <PackageReference Include="Umbraco.AI.Anthropic" Version="1.2.2" />
     <PackageReference Include="Umbraco.AI.Prompt" Version="1.5.0" />
     <PackageReference Include="Umbraco.Cms" Version="17.2.2" />
