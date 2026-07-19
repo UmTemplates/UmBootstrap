@@ -38,6 +38,8 @@ When actively working on a feature or architectural change, add the relevant pla
 -->
 
 - `planning/SCSS_COLOUR_REFACTOR.md` - SCSS colour system refactoring and Bootstrap workflow fixes
+- `planning/UMBRACO_AI_MEDIA.md` - Umbraco AI media image descriptions (paused; prompts now evolving in Tailored Travel)
+- `planning/UMBRACO_AI_BUGS.md` - Umbraco AI bugs filed with HQ against 1.6.0, plus prompt data backup (re-test after upgrading)
 
 ## Build Instructions
 
