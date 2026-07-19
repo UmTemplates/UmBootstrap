@@ -91,6 +91,7 @@ export default defineConfig({
 							collapsed: true,
 							items: [
 								{ label: 'Overview', slug: 'maintenance/tools' },
+								{ label: 'Documentation Worktree', slug: 'maintenance/tools/docs-worktree' },
 								{ label: 'Umbraco MCP Server', slug: 'maintenance/tools/umbraco-mcp' },
 							],
 						},
