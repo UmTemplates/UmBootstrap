@@ -397,3 +397,6 @@ docs/node_modules/
 # MCP server config (contains API secrets)
 .mcp.json
 .vscode/mcp.json
+
+# Git worktrees (docs worktree lives here)
+.worktrees/
