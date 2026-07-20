@@ -31,15 +31,15 @@ UmBootstrap/
 
 ## Planning Files
 
-When actively working on a feature or architectural change, add the relevant planning file here for session startup:
+Planning docs live in `planning/`. There is no list of them here — it went stale faster than it was useful.
 
-<!-- Add active planning files here, e.g.:
-- `planning/FEATURE_NAME.md` - Description of current work
--->
+**To find out what is actually being worked on, check the Kanban board:** https://github.com/orgs/UmTemplates/projects/1
 
-- `planning/SCSS_COLOUR_REFACTOR.md` - SCSS colour system refactoring and Bootstrap workflow fixes
-- `planning/UMBRACO_AI_MEDIA.md` - Umbraco AI media image descriptions (paused; prompts now evolving in Tailored Travel)
-- `planning/UMBRACO_AI_BUGS.md` - Umbraco AI bugs filed with HQ against 1.6.0, plus prompt data backup (re-test after upgrading)
+Columns are `Backlog`, `Todo`, `In Progress`, `Done`. Issues are added to the board automatically when opened, by `.github/workflows/add-to-project.yml`.
+
+Read the board before assuming what is current, and move cards across columns as work progresses rather than leaving it until the end. An issue in `In Progress` that has actually shipped is worse than no board at all.
+
+Planning docs and issues are complementary: the issue tracks state, the planning doc holds the detail and the checkboxes.
 
 ## Build Instructions
 
