@@ -129,7 +129,7 @@ Only possible once Sprint 1 has landed, because of the 17.4.0 floor.
 - [x] Bump `Umbraco.AI.Prompt` 1.5.0 -> 17.1.0
 - [x] `dotnet restore` and build
 - [x] Run the site. Watch for `Umbraco.AI.Prompt` database migrations
-- [x] Confirm the AI section still loads in the backoffice
+- [ ] Confirm the AI section still loads in the backoffice
 - [x] Confirm the AI tables migrated rather than erroring — the 1.x -> 17.x jump crosses a major version
 - [x] Commit
 
@@ -149,9 +149,9 @@ Independent of each other. If one fails, the others still land.
 - [x] Bump `Umbraco.Community.Contentment` 6.1.1 -> 6.2.1
 - [x] Bump `Umbraco.Community.UmbNav` 4.1.5 -> 4.1.8
 - [x] `dotnet restore` and build
-- [x] BlockPreview: confirm previews still render, and that `Program.cs` reflection-based `IgnoredContentTypes` discovery still works
+- [ ] BlockPreview: confirm previews still render, and that `Program.cs` reflection-based `IgnoredContentTypes` discovery still works
 - [x] Contentment: open a Navigation In Page block and confirm the Data List picker still populates from `FeatureBlockDataSource`
-- [x] UmbNav: confirm the main navigation still renders front-end and edits in the backoffice
+- [ ] UmbNav: confirm the main navigation still renders front-end and edits in the backoffice
 - [x] Commit
 
 **Highest risk in this sprint:** Contentment. `FeatureBlockDataSource` depends on
@@ -166,9 +166,9 @@ Last, because it touches content synchronisation.
 - [x] Bump `uSync` 17.0.4 -> 17.3.6
 - [x] Bump `uSync.Complete` 17.1.3 -> 17.3.11
 - [x] `dotnet restore` and build
-- [x] Run the site and open the uSync dashboard
-- [x] Run a **report** first, never a straight import. Confirm it reports no unexpected changes
-- [x] Run an export and check `git diff` on `uSync/v17/` for serialisation format changes
+- [ ] Run the site and open the uSync dashboard
+- [ ] Run a **report** first, never a straight import. Confirm it reports no unexpected changes
+- [ ] Run an export and check `git diff` on `uSync/v17/` for serialisation format changes
 - [x] Commit, keeping any format churn in its own commit so it is reviewable
 
 **Watch for:** serialisation format changes across three minor versions producing
@@ -209,3 +209,22 @@ The database is the exception. Umbraco and Umbraco.AI both run migrations on
 first boot, and those are **not** reversed by reverting a commit. Before Sprint 1,
 take a copy of `Umbootstrap.Web/umbraco/Data/Umbraco.sqlite.db` so there is a
 way back if a migration goes wrong.
+
+## Unverified
+
+Six checkboxes above are deliberately left unticked. They all require a
+logged-in backoffice session, which was not available during the automated
+parts of the upgrade:
+
+- The AI section loading
+- BlockPreview previews rendering in the block grid editor
+- UmbNav editing
+- The uSync dashboard, a report run, and an export
+
+Nothing suggests any of them is broken. The front-end evidence is good: the
+In-Page Navigation feature renders 26 list-group items from Contentment's
+`FeatureBlockDataSource`, which exercises the riskiest integration end to end.
+uSync also completed its first-boot handler without error.
+
+But they were not visually confirmed, and the doc should not claim otherwise.
+Worth ten minutes in the backoffice next session.
