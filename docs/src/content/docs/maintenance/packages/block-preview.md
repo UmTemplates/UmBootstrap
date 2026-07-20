@@ -5,7 +5,7 @@ title: BlockPreview
 | | |
 |---|---|
 | **Package** | Umbraco.Community.BlockPreview |
-| **Version** | 5.2.1 |
+| **Version** | 5.5.0 |
 | **Source** | [GitHub](https://github.com/rickbutterfield/Umbraco.Community.BlockPreview) |
 
 ## What It Does

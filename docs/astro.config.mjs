@@ -83,6 +83,7 @@ export default defineConfig({
 								{ label: 'BlockPreview', slug: 'maintenance/packages/block-preview' },
 								{ label: 'Contentment', slug: 'maintenance/packages/contentment' },
 								{ label: 'UmbNav', slug: 'maintenance/packages/umbnav' },
+								{ label: 'Umbraco AI', slug: 'maintenance/packages/umbraco-ai' },
 								{ label: 'uSync', slug: 'maintenance/packages/usync' },
 							],
 						},
