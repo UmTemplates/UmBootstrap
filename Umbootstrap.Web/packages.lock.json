@@ -105,9 +105,9 @@
       },
       "Umbraco.Community.BlockPreview": {
         "type": "Direct",
-        "requested": "[5.5.0, )",
-        "resolved": "5.5.0",
-        "contentHash": "qfv65IKIyzId2xuw9W7ycAbO4/4UXWHNcTQRdCZ3R/enM61msdT+BGeT/d6JHLUjDAzXKqMSC/m8iofrRlZWpg==",
+        "requested": "[5.7.0, )",
+        "resolved": "5.7.0",
+        "contentHash": "J4sOfOGsUUipXpnC/Pb1IPUtrKMi13iPKFRaW4yU5cM9uW8BvIhdod9x7PSKZuKrCmvO8n4yWZbGQskwSq3yZA==",
         "dependencies": {
           "Umbraco.Cms.Api.Common": "[17.3.0, 18.0.0)",
           "Umbraco.Cms.Api.Management": "[17.3.0, 18.0.0)",
@@ -118,9 +118,9 @@
       },
       "Umbraco.Community.Contentment": {
         "type": "Direct",
-        "requested": "[6.2.1, )",
-        "resolved": "6.2.1",
-        "contentHash": "KP6sIB0N6eUF01tQWGJ57AkHaC3MUs5I1jP2Y6iId9xzecNmYltWiQ4pmWNg3yVSQvpTP52Fkuei7Be+ymHbQA==",
+        "requested": "[6.3.5, )",
+        "resolved": "6.3.5",
+        "contentHash": "llqC867Hgf5+TUv3a/eydno/ilvjO03KeJgMTyx3mJahI9K6Dhs1ouh2qltoIMBH9prMln8oiO8AdNTD22LjZg==",
         "dependencies": {
           "Umbraco.Cms.Api.Management": "[17.0.0, 18.0.0)",
           "Umbraco.Cms.Core": "[17.0.0, 18.0.0)",
@@ -129,12 +129,12 @@
       },
       "Umbraco.Community.UmbNav": {
         "type": "Direct",
-        "requested": "[4.1.8, )",
-        "resolved": "4.1.8",
-        "contentHash": "2J4QPCYIF/PvAP8T+jOrazewxcSoZT24UJQr9vKyL0bVOdlV9pnS/BelQyYgQFjVd+mqHLYiNsM/pC2BJ2zLKg==",
+        "requested": "[4.1.10, )",
+        "resolved": "4.1.10",
+        "contentHash": "CtK+TwRnXX4jyU7yUfmGfmiFDqiYGorjVLwSg05hSjOCw4n5VzDEiHQbKi3rZCaOJ1RY0ixnqgjJ+JCIYivb1A==",
         "dependencies": {
           "Umbraco.Cms": "17.0.0",
-          "Umbraco.Community.UmbNav.Core": "4.1.8"
+          "Umbraco.Community.UmbNav.Core": "4.1.10"
         }
       },
       "uSync": {
@@ -2175,8 +2175,8 @@
       },
       "Umbraco.Community.UmbNav.Core": {
         "type": "Transitive",
-        "resolved": "4.1.8",
-        "contentHash": "9sabyTV5la/iXD6967nHHrT/qT4HbVOrsfPPWULOPyNN95YewHFOkNRdEA26Dhpg6oHxDt3Tw1T8/cMXYT3C2g==",
+        "resolved": "4.1.10",
+        "contentHash": "0WV9iXWmciaJRrcTsD0WG0/hxy2s3G8RE1sCe5RcXME3RwW+oFJmx/uDa5JohTLv5bKpKIicWPG6yqjpl3z+Tg==",
         "dependencies": {
           "Umbraco.Cms.Web.Common": "17.0.0"
         }
