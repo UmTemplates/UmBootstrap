@@ -84,6 +84,15 @@ Nothing else breaking. Points that change testing:
   PR #334, merged to `develop`. That PR also re-exported content in the uSync
   17.3.6 format, which the July upgrade skipped. A uSync report is now clean,
   so any change after this upgrade is a real change.
+- [ ] **uSync.Complete in the template.** Found in Phase 4: uSync.Complete is
+  on an expired trial licence on this site, with no key ever entered. Free
+  uSync still works. But the template ships uSync.Complete, a commercial
+  package, to every new site, where its trial will also expire. Dean to decide
+  whether it stays in the template. Not blocking this release.
+- [x] **Release build security warnings.** AngleSharp (via SmartReader /
+  Umbraco.AI) now resolves 1.5.2, which is patched. SignalR.Common 10.0.5 only
+  appears on the template csproj (plain .NET SDK, compiles no code). The site
+  uses the Web SDK, where SignalR comes from the patched .NET runtime. Left.
 
 ---
 
@@ -119,31 +128,38 @@ Nothing else breaking. Points that change testing:
 
 ## Phase 2: Umbraco AI
 
-- [ ] Bump all three AI packages together
-- [ ] Dean: build and start, watch for AI migrations
-- [ ] Confirm the AI section loads (unverified in July)
-- [ ] Commit
+- [x] Bump all three AI packages together
+- [x] Dean: build and start, watch for AI migrations
+- [x] Confirm the AI section loads (unverified in July)
+- [x] Commit
 
 ## Phase 3: Community packages
 
-- [ ] Bump BlockPreview, Contentment, UmbNav in both csproj files
-- [ ] Dean: build and start
-- [ ] BlockPreview: previews render; layouts still ignored (unverified in July)
-- [ ] Contentment: Navigation In Page picker populates from `FeatureBlockDataSource`
+- [x] Bump BlockPreview, Contentment, UmbNav in both csproj files
+- [x] Dean: build and start
+- [x] BlockPreview: previews render; layouts still ignored (unverified in July)
+- [x] Contentment: Navigation In Page picker populates from `FeatureBlockDataSource`
   (request changed in 6.3.4)
-- [ ] UmbNav: menu renders front end and edits in the backoffice (unverified in July)
-- [ ] Commit
+- [x] UmbNav: menu renders front end and edits in the backoffice (unverified in July)
+- [x] Commit
 
 ## Phase 4: uSync
 
-- [ ] Bump uSync and uSync.Complete in both csproj files
-- [ ] Dean: build and start, then **restart once** (uSync.Complete skips its own
+- [x] Bump uSync and uSync.Complete in both csproj files
+- [x] Dean: build and start, then **restart once** (uSync.Complete skips its own
   setup while Umbraco is in upgrade mode)
-- [ ] Open the uSync dashboard (unverified in July)
-- [ ] Run a **report**, not an import. Expect no unexpected changes
-- [ ] Run a clean export; review `git diff` on `uSync/v17/`
-- [ ] Check uSync.Complete licence status (17.7.0 licences look version-bound)
-- [ ] Commit the version bump and the export churn **separately**
+- [x] Open the uSync dashboard (unverified in July)
+- [x] Run a **report**, not an import. Expect no unexpected changes
+- [x] Run a clean export; review `git diff` on `uSync/v17/`
+- [x] Check uSync.Complete licence status (17.7.0 licences look version-bound)
+- [x] Commit the version bump and the export churn **separately** (no format
+  churn this time: the only export change was the SVG media type, so one commit)
+
+**Found in Phase 4:** Umbraco 17.x added Width and Height to the built-in SVG
+media type. The uSync file lacked them, so a first-boot import on a new site
+would have removed them. Exported. Lesson for the runbook: after an Umbraco
+upgrade, run a uSync report and **export** any built-in type changes, never
+import them.
 
 ## Phase 5: Verification
 
