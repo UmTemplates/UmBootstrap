@@ -89,10 +89,10 @@ Nothing else breaking. Points that change testing:
   uSync still works. But the template ships uSync.Complete, a commercial
   package, to every new site, where its trial will also expire. Dean to decide
   whether it stays in the template. Not blocking this release.
-- [x] **Release build security warnings.** AngleSharp (via SmartReader /
-  Umbraco.AI) now resolves 1.5.2, which is patched. SignalR.Common 10.0.5 only
-  appears on the template csproj (plain .NET SDK, compiles no code). The site
-  uses the Web SDK, where SignalR comes from the patched .NET runtime. Left.
+- [x] **Release build security warnings.** Gone. The Phase 1 Release build
+  warned about AngleSharp 1.4.0 and SignalR.Common 10.0.5. After all phases,
+  AngleSharp resolves 1.5.2 (patched) and the final Release build has no
+  warnings at all.
 
 ---
 
@@ -163,8 +163,11 @@ import them.
 
 ## Phase 5: Verification
 
-- [ ] Every layout and every feature block renders, desktop and mobile
-- [ ] Backoffice: content, media, block grid editing, block previews
+- [x] Every layout and every feature block renders, desktop and mobile.
+  Crawl: 45 pages, 209 feature blocks, 103 images, 0 broken. One pre-existing
+  7px mobile overflow found and logged as #336 (not caused by the upgrade)
+- [x] Backoffice: content, media, block grid editing, block previews
+- [x] Final Release build with all packages: succeeded, no warnings
 - [ ] Merge to `develop`
 
 ## Phase 6: Documentation (docs worktree, `docs/site`)
