@@ -6,6 +6,7 @@ on:
   push:
     tags:
       - '[0-9]*.[0-9]*.[0-9]*'
+      - '[0-9]*.[0-9]*.[0-9]*.[0-9]*'
       - '[0-9]*.[0-9]*.[0-9]*-*'
   workflow_dispatch:
 
@@ -13,6 +14,10 @@ jobs:
   build:
 
     runs-on: windows-latest
+    permissions:
+      # id-token for NuGet Trusted Publishing (OIDC), so there is no API key secret to expire.
+      id-token: write
+      contents: read
 
     steps:
 
@@ -31,5 +36,11 @@ jobs:
     - name: Pack
       run: dotnet pack .\UmBootstrap.DotNet.Template.csproj -c Release /p:Version=${{github.ref_name}} --no-build --output .
 
+    - name: NuGet Trusted Publishing Login
+      id: nuget-login
+      uses: nuget/login@v1
+      with:
+        user: dean.leigh
+
     - name: Push to NuGet
-      run: dotnet nuget push **\*.nupkg -k ${{secrets.NUGET_API_KEY}} -s https://api.nuget.org/v3/index.json
+      run: dotnet nuget push **\*.nupkg -k ${{ steps.nuget-login.outputs.NUGET_API_KEY }} -s https://api.nuget.org/v3/index.json
