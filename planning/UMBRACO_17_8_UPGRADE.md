@@ -30,11 +30,40 @@ All on the Umbraco 17 line. Every package also has an 18 line; do not take it.
 | Umbraco.Community.UmbNav | 4.1.8 | **4.1.10** |
 | uSync | 17.3.6 | **17.6.2** |
 | uSync.Complete | 17.3.11 | **17.7.2** |
-| SixLabors.ImageSharp | 3.1.12 | **3.2.0** |
+| SixLabors.ImageSharp | 3.1.12 | **remove the direct reference** |
 
-**ImageSharp must move.** Umbraco 17.8.1 depends on ImageSharp 3.2.0, so the
-3.1.12 pin would fail restore as a downgrade. 3.2.0 also clears the open
-high-severity Dependabot alerts. 4.x is still avoided (major version).
+**ImageSharp: remove the direct reference, do not bump it.** Umbraco 17.8.0
+moved to ImageSharp 3.2.0, which adds a Six Labors licence check. Per the 17.8.0
+release notes:
+
+- Pinned at 3.1.12: restore fails with NU1605 (downgrade).
+- Direct reference at 3.2.0: **Release builds fail** with "No Six Labors
+  license found". Debug only warns. Both CI workflows build Release, so the
+  NuGet release and the demo site deploy would both fail.
+- No direct reference: no change. Umbraco brings ImageSharp 3.2.0 in, which
+  also clears the open high-severity Dependabot alerts.
+
+No code in the site uses ImageSharp directly. The reference was added in
+September 2025 (ca74b17) to pin a version.
+
+## Release notes (read 2026-11-16)
+
+Nothing else breaking. Points that change testing:
+
+- **Contentment 6.3.4** security fix changes the data-list request: the server
+  now reads data source config from the saved Data Type. Route and `id` are
+  unchanged, so `FeatureBlockDataSource` should still work. Re-test the
+  Navigation In Page picker.
+- **BlockPreview 5.7.0**: `AreaGridColumns` stays null when not configured
+  (was 12). Our views use `GridColumns`, so low risk. Check layout previews.
+- **UmbNav 4.1.10**: re-runs its legacy model migration on first boot.
+- **Umbraco.AI 17.8.0**: six EF Core migrations run on first boot.
+- **uSync 17.4.3**: imported block values are stored in Umbraco's own format.
+- **uSync.Complete 17.7.0**: licences look version-bound. Check its licence
+  status after the upgrade.
+- **Umbraco 17.8.0**: strips `Cache=Shared` from SQLite connection strings at
+  runtime and logs it. Umbraco's own template no longer emits it. Remove it
+  from our `appsettings.json` so new sites do not start with that log line.
 
 ## Ordering constraints
 
@@ -62,8 +91,8 @@ high-severity Dependabot alerts. 4.x is still avoided (major version).
 
 - [x] Branch `feature/umbraco-17-8-upgrade` from `develop` (recreated after PR #334)
 - [x] Open a GitHub issue and reference it in commits (#335)
-- [ ] Read release notes for every version between From and To, for each package.
-  Note breaking changes and anything that runs on first boot
+- [x] Read release notes for every version between From and To, for each package.
+  Note breaking changes and anything that runs on first boot (see above)
 - [ ] Stop the site (it locks `bin/`)
 - [ ] Back up `Umbootstrap.Web/umbraco/Data/Umbraco.sqlite.db` with `/db-backup`.
   Folder: `Umbraco - Documents/UmBootstrap/2026/Backup SQL Databases`.
@@ -73,9 +102,13 @@ high-severity Dependabot alerts. 4.x is still avoided (major version).
 
 ## Phase 1: Umbraco CMS
 
-- [ ] Bump `Umbraco.Cms` and `SixLabors.ImageSharp` in `Umbootstrap.Web.csproj`
+- [ ] Bump `Umbraco.Cms` in `Umbootstrap.Web.csproj`
+- [ ] Remove the `SixLabors.ImageSharp` reference from `Umbootstrap.Web.csproj`
 - [ ] Bring `UmBootstrap.DotNet.Template.csproj` in line with the Web csproj
-  (same packages, same versions)
+  (same packages, same versions, no ImageSharp)
+- [ ] Remove `Cache=Shared` from the SQLite connection string in `appsettings.json`
+- [ ] Dean: build in **Release** once (`dotnet build -c Release`) to prove the
+  licence check no longer bites
 - [ ] Dean: build and start, click **Upgrade** in the backoffice
 - [ ] Check the log for upgrade errors
 - [ ] Dean: restart once
@@ -95,6 +128,7 @@ high-severity Dependabot alerts. 4.x is still avoided (major version).
 - [ ] Dean: build and start
 - [ ] BlockPreview: previews render; layouts still ignored (unverified in July)
 - [ ] Contentment: Navigation In Page picker populates from `FeatureBlockDataSource`
+  (request changed in 6.3.4)
 - [ ] UmbNav: menu renders front end and edits in the backoffice (unverified in July)
 - [ ] Commit
 
@@ -106,7 +140,7 @@ high-severity Dependabot alerts. 4.x is still avoided (major version).
 - [ ] Open the uSync dashboard (unverified in July)
 - [ ] Run a **report**, not an import. Expect no unexpected changes
 - [ ] Run a clean export; review `git diff` on `uSync/v17/`
-- [ ] Resolve the stashed `example-page-02/05` question
+- [ ] Check uSync.Complete licence status (17.7.0 licences look version-bound)
 - [ ] Commit the version bump and the export churn **separately**
 
 ## Phase 5: Verification
