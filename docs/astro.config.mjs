@@ -75,6 +75,7 @@ export default defineConfig({
 					label: 'Maintenance',
 					collapsed: true,
 					items: [
+						{ label: 'Upgrading', slug: 'maintenance/upgrading' },
 						{
 							label: 'Packages',
 							collapsed: true,
