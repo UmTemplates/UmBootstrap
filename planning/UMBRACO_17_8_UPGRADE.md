@@ -107,6 +107,8 @@ Nothing else breaking. Points that change testing:
 - [ ] Bring `UmBootstrap.DotNet.Template.csproj` in line with the Web csproj
   (same packages, same versions, no ImageSharp)
 - [ ] Remove `Cache=Shared` from the SQLite connection string in `appsettings.json`
+  **and** in the matching `replaces` string in `.template.config/template.json`.
+  They must stay identical or `dotnet new` stops substituting the connection string
 - [ ] Dean: build in **Release** once (`dotnet build -c Release`) to prove the
   licence check no longer bites
 - [ ] Dean: build and start, click **Upgrade** in the backoffice
@@ -155,7 +157,10 @@ Edit under `.worktrees/docs/` only. See `WORKTREES.md`.
 
 - [ ] New page `maintenance/upgrading.md`: the reusable runbook, from this plan
 - [ ] Update versions in `maintenance/packages/index.md`
-- [ ] Clear the docs Dependabot alerts: astro (fixed in 7.4.7) and zod (4.6.6)
+- [ ] Clear the docs Dependabot alerts: 31 npm alerts in `docs/` (1 critical:
+  astro). Update astro to 7.4.7+, then `npm audit` for the rest (vite, devalue,
+  sharp, svgo, js-yaml, nanoid, smol-toml, postcss, zod). Not shipped in the
+  NuGet template, but fix before announcing the release
 - [ ] Fix `publishing/github-actions.md` and `publishing/index.md`: `docs.yml`
   triggers on `docs/site`, not `main`
 - [ ] Document `RELEASE_NUGET_MANUAL.yml`
