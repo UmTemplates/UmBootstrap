@@ -38,7 +38,7 @@
       "type": "parameter",
       "datatype": "string",
       "defaultValue": "",
-      "replaces": "Data Source=|DataDirectory|/Umbraco.sqlite.db;Cache=Shared;Foreign Keys=True;Pooling=True"
+      "replaces": "Data Source=|DataDirectory|/Umbraco.sqlite.db;Foreign Keys=True;Pooling=True"
     },
     "ConnectionStringProviderName": {
       "displayName": "Connection string provider name",
