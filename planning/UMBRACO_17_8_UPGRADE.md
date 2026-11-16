@@ -93,29 +93,29 @@ Nothing else breaking. Points that change testing:
 - [x] Open a GitHub issue and reference it in commits (#335)
 - [x] Read release notes for every version between From and To, for each package.
   Note breaking changes and anything that runs on first boot (see above)
-- [ ] Stop the site (it locks `bin/`)
-- [ ] Back up `Umbootstrap.Web/umbraco/Data/Umbraco.sqlite.db` with `/db-backup`.
+- [x] Stop the site (it locks `bin/`)
+- [x] Back up `Umbootstrap.Web/umbraco/Data/Umbraco.sqlite.db` with `/db-backup`.
   Folder: `Umbraco - Documents/UmBootstrap/2026/Backup SQL Databases`.
   A backup was taken earlier today, but the #332 import changed the database
   since, so take a fresh one
-- [ ] Note current state: content tree, media, block previews, front end
+- [x] Note current state: content tree, media, block previews, front end
 
 ## Phase 1: Umbraco CMS
 
-- [ ] Bump `Umbraco.Cms` in `Umbootstrap.Web.csproj`
-- [ ] Remove the `SixLabors.ImageSharp` reference from `Umbootstrap.Web.csproj`
-- [ ] Bring `UmBootstrap.DotNet.Template.csproj` in line with the Web csproj
+- [x] Bump `Umbraco.Cms` in `Umbootstrap.Web.csproj`
+- [x] Remove the `SixLabors.ImageSharp` reference from `Umbootstrap.Web.csproj`
+- [x] Bring `UmBootstrap.DotNet.Template.csproj` in line with the Web csproj
   (same packages, same versions, no ImageSharp)
-- [ ] Remove `Cache=Shared` from the SQLite connection string in `appsettings.json`
+- [x] Remove `Cache=Shared` from the SQLite connection string in `appsettings.json`
   **and** in the matching `replaces` string in `.template.config/template.json`.
   They must stay identical or `dotnet new` stops substituting the connection string
-- [ ] Dean: build in **Release** once (`dotnet build -c Release`) to prove the
+- [x] Dean: build in **Release** once (`dotnet build -c Release`) to prove the
   licence check no longer bites
-- [ ] Dean: build and start, click **Upgrade** in the backoffice
-- [ ] Check the log for upgrade errors
-- [ ] Dean: restart once
-- [ ] Smoke test: backoffice login, content tree, media, one block grid page
-- [ ] Commit
+- [x] Dean: build and start, click **Upgrade** in the backoffice
+- [x] Check the log for upgrade errors
+- [x] Dean: restart once
+- [x] Smoke test: backoffice login, content tree, media, one block grid page
+- [x] Commit
 
 ## Phase 2: Umbraco AI
 
