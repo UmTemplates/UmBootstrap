@@ -139,34 +139,36 @@
       },
       "uSync": {
         "type": "Direct",
-        "requested": "[17.3.6, )",
-        "resolved": "17.3.6",
-        "contentHash": "yvm7pMWKH75vQWNR6a10irb3okLw5ytH6lnoksvbYAH+vkpiorxrbUHSgruW5oPRgc5eApk+oFuCbz5FDHtjkw==",
+        "requested": "[17.6.2, )",
+        "resolved": "17.6.2",
+        "contentHash": "tgBphfMxyqntVGR/BJsJZeHZZe78P5Tg4EEXuXFbfgLIDahxn5MzhNeUC22ObIvfIPvqC+F+IzAdA0KI4uBvJA==",
         "dependencies": {
-          "uSync.BackOffice": "17.3.6",
-          "uSync.BackOffice.Targets": "17.3.6",
-          "uSync.Backoffice.Management.Api": "17.3.6",
-          "uSync.Backoffice.Management.Client": "17.3.6",
-          "uSync.History": "17.3.6"
+          "uSync.BackOffice": "17.6.2",
+          "uSync.BackOffice.Targets": "17.6.2",
+          "uSync.Backoffice.Management.Api": "17.6.2",
+          "uSync.Backoffice.Management.Client": "17.6.2",
+          "uSync.History": "17.6.2"
         }
       },
       "uSync.Complete": {
         "type": "Direct",
-        "requested": "[17.3.11, )",
-        "resolved": "17.3.11",
-        "contentHash": "IXMvF2V6WzPEKPRnAvOd3EVNXomgW0ZfzWyZCj2XgKAQWfdaztZjS34uHcA1xYd0SAfKtkF524e6vToeXvQqQw==",
+        "requested": "[17.7.2, )",
+        "resolved": "17.7.2",
+        "contentHash": "xoqPhyvDezor2Thasu/TgG5GEIxt1ffpa3YYfhSKwI/GjD039fxU8p9g7UmJsM0XJofQYGzgoGy0kwSxyfHbRw==",
         "dependencies": {
-          "uSync": "17.3.6",
-          "uSync.Expansions.Client": "17.3.11",
-          "uSync.Expansions.Core": "17.3.11",
-          "uSync.Exporter": "17.3.11",
-          "uSync.Exporter.Client": "17.3.11",
-          "uSync.Files": "17.3.11",
-          "uSync.PeopleEdition": "17.3.11",
-          "uSync.Publisher": "17.3.11",
-          "uSync.Publisher.Client": "17.3.11",
-          "uSync.Snapshots": "17.3.11",
-          "uSync.Snapshots.Client": "17.3.11"
+          "uSync": "17.6.1",
+          "uSync.Expansions.Client": "17.7.2",
+          "uSync.Expansions.Core": "17.7.2",
+          "uSync.Exporter": "17.7.2",
+          "uSync.Exporter.Client": "17.7.2",
+          "uSync.Files": "17.7.2",
+          "uSync.PeopleEdition": "17.7.2",
+          "uSync.Publisher": "17.7.2",
+          "uSync.Publisher.Client": "17.7.2",
+          "uSync.Snapshots": "17.7.2",
+          "uSync.Snapshots.Client": "17.7.2",
+          "uSync.TimeMachine": "17.7.2",
+          "uSync.TimeMachine.Client": "17.7.2"
         }
       },
       "AngleSharp": {
@@ -337,25 +339,25 @@
       },
       "Jumoo.Processing": {
         "type": "Transitive",
-        "resolved": "17.3.4",
-        "contentHash": "xi6io99iH4F/k6ryDCmnRJmS9lusKgnozsc9cGoRilBNqP7FaAtf2eyfoFQ0JSl5fDD7NLHzPc4bdjPL+qIYIg==",
+        "resolved": "17.6.0",
+        "contentHash": "/9dJsnAHt3LFiOcsb0No7q4vDpMU+deLAYmm8p94UMjg6gC7g9QLFYjQHLqhZUGfBEao9j8NXvyaUrC5I/mpxg==",
         "dependencies": {
-          "Jumoo.Processing.Client": "17.3.4",
-          "Jumoo.Processing.Core": "17.3.4"
+          "Jumoo.Processing.Client": "17.6.0",
+          "Jumoo.Processing.Core": "17.6.0"
         }
       },
-      "jumoo.processing.client": {
+      "Jumoo.Processing.Client": {
         "type": "Transitive",
-        "resolved": "17.3.4",
-        "contentHash": "TYornK2DLuMFrHXlW229PAsk+6XHCSNe2uYvZR0Lfbgtpu439wN0bItuo5VsuNc36qB381bDJiykxOHxXxHpHg==",
+        "resolved": "17.6.0",
+        "contentHash": "WAuhk1+oULdtkH/rArbJLDxJ5Z4VM0O+hDUeFFUYqEp+IdgzcuKaGb8Fe/uOFT5f0xY/z9WY5VHRJBlFE/sH8g==",
         "dependencies": {
           "Umbraco.Cms.Infrastructure": "17.5.0"
         }
       },
-      "jumoo.processing.core": {
+      "Jumoo.Processing.Core": {
         "type": "Transitive",
-        "resolved": "17.3.4",
-        "contentHash": "QHo0fvC06MXDS6BwqfeJPxILePzytFyNN7yzKoG4u8nwjVJ7KTLHBeCNH6QPa6Ho2UKN4IE6YeAy6tgVyPsntw==",
+        "resolved": "17.6.0",
+        "contentHash": "szzC5wLjIlUUGiKDceFIzD3F/pc0RdTRiRd5IkM8O/sdH9ERSVDj9UcyT23jqZBBVzW58X7naABJxURZ+bhx7g==",
         "dependencies": {
           "Jumoo.Json": "17.0.2",
           "Umbraco.Cms.Api.Management": "17.5.0"
@@ -485,22 +487,22 @@
       },
       "Microsoft.AspNetCore.Http.Connections.Client": {
         "type": "Transitive",
-        "resolved": "10.0.5",
-        "contentHash": "z4Iny9wOi2D3h/YVPELyb2aMakFQIwiAeCHl1T8giCoUHgql+HtvKKldGxQC6/g4niuLBipi7O6zQT34O9/Rcw=="
+        "resolved": "10.0.14",
+        "contentHash": "z5HhaD3m3nHcXY/nQi2j72a3KmM6lIvT0c9hdIm9nzvI1Zrv1GVpi+K6fySMFBouDw+2Ud8RRaqs+QCKYhvodA=="
       },
       "Microsoft.AspNetCore.SignalR.Client": {
         "type": "Transitive",
-        "resolved": "10.0.5",
-        "contentHash": "2v+Qi63UGm8hu9RAAfWeim3H9ovnxDiPx2MyLQI8nsWrgP+76Z7oiKj+kpVCR1N5QU9bF94RV0lZ/7OJH1LXUA==",
+        "resolved": "10.0.14",
+        "contentHash": "AdKnYJ7U+GYJfbL5siSN17lzA3mMC44rAK+UXq3qN7u0GB+0s327GihUN7PS8UvFxyo7MnTME5PtPQV6ZRQDHA==",
         "dependencies": {
-          "Microsoft.AspNetCore.Http.Connections.Client": "10.0.5",
-          "Microsoft.AspNetCore.SignalR.Client.Core": "10.0.5"
+          "Microsoft.AspNetCore.Http.Connections.Client": "10.0.14",
+          "Microsoft.AspNetCore.SignalR.Client.Core": "10.0.14"
         }
       },
       "Microsoft.AspNetCore.SignalR.Client.Core": {
         "type": "Transitive",
-        "resolved": "10.0.5",
-        "contentHash": "A2+sApRgxWSxzD0Q5eRqElPPzqIqOljYCzt/mtC/KIjlTNLvVWoQn2amNnX3o7BrbaSdI1yeFcyKVal7zVgcSw=="
+        "resolved": "10.0.14",
+        "contentHash": "VqJeoJoI2LZrG3hic5p5nBo9FOdt8nwJswKVff+7Zl7L/Bo9YQ5vpuPzyQn3/a0y4eIP7KX7Gq3cb4cXYecbFA=="
       },
       "Microsoft.Bcl.AsyncInterfaces": {
         "type": "Transitive",
@@ -2183,47 +2185,47 @@
       },
       "uSync.BackOffice": {
         "type": "Transitive",
-        "resolved": "17.3.6",
-        "contentHash": "4/7YdW+iB0HhRI7A+9dg9yQJ6Aj0uQ+85G6uGUqJJ9iYFzkfLWTwASuPOtPLKhjhlv3nGB51VOcqqOTQLzAP9Q==",
+        "resolved": "17.6.2",
+        "contentHash": "5JbTQfPbFCH1fafTTb8SjZQfk4QgG3wdt4W4ehYbfOPKFerUNqgK3e5x2nYdA5IUGFojRQ6JVt73qHWE2qibeA==",
         "dependencies": {
-          "uSync.Community.Contrib": "17.3.6",
-          "uSync.Core": "17.3.6"
+          "uSync.Community.Contrib": "17.6.2",
+          "uSync.Core": "17.6.2"
         }
       },
       "uSync.Backoffice.Management.Api": {
         "type": "Transitive",
-        "resolved": "17.3.6",
-        "contentHash": "FZA4EzorADveMFCfZWUw9edDXz+jAbQqx5U9xH7WkHVjxiR09w63XoOm3j+5948ua8+QPzNv13FNk5GA7y7Zsw==",
+        "resolved": "17.6.2",
+        "contentHash": "ulQCpDHrs+zqlVTi1PDloBfIbUTWJLGReAH7FfgysJkYzDc2N/utVGNULOZ47DhtJ40V+eEXab5JzQo19TZ+Tw==",
         "dependencies": {
           "Umbraco.Cms.Api.Management": "17.3.0",
-          "uSync.BackOffice": "17.3.6"
+          "uSync.BackOffice": "17.6.2"
         }
       },
       "uSync.Backoffice.Management.Client": {
         "type": "Transitive",
-        "resolved": "17.3.6",
-        "contentHash": "YsUW4YtRxnu5ftigBT62ajDkP5/3D+rusBsyRbqbjAoFEATE+NCNURgwh+bWAkW1bqMo41v+FTqE/kpqqQGjSQ==",
+        "resolved": "17.6.2",
+        "contentHash": "zxDpxzu8TcXUZ/BNsPurD4pYTluVng3RWXjVDiDZNyJ5/jAAbtgqiL0cXRDgtU0SHM+4TnwEto6zcuwvuP5mkw==",
         "dependencies": {
-          "uSync.BackOffice": "17.3.6"
+          "uSync.BackOffice": "17.6.2"
         }
       },
       "uSync.BackOffice.Targets": {
         "type": "Transitive",
-        "resolved": "17.3.6",
-        "contentHash": "v7QtnoKTtLrg1MdKQ8OXQpq4hx+tFE4SOsE/bScB+AoMXa9FWexNJrHs/vmXNqbK6JEPS/MgCmb5H9tnkRUQ4w=="
+        "resolved": "17.6.2",
+        "contentHash": "Sru7/6JUdb5G93PCCKOxp4Co4c4g+CucnnLkySlfEkZvUECVcO9Q8eX2fyPrBOkn1ntSEK3TcKoUI7pg5pooFA=="
       },
       "uSync.Community.Contrib": {
         "type": "Transitive",
-        "resolved": "17.3.6",
-        "contentHash": "kzxuQ2pLfNmn+KFb2OyZ45Q/qYqYtqDSemGRItreHLELM9EwtLablLicvMmYgW+8kbvwKY1qN8hPHSz5Thu7Rg==",
+        "resolved": "17.6.2",
+        "contentHash": "qaHuUjRsOIwB/o0ftbHQc1LOE7hlynJECA15YGNxgYBU1bf+mUUU74LAGYos077Ri0BHqaOPa3glBywFT66eMg==",
         "dependencies": {
-          "uSync.Core": "17.3.6"
+          "uSync.Core": "17.6.2"
         }
       },
       "uSync.Core": {
         "type": "Transitive",
-        "resolved": "17.3.6",
-        "contentHash": "Wt1ea+MlCVC0BuYL87byb0DNyXgf2uHNEd78KcrZ7C0ksv/LzHNKOLrg18ls3JsrL+Ne/JzN69X/dyolksAD/g==",
+        "resolved": "17.6.2",
+        "contentHash": "XcFy98lFFjd6IlBpmz6WkytjdFDGKrvD7sy5P7D3BUW5loXz9MMsxRHHOalVTlzY2aFynCMktfGlrn0hd61sAQ==",
         "dependencies": {
           "Umbraco.Cms.Api.Management": "17.3.0",
           "Umbraco.Cms.Web.Website": "17.3.0"
@@ -2231,101 +2233,117 @@
       },
       "uSync.Expansions.Client": {
         "type": "Transitive",
-        "resolved": "17.3.11",
-        "contentHash": "xHMHNpgucSTO8o78zNL0TQ7NVsnEzZvYLjVxWHxurhtBWIo3jenNPHXvp52UC/HIDBNLOwzGqWt8BgpWnmpAgQ==",
+        "resolved": "17.7.2",
+        "contentHash": "PaS45WuBmJZKE2PLnn/cgFTss+DcARx7LJy3Xszj3Z41XgYuvGPmR7KDeJ+o2jVzniGdf9jySBam2yJX8mMwVA==",
         "dependencies": {
-          "uSync.Expansions.Core": "17.3.11"
+          "uSync.Expansions.Core": "17.7.2"
         }
       },
       "uSync.Expansions.Core": {
         "type": "Transitive",
-        "resolved": "17.3.11",
-        "contentHash": "dJYu/+nAtDk/OLfYkEX3MgEYt/uC1Lzr0h7VXTUxqxhD8XMV833wedjhQOrkbD+YpCUkNRwz6f60dSIfyp3DCQ==",
+        "resolved": "17.7.2",
+        "contentHash": "MvLxS4Jr1NgndNCRMqGmjscoZkThl2QdTfvmSDph25yrTvDrIbzTYC440FZuuz2OyPgDyyb/sn5TKPyIi2bBqg==",
         "dependencies": {
-          "Microsoft.AspNetCore.SignalR.Client": "10.0.5",
+          "Microsoft.AspNetCore.SignalR.Client": "10.0.14",
           "Umbraco.Cms.Web.Website": "17.5.0",
-          "jumoo.processing": "17.3.4",
-          "uSync.BackOffice": "17.3.6",
-          "uSync.BackOffice.Management.Api": "17.3.6"
+          "jumoo.processing": "17.6.0",
+          "uSync.BackOffice": "17.6.1",
+          "uSync.BackOffice.Management.Api": "17.6.1"
         }
       },
       "uSync.Exporter": {
         "type": "Transitive",
-        "resolved": "17.3.11",
-        "contentHash": "EySfEHg1iuiW3aepSClvEqVQAVtjeLakzraleW83+G4XDAUXM7+IY83sYenkQIv4z8cEzQhYYEAW55eB9bZgDQ==",
+        "resolved": "17.7.2",
+        "contentHash": "R0ePPe+XXgYSM0qmimGstBUljbrn3ZBl5vLNQ6NPFfqWFEnX89yHWoe6h+QGDHe7qoEu3wHe3m4hdOUDBvMa4w==",
         "dependencies": {
-          "jumoo.processing": "17.3.4",
-          "uSync.Expansions.Core": "17.3.11"
+          "jumoo.processing": "17.6.0",
+          "uSync.Expansions.Core": "17.7.2"
         }
       },
       "uSync.Exporter.Client": {
         "type": "Transitive",
-        "resolved": "17.3.11",
-        "contentHash": "srqyJ9ZMSgksW2LVPcZO4sJXBmgpSgJ8cE/VqmOZxrbSF/tRqYVpb6Y5KjvJ8ryZ/HaIdHu9435L6vTgxwywoA==",
+        "resolved": "17.7.2",
+        "contentHash": "n28SE8qAFXn9AAfKdCdbpqUtYGU1uDuvBTTXIbCSrKBmiV+G/GaHOTMl5q7X79ReLq5dk7CKmqlHkdyUmNeOzg==",
         "dependencies": {
-          "uSync.Expansions.Client": "17.3.11",
-          "uSync.Expansions.Core": "17.3.11"
+          "uSync.Expansions.Client": "17.7.2",
+          "uSync.Expansions.Core": "17.7.2"
         }
       },
       "uSync.Files": {
         "type": "Transitive",
-        "resolved": "17.3.11",
-        "contentHash": "F6dxe6DjYmL7+Ein7TPFFASETFsjGrV/k/mNCeNpgUplhybeSlZL4DH9653P/lN4mMa6gtB3ga7gzX6TN04T/w==",
+        "resolved": "17.7.2",
+        "contentHash": "jL305SDVndAUsBIAfcf53UVkT4HDYvoKOgH14Fy+VfRHU9FwNfqRYkdTccqRqukrWzx1B7byUe/hhpmRWsYJyw==",
         "dependencies": {
           "Umbraco.Cms.Web.Website": "17.5.0",
-          "uSync.BackOffice": "17.3.6",
-          "uSync.Expansions.Core": "17.3.11"
+          "uSync.BackOffice": "17.6.1",
+          "uSync.Expansions.Core": "17.7.2"
         }
       },
       "uSync.History": {
         "type": "Transitive",
-        "resolved": "17.3.6",
-        "contentHash": "pbhRDmK4HEoUOiP+oip4q6u9OrnBehyDBC0F2VZDOy+GkEMy5c/FM4s7Pi14ZmDBvbMBEAuLUJ/XeVLm9t/s+g==",
+        "resolved": "17.6.2",
+        "contentHash": "13MTlgwekOyHvtG8ZqxzJKoHjuZG9XWy3QnkEI2sS98Fink6XfSGtlVfiQci0RolvpV41Klx8p3eUPUWgfU0Nw==",
         "dependencies": {
-          "uSync.BackOffice": "17.3.6",
-          "uSync.Backoffice.Management.Api": "17.3.6"
+          "uSync.BackOffice": "17.6.2",
+          "uSync.Backoffice.Management.Api": "17.6.2"
         }
       },
       "uSync.PeopleEdition": {
         "type": "Transitive",
-        "resolved": "17.3.11",
-        "contentHash": "yUjGJJdHRgS+9+ZvSaQygZZMu9IWzdqBSSR/bSh92mNN9tyfelKyIdYpNHJEESYjmQUBDsZwroGu0SwVVHq2VQ==",
+        "resolved": "17.7.2",
+        "contentHash": "azJ40XbXV5130TpIy4lLaKQHDw1isd7ySxzsUYx/xFnIUOw3e5VtYlmh4fJsjo84IAh0aufIDP6TjcUsnFhgOw==",
         "dependencies": {
-          "uSync.Expansions.Core": "17.3.11"
+          "uSync.Expansions.Core": "17.7.2"
         }
       },
       "uSync.Publisher": {
         "type": "Transitive",
-        "resolved": "17.3.11",
-        "contentHash": "9l6STU2xPSOdvx26UCEP8Bv2q/86vkTBy80KEPdrBAJX3V2lG8TV0LInP7UQspZpLo9c3qK4a9zNEXof78t6ug==",
+        "resolved": "17.7.2",
+        "contentHash": "y/Kj4z+g+EpuEHv3Y5BVc5J03S+EIiUR9A+W0mkkU0uBgkC5HbL+zb9/Ybd3QEKk0e7MjPnNK80VaUCU6Vwb6g==",
         "dependencies": {
-          "jumoo.processing": "17.3.4",
-          "uSync.Expansions.Core": "17.3.11"
+          "jumoo.processing": "17.6.0",
+          "uSync.Expansions.Core": "17.7.2"
         }
       },
       "uSync.Publisher.Client": {
         "type": "Transitive",
-        "resolved": "17.3.11",
-        "contentHash": "29DZXqhX7oinJFrku13MnbS/DT9hujCc0sDQhbfA+Ef4kbtvqmmWPqvGA3TSiSJCyrxESZIJ2a+e2gNwr5xoyA==",
+        "resolved": "17.7.2",
+        "contentHash": "Gad23aIv1w1vfOoUHQwLUjtnTpem82XHpL/6Jl3lCGA9hFqRI3crFO3WWeh9rXaNvu7+Ogq+pt5WxZJWxQdqFA==",
         "dependencies": {
-          "uSync.Expansions.Core": "17.3.11"
+          "uSync.Expansions.Core": "17.7.2"
         }
       },
       "uSync.Snapshots": {
         "type": "Transitive",
-        "resolved": "17.3.11",
-        "contentHash": "ZgnKFSqmemY44HDzAkgJG/m9eSPrSIhxuhh6wRNmN8xTqm3rc6s1Zc2qKnVgTw3Mx3QmF72CcMsjYFWKXAJ0Aw==",
+        "resolved": "17.7.2",
+        "contentHash": "0bkIj32e3BIQmwoohRL9WCQSJyvIYuejFKEIKBGRR0DcVDJajfuPeJgxF2p8Rt2OaQZNuY7koeHfHoOrlpJ3bQ==",
         "dependencies": {
-          "jumoo.processing": "17.3.4",
-          "uSync.Expansions.Core": "17.3.11"
+          "jumoo.processing": "17.6.0",
+          "uSync.Expansions.Core": "17.7.2"
         }
       },
       "uSync.Snapshots.Client": {
         "type": "Transitive",
-        "resolved": "17.3.11",
-        "contentHash": "3LgiTlCJictXaxr0w6oGjq+veBiB0RefQRzlLLYK8jdB/08fcQ7O6+NsPpzMs5VYWwST6Zv7yOQbeGGqYRIdtA==",
+        "resolved": "17.7.2",
+        "contentHash": "yBD9dEkQxm0vA0pMXIlOOjCTO9rrAPqNuSFhyiC8w5jTu8TXcr3N6BXcsPhC7/ZuR/6xv6HIYamRHERfx5Z3nQ==",
         "dependencies": {
-          "uSync.Expansions.Core": "17.3.11"
+          "uSync.Expansions.Core": "17.7.2"
+        }
+      },
+      "uSync.TimeMachine": {
+        "type": "Transitive",
+        "resolved": "17.7.2",
+        "contentHash": "TSpeTI9orcflm+bag5zMpS20weHlysoEbE71Q+6+yude6XI2+yHksf46OiszilvsrJhY2v9IH7lUKmm2GpAYnw==",
+        "dependencies": {
+          "uSync.Expansions.Core": "17.7.2"
+        }
+      },
+      "uSync.TimeMachine.Client": {
+        "type": "Transitive",
+        "resolved": "17.7.2",
+        "contentHash": "TislRfaROLyipfeWSA4cYy0ICZgn+7rFdTg/xiyOMutTHcLNVebUp9UTAzqX7zBKHPebw6b74Rp0cRCkcZw42Q==",
+        "dependencies": {
+          "uSync.Expansions.Core": "17.7.2"
         }
       }
     }
