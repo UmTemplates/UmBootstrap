@@ -39,7 +39,7 @@ The `template.json` file excludes certain files that are part of the UmBootstrap
 ]
 ```
 
-- **`appsettings.Production.json`** — Contains uSync settings for the demo site deployment (see [Demo Site Deployment](/UmBootstrap/publishing/demo-site/))
+- **`appsettings.Production.json`** — Contains uSync settings for the demo site deployment (see [Demo Site Deployment](/UmBootstrap/maintenance/publishing/demo-site/))
 - **`uSync/v17/usync.once`** — Triggers uSync import on the demo site (not needed by end users)
 
 ## Install Commands
@@ -61,7 +61,7 @@ When a user scaffolds a new project, they receive:
 
 The NuGet package uses `assets/README_nuget.md` as its package description. This is a short summary with links to the full GitHub README and documentation site. It rarely needs updating.
 
-See [READMEs](/UmBootstrap/publishing/readmes/) for details on how the three READMEs are managed.
+See [READMEs](/UmBootstrap/maintenance/publishing/readmes/) for details on how the three READMEs are managed.
 
 ## Useful Links
 
