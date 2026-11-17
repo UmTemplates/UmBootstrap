@@ -2,7 +2,7 @@
 title: Demo Site Deployment
 ---
 
-The UmBootstrap demo site is a live Umbraco website hosted on UmbHost. It showcases all the features, layouts, and content included in the starter kit. When changes are merged to `main`, the site is automatically deployed via the `RELEASE.yml` GitHub Actions workflow.
+The UmBootstrap demo site, [umbootstrap.com](https://umbootstrap.com/), is a live Umbraco website hosted on UmbHost. It showcases all the features, layouts, and content included in the starter kit. When changes are merged to `main`, the site is automatically deployed via the `RELEASE.yml` GitHub Actions workflow.
 
 ## The Problem
 
@@ -137,3 +137,13 @@ Check that:
 This would happen if:
 - The `usync.once` file is not being renamed to `usync.stop` after import
 - The deployment is overwriting the `usync.stop` file with a fresh `usync.once` on every restart (this should only happen on deployment, not restarts)
+
+### "Website is Under Maintenance" after a deployment
+
+The deployment changed the Umbraco version. Umbraco will not serve pages until its database upgrade has been approved.
+
+Log in at [umbootstrap.com/umbraco](https://umbootstrap.com/umbraco) and click **Upgrade**. If the site struggles afterwards, restart the server.
+
+### A Windows login box appears during a deployment
+
+The demo site runs on Windows/IIS. While Web Deploy swaps the files, the server can briefly answer with its own login prompt. Click **Cancel** and refresh once the deployment has finished. Do not enter any credentials.

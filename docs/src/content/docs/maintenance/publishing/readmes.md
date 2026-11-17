@@ -29,7 +29,7 @@ This is deliberately short — it points users to the GitHub README and document
 - The documentation site URL changes
 - The project description fundamentally changes
 
-See [NuGet Packaging](/UmBootstrap/publishing/nuget/) for how this file is referenced in the template csproj.
+See [NuGet Packaging](/UmBootstrap/maintenance/publishing/nuget/) for how this file is referenced in the template csproj.
 
 ### umbraco-marketplace-readme.md (Marketplace)
 
@@ -37,7 +37,7 @@ Keep this in sync with the GitHub README, but it must include an additional warn
 
 > The marketplace install buttons don't support `dotnet new` template packages — users must follow the CLI or Visual Studio instructions.
 
-See [Umbraco Marketplace](/UmBootstrap/publishing/marketplace/) for marketplace-specific requirements.
+See [Umbraco Marketplace](/UmBootstrap/maintenance/publishing/marketplace/) for marketplace-specific requirements.
 
 ## Image Assets
 

@@ -5,7 +5,7 @@ title: UmbNav
 | | |
 |---|---|
 | **Package** | Umbraco.Community.UmbNav |
-| **Version** | 4.0.3-beta0001 |
+| **Version** | 4.1.10 |
 | **Source** | [GitHub](https://github.com/AaronSadlerUK/Umbraco.Community.UmbNav) |
 
 ## What It Does

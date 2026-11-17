@@ -7,7 +7,7 @@ description: Contentment provides custom data sources and property editors used 
 
 ## Version
 
-UmBootstrap uses **Contentment v6.2.1**.
+UmBootstrap uses **Contentment v6.3.5**.
 
 ## How It's Used
 

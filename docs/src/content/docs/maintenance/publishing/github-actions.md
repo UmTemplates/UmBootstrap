@@ -26,7 +26,7 @@ Triggered on every push to `main`. Builds the solution and deploys to UmbHost vi
 - `USERNAME` — Web Deploy username
 - `PASSWORD` — Web Deploy password
 
-See [Demo Site Deployment](/UmBootstrap/publishing/demo-site/) for details on how uSync handles content synchronisation during deployment.
+See [Demo Site Deployment](/UmBootstrap/maintenance/publishing/demo-site/) for details on how uSync handles content synchronisation during deployment.
 
 ## RELEASE_NUGET.yml — NuGet Publishing
 
@@ -53,7 +53,7 @@ If the workflow file is renamed, the policy must be updated to match, or publish
 
 The workflow needs `id-token: write` permission and the `nuget/login@v1` step.
 
-See [NuGet Packaging](/UmBootstrap/publishing/nuget/) for details on how the template package is configured.
+See [NuGet Packaging](/UmBootstrap/maintenance/publishing/nuget/) for details on how the template package is configured.
 
 ## docs.yml — Documentation Deployment
 

@@ -74,7 +74,7 @@ NuGet then shows the version as **Validating** for 10 to 15 minutes, then **List
 Once it is Listed, install it and scaffold a test site in a temporary folder:
 
 ```bash
-dotnet new install Umbraco.Community.Templates.UmBootstrap
+dotnet new install Umbraco.Community.Templates.UmBootstrap@17.8.1
 dotnet new umbootstrap -n UmBootstrapReleaseTest
 ```
 

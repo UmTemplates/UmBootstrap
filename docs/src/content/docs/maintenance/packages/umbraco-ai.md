@@ -6,9 +6,9 @@ UmBootstrap ships three Umbraco AI packages, installed but unconfigured.
 
 | Package | Version | What it does |
 |---------|---------|--------------|
-| Umbraco.AI | 17.1.1 | Core framework: connections, profiles, contexts, guardrails |
-| Umbraco.AI.Anthropic | 17.0.0 | Anthropic provider |
-| Umbraco.AI.Prompt | 17.1.0 | Reusable prompts, surfaced as property actions in the backoffice |
+| Umbraco.AI | 17.8.0 | Core framework: connections, profiles, contexts, guardrails |
+| Umbraco.AI.Anthropic | 17.1.5 | Anthropic provider |
+| Umbraco.AI.Prompt | 17.4.1 | Reusable prompts, surfaced as property actions in the backoffice |
 
 ## Nothing happens until you configure it
 
@@ -51,4 +51,6 @@ The AI packages renumbered to track the Umbraco major version. The old `1.x` lin
 - **17.x** targets Umbraco 17 — used here
 - **18.x** targets Umbraco 18
 
-`Umbraco.AI` 17.x requires `Umbraco.Cms.Core` 17.4.0 or later, so it cannot be installed on an older Umbraco 17 patch.
+`Umbraco.AI` 17.8.0 requires `Umbraco.Cms.Core` 17.5.0 or later, so it cannot be installed on an older Umbraco 17 patch.
+
+`Umbraco.AI` pins its sub-packages to exact versions. Upgrade all three together, or the build fails to restore.

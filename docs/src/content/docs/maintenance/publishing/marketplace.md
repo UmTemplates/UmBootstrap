@@ -29,7 +29,7 @@ The marketplace README has specific constraints:
 - Keep it in sync with `README.md` (the GitHub version), adding marketplace-specific warnings where needed
 - Images must use absolute URLs (raw GitHub URLs from the `develop` branch)
 
-See [READMEs](/UmBootstrap/publishing/readmes/) for the full picture of how the three READMEs are managed.
+See [READMEs](/UmBootstrap/maintenance/publishing/readmes/) for the full picture of how the three READMEs are managed.
 
 ## Sync Intervals
 
