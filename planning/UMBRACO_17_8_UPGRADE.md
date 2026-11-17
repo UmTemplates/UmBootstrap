@@ -168,32 +168,37 @@ import them.
   7px mobile overflow found and logged as #336 (not caused by the upgrade)
 - [x] Backoffice: content, media, block grid editing, block previews
 - [x] Final Release build with all packages: succeeded, no warnings
-- [ ] Merge to `develop`
+- [x] Merge to `develop` (PR #337)
 
 ## Phase 6: Documentation (docs worktree, `docs/site`)
 
 Edit under `.worktrees/docs/` only. See `WORKTREES.md`.
 
-- [ ] New page `maintenance/upgrading.md`: the reusable runbook, from this plan
-- [ ] Update versions in `maintenance/packages/index.md`
-- [ ] Clear the docs Dependabot alerts: 31 npm alerts in `docs/` (1 critical:
-  astro). Update astro to 7.4.7+, then `npm audit` for the rest (vite, devalue,
-  sharp, svgo, js-yaml, nanoid, smol-toml, postcss, zod). Not shipped in the
-  NuGet template, but fix before announcing the release
-- [ ] Fix `publishing/github-actions.md` and `publishing/index.md`: `docs.yml`
+- [x] New page `maintenance/upgrading.md`: the reusable runbook, from this plan
+- [x] Update versions in `maintenance/packages/index.md` (and every package
+  page; uSync.Complete added)
+- [x] Clear the docs Dependabot alerts. astro 7.4.12, sharp 0.35.5, `npm audit
+  fix`: 0 vulnerabilities. Astro 7.4 needs Node >= 22.23.4, so the docs folder
+  is Volta-pinned to 22.23.5. Merged back to `develop` (PR #341): GitHub now
+  shows 0 open alerts
+- [x] Fix `publishing/github-actions.md` and `publishing/index.md`: `docs.yml`
   triggers on `docs/site`, not `main`
-- [ ] Document `RELEASE_NUGET_MANUAL.yml`
-- [ ] Add a post-release check to `publishing/index.md`
-- [ ] Build locally, commit, push, confirm deploy
+- [x] Document `RELEASE_NUGET_MANUAL.yml` (documented as broken: it builds
+  `template-pack.csproj`, which does not exist)
+- [x] Add a post-release check to `publishing/index.md`
+- [x] Build locally, commit, push, confirm deploy
 
 ## Phase 7: Release
 
-- [ ] Merge `develop` into `main`
-- [ ] Confirm `RELEASE.yml` deployed the demo site, and the demo site works
-- [ ] Tag `main` and push the tag
-- [ ] Confirm `RELEASE_NUGET.yml` succeeded and NuGet shows the new version
-- [ ] Post-release check: `dotnet new install` the published package, scaffold a
-  test site, boot it, confirm uSync imports on first boot
+- [x] Merge `develop` into `main` (PR #338)
+- [x] Confirm `RELEASE.yml` deployed the demo site, and the demo site works.
+  The live site needed its own Upgrade click. Then 46 pages, 32 images, 0 broken
+- [x] Tag `main` and push the tag. Done as GitHub Release `v17.8.1`, tag `17.8.1`
+- [x] Confirm `RELEASE_NUGET.yml` succeeded and NuGet shows the new version.
+  First run failed 403: the `NUGET_API_KEY` secret had expired. Nothing was
+  published. Switched to NuGet Trusted Publishing (PRs #339, #340), moved the
+  tag to the fixed commit, re-ran. Listed on NuGet about 12 minutes later
+- [x] Post-release check: Dean installed 17.8.1 and did a test build. Went well
 - [ ] Marketplace picks it up within 24 hours (or force via the validate tool)
 
 ## Rollback
