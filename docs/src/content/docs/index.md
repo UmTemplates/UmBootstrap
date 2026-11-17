@@ -2,11 +2,11 @@
 title: UmBootstrap
 ---
 
-UmBootstrap is an Umbraco 17 starter kit that provides a solid foundation for building Bootstrap-based websites.
+UmBootstrap is an Umbraco 17 LTS starter kit that provides a solid foundation for building Bootstrap-based websites.
 
 ## Features
 
-- **Umbraco 17** - Latest version of the CMS
+- **Umbraco 17 LTS** - The long-term support version of the CMS
 - **Bootstrap 5** - Responsive CSS framework
 - **Block Grid** - Pre-configured block grid components with live previews
 - **uSync** - Content and configuration synchronisation out of the box

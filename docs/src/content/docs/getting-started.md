@@ -35,11 +35,11 @@ dotnet run
 
 ## First Run
 
-On first run, Umbraco will:
+On first run:
 
-1. Create the database (SQLite by default)
-2. Import content via uSync
-3. Launch the backoffice setup wizard
+1. Umbraco opens its setup wizard. Create your admin user and choose a database (SQLite is the simplest).
+2. Umbraco creates the database.
+3. uSync imports the UmBootstrap content, settings and media. This happens once and takes a moment.
 
 ### Default Setup
 

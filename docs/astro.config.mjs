@@ -75,6 +75,7 @@ export default defineConfig({
 					label: 'Maintenance',
 					collapsed: true,
 					items: [
+						{ label: 'Upgrading', slug: 'maintenance/upgrading' },
 						{
 							label: 'Packages',
 							collapsed: true,
@@ -83,6 +84,7 @@ export default defineConfig({
 								{ label: 'BlockPreview', slug: 'maintenance/packages/block-preview' },
 								{ label: 'Contentment', slug: 'maintenance/packages/contentment' },
 								{ label: 'UmbNav', slug: 'maintenance/packages/umbnav' },
+								{ label: 'Umbraco AI', slug: 'maintenance/packages/umbraco-ai' },
 								{ label: 'uSync', slug: 'maintenance/packages/usync' },
 							],
 						},
@@ -91,6 +93,7 @@ export default defineConfig({
 							collapsed: true,
 							items: [
 								{ label: 'Overview', slug: 'maintenance/tools' },
+								{ label: 'Documentation Worktree', slug: 'maintenance/tools/docs-worktree' },
 								{ label: 'Umbraco MCP Server', slug: 'maintenance/tools/umbraco-mcp' },
 							],
 						},
